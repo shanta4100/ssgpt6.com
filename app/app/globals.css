@@ -1,3 +1,6 @@
-/* Global styles (required so Next.js build doesn't fail) */
-html, body { padding: 0; margin: 0; }
+/* Global styles */
+html, body {
+  padding: 0;
+  margin: 0;
+}
 * { box-sizing: border-box; }
