@@ -1,11 +1,10 @@
 {
-  "name": "SSGPT6",
+  "name": "SSGPT6 Core",
   "short_name": "SSGPT6",
-  "description": "Intelligent Digital Access Platform",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0b0f2a",
-  "theme_color": "#0b0f2a",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
   "icons": [
     {
       "src": "/tradehub-icon-192.png",
