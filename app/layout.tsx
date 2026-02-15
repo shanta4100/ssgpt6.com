@@ -1,11 +1,6 @@
 import './globals.css'
 
-export const metadata = {
-  title: 'SSGPT6 Core',
-  description: 'AI Core System'
-}
-
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>{children}</body>
