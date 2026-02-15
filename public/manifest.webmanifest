@@ -1,6 +1,11 @@
 {
-  "name": "SSGPT6 TradeHub",
-  "short_name": "TradeHub",
+  "name": "SSGPT6",
+  "short_name": "SSGPT6",
+  "description": "Intelligent Digital Access Platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f2a",
+  "theme_color": "#0b0f2a",
   "icons": [
     {
       "src": "/tradehub-icon-192.png",
@@ -12,8 +17,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "theme_color": "#0b1f3a",
-  "background_color": "#0b1f3a",
-  "display": "standalone"
+  ]
 }
