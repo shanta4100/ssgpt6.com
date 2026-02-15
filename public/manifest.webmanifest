@@ -1,10 +1,6 @@
 {
-  "name": "SS GPT6 Trade Hub",
+  "name": "SSGPT6 TradeHub",
   "short_name": "TradeHub",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
   "icons": [
     {
       "src": "/tradehub-icon-192.png",
@@ -16,5 +12,8 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "theme_color": "#0b1f3a",
+  "background_color": "#0b1f3a",
+  "display": "standalone"
 }
