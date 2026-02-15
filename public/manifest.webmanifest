@@ -1,22 +1,12 @@
 {
   "name": "SSGPT6",
   "short_name": "SSGPT6",
-  "description": "A simple, stable system for AI tools, media, and governance.",
-  "start_url": "/?source=pwa",
-  "scope": "/",
+  "start_url": "/",
   "display": "standalone",
-  "background_color": "#0B1220",
-  "theme_color": "#0B1220",
+  "background_color": "#ffffff",
+  "theme_color": "#0a0f2c",
   "icons": [
-    {
-      "src": "/tradehub-icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/tradehub-icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    { "src": "/tradehub-icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/tradehub-icon-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }
