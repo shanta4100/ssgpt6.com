@@ -1,8 +1,4 @@
-export const metadata = {
-  title: "SSGPT6",
-  description: "Intelligent Digital Access",
-  icons: {
-    icon: "/tradehub-icon-192.png",
-    apple: "/apple-touch-icon.png",
-  },
-}
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/tradehub-icon-192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/tradehub-icon-512.png" />
