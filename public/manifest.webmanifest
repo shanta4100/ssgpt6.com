@@ -1,10 +1,12 @@
 {
-  "name": "SSGPT6 Core",
+  "name": "SSGPT6",
   "short_name": "SSGPT6",
-  "start_url": "/",
+  "description": "A simple, stable system for AI tools, media, and governance.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#0a0a0a",
+  "background_color": "#0B1220",
+  "theme_color": "#0B1220",
   "icons": [
     {
       "src": "/tradehub-icon-192.png",
