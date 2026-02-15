@@ -1,2 +1,8 @@
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/manifest.webmanifest" />
+export const metadata = {
+  title: "SSGPT6",
+  description: "Intelligent Digital Access",
+  icons: {
+    icon: "/tradehub-icon-192.png",
+    apple: "/apple-touch-icon.png",
+  },
+}
