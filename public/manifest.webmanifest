@@ -1,0 +1,17 @@
+{
+  "name": "SSGPT6",
+  "short_name": "SSGPT6",
+  "description": "SSGPT6 Core Platform – Intelligent Digital Access System",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1a3a",
+  "theme_color": "#0b1a3a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
