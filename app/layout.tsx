@@ -1,15 +1,9 @@
-import "./globals.css";
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "SSGPT6",
-  description: "SSGPT6 Intelligent Digital Access Platform",
-  manifest: "/manifest.webmanifest",
-  icons: {
-    icon: "/tradehub-icon-192.png",
-    apple: "/apple-touch-icon.png"
-  },
-  themeColor: "#0b1b3f"
+  description: "GNAIAAAC LLC — Architect: Arifur Shanta (USA)",
 };
 
 export default function RootLayout({
@@ -18,7 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-  <html lang="en">
-  <head />
-  <body>{children}</body>
-</html>
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}
