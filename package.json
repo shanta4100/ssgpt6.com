@@ -1,25 +1,67 @@
 {
-  "name": "ssgpt6",
-  "version": "1.0.0",
-  "private": true,
-  "engines": {
-    "node": "20.x"
-  },
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "15.2.6",
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
-  },
-  "devDependencies": {
-    "typescript": "5.4.5",
-    "@types/node": "20.12.7",
-    "@types/react": "18.2.46",
-    "@types/react-dom": "18.2.18"
-  }
-}
+
+"name": "domainsync-ai",
+
+"version": "0.1.0",
+
+"private": true,
+
+"scripts": {
+
+"preinstall": "node -e \"if(process.env.npm_e
+
+"preinstall": "node -e \"if(!process.env.npm_
+
+"dev": "next dev",
+
+"build": "prisma generate && next build",
+
+"start": "next start",
+
+"lint": "next lint"
+
+},
+
+"dependencies": {
+
+},
+
+"@prisma/client": "5.14.0",
+
+"@radix-ui/react-dialog": "1.0.5",
+
+"@radix-ui/react-label": "2.0.2",
+
+"@radix-ui/react-slot": "1.0.2",
+
+"@radix-ui/react-toast": "1.1.5",
+
+"class-variance-authority": "0.7.0",
+
+"clsx": "2.1.1",
+
+"firebase": "10.12.2",
+
+"lucide-react": "0.381.0",
+
+"next": "14.2.35",
+
+"nodemailer": "6.9.15",
+
+"react": "18.3.1",
+
+"react-dom": "18.3.1",
+
+"tailwind-merge": "2.3.0",
+
+"tailwindcss-animate": "1.0.7",
+
+"wav": "^1.0.2",
+
+"zod": "^3.23.8"
+
+"devDependencies": {
+
+"@types/node": "20.14.2",
+
+"@types/nodemailer": "6.4.15",
