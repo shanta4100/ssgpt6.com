@@ -1,11 +1,16 @@
-## How to fix the "ENOTEMPTY" installation error (NPM)
 
-If you see an `ENOTEMPTY` error during install/build, your workspace dependency state is corrupted.
-This is not a Next.js code issue.
+www.ssgpt6.com is an alias of www.ghs.googlehosted.com.
+Type
+CNAME
+Name
+(required)
 
-### Fix (Linux / Firebase Studio / Cloud Workstations)
+Use @ for root
+Target
+(required)
 
-1) Remove dependency + build caches:
-```bash
-rm -rf node_modules .next
-rm -f package-lock.json
+E.g. www.example.com
+Proxy status
+
+
+TTL
