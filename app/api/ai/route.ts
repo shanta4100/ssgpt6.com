@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+he import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   try {
@@ -62,3 +62,6 @@ export async function POST(req: Request) {
     );
   }
 }
+import { callAI } from "@/app/lib/ai"
+
+const result = await callAI("Explain AI automation")
