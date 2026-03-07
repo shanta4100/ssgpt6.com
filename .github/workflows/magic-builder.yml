@@ -1,0 +1,19 @@
+name: Magic Builder AI Agent
+on:
+  push:
+    branches: [main]
+  repository_dispatch: # Allows the AI to "wake up" the agent
+    types: [fix-error]
+
+jobs:
+  autonomous-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: AI Error Solver
+        run: |
+          # The "Sleeping Agent" command
+          npx vercel-ai-fix --project-id ${{ secrets.VERCEL_PROJECT_ID }} --full-auth
+      - name: Auto-Publish
+        run: |
+          vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
