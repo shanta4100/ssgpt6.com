@@ -18,5 +18,3 @@ export default function HomePage() {
     </main>
   );
 }
-_github-pages-challenge-shanta4100
-1848066756d4b228fb886dd6453392
