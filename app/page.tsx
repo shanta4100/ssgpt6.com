@@ -1,20 +1,14 @@
-import Link from "next/link";
-
-export default function HomePage() {
+export default function Home() {
   return (
-    <main style={{ padding: "40px", textAlign: "center" }}>
-      <h1>SSGPT6 Core</h1>
-      <p>Intelligent Digital Access Platform</p>
+    <main style={{ padding: "2rem" }}>
+      <h1>SSGPT6 — Simple AI for Real Life</h1>
+      <p>Built by GNAIAAAC LLC</p>
 
-      <div style={{ marginTop: 30 }}>
-        <Link href="/dashboard">
-          <button style={{ marginRight: 10 }}>Dashboard</button>
-        </Link>
-
-        <Link href="/contact">
-          <button>Contact</button>
-        </Link>
+      <div style={{ marginTop: "2rem" }}>
+        <a href="/services">Explore Platform</a>
+        <br />
+        <a href="/projects">View Projects</a>
       </div>
     </main>
-  );
+  )
 }
