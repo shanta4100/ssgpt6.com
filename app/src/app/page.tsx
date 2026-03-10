@@ -1,5 +1,6 @@
 import Header from "./header";
 import Footer from "./footer";
+import SpecialAnnouncementSystem from "./components/SpecialAnnouncementSystem";
 
 export default function Home() {
   return (
@@ -7,6 +8,8 @@ export default function Home() {
       <Header />
 
       <main style={{ padding: "40px", fontFamily: "Arial, sans-serif" }}>
+        <SpecialAnnouncementSystem />
+
         <h1>SSGPT6 Platform</h1>
 
         <p>Welcome to the SSGPT6 ecosystem.</p>
