@@ -1,16 +1,10 @@
 {
-  "lockfileVersion": 5,
-  "requires": true,
-  "packages": {
-    "": {
-      "name": "ssgpt6",
-      "version": "1.0.0",
-      "private": true,
-      "dependencies": {
-        "next": "latest",
-        "react": "latest",
-        "react-dom": "latest"
-      }
-    }
+  "name": "ssgpt6",
+  "private": true,
+  "packageManager": "pnpm@10",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   }
 }
