@@ -1,6 +1,5 @@
 import Header from "./header";
 import Footer from "./footer";
-import SpecialAnnouncementSystem from "./components/SpecialAnnouncementSystem";
 
 export default function Home() {
   return (
@@ -8,31 +7,28 @@ export default function Home() {
       <Header />
 
       <main style={{ padding: "40px", fontFamily: "Arial, sans-serif" }}>
-        <SpecialAnnouncementSystem />
+        <h1>SSGPT6 Global Platform</h1>
+        <p>
+          Welcome to the SSGPT6 ecosystem for global wellbeing, research,
+          innovation, and responsible AI systems.
+        </p>
 
-        <h1>SSGPT6 Platform</h1>
-
-        <p>Welcome to the SSGPT6 ecosystem.</p>
-
-        <h2>Projects</h2>
+        <h2>Main Pages</h2>
         <ul>
-          <li>
-            <a href="https://tradehub.ssgpt6.com">TradeHub</a>
-          </li>
-          <li>
-            <a href="https://earnai.vercel.app">EarnAI</a>
-          </li>
+          <li><a href="/global-ai-wellbeing">Global AI Wellbeing Leadership</a></li>
+          <li><a href="/silent-delivery-core">Silent Delivery Core</a></li>
+          <li><a href="/project-memory-vault">Project Memory Vault</a></li>
+          <li><a href="/about">About SSGPT6</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/automation">AI Sleeping Agent Automation</a></li>
         </ul>
 
-        <h2>Media</h2>
-        <ul>
-          <li>Video</li>
-          <li>Podcast</li>
-          <li>Webinar</li>
-        </ul>
-
-        <h2>Contact</h2>
-        <p>Email: ssgpt6@aol.com</p>
+        <h2>Core Vision</h2>
+        <p>
+          Build human-centered technologies that improve health, education,
+          communication, sustainability, and global opportunity.
+        </p>
       </main>
 
       <Footer />
