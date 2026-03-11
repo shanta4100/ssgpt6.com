@@ -1,3 +1,9 @@
-// Remove or comment out these lines:
-// serverActionsTimeout: 60000,
-// serverActions: true,
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "export",
+  images: {
+    unoptimized: true
+  }
+};
+
+module.exports = nextConfig;
