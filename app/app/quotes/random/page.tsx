@@ -1,3 +1,11 @@
+import { NextResponse } from 'next/server';
+
+export const runtime = 'edge';  // Add this line
+
+// Your existing code here
+export async function GET() {
+  // ...
+}
 export const runtime = 'edge';
 
 export async function GET() {
