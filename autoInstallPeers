@@ -1,0 +1,4 @@
+pnpm install --no-frozen-lockfile
+git add pnpm-lock.yaml
+git commit -m "Regenerate pnpm lockfile"
+git push
