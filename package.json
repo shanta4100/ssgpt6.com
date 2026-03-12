@@ -14,3 +14,6 @@
     "react-dom": "18.3.0"
   }
 }
+{
+  "packageManager": "pnpm@7.33.0"
+}
