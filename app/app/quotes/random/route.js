@@ -1,8 +1,9 @@
-import { NextResponse } from 'next/server';
+export const runtime = 'edge';
 
-export const runtime = 'edge';  // Add this line
-
-// Your existing route code here
-export async function GET() {
-  // ...
+export async function GET(request: Request) {
+  // Your existing API logic here
+  return new Response(JSON.stringify({ quote: 'Your quote here' }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }
