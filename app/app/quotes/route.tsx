@@ -1,6 +1,4 @@
-export const runtime = 'edge';
-
-import { NextResponse } from "next/server";
+export const runtime = "edge";
 
 const quotes = [
   "Stay hungry, stay foolish.",
@@ -10,9 +8,9 @@ const quotes = [
 ];
 
 export async function GET() {
-  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  const quote = quotes[Math.floor(Math.random() * quotes.length)];
 
-  return NextResponse.json({
-    quote: randomQuote
+  return new Response(JSON.stringify({ quote }), {
+    headers: { "content-type": "application/json" }
   });
 }
