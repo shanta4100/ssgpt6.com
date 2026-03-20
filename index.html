@@ -2,142 +2,96 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Citadel Gate</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #0b0f14;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-    }
-
-    .hidden {
-        display: none;
-    }
+    body { margin: 0; font-family: sans-serif; background: #0b0f14; color: white; height: 100vh; display: flex; align-items: center; justify-content: center; }
+    
+    /* Use !important to ensure the gate stays hidden until we say so */
+    .gate-hidden { display: none !important; }
 
     #admin-gate {
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.9);
-        display: flex;
+        background: rgba(0,0,0,0.95);
+        display: flex; /* This will only apply when .gate-hidden is removed */
         align-items: center;
         justify-content: center;
         z-index: 9999;
     }
 
-    #admin-gate > div {
-        background: #111;
-        padding: 25px;
-        border-radius: 10px;
-        text-align: center;
-        transition: transform 0.1s;
+    #admin-gate > div { background: #111; padding: 30px; border: 1px solid #333; border-radius: 12px; text-align: center; width: 85%; max-width: 320px; }
+    
+    input { 
+        padding: 15px; 
+        font-size: 16px; /* Critical for iOS: prevents auto-zoom */
+        width: 100%; 
+        box-sizing: border-box; 
+        background: #000; 
+        color: #0f0; 
+        border: 1px solid #444;
+        margin-bottom: 15px;
     }
 
-    input {
-        padding: 10px;
-        font-size: 16px; /* prevents iOS zoom */
-        width: 200px;
-        margin-top: 10px;
-    }
-
-    button {
-        margin-top: 10px;
-        padding: 10px 20px;
-        cursor: pointer;
-    }
-
-    #error-msg {
-        color: red;
-        margin-top: 10px;
-    }
+    button { width: 100%; padding: 15px; background: #0f0; color: #000; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; }
+    
+    #error-msg { color: #ff4444; margin-top: 15px; font-size: 14px; }
+    .hidden { display: none; }
 </style>
 </head>
-
 <body>
 
 <h1>Main Site Content</h1>
 
-<div id="admin-gate" class="hidden">
+<div id="admin-gate" class="gate-hidden">
     <div>
-        <h2>ENTER MASTER KEY</h2>
-        <input id="master-key" type="password" placeholder="Enter key">
-        <br>
-        <button onclick="verifyRoot()">Unlock</button>
-        <div id="error-msg" class="hidden">Invalid Key</div>
+        <h2 style="letter-spacing:-1px">CITADEL ACCESS</h2>
+        <input id="master-key" type="password" placeholder="ENTER KEY" autocomplete="off">
+        <button onclick="verifyRoot()">ACTIVATE</button>
+        <div id="error-msg" class="hidden">INVALID SECURITY KEY</div>
     </div>
 </div>
 
 <script>
 (function () {
+    const gate = document.getElementById('admin-gate');
+    const input = document.getElementById('master-key');
 
     function bootCitadel() {
-        const params = new URLSearchParams(window.location.search);
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Check for ?access=root
+        if (urlParams.get('access') === 'root') {
+            gate.classList.remove('gate-hidden');
+            
+            // iPhone Safari Fix: Requires a tiny delay for the keyboard to trigger
+            setTimeout(() => {
+                input.focus();
+            }, 500);
 
-        const hasRoot =
-            params.get('access') === 'root' ||
-            window.location.search.includes('root');
-
-        if (!hasRoot) return;
-
-        const gate = document.getElementById('admin-gate');
-        const input = document.getElementById('master-key');
-
-        if (gate) gate.classList.remove('hidden');
-
-        // iOS FIX: must come from user interaction
-        function enableFocus() {
-            if (input) input.focus();
+            // Hide the 'root' from the URL bar immediately
+            window.history.replaceState({}, document.title, window.location.pathname);
         }
-
-        document.addEventListener('touchstart', enableFocus, { once: true });
-        document.addEventListener('click', enableFocus, { once: true });
-
-        // Clean URL
-        window.history.replaceState({}, document.title, window.location.pathname);
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', bootCitadel);
-    } else {
-        bootCitadel();
-    }
+    // Run immediately and on load for iOS reliability
+    bootCitadel();
+    window.addEventListener('load', bootCitadel);
 
     window.verifyRoot = function () {
-        const input = document.getElementById('master-key');
-        const errorMsg = document.getElementById('error-msg');
-
-        if (!input) return;
-
-        const key = input.value;
-
-        if (key === 'SHANTA-2026') {
+        if (input.value === 'SHANTA-2026') {
             localStorage.setItem('ssgpt6_root', 'true');
-
             alert('CITADEL UNLOCKED');
-
-            window.location.replace(
-                window.location.pathname + '?auth=success'
-            );
+            window.location.href = window.location.origin + window.location.pathname;
         } else {
-            if (errorMsg) errorMsg.classList.remove('hidden');
-
-            const box = document.querySelector('#admin-gate > div');
-            if (box) {
-                box.style.transform = 'translateX(10px)';
-                setTimeout(() => box.style.transform = 'translateX(-10px)', 50);
-                setTimeout(() => box.style.transform = 'translateX(0)', 100);
-            }
+            document.getElementById('error-msg').classList.remove('hidden');
+            // Shake effect
+            gate.firstElementChild.style.transform = 'translateX(10px)';
+            setTimeout(() => gate.firstElementChild.style.transform = 'translateX(0)', 100);
         }
     };
-
 })();
 </script>
-
 </body>
 </html>
