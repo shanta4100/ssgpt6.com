@@ -1,0 +1,47 @@
+<div id="admin-gate" class="hidden fixed inset-0 bg-black/95 flex items-center justify-center z-[100]">
+    <div class="border border-green-500 p-8 max-w-sm w-full bg-zinc-900 shadow-[0_0_30px_rgba(0,255,65,0.3)]">
+        <h2 class="text-xl font-bold mb-4 tracking-tighter">CITADEL ACCESS</h2>
+        <input type="password" id="master-key" placeholder="Enter Access Code..." 
+               class="w-full bg-black border border-zinc-700 p-3 text-green-500 focus:border-green-500 outline-none mb-4 text-lg">
+        <button onclick="verifyRoot()" class="w-full bg-green-500 text-black font-bold py-3 hover:bg-green-400 active:scale-95 transition">ACTIVATE</button>
+        <p id="error-msg" class="text-red-500 text-xs mt-3 hidden">ACCESS DENIED: NODE BLOCKED</p>
+    </div>
+</div>
+
+<div id="touch-trigger" style="position:fixed; top:0; left:0; width:60px; height:60px; z-index:99; background:transparent;"></div>
+
+<script>
+    let tapCount = 0;
+    const trigger = document.getElementById('touch-trigger');
+
+    // MOBILE TRIGGER: Triple-tap the top-left corner
+    trigger.addEventListener('touchstart', () => {
+        tapCount++;
+        if (tapCount === 3) {
+            document.getElementById('admin-gate').classList.remove('hidden');
+            tapCount = 0;
+        }
+        setTimeout(() => { tapCount = 0; }, 1000); // Resets if you don't tap fast enough
+    });
+
+    // KEYBOARD TRIGGER: Ctrl + Shift + S
+    window.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && e.key === 'S') {
+            document.getElementById('admin-gate').classList.remove('hidden');
+        }
+    });
+
+    function verifyRoot() {
+        const key = document.getElementById('master-key').value;
+        const msg = document.getElementById('error-msg');
+        
+        if (key === 'SHANTA-2026') { 
+            localStorage.setItem('root_access', 'true');
+            alert('CITADEL UNLOCKED: Welcome, Founder Shanta.');
+            location.reload(); 
+        } else {
+            msg.classList.remove('hidden');
+            setTimeout(() => msg.classList.add('hidden'), 3000);
+        }
+    }
+</script>
