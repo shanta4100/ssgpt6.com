@@ -1,9 +1,5 @@
 name = "ssgpt6"
-pages_build_output_dir = "."
+pages_build_output_dir = ".vercel/output/static"
 
 [observability]
 enabled = false
-
-[[routes]]
-pattern = "ssgpt6.com"
-custom_domain = true
