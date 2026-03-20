@@ -1,117 +1,59 @@
 <svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Cosmic gradient background -->
-    <linearGradient id="cosmicGradient" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="cosmic" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#050b18"/>
       <stop offset="40%" stop-color="#1b1f4a"/>
       <stop offset="70%" stop-color="#6d5acf"/>
       <stop offset="100%" stop-color="#ff9f1c"/>
     </linearGradient>
-
-    <!-- Glow for sleeping agent core -->
     <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
       <stop offset="40%" stop-color="#ffdd7a" stop-opacity="0.7"/>
       <stop offset="100%" stop-color="#050b18" stop-opacity="0"/>
     </radialGradient>
-
-    <!-- Orbit stroke -->
-    <linearGradient id="orbitGradient" x1="0" y1="0" x2="1" y2="0">
+    <linearGradient id="orbit" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#00f5d4"/>
       <stop offset="50%" stop-color="#ff9f1c"/>
       <stop offset="100%" stop-color="#6d5acf"/>
     </linearGradient>
-
-    <!-- Text styles -->
     <style>
-      .brand-main { font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; }
-      .brand-title { font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
-      .brand-sub { font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
-      .brand-small { font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; }
+      .t1 { font-family: 'Arial Black', sans-serif; font-size: 32px; fill: #fff; letter-spacing: 0.18em; }
+      .t2 { font-family: 'Arial', sans-serif; font-size: 16px; fill: #fff; letter-spacing: 0.18em; }
+      .t3 { font-family: 'Arial', sans-serif; font-size: 12px; fill: #fff; letter-spacing: 0.16em; }
     </style>
   </defs>
 
-  <!-- Background -->
-  <rect x="0" y="0" width="1200" height="800" fill="url(#cosmicGradient)"/>
+  <rect width="1200" height="800" fill="url(#cosmic)"/>
 
-  <!-- Stars (subtle) -->
-  <g fill="#ffffff" opacity="0.35">
-    <circle cx="150" cy="120" r="2"/>
-    <circle cx="320" cy="80" r="1.5"/>
-    <circle cx="540" cy="160" r="1.8"/>
-    <circle cx="880" cy="110" r="2.2"/>
-    <circle cx="1040" cy="60" r="1.4"/>
-    <circle cx="980" cy="220" r="1.6"/>
-    <circle cx="260" cy="230" r="1.3"/>
-    <circle cx="700" cy="70" r="1.7"/>
-  </g>
-
-  <!-- Orbit ring (universe → world → ecosystem) -->
   <ellipse cx="600" cy="320" rx="260" ry="140"
-           fill="none" stroke="url(#orbitGradient)" stroke-width="6" opacity="0.9"/>
+           fill="none" stroke="url(#orbit)" stroke-width="6" opacity="0.9"/>
 
-  <!-- Tiny AI sleeping agent (black box core) -->
   <circle cx="600" cy="320" r="80" fill="url(#coreGlow)" opacity="0.9"/>
   <rect x="560" y="280" width="80" height="80" rx="14"
         fill="#050b18" stroke="#ffdd7a" stroke-width="3"/>
 
-  <!-- Tiny orbiting node (automation from universe to world) -->
-  <circle cx="820" cy="320" r="10" fill="#ff9f1c"/>
-  <circle cx="380" cy="320" r="8" fill="#00f5d4"/>
-
-  <!-- Energy / zero-carbon rays -->
   <g stroke-linecap="round" opacity="0.7">
     <line x1="600" y1="220" x2="600" y2="180" stroke="#ffdd7a" stroke-width="4"/>
     <line x1="540" y1="230" x2="510" y2="200" stroke="#00f5d4" stroke-width="3"/>
     <line x1="660" y1="230" x2="690" y2="200" stroke="#6d5acf" stroke-width="3"/>
   </g>
 
-  <!-- Main brand text -->
-  <g class="brand-main" fill="#FDFFFC" text-anchor="middle">
-    <!-- ssgpt6-core -->
-    <text x="600" y="470" class="brand-title" font-size="32">
-      SSGPT6-CORE
-    </text>
+  <text x="600" y="470" text-anchor="middle" class="t1">SSGPT6-CORE</text>
+  <text x="600" y="510" text-anchor="middle" class="t2">GNAIAAAC LLC · USA</text>
+  <text x="600" y="545" text-anchor="middle" class="t3">
+    AI SLEEPING AGENT · ZERO CARBON · CLIMATE & WATER RESILIENCE · AEROSPACE ENERGY
+  </text>
 
-    <!-- GNAIAAAC LLC · USA -->
-    <text x="600" y="510" class="brand-sub" font-size="16" opacity="0.9">
-      GNAIAAAC LLC · USA
-    </text>
+  <text x="600" y="600" text-anchor="middle" class="t3">
+    SSGPT6.COM · SSGPT6-CORE.VERCEL.APP
+  </text>
+  <text x="600" y="630" text-anchor="middle" class="t3">
+    FOUNDER & CEO: ARIFUR SHANTA
+  </text>
 
-    <!-- Mission line (climate, energy, ecosystem) -->
-    <text x="600" y="545" class="brand-small" font-size="13" opacity="0.9">
-      AI SLEEPING AGENT · ZERO CARBON · CLIMATE & WATER RESILIENCE · AEROSPACE ENERGY & ECOSYSTEM WELLBEING
-    </text>
-  </g>
-
-  <!-- Footer plate -->
-  <g class="brand-main" fill="#FDFFFC" text-anchor="middle">
-    <text x="600" y="600" class="brand-small" font-size="12" opacity="0.9">
-      SSGPT6.COM · SSGPT6-CORE.VERCEL.APP
-    </text>
-    <text x="600" y="630" class="brand-small" font-size="12" opacity="0.9">
-      FOUNDER & CEO: ARIFUR SHANTA
-    </text>
-  </g>
-
-  <!-- QR + IP ownership panel (placeholder block for real QR) -->
   <g transform="translate(930, 560)">
-    <rect x="0" y="0" width="140" height="140" rx="10"
+    <rect width="140" height="140" rx="10"
           fill="rgba(5,11,24,0.85)" stroke="#ffdd7a" stroke-width="2"/>
-    <!-- Placeholder QR grid (replace with real QR in production) -->
-    <g fill="#FDFFFC" opacity="0.7">
-      <rect x="16" y="16" width="24" height="24"/>
-      <rect x="100" y="16" width="24" height="24"/>
-      <rect x="16" y="100" width="24" height="24"/>
-      <rect x="52" y="52" width="12" height="12"/>
-      <rect x="84" y="84" width="10" height="10"/>
-      <rect x="72" y="32" width="8" height="8"/>
-      <rect x="40" y="88" width="6" height="6"/>
-      <rect x="104" y="104" width="6" height="6"/>
-    </g>
-    <text x="70" y="128" text-anchor="middle"
-          class="brand-small" font-size="8" fill="#FDFFFC" opacity="0.9">
-      SCAN · IP VERIFIED
-    </text>
+    <text x="70" y="128" text-anchor="middle" class="t3">SCAN · IP VERIFIED</text>
   </g>
 </svg>
