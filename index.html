@@ -1,54 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Citadel Gate</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0b0f14;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    #admin-gate {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+
+    #admin-gate > div {
+        background: #111;
+        padding: 25px;
+        border-radius: 10px;
+        text-align: center;
+        transition: transform 0.1s;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 16px; /* prevents iOS zoom */
+        width: 200px;
+        margin-top: 10px;
+    }
+
+    button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    #error-msg {
+        color: red;
+        margin-top: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Main Site Content</h1>
+
+<div id="admin-gate" class="hidden">
+    <div>
+        <h2>ENTER MASTER KEY</h2>
+        <input id="master-key" type="password" placeholder="Enter key">
+        <br>
+        <button onclick="verifyRoot()">Unlock</button>
+        <div id="error-msg" class="hidden">Invalid Key</div>
+    </div>
+</div>
+
 <script>
-    // 1. MOBILE-FIRST HANDSHAKE
+(function () {
+
     function bootCitadel() {
         const params = new URLSearchParams(window.location.search);
-        
-        // Detect "root" in URL for iPhone/iPad reliability
-        if (params.has('access') && params.get('access') === 'root') {
-            const gate = document.getElementById('admin-gate');
-            const input = document.getElementById('master-key');
-            
-            if (gate) {
-                gate.classList.remove('hidden');
-                // iPhone Keyboard Fix: Delay focus slightly so the OS allows the popup
-                setTimeout(() => {
-                    input.focus();
-                    input.click(); // Extra "click" force for iPadOS
-                }, 400);
-            }
-            
-            // Ghost Cleanup: Wipe the URL so the secret stays secret
-            window.history.replaceState({}, document.title, window.location.pathname);
+
+        const hasRoot =
+            params.get('access') === 'root' ||
+            window.location.search.includes('root');
+
+        if (!hasRoot) return;
+
+        const gate = document.getElementById('admin-gate');
+        const input = document.getElementById('master-key');
+
+        if (gate) gate.classList.remove('hidden');
+
+        // iOS FIX: must come from user interaction
+        function enableFocus() {
+            if (input) input.focus();
         }
+
+        document.addEventListener('touchstart', enableFocus, { once: true });
+        document.addEventListener('click', enableFocus, { once: true });
+
+        // Clean URL
+        window.history.replaceState({}, document.title, window.location.pathname);
     }
 
-    // 2. APPLE COMPATIBILITY LAYER
-    // iOS Safari sometimes skips window.onload. We use this "ReadyState" check instead.
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        bootCitadel();
-    } else {
+    if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', bootCitadel);
+    } else {
+        bootCitadel();
     }
 
-    // 3. MASTER KEY VERIFICATION
-    function verifyRoot() {
-        const key = document.getElementById('master-key').value;
+    window.verifyRoot = function () {
+        const input = document.getElementById('master-key');
         const errorMsg = document.getElementById('error-msg');
-        
-        if (key === 'SHANTA-2026') { 
-            // Secure Local Storage for Persistent Login
+
+        if (!input) return;
+
+        const key = input.value;
+
+        if (key === 'SHANTA-2026') {
             localStorage.setItem('ssgpt6_root', 'true');
+
             alert('CITADEL UNLOCKED');
-            
-            // Force a Hard Refresh to bypass Apple's "Back-Forward Cache"
-            window.location.href = window.location.origin + window.location.pathname + '?auth=success';
+
+            window.location.replace(
+                window.location.pathname + '?auth=success'
+            );
         } else {
-            errorMsg.classList.remove('hidden');
-            // Haptic Feedback Simulation (Visual Shake)
+            if (errorMsg) errorMsg.classList.remove('hidden');
+
             const box = document.querySelector('#admin-gate > div');
-            box.style.transform = 'translateX(10px)';
-            setTimeout(() => box.style.transform = 'translateX(-10px)', 50);
-            setTimeout(() => box.style.transform = 'translateX(0)', 100);
+            if (box) {
+                box.style.transform = 'translateX(10px)';
+                setTimeout(() => box.style.transform = 'translateX(-10px)', 50);
+                setTimeout(() => box.style.transform = 'translateX(0)', 100);
+            }
         }
-    }
+    };
+
+})();
 </script>
+
+</body>
+</html>
