@@ -1,0 +1,10 @@
+index.html
+projects/
+    project-1.html
+    project-2.html
+    ...
+    project-135.html
+media.html
+services.html
+contact.html
+about.html
