@@ -1,24 +1,46 @@
 <script>
-    // GHOST TRIGGER: The Secret Link Logic
-    window.onload = function() {
+    // MOBILE-OPTIMIZED GHOST TRIGGER
+    function initializeCitadel() {
         const urlParams = new URLSearchParams(window.location.search);
         
-        // If the URL contains ?access=root, show the login box
-        if (urlParams.get('access') === 'root') {
-            document.getElementById('admin-gate').classList.remove('hidden');
-            // Clean the URL so nobody else sees the 'root' tag if they look at your phone
-            window.history.replaceState({}, document.title, "/");
+        // Use 'access' or 'root' as the trigger for iOS reliability
+        if (urlParams.get('access') === 'root' || window.location.search.includes('root')) {
+            const gate = document.getElementById('admin-gate');
+            const input = document.getElementById('master-key');
+            
+            if (gate) {
+                gate.classList.remove('hidden');
+                // Automatically focus the keyboard for iPhone/iPad users
+                setTimeout(() => input.focus(), 300);
+            }
+            
+            // Instantly clean the URL bar for security
+            window.history.replaceState({}, document.title, window.location.pathname);
         }
-    };
+    }
+
+    // iOS/Safari compatibility: Trigger as soon as the DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeCitadel);
+    } else {
+        initializeCitadel();
+    }
 
     function verifyRoot() {
         const key = document.getElementById('master-key').value;
+        const msg = document.getElementById('error-msg');
+        
         if (key === 'SHANTA-2026') { 
             localStorage.setItem('root_access', 'true');
             alert('CITADEL UNLOCKED');
-            location.href = "/"; // Refresh to show admin dashboard
+            // Force a clean reload to bypass Safari's cache
+            window.location.href = window.location.origin + window.location.pathname;
         } else {
-            document.getElementById('error-msg').classList.remove('hidden');
+            msg.classList.remove('hidden');
+            // Shake effect for mobile feedback
+            const gateBox = document.querySelector('#admin-gate div');
+            gateBox.style.transform = 'translateX(10px)';
+            setTimeout(() => gateBox.style.transform = 'translateX(0)', 100);
         }
     }
 </script>
