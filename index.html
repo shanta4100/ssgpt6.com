@@ -1,151 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SSGPT6</title>
+  <title>@ssgpt6</title>
 </head>
 
-<body style="margin:0; font-family:Arial;">
+<body style="margin:0;font-family:Arial;background:#0b1a2f;color:white;">
 
-  <!-- HOME PAGE -->
-  <div id="home" style="
-    text-align:center;
-    padding:50px;
-    background:#0b1a2f;
-    color:white;
-    min-height:100vh;
-  ">
+<!-- HOME -->
+<div id="home" style="text-align:center;padding:40px;min-height:100vh;">
 
-    <h1 style="font-size:40px; color:gold;">SSGPT6</h1>
+<h1 style="color:gold;">@ssgpt6</h1>
+<p>Global AI Governance Platform</p>
 
-    <p style="font-size:18px; margin-top:20px;">
-      Intelligent Digital Access Platform
-    </p>
+<button onclick="showDashboard()" style="
+padding:12px 25px;
+background:gold;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;">
+Enter Dashboard
+</button>
 
-    <button onclick="showDashboard()" style="
-      margin-top:30px;
-      padding:12px 25px;
-      background:gold;
-      border:none;
-      border-radius:8px;
-      font-weight:bold;
-      cursor:pointer;
-    ">
-      Enter Dashboard
-    </button>
+<!-- SERVICES -->
+<h2 style="margin-top:50px;color:gold;">Services</h2>
 
-    <!-- SERVICES -->
-    <h2 style="margin-top:60px; color:gold;">Services & Pricing</h2>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;">
 
-    <div style="display:flex; flex-wrap:wrap; justify-content:center;">
+<div style="background:#122a45;margin:10px;padding:20px;border-radius:10px;width:250px;">
+<h3 style="color:gold;">Basic</h3>
+<p>$50</p>
+<a href="https://www.paypal.me/ssgpt6/50" target="_blank"
+style="background:gold;color:black;padding:10px;border-radius:6px;text-decoration:none;">
+Pay
+</a>
+</div>
 
-      <!-- BASIC -->
-      <div style="background:#122a45; margin:10px; padding:20px; border-radius:10px; width:250px;">
-        <h3 style="color:gold;">Basic</h3>
-        <p>$50</p>
-        <p style="color:#ccc;">Starter service package</p>
-        <a href="https://www.paypal.me/ssgpt6/50" target="_blank"
-          style="display:inline-block; padding:10px 15px; background:gold; color:black; border-radius:6px; text-decoration:none;">
-          Pay Now
-        </a>
-      </div>
+<div style="background:#122a45;margin:10px;padding:20px;border-radius:10px;width:250px;">
+<h3 style="color:gold;">Standard</h3>
+<p>$100</p>
+<a href="https://www.paypal.me/ssgpt6/100" target="_blank"
+style="background:gold;color:black;padding:10px;border-radius:6px;text-decoration:none;">
+Pay
+</a>
+</div>
 
-      <!-- STANDARD -->
-      <div style="background:#122a45; margin:10px; padding:20px; border-radius:10px; width:250px;">
-        <h3 style="color:gold;">Standard</h3>
-        <p>$100</p>
-        <p style="color:#ccc;">Extended service package</p>
-        <a href="https://www.paypal.me/ssgpt6/100" target="_blank"
-          style="display:inline-block; padding:10px 15px; background:gold; color:black; border-radius:6px; text-decoration:none;">
-          Pay Now
-        </a>
-      </div>
+<div style="background:#122a45;margin:10px;padding:20px;border-radius:10px;width:250px;">
+<h3 style="color:gold;">Full</h3>
+<p>$150</p>
+<a href="https://www.paypal.me/ssgpt6/150" target="_blank"
+style="background:gold;color:black;padding:10px;border-radius:6px;text-decoration:none;">
+Pay
+</a>
+</div>
 
-      <!-- FULL -->
-      <div style="background:#122a45; margin:10px; padding:20px; border-radius:10px; width:250px;">
-        <h3 style="color:gold;">Full Service</h3>
-        <p>$150</p>
-        <p style="color:#ccc;">Premium full package</p>
-        <a href="https://www.paypal.me/ssgpt6/150" target="_blank"
-          style="display:inline-block; padding:10px 15px; background:gold; color:black; border-radius:6px; text-decoration:none;">
-          Pay Now
-        </a>
-      </div>
+</div>
 
-    </div>
+<!-- CONTACT -->
+<div style="margin-top:40px;">
+<h3 style="color:gold;">Contact</h3>
+<p>Email: <a href="mailto:ssgpt6@aol.com" style="color:gold;">ssgpt6@aol.com</a></p>
+<p>Powered by GNAIAAAC LLC</p>
+</div>
 
-    <!-- ORDER INSTRUCTIONS -->
-    <div style="margin-top:40px; background:#122a45; padding:20px; border-radius:10px; max-width:600px; margin-left:auto; margin-right:auto;">
-      <h3 style="color:gold;">How It Works</h3>
-      <p style="color:#ccc;">1. Choose a package</p>
-      <p style="color:#ccc;">2. Complete payment</p>
-      <p style="color:#ccc;">3. Email your details</p>
-      <p style="color:#ccc;">4. Receive your service</p>
-    </div>
+<!-- POLICY LINKS -->
+<div style="margin-top:30px;">
+<button onclick="showPrivacy()" style="margin:5px;">Privacy</button>
+<button onclick="showTerms()" style="margin:5px;">Terms</button>
+</div>
 
-    <!-- CONTACT -->
-    <div style="margin-top:30px;">
-      <h3 style="color:gold;">Contact</h3>
-      <p>Email: <a href="mailto:ssgpt6@aol.com" style="color:gold;">ssgpt6@aol.com</a></p>
-      <p>Powered by GNAIAAAC LLC</p>
-    </div>
+</div>
 
-  </div>
+<!-- DASHBOARD -->
+<div id="dashboard" style="display:none;text-align:center;padding:40px;min-height:100vh;">
+<h1 style="color:gold;">@ssgpt6 Dashboard</h1>
+<p>System Active</p>
 
-  <!-- DASHBOARD PAGE -->
-  <div id="dashboard" style="
-    display:none;
-    text-align:center;
-    padding:50px;
-    background:#0b1a2f;
-    color:white;
-    min-height:100vh;
-  ">
+<button onclick="showHome()" style="
+margin-top:20px;
+padding:10px 20px;
+background:gold;
+border:none;
+border-radius:8px;">
+Back
+</button>
+</div>
 
-    <h1 style="color:gold;">SSGPT6 Dashboard</h1>
+<!-- PRIVACY -->
+<div id="privacy" style="display:none;padding:40px;">
+<h2 style="color:gold;">Privacy Policy</h2>
+<p>We collect basic customer info (name, email, order details).</p>
+<p>We do not sell your data.</p>
+<p>Payments handled by PayPal.</p>
 
-    <p>Welcome to your system</p>
+<button onclick="showHome()">Back</button>
+</div>
 
-    <div style="margin-top:30px;">
+<!-- TERMS -->
+<div id="terms" style="display:none;padding:40px;">
+<h2 style="color:gold;">Terms of Use</h2>
+<p>All services are provided as requested by the customer.</p>
+<p>No guaranteed outcomes.</p>
+<p>Customer must send order details after payment.</p>
 
-      <div style="background:#122a45; padding:20px; margin:10px; border-radius:10px;">
-        System Status: Active
-      </div>
+<button onclick="showHome()">Back</button>
+</div>
 
-      <div style="background:#122a45; padding:20px; margin:10px; border-radius:10px;">
-        Users: 0
-      </div>
+<!-- SCRIPT -->
+<script>
+function hideAll() {
+document.getElementById("home").style.display="none";
+document.getElementById("dashboard").style.display="none";
+document.getElementById("privacy").style.display="none";
+document.getElementById("terms").style.display="none";
+}
 
-      <div style="background:#122a45; padding:20px; margin:10px; border-radius:10px;">
-        Services: Ready
-      </div>
-
-    </div>
-
-    <button onclick="showHome()" style="
-      margin-top:30px;
-      padding:10px 20px;
-      background:gold;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-    ">
-      Back Home
-    </button>
-
-  </div>
-
-  <!-- SCRIPT -->
-  <script>
-    function showDashboard() {
-      document.getElementById("home").style.display = "none";
-      document.getElementById("dashboard").style.display = "block";
-    }
-
-    function showHome() {
-      document.getElementById("dashboard").style.display = "none";
-      document.getElementById("home").style.display = "block";
-    }
-  </script>
+function showHome(){hideAll();document.getElementById("home").style.display="block";}
+function showDashboard(){hideAll();document.getElementById("dashboard").style.display="block";}
+function showPrivacy(){hideAll();document.getElementById("privacy").style.display="block";}
+function showTerms(){hideAll();document.getElementById("terms").style.display="block";}
+</script>
 
 </body>
 </html>
