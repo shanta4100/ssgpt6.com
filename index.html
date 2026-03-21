@@ -3,83 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSGPT6 | Global Digital Access & AI SaaS</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            background: linear-gradient(to right, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .download-btn {
-            background: #38bdf8;
-            color: #0f172a;
-            padding: 18px 40px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
-            display: inline-block;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
-            background: #ffffff;
-        }
-
-        .footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            color: #475569;
-        }
-    </style>
+    <title>SSGPT6 | Project Marketplace</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>SSGPT6</h1>
-        <p>Your Global Digital Access and AI SaaS Platform.<br>
-           Experience the future of AI automation and connectivity.</p>
+    <header>
+        <h1>SSGPT6 Marketplace</h1>
+        <p>Global Digital Access & AI SaaS Platform</p>
+        <input type="text" id="projectSearch" onkeyup="searchProjects()" placeholder="Search through 135+ projects...">
+    </header>
 
-        <a href="your-app-file.zip" download class="download-btn">
-            Download SSGPT6 Now
-        </a>
+    <div id="projects-container">
+        <section class="section">
+            <h2>Project 1: Example AI Agent</h2>
+            <p>Automated workflow solution for digital scaling.</p>
+            <a href="https://paypal.me/ArifurShanta/99" class="btn">Activate - $99</a>
+        </section>
 
-        <div class="footer">
-            &copy; 2026 GNAIAAAC LLC. All Rights Reserved.
         </div>
-    </div>
 
+    <script>
+        function searchProjects() {
+            // This function filters your projects as you type
+            let input = document.getElementById('projectSearch').value.toLowerCase();
+            let sections = document.getElementsByClassName('section');
+            
+            for (let i = 0; i < sections.length; i++) {
+                let text = sections[i].innerText.toLowerCase();
+                // If the text matches the search, show it; otherwise, hide it
+                sections[i].style.display = text.includes(input) ? "" : "none";
+            }
+        }
+    </script>
 </body>
 </html>
