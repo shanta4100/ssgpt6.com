@@ -6,6 +6,10 @@
 <title>SSGPT6 Founder Ecosystem</title>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -13,11 +17,13 @@ body {
   color: white;
 }
 
-/* NAVBAR */
 nav {
   background: #020d1f;
   padding: 15px;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav a {
@@ -31,7 +37,6 @@ nav a:hover {
   color: gold;
 }
 
-/* HERO */
 .hero {
   text-align: center;
   padding: 80px 20px;
@@ -40,21 +45,26 @@ nav a:hover {
 .hero h1 {
   font-size: 2.8rem;
   color: gold;
+  margin-bottom: 10px;
 }
 
 .hero p {
   color: #bbb;
   margin-top: 10px;
+  font-size: 1.1rem;
 }
 
-/* SECTION */
 .section {
   padding: 40px 20px;
   max-width: 1000px;
   margin: auto;
 }
 
-/* CARD */
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
 .card {
   background: #0b1f3a;
   padding: 25px;
@@ -64,9 +74,9 @@ nav a:hover {
 
 .card h3 {
   color: gold;
+  margin-top: 0;
 }
 
-/* BUTTON */
 .btn {
   display: inline-block;
   background: gold;
@@ -75,90 +85,186 @@ nav a:hover {
   border-radius: 8px;
   text-decoration: none;
   margin-top: 15px;
+  font-weight: bold;
 }
 
-/* FOOTER */
+.btn:hover {
+  background: #ffd84d;
+}
+
 footer {
   background: #020d1f;
   text-align: center;
   padding: 20px;
   margin-top: 40px;
 }
-</style>
 
+.note {
+  color: #bbb;
+  margin-top: 10px;
+}
+</style>
 </head>
 
 <body>
 
 <nav>
-  <a href="#">Home</a>
-  <a href="#">Finance</a>
-  <a href="#">Academy</a>
-  <a href="#">Projects</a>
-  <a href="#">Affiliate</a>
-  <a href="#">Pricing</a>
+  <a href="#home">Home</a>
+  <a href="#finance">Finance</a>
+  <a href="#academy">Academy</a>
+  <a href="#projects">Projects</a>
+  <a href="#affiliate">Affiliate</a>
+  <a href="#pricing">Pricing</a>
 </nav>
 
-<div class="hero">
+<div class="hero" id="home">
   <h1>SSGPT6 Founder Ecosystem</h1>
   <p>AI • Finance • Academy • Kids • Affiliate • Projects</p>
+  <a class="btn" href="#finance">Explore Platform</a>
 </div>
 
-<div class="section">
+<div class="section" id="finance">
+  <h2>Finance</h2>
 
-  <h2>🚀 Platform Modules</h2>
-
-  <div class="card">
+  <div class="card" id="financial-knowledge">
     <h3>Financial Knowledge</h3>
     <p>Accounting, bookkeeping, and financial fundamentals.</p>
-    <a class="btn">Open</a>
+    <a class="btn" href="#financial-knowledge-details">Open</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="financial-intelligence">
     <h3>Financial Intelligence</h3>
     <p>Advanced analysis, reporting, and decision systems.</p>
-    <a class="btn">Open</a>
+    <a class="btn" href="#financial-intelligence-details">Open</a>
   </div>
+
+  <div class="card" id="gnai-trading">
+    <h3>GNAI Trading</h3>
+    <p>Trading ideas, market structure, and financial ecosystem planning.</p>
+    <a class="btn" href="#projects">Open</a>
+  </div>
+</div>
+
+<div class="section" id="financial-knowledge-details">
+  <h2>Financial Knowledge Details</h2>
+  <div class="card">
+    <p>This section is for accounting principles, bookkeeping, budget understanding, and financial foundations.</p>
+    <p class="note">You can later replace this with a separate page.</p>
+  </div>
+</div>
+
+<div class="section" id="financial-intelligence-details">
+  <h2>Financial Intelligence Details</h2>
+  <div class="card">
+    <p>This section is for advanced analysis, reporting, financial review, and intelligent decision support.</p>
+    <p class="note">You can later replace this with a separate page.</p>
+  </div>
+</div>
+
+<div class="section" id="academy">
+  <h2>Academy</h2>
+
+  <div class="card">
+    <h3>Learning System</h3>
+    <p>Learning system for skills, AI tools, and knowledge growth.</p>
+    <a class="btn" href="#academy-content">Enter</a>
+  </div>
+</div>
+
+<div class="section" id="academy-content">
+  <h2>Academy Content</h2>
+  <div class="card">
+    <p>This area can hold courses, lessons, and guided learning modules.</p>
+  </div>
+</div>
+
+<div class="section" id="projects">
+  <h2>Projects</h2>
 
   <div class="card">
     <h3>AI Media System</h3>
     <p>Video, music, and automated content generation platform.</p>
-    <a class="btn">Launch</a>
+    <a class="btn" href="#ai-media-details">Launch</a>
   </div>
 
   <div class="card">
-    <h3>Academy</h3>
-    <p>Learning system for skills, AI tools, and knowledge growth.</p>
-    <a class="btn">Enter</a>
+    <h3>Founder Projects</h3>
+    <p>Core initiatives, special systems, and ecosystem expansion projects.</p>
+    <a class="btn" href="#project-list">Open</a>
   </div>
+</div>
+
+<div class="section" id="ai-media-details">
+  <h2>AI Media System</h2>
+  <div class="card">
+    <p>This section can later connect to video generation, music tools, podcast systems, and media automation.</p>
+  </div>
+</div>
+
+<div class="section" id="project-list">
+  <h2>Project List</h2>
+  <div class="card">
+    <p>Add your Pure Water project, Water UN project, Finance platform, Kids learning system, and other founder projects here.</p>
+  </div>
+</div>
+
+<div class="section" id="affiliate">
+  <h2>Affiliate</h2>
 
   <div class="card">
     <h3>Affiliate System</h3>
     <p>Earn with automated referral and commission platform.</p>
-    <a class="btn">Join</a>
+    <a class="btn" href="#affiliate-details">Join</a>
   </div>
-
 </div>
 
-<div class="section">
-  <h2>💰 Pricing</h2>
+<div class="section" id="affiliate-details">
+  <h2>Affiliate Details</h2>
+  <div class="card">
+    <p>This section can later hold referral links, commission rules, and signup forms.</p>
+  </div>
+</div>
+
+<div class="section" id="pricing">
+  <h2>Pricing</h2>
 
   <div class="card">
     <h3>Basic Plan</h3>
     <p>$50 - Starter access</p>
-    <a class="btn">Buy</a>
+    <a class="btn" href="#buy-basic">Buy</a>
   </div>
 
   <div class="card">
     <h3>Standard Plan</h3>
     <p>$100 - Full features</p>
-    <a class="btn">Buy</a>
+    <a class="btn" href="#buy-standard">Buy</a>
   </div>
 
   <div class="card">
     <h3>Pro Plan</h3>
     <p>$150 - Premium system</p>
-    <a class="btn">Buy</a>
+    <a class="btn" href="#buy-pro">Buy</a>
+  </div>
+</div>
+
+<div class="section" id="buy-basic">
+  <h2>Basic Plan Checkout</h2>
+  <div class="card">
+    <p>Put your Stripe or PayPal Basic payment link here later.</p>
+  </div>
+</div>
+
+<div class="section" id="buy-standard">
+  <h2>Standard Plan Checkout</h2>
+  <div class="card">
+    <p>Put your Stripe or PayPal Standard payment link here later.</p>
+  </div>
+</div>
+
+<div class="section" id="buy-pro">
+  <h2>Pro Plan Checkout</h2>
+  <div class="card">
+    <p>Put your Stripe or PayPal Pro payment link here later.</p>
   </div>
 </div>
 
