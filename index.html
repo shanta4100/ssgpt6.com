@@ -8,44 +8,75 @@
 <style>
 body {
   margin:0;
-  font-family:Arial, sans-serif;
-  background:#0b1a2f;
+  font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto;
+  background:#050b18;
   color:white;
 }
 
 .container {
-  max-width:900px;
+  max-width:1100px;
   margin:auto;
   padding:20px;
 }
 
-h1,h2,h3 {
-  color:gold;
+/* HERO */
+.hero {
   text-align:center;
+  padding:60px 20px;
 }
 
-.section {
-  background:#112b4a;
+.hero h1 {
+  font-size:42px;
+  color:gold;
+}
+
+.hero p {
+  color:#ccc;
+  margin-top:10px;
+}
+
+/* CARD */
+.card {
+  background:linear-gradient(145deg,#0c1c3a,#091426);
+  border-radius:15px;
+  padding:25px;
   margin-top:20px;
-  padding:20px;
-  border-radius:10px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* PLANS */
+.plans {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
 }
 
 .plan {
-  border:1px solid gold;
-  padding:15px;
-  margin-top:15px;
-  border-radius:10px;
+  border:1px solid rgba(255,215,0,0.3);
+  border-radius:15px;
+  padding:20px;
   text-align:center;
+  transition:0.3s;
 }
 
+.plan:hover {
+  transform:scale(1.03);
+  border-color:gold;
+}
+
+.plan h3 {
+  color:gold;
+}
+
+/* BUTTONS */
 .btn {
   display:inline-block;
-  padding:10px 20px;
+  padding:12px 20px;
   margin:5px;
-  border-radius:6px;
+  border-radius:8px;
   text-decoration:none;
   font-weight:bold;
+  transition:0.3s;
 }
 
 .stripe {
@@ -58,11 +89,37 @@ h1,h2,h3 {
   color:white;
 }
 
+.btn:hover {
+  opacity:0.8;
+}
+
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:15px;
+}
+
+.item {
+  background:#081326;
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.05);
+}
+
+/* FOOTER */
 .footer {
   text-align:center;
-  margin-top:30px;
-  color:gray;
+  margin-top:40px;
+  color:#777;
   font-size:14px;
+}
+
+/* MOBILE RESPONSIVE */
+@media(min-width:768px){
+  .plans { grid-template-columns:repeat(3,1fr); }
+  .grid { grid-template-columns:repeat(2,1fr); }
 }
 </style>
 </head>
@@ -71,86 +128,84 @@ h1,h2,h3 {
 
 <div class="container">
 
-<h1>EarnAI + SSGPT6 Platform</h1>
-<p style="text-align:center;">
-AI Services + Global Water-AI Innovation
-</p>
-
-<!-- EARN MONEY SECTION -->
-<div class="section">
-<h2>EarnAI – YouTube Shorts Script Service</h2>
-<p style="text-align:center;">
-High-converting scripts delivered in 48 hours
-</p>
-
-<div class="plan">
-<h3>Basic – $50</h3>
-<p>15 Scripts • 2 Hooks per script</p>
-<a href="PUT_STRIPE_50" target="_blank" class="btn stripe">Pay with Stripe</a>
-<a href="https://www.paypal.com/paypalme/YOURUSERNAME/50" target="_blank" class="btn paypal">Pay with PayPal</a>
+<!-- HERO -->
+<div class="hero">
+  <h1>EarnAI + SSGPT6</h1>
+  <p>AI Income System + Global Water-AI Innovation Platform</p>
 </div>
 
-<div class="plan">
-<h3>Standard – $100</h3>
-<p>30 Scripts • 3 Hooks per script</p>
-<a href="PUT_STRIPE_100" target="_blank" class="btn stripe">Pay with Stripe</a>
-<a href="https://www.paypal.com/paypalme/YOURUSERNAME/100" target="_blank" class="btn paypal">Pay with PayPal</a>
+<!-- EARN MONEY -->
+<div class="card">
+  <h2 style="text-align:center;color:gold;">EarnAI – Script Service</h2>
+  <p style="text-align:center;">High-converting YouTube Shorts scripts delivered in 48 hours</p>
+
+  <div class="plans">
+
+    <!-- BASIC -->
+    <div class="plan">
+      <h3>Basic – $50</h3>
+      <p>15 Scripts<br>2 Hooks per script</p>
+      <a href="PUT_STRIPE_50" target="_blank" class="btn stripe">Stripe</a>
+      <a href="https://www.paypal.com/paypalme/YOURUSERNAME/50" target="_blank" class="btn paypal">PayPal</a>
+    </div>
+
+    <!-- STANDARD -->
+    <div class="plan">
+      <h3>Standard – $100</h3>
+      <p>30 Scripts<br>3 Hooks per script</p>
+      <a href="PUT_STRIPE_100" target="_blank" class="btn stripe">Stripe</a>
+      <a href="https://www.paypal.com/paypalme/YOURUSERNAME/100" target="_blank" class="btn paypal">PayPal</a>
+    </div>
+
+    <!-- PRO -->
+    <div class="plan">
+      <h3>Pro – $150</h3>
+      <p>45 Scripts<br>4 Hooks per script</p>
+      <a href="PUT_STRIPE_150" target="_blank" class="btn stripe">Stripe</a>
+      <a href="https://www.paypal.com/paypalme/YOURUSERNAME/150" target="_blank" class="btn paypal">PayPal</a>
+    </div>
+
+  </div>
+
+  <p style="text-align:center;margin-top:15px;">
+    After payment: <b>ssgpt6@aol.com</b><br>
+    Delivery within 48 hours
+  </p>
 </div>
 
-<div class="plan">
-<h3>Pro – $150</h3>
-<p>45 Scripts • 4 Hooks per script</p>
-<a href="PUT_STRIPE_150" target="_blank" class="btn stripe">Pay with Stripe</a>
-<a href="https://www.paypal.com/paypalme/YOURUSERNAME/150" target="_blank" class="btn paypal">Pay with PayPal</a>
-</div>
+<!-- PROJECT -->
+<div class="card">
+  <h2 style="text-align:center;color:gold;">SSGPT6 Water-AI System</h2>
+  <p style="text-align:center;">
+    Autonomous AI platform integrating water, energy, and intelligent automation
+  </p>
 
-<p style="text-align:center;margin-top:15px;">
-After payment, email your topic to:<br>
-<b>ssgpt6@aol.com</b><br>
-Delivery guaranteed within 48 hours
-</p>
-</div>
+  <div class="grid">
+    <div class="item">AI Monitoring</div>
+    <div class="item">Decentralized Systems</div>
+    <div class="item">Automation</div>
+    <div class="item">Energy Efficiency</div>
+  </div>
 
-<!-- PROJECT SECTION -->
-<div class="section">
-<h2>SSGPT6 Water-AI Efficiency System</h2>
+  <h3 style="text-align:center;margin-top:20px;">Benefits</h3>
+  <div class="grid">
+    <div class="item">Lower Costs</div>
+    <div class="item">Sustainability</div>
+    <div class="item">Global Access</div>
+    <div class="item">Climate Impact</div>
+  </div>
 
-<p>
-An autonomous AI-driven platform that integrates water purification, energy efficiency, and intelligent automation into a decentralized global system.
-</p>
+  <p style="text-align:center;margin-top:20px;font-style:italic;">
+    “An autonomous system that unifies water, energy, and AI for global sustainability.”
+  </p>
 
-<h3>Core Capabilities</h3>
-<p style="text-align:center;">
-AI Monitoring • Decentralized Deployment • Automation • Energy Efficiency
-</p>
-
-<h3>Economic Benefits</h3>
-<p style="text-align:center;">
-Lower Costs • Efficient Systems • New Market Opportunities
-</p>
-
-<h3>Environmental Impact</h3>
-<p style="text-align:center;">
-Reduced Waste • Lower Energy Use • Sustainable Ecosystems
-</p>
-
-<h3>Global Impact</h3>
-<p style="text-align:center;">
-Supports clean water access, infrastructure resilience, and global sustainability
-</p>
-
-<h3>Vision</h3>
-<p style="text-align:center;font-style:italic;">
-“An autonomous system that unifies water, energy, and AI for global sustainability.”
-</p>
-
-<div style="text-align:center;">
-<a href="mailto:ssgpt6@aol.com" class="btn stripe">Contact & Partnership</a>
-</div>
+  <div style="text-align:center;">
+    <a href="mailto:ssgpt6@aol.com" class="btn stripe">Contact</a>
+  </div>
 </div>
 
 <div class="footer">
-© 2026 GNAIAAAC LLC • SSGPT6 + EarnAI
+  © 2026 GNAIAAAC LLC • Premium AI Platform
 </div>
 
 </div>
