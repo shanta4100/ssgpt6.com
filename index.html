@@ -1,531 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SSGPT6 Media Hub | Creator Platform, Projects, Kids, Affiliate & Payments</title>
-  <meta name="description" content="SSGPT6 premium digital platform with AI media services, affiliate section, refund policy, kids project, thank you page, and 135 project showcase." />
-  <meta name="theme-color" content="#081225" />
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:linear-gradient(180deg,#07101f 0%,#0a1830 45%,#08111f 100%);
-      color:#fff;
-      line-height:1.6
-    }
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-    .container{width:92%;max-width:1250px;margin:auto}
-    .gold{color:#f6c453}
-    .btn{
-      display:inline-block;
-      padding:14px 24px;
-      border-radius:12px;
-      font-weight:bold;
-      transition:.25s ease;
-      border:1px solid rgba(255,255,255,.12)
-    }
-    .btn-primary{
-      background:linear-gradient(135deg,#f6c453,#d79b19);
-      color:#081225;
-      box-shadow:0 10px 25px rgba(246,196,83,.25)
-    }
-    .btn-primary:hover{transform:translateY(-2px)}
-    .btn-secondary{
-      background:rgba(255,255,255,.08);
-      color:#fff;
-      backdrop-filter:blur(8px)
-    }
-    .btn-secondary:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
-    header{
-      position:sticky;top:0;z-index:999;
-      background:rgba(5,12,24,.88);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(255,255,255,.08)
-    }
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:16px 0;gap:16px
-    }
-    .brand{display:flex;align-items:center;gap:14px}
-    .brand-logo{
-      width:50px;height:50px;border-radius:14px;overflow:hidden;
-      background:#102344;border:1px solid rgba(246,196,83,.35);
-      display:flex;align-items:center;justify-content:center
-    }
-    .brand-logo img{width:100%;height:100%;object-fit:cover}
-    .brand-text h1{font-size:18px;line-height:1.1}
-    .brand-text p{font-size:12px;color:#b9c7e3}
-    .nav-links{display:flex;flex-wrap:wrap;gap:14px;font-size:14px;color:#d9e3f7}
-    .hero{padding:85px 0 55px}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
-    .hero-card,.card,.price-card,.notice-box,.footer-box,.feature-box,.contact-box{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px;
-      box-shadow:0 14px 40px rgba(0,0,0,.25)
-    }
-    .hero-left,.hero-right,.card,.price-card,.notice-box,.footer-box,.feature-box,.contact-box{padding:28px}
-    .tag{
-      display:inline-block;padding:8px 14px;border-radius:999px;
-      background:rgba(246,196,83,.14);
-      border:1px solid rgba(246,196,83,.25);
-      color:#f6c453;font-size:13px;margin-bottom:18px
-    }
-    .hero h2{font-size:48px;line-height:1.08;margin-bottom:18px}
-    .hero p{color:#d3deef;font-size:18px;margin-bottom:26px;max-width:760px}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:22px}
-    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-    .stat{
-      background:rgba(255,255,255,.05);padding:18px;border-radius:16px;
-      border:1px solid rgba(255,255,255,.08)
-    }
-    .stat h3{font-size:25px;color:#f6c453;margin-bottom:6px}
-    .stat p{font-size:13px;margin:0;color:#d8e0f0}
-    section{padding:34px 0}
-    .section-title{font-size:34px;margin-bottom:10px}
-    .section-subtitle{color:#c8d6ec;font-size:17px;margin-bottom:24px;max-width:840px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    .card h3,.feature-box h3,.contact-box h3{margin-bottom:12px;font-size:23px}
-    .card p,.feature-box p,.contact-box p{color:#d0dcef;font-size:15px;margin-bottom:16px}
-    .feature-list{list-style:none;margin-top:10px}
-    .feature-list li{
-      padding:8px 0;color:#e2ebfb;border-bottom:1px solid rgba(255,255,255,.06)
-    }
-    .feature-list li:last-child{border-bottom:none}
-    .payment-board{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:18px}
-    .price-card{position:relative}
-    .price-card.highlight{
-      border:1px solid rgba(246,196,83,.35);
-      box-shadow:0 18px 40px rgba(246,196,83,.16)
-    }
-    .badge{
-      position:absolute;top:16px;right:16px;padding:7px 12px;border-radius:999px;
-      background:rgba(246,196,83,.15);color:#f6c453;font-size:12px;font-weight:bold
-    }
-    .plan{font-size:24px;margin-bottom:10px}
-    .price{font-size:42px;font-weight:bold;margin-bottom:12px;color:#f6c453}
-    .small{font-size:13px;color:#b6c8e0}
-    .pay-buttons{display:flex;flex-direction:column;gap:12px;margin-top:18px}
-    .pay-btn{text-align:center;padding:14px 16px;border-radius:12px;font-weight:bold}
-    .paypal{background:#0070ba;color:#fff}
-    .stripe{background:#635bff;color:#fff}
-    .affiliate{background:linear-gradient(135deg,rgba(246,196,83,.12),rgba(255,255,255,.03))}
-    .notice-box h3{margin-bottom:10px}
-    .notice-box p,.notice-box li{color:#d5e0f2}
-    .project-tile{
-      padding:18px;border-radius:18px;background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.07);text-align:center
-    }
-    .project-tile h4{font-size:18px;margin-bottom:8px;color:#f6c453}
-    .project-tile p{font-size:14px;color:#d7e3f7}
-    .kids-card{
-      background:linear-gradient(180deg,rgba(246,196,83,.08),rgba(255,255,255,.04));
-      border:1px solid rgba(246,196,83,.18)
-    }
-    .contact-box input,.contact-box textarea,.contact-box select{
-      width:100%;margin-bottom:12px;padding:14px;border-radius:12px;
-      border:1px solid rgba(255,255,255,.09);
-      background:rgba(255,255,255,.07);color:#fff;font-size:15px
-    }
-    .contact-box textarea{min-height:120px;resize:vertical}
-    .contact-box input::placeholder,.contact-box textarea::placeholder{color:#bfcde2}
-    .contact-box button{width:100%;border:none;cursor:pointer}
-    footer{padding:40px 0 70px;color:#c0d0e7}
-    .footer-bottom{margin-top:18px;font-size:14px;color:#b8c9df}
-    @media (max-width:1024px){
-      .hero-grid,.grid-3,.grid-2,.grid-4,.payment-board,.stat-row{grid-template-columns:1fr}
-      .hero h2{font-size:38px}
-      .nav{flex-direction:column;align-items:flex-start}
-    }
-    @media (max-width:640px){
-      .hero{padding-top:55px}
-      .hero h2{font-size:30px}
-      .section-title{font-size:28px}
-      .price{font-size:34px}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSGPT6 Founder Ecosystem</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#0b132b;color:white}
+.container{width:92%;max-width:1200px;margin:auto}
+header{background:#020617;padding:15px}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.nav a{margin:5px;color:#cbd5f5;font-size:14px}
+.hero{padding:60px 0;text-align:center}
+.hero h1{font-size:36px;color:gold}
+.section{padding:40px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.card{background:#111827;padding:20px;border-radius:10px}
+.card h3{color:gold;margin-bottom:10px}
+.btn{display:inline-block;padding:10px 20px;margin-top:10px;border-radius:8px}
+.btn-primary{background:gold;color:black}
+.btn-secondary{background:#1e293b}
+footer{text-align:center;padding:20px;color:#94a3b8}
+</style>
+
 </head>
 <body>
 
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="brand-logo">
-          <img src="logo.png" alt="SSGPT6 Logo" onerror="this.style.display='none';this.parentNode.innerHTML='<span style=&quot;color:#f6c453;font-weight:bold;font-size:18px;&quot;>SS</span>';">
-        </div>
-        <div class="brand-text">
-          <h1>SSGPT6 Media Hub</h1>
-          <p>AI Media • Projects • Kids • Affiliate • Payments</p>
-        </div>
-      </div>
+<header>
+<div class="container nav">
+<h2>SSGPT6</h2>
+<div>
+<a href="#">Home</a>
+<a href="#finance">Finance</a>
+<a href="#academy">Academy</a>
+<a href="#projects">Projects</a>
+<a href="#affiliate">Affiliate</a>
+<a href="#pricing">Pricing</a>
+</div>
+</div>
+</header>
 
-      <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#affiliate">Affiliate</a>
-        <a href="#kids">Kids</a>
-        <a href="#projects">Projects</a>
-        <a href="#refund">Refund</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+<section class="hero">
+<div class="container">
+<h1>SSGPT6 Founder Ecosystem</h1>
+<p>AI Media • Finance • Academy • Kids • Affiliate • Projects</p>
+</div>
+</section>
 
-  <section class="hero" id="home">
-    <div class="container hero-grid">
-      <div class="hero-card hero-left">
-        <span class="tag">Founder Platform by Arifur Shanta</span>
-        <h2>Build Your <span class="gold">Video</span>, <span class="gold">Podcast</span>, <span class="gold">Talk Show</span>, <span class="gold">Kids</span> and <span class="gold">Project</span> Ecosystem In One Website</h2>
-        <p>
-          SSGPT6 is your premium digital platform for creator services, media production,
-          affiliate growth, project showcase, kids learning projects, payment collection,
-          client requests, notices, refund policy, and thank you flow.
-        </p>
+<!-- FINANCE -->
+<section id="finance" class="section">
+<div class="container">
+<h2>Financial System</h2>
 
-        <div class="hero-actions">
-          <a href="#pricing" class="btn btn-primary">Open Payment Board</a>
-          <a href="#projects" class="btn btn-secondary">View Projects</a>
-        </div>
+<div class="grid">
+<div class="card">
+<h3>Financial Knowledge</h3>
+<p>Accounting, bookkeeping, analysis</p>
+<a href="financial-knowledge-framework.html" class="btn btn-primary">Open</a>
+</div>
 
-        <div class="stat-row">
-          <div class="stat">
-            <h3>135+</h3>
-            <p>Projects and concepts</p>
-          </div>
-          <div class="stat">
-            <h3>Kids</h3>
-            <p>Learning and safe education ideas</p>
-          </div>
-          <div class="stat">
-            <h3>AI</h3>
-            <p>Media and automation vision</p>
-          </div>
-        </div>
-      </div>
+<div class="card">
+<h3>Financial Intelligence</h3>
+<p>Advanced analysis and reporting</p>
+<a href="gnai-financial-intelligence.html" class="btn btn-primary">Open</a>
+</div>
 
-      <div class="hero-card hero-right">
-        <h3 style="margin-bottom:14px;">Platform Includes</h3>
-        <ul class="feature-list">
-          <li>✔ Video Generator section</li>
-          <li>✔ Talk Show & Podcast section</li>
-          <li>✔ Payment board with PayPal + Stripe</li>
-          <li>✔ Affiliate growth area</li>
-          <li>✔ Refund policy section</li>
-          <li>✔ Reminder / notice section</li>
-          <li>✔ Kids project showcase</li>
-          <li>✔ 135 project ecosystem board</li>
-          <li>✔ Thank you page after contact/payment</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+<div class="card">
+<h3>GNAI Trading</h3>
+<p>Trading and market system</p>
+<a href="gnai-trading.html" class="btn btn-primary">Open</a>
+</div>
+</div>
 
-  <section id="notice">
-    <div class="container">
-      <div class="notice-box">
-        <h3 class="gold">Important Reminder</h3>
-        <p>
-          Before purchasing, please review the service package, delivery scope, response time,
-          and refund policy. After payment, send your name, email, selected package, and project details
-          to <strong>ssgpt6@aol.com</strong> for faster processing.
-        </p>
-      </div>
-    </div>
-  </section>
+</div>
+</section>
 
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">Core Media Services</h2>
-      <p class="section-subtitle">
-        Present your brand as a professional media and digital production platform.
-      </p>
+<!-- ACADEMY -->
+<section id="academy" class="section">
+<div class="container">
+<h2>Academy & Learning</h2>
 
-      <div class="grid-3">
-        <div class="card">
-          <h3>🎬 Video Generator</h3>
-          <p>Offer branded video ideas, promo concept pages, social clips, and creator campaign packaging.</p>
-          <ul class="feature-list">
-            <li>Short-form promo direction</li>
-            <li>Script-based concept presentation</li>
-            <li>Social media launch structure</li>
-            <li>Brand-ready visual offer page</li>
-          </ul>
-        </div>
+<div class="grid">
+<div class="card">
+<h3>AI Learning Academy</h3>
+<p>AI education and future skills</p>
+</div>
 
-        <div class="card">
-          <h3>🎙 Talk Show Studio</h3>
-          <p>Position your site as a digital host platform for interviews, livestream concepts, and discussions.</p>
-          <ul class="feature-list">
-            <li>Show identity presentation</li>
-            <li>Host and guest board</li>
-            <li>Episode style concepts</li>
-            <li>Audience-facing media layout</li>
-          </ul>
-        </div>
+<div class="card">
+<h3>Kids Learning</h3>
+<p>Safe learning environment</p>
+</div>
 
-        <div class="card">
-          <h3>🎧 Podcast Media</h3>
-          <p>Create a podcast-ready service section for branded shows, episode themes, and speaker positioning.</p>
-          <ul class="feature-list">
-            <li>Podcast package offers</li>
-            <li>Topic planning presentation</li>
-            <li>Series identity structure</li>
-            <li>Distribution-ready branding</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="card">
+<h3>Accounting Project</h3>
+<p>Financial knowledge system</p>
+</div>
 
-  <section id="pricing">
-    <div class="container">
-      <h2 class="section-title">Payment Board</h2>
-      <p class="section-subtitle">
-        Replace the placeholder links below with your real PayPal and Stripe checkout links.
-      </p>
+<div class="card">
+<h3>Livestock Project</h3>
+<p>Farm and sustainability system</p>
+</div>
+</div>
 
-      <div class="payment-board">
-        <div class="price-card">
-          <h3 class="plan">Starter Package</h3>
-          <div class="price">$49</div>
-          <p class="small">For a simple branded page or entry-level service setup.</p>
-          <ul class="feature-list">
-            <li>Basic creator page</li>
-            <li>Payment buttons</li>
-            <li>Simple service presentation</li>
-            <li>Email support</li>
-          </ul>
-          <div class="pay-buttons">
-            <a class="pay-btn paypal" href="YOUR_PAYPAL_LINK" target="_blank">Pay with PayPal</a>
-            <a class="pay-btn stripe" href="YOUR_STRIPE_LINK" target="_blank">Pay with Stripe</a>
-          </div>
-        </div>
+</div>
+</section>
 
-        <div class="price-card highlight">
-          <span class="badge">Most Popular</span>
-          <h3 class="plan">Pro Creator Package</h3>
-          <div class="price">$99</div>
-          <p class="small">For media, podcast, talk show, and project-based platform presentation.</p>
-          <ul class="feature-list">
-            <li>Premium homepage structure</li>
-            <li>Media + affiliate sections</li>
-            <li>Contact funnel</li>
-            <li>Thank you page flow</li>
-          </ul>
-          <div class="pay-buttons">
-            <a class="pay-btn paypal" href="YOUR_PAYPAL_LINK" target="_blank">Pay with PayPal</a>
-            <a class="pay-btn stripe" href="YOUR_STRIPE_LINK" target="_blank">Pay with Stripe</a>
-          </div>
-        </div>
+<!-- PROJECTS -->
+<section id="projects" class="section">
+<div class="container">
+<h2>Projects</h2>
 
-        <div class="price-card">
-          <h3 class="plan">Enterprise Package</h3>
-          <div class="price">$199</div>
-          <p class="small">For bigger brand boards, multiple project areas, and custom founder ecosystem structure.</p>
-          <ul class="feature-list">
-            <li>Expanded project showcase</li>
-            <li>Kids project and services</li>
-            <li>Affiliate integration area</li>
-            <li>Premium brand presentation</li>
-          </ul>
-          <div class="pay-buttons">
-            <a class="pay-btn paypal" href="YOUR_PAYPAL_LINK" target="_blank">Pay with PayPal</a>
-            <a class="pay-btn stripe" href="YOUR_STRIPE_LINK" target="_blank">Pay with Stripe</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="grid">
+<div class="card"><h3>Project 1</h3><p>Media Hub</p></div>
+<div class="card"><h3>Project 2</h3><p>TradeHub</p></div>
+<div class="card"><h3>Project 3</h3><p>Kids Learning</p></div>
+<div class="card"><h3>Project 4</h3><p>Affiliate System</p></div>
+<div class="card"><h3>Project 5</h3><p>Podcast</p></div>
+<div class="card"><h3>Project 6</h3><p>Talk Show</p></div>
+<div class="card"><h3>Project 7</h3><p>Video Generator</p></div>
+<div class="card"><h3>Project 8</h3><p>Control Panel</p></div>
+<div class="card"><h3>Project 9</h3><p>Academy</p></div>
+<div class="card"><h3>Project 10</h3><p>Accounting</p></div>
+<div class="card"><h3>Project 11</h3><p>Livestock</p></div>
+<div class="card"><h3>Project 12</h3><p>Quick Earning</p></div>
+<div class="card"><h3>Project 13</h3><p>Finance Framework</p></div>
+<div class="card"><h3>Project 14</h3><p>Financial AI</p></div>
+<div class="card"><h3>Project 15</h3><p>Trading</p></div>
+</div>
 
-  <section id="affiliate">
-    <div class="container">
-      <h2 class="section-title">Affiliate Section</h2>
-      <p class="section-subtitle">
-        Use this section to promote partner offers, referral programs, SSL products, or other approved affiliate services.
-      </p>
+</div>
+</section>
 
-      <div class="grid-2">
-        <div class="feature-box affiliate">
-          <h3>Affiliate Opportunity</h3>
-          <p>
-            Promote carefully selected partner products and services through your platform and grow recurring revenue.
-          </p>
-          <ul class="feature-list">
-            <li>Referral links and banners</li>
-            <li>Partner highlight blocks</li>
-            <li>Traffic funnel support</li>
-            <li>Email call-to-action placement</li>
-          </ul>
-          <a href="YOUR_AFFILIATE_LINK" target="_blank" class="btn btn-primary" style="margin-top:14px;">Open Affiliate Offer</a>
-        </div>
+<!-- AFFILIATE -->
+<section id="affiliate" class="section">
+<div class="container">
+<h2>Affiliate & Quick Earning</h2>
 
-        <div class="feature-box">
-          <h3>Affiliate Reminder</h3>
-          <p>
-            Always use your approved affiliate links only. Do not make false income claims.
-            Keep disclosures clear and visible for visitors.
-          </p>
-          <ul class="feature-list">
-            <li>Use honest promotion</li>
-            <li>Show clear disclosure statement</li>
-            <li>Promote relevant products only</li>
-            <li>Keep brand trust first</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="grid">
+<div class="card">
+<h3>Affiliate Links</h3>
+<p>Connect your institutes</p>
+<a href="YOUR_AFFILIATE_LINK" class="btn btn-primary">Open</a>
+</div>
 
-  <section id="kids">
-    <div class="container">
-      <h2 class="section-title">Kids Project</h2>
-      <p class="section-subtitle">
-        Showcase your kids learning ecosystem as a safe, guided, and creative area for families and young learners.
-      </p>
+<div class="card">
+<h3>Reminder</h3>
+<p>No fake income claims. Use real links.</p>
+</div>
+</div>
 
-      <div class="grid-2">
-        <div class="feature-box kids-card">
-          <h3>SSGPT6 Kids Learning Center</h3>
-          <p>
-            A future-focused safe learning area with reading, games, guided AI activities,
-            creative storytelling, and age-friendly education support.
-          </p>
-          <ul class="feature-list">
-            <li>Safe learning mode</li>
-            <li>Reading and creativity tools</li>
-            <li>Future avatar teacher concept</li>
-            <li>Parent-friendly educational direction</li>
-          </ul>
-        </div>
+</div>
+</section>
 
-        <div class="feature-box">
-          <h3>Kids Project Goals</h3>
-          <p>
-            Build a positive digital experience for children, learning, imagination, and family trust.
-          </p>
-          <ul class="feature-list">
-            <li>Age-based learning paths</li>
-            <li>Creative activities</li>
-            <li>Educational game concepts</li>
-            <li>Safe and family-oriented structure</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- PRICING -->
+<section id="pricing" class="section">
+<div class="container">
+<h2>Payment Board</h2>
 
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">135 Projects Ecosystem</h2>
-      <p class="section-subtitle">
-        This section shows your larger founder ecosystem. You can expand this over time with full pages later.
-      </p>
+<div class="grid">
+<div class="card">
+<h3>Starter - $49</h3>
+<a href="YOUR_PAYPAL_LINK" class="btn btn-primary">PayPal</a>
+<a href="YOUR_STRIPE_LINK" class="btn btn-secondary">Stripe</a>
+</div>
 
-      <div class="grid-4">
-        <div class="project-tile"><h4>Project 1</h4><p>AI Media Hub</p></div>
-        <div class="project-tile"><h4>Project 2</h4><p>TradeHub</p></div>
-        <div class="project-tile"><h4>Project 3</h4><p>Kids Learning Center</p></div>
-        <div class="project-tile"><h4>Project 4</h4><p>Affiliate Growth Board</p></div>
-        <div class="project-tile"><h4>Project 5</h4><p>Podcast Studio</p></div>
-        <div class="project-tile"><h4>Project 6</h4><p>Talk Show Network</p></div>
-        <div class="project-tile"><h4>Project 7</h4><p>Video Generator</p></div>
-        <div class="project-tile"><h4>Project 8</h4><p>Founder Control Panel</p></div>
-      </div>
+<div class="card">
+<h3>Pro - $99</h3>
+<a href="YOUR_PAYPAL_LINK" class="btn btn-primary">PayPal</a>
+<a href="YOUR_STRIPE_LINK" class="btn btn-secondary">Stripe</a>
+</div>
 
-      <div class="notice-box" style="margin-top:22px;">
-        <h3 class="gold">About the 135 Projects</h3>
-        <p>
-          This website can act as your master front page for your project ecosystem.
-          For now, this section presents your core portfolio. Later, each project can link to its own page.
-        </p>
-      </div>
-    </div>
-  </section>
+<div class="card">
+<h3>Enterprise - $199</h3>
+<a href="YOUR_PAYPAL_LINK" class="btn btn-primary">PayPal</a>
+<a href="YOUR_STRIPE_LINK" class="btn btn-secondary">Stripe</a>
+</div>
+</div>
 
-  <section id="refund">
-    <div class="container">
-      <h2 class="section-title">Refund Policy</h2>
-      <p class="section-subtitle">
-        Keep this visible so customers understand your service terms before ordering.
-      </p>
+</div>
+</section>
 
-      <div class="notice-box">
-        <h3>Refund Notice</h3>
-        <ul class="feature-list">
-          <li>All sales should be reviewed carefully before payment.</li>
-          <li>Digital services may be non-refundable once work has started.</li>
-          <li>If a refund is approved, it may be processed back to the original payment method.</li>
-          <li>Custom work, consultation, and completed digital delivery may not be eligible for full refund.</li>
-          <li>For support, contact: ssgpt6@aol.com</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact & Request Form</h2>
-      <p class="section-subtitle">
-        This form opens email. After sending, users can visit the thank you page.
-      </p>
-
-      <div class="grid-2">
-        <div class="contact-box">
-          <h3>Send Project Request</h3>
-          <p>Email your details for faster support.</p>
-          <form action="mailto:ssgpt6@aol.com" method="post" enctype="text/plain">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Your email" required>
-            <select name="service" required>
-              <option value="">Select service</option>
-              <option>Video Generator</option>
-              <option>Podcast</option>
-              <option>Talk Show</option>
-              <option>Kids Project</option>
-              <option>Affiliate Partnership</option>
-              <option>Custom Project</option>
-            </select>
-            <textarea name="message" placeholder="Tell us what you want built..." required></textarea>
-            <button type="submit" class="btn btn-primary">Send Request</button>
-          </form>
-        </div>
-
-        <div class="contact-box">
-          <h3>Next Step</h3>
-          <p>
-            After payment or email request, open the thank you page below.
-          </p>
-          <div class="hero-actions">
-            <a href="thank-you.html" class="btn btn-primary">Open Thank You Page</a>
-            <a href="mailto:ssgpt6@aol.com" class="btn btn-secondary">Email Founder Support</a>
-          </div>
-          <p style="margin-top:16px;color:#d5e0f2;">
-            Contact Email: <strong>ssgpt6@aol.com</strong>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="footer-box">
-        <h3 style="margin-bottom:10px;">SSGPT6 Media Hub</h3>
-        <p>
-          Premium founder platform for media services, affiliate growth, kids learning concepts,
-          ecosystem projects, payment collection, and client communication.
-        </p>
-        <div class="footer-bottom">
-          © 2026 SSGPT6. All rights reserved.
-        </div>
-      </div>
-    </div>
-  </footer>
+<footer>
+<p>© 2026 SSGPT6 Founder Ecosystem</p>
+</footer>
 
 </body>
 </html>
