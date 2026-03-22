@@ -19,10 +19,9 @@ export default function Contact() {
 
       {!sent ? (
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
+          action="https://formsubmit.co/ssgpt6@aol.com"
+          method="POST"
+          onSubmit={() => setSent(true)}
           style={{
             maxWidth: "500px",
             margin: "40px auto",
@@ -31,10 +30,10 @@ export default function Contact() {
             gap: "15px"
           }}
         >
-          <input placeholder="Company Name" required style={{ padding: "10px" }} />
-          <input placeholder="Your Name" required style={{ padding: "10px" }} />
-          <input placeholder="Email" required style={{ padding: "10px" }} />
-          <textarea placeholder="Message" required style={{ padding: "10px", height: "120px" }} />
+          <input name="company" placeholder="Company Name" required style={{ padding: "10px" }} />
+          <input name="name" placeholder="Your Name" required style={{ padding: "10px" }} />
+          <input name="email" placeholder="Email" required style={{ padding: "10px" }} />
+          <textarea name="message" placeholder="Message" required style={{ padding: "10px", height: "120px" }} />
 
           <button style={{
             padding: "12px",
@@ -48,7 +47,7 @@ export default function Contact() {
         </form>
       ) : (
         <p style={{ textAlign: "center" }}>
-          Thank you. We will contact you shortly.
+          Message sent successfully ✔
         </p>
       )}
     </main>
