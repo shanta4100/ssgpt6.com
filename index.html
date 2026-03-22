@@ -1,859 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GNAIAAAC LLC | Digital Innovation Media Platform</title>
-  <meta name="description" content="GNAIAAAC LLC professional digital platform for innovation, media, video, podcast, blog, webinar, and partnership access." />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #071a33;
-      color: #ffffff;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: 92%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(5, 17, 35, 0.96);
-      border-bottom: 1px solid rgba(0, 174, 255, 0.18);
-      backdrop-filter: blur(10px);
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      padding: 16px 0;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .brand img {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
-      border-radius: 12px;
-      background: #ffffff;
-      padding: 4px;
-    }
-
-    .brand-text h1 {
-      font-size: 22px;
-      color: #4fc3ff;
-      line-height: 1.15;
-    }
-
-    .brand-text p {
-      font-size: 12px;
-      color: #cfe6ff;
-      letter-spacing: 0.4px;
-    }
-
-    .menu {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .menu a {
-      font-size: 14px;
-      color: #ffffff;
-      transition: 0.25s;
-    }
-
-    .menu a:hover {
-      color: #4fc3ff;
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #00a2ff, #4fc3ff);
-      color: #051123;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      transition: 0.25s;
-      text-align: center;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 162, 255, 0.3);
-    }
-
-    .btn-outline {
-      display: inline-block;
-      border: 1px solid #4fc3ff;
-      color: #4fc3ff;
-      padding: 11px 18px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: 0.25s;
-      text-align: center;
-    }
-
-    .btn-outline:hover {
-      background: #4fc3ff;
-      color: #051123;
-    }
-
-    .hero {
-      padding: 80px 0 55px;
-      background:
-        radial-gradient(circle at top right, rgba(79,195,255,0.18), transparent 28%),
-        radial-gradient(circle at left center, rgba(255,255,255,0.06), transparent 20%),
-        #071a33;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .hero h2 {
-      font-size: 48px;
-      line-height: 1.15;
-      margin-bottom: 18px;
-      color: #4fc3ff;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #d9ecff;
-      margin-bottom: 24px;
-      max-width: 720px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
-
-    .hero-badges {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .badge {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(79,195,255,0.2);
-      color: #ffffff;
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-    }
-
-    .hero-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      border: 1px solid rgba(79,195,255,0.2);
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
-    }
-
-    .hero-card h3 {
-      color: #4fc3ff;
-      margin-bottom: 14px;
-      font-size: 24px;
-    }
-
-    .hero-card ul {
-      padding-left: 18px;
-      color: #e9f5ff;
-    }
-
-    .hero-card li {
-      margin-bottom: 10px;
-    }
-
-    section {
-      padding: 68px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 36px;
-      color: #4fc3ff;
-      margin-bottom: 12px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      max-width: 850px;
-      margin: 0 auto 36px;
-      color: #d8ebff;
-      font-size: 17px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(79,195,255,0.16);
-      border-radius: 18px;
-      padding: 24px;
-      transition: 0.25s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.24);
-      border-color: rgba(79,195,255,0.35);
-    }
-
-    .card h3 {
-      color: #4fc3ff;
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #d8ebff;
-      font-size: 15px;
-    }
-
-    .pricing-wrap {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .price-card {
-      position: relative;
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
-      border: 1px solid rgba(79,195,255,0.18);
-      border-radius: 20px;
-      padding: 28px;
-    }
-
-    .featured {
-      border: 2px solid #4fc3ff;
-      transform: scale(1.02);
-    }
-
-    .tag {
-      position: absolute;
-      top: -12px;
-      right: 18px;
-      background: #4fc3ff;
-      color: #051123;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    .plan {
-      font-size: 24px;
-      color: #4fc3ff;
-      margin-bottom: 10px;
-    }
-
-    .price {
-      font-size: 44px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .price small {
-      font-size: 15px;
-      color: #d8ebff;
-    }
-
-    .price-list {
-      list-style: none;
-      margin: 18px 0 24px;
-    }
-
-    .price-list li {
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      color: #e8f4ff;
-      font-size: 15px;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .video-box {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(79,195,255,0.16);
-      border-radius: 18px;
-      overflow: hidden;
-    }
-
-    .video-thumb {
-      height: 190px;
-      background: linear-gradient(135deg, #0c2d59, #0f4c81, #071a33);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #4fc3ff;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .video-content {
-      padding: 18px;
-    }
-
-    .video-content h4 {
-      color: #4fc3ff;
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .video-content p {
-      color: #d8ebff;
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
-
-    .platform-links {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .platform {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(79,195,255,0.16);
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .platform h4 {
-      color: #4fc3ff;
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .platform p {
-      color: #d8ebff;
-      font-size: 14px;
-      margin-bottom: 14px;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
-
-    .about-box,
-    .contact-box {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(79,195,255,0.16);
-      border-radius: 20px;
-      padding: 26px;
-    }
-
-    .about-box h3,
-    .contact-box h3 {
-      color: #4fc3ff;
-      font-size: 26px;
-      margin-bottom: 14px;
-    }
-
-    .about-box p,
-    .contact-box p {
-      color: #d8ebff;
-      margin-bottom: 12px;
-    }
-
-    form input,
-    form select,
-    form textarea {
-      width: 100%;
-      padding: 13px 14px;
-      margin-bottom: 14px;
-      border: 1px solid rgba(79,195,255,0.2);
-      border-radius: 10px;
-      background: #ffffff;
-      color: #051123;
-      font-size: 15px;
-    }
-
-    form textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    footer {
-      background: #041124;
-      border-top: 1px solid rgba(79,195,255,0.16);
-      padding: 30px 0;
-    }
-
-    .footer-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-wrap p {
-      color: #d8ebff;
-      font-size: 14px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: #4fc3ff;
-      font-size: 14px;
-    }
-
-    @media (max-width: 1000px) {
-      .hero-grid,
-      .grid-3,
-      .grid-4,
-      .pricing-wrap,
-      .video-grid,
-      .platform-links,
-      .two-col {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero h2 {
-        font-size: 40px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .hero-grid,
-      .grid-3,
-      .grid-4,
-      .pricing-wrap,
-      .video-grid,
-      .platform-links,
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 44px;
-      }
-
-      .hero h2 {
-        font-size: 31px;
-      }
-
-      .section-title {
-        font-size: 28px;
-      }
-
-      .nav {
-        justify-content: center;
-      }
-
-      .menu {
-        justify-content: center;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GNAIAAAC LLC</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background:#071a33;
+  color:white;
+  text-align:center;
+}
+
+header {
+  padding:20px;
+  background:#041124;
+}
+
+.logo {
+  width:120px;
+}
+
+h1 {
+  color:#4fc3ff;
+}
+
+.section {
+  padding:40px 20px;
+}
+
+.btn {
+  display:inline-block;
+  padding:12px 20px;
+  margin:10px;
+  background:#4fc3ff;
+  color:#051123;
+  border-radius:8px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.card {
+  background:#0d2b50;
+  padding:20px;
+  margin:15px;
+  border-radius:10px;
+}
+
+.grid {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.video iframe {
+  width:100%;
+  max-width:350px;
+  height:200px;
+}
+
+</style>
 </head>
+
 <body>
 
-  <div class="topbar">
-    <div class="container nav">
-      <div class="brand">
-        <img src="logo.png" alt="GNAIAAAC LLC Logo" />
-        <div class="brand-text">
-          <h1>GNAIAAAC LLC</h1>
-          <p>ADVANCING INTELLIGENT INFRASTRUCTURE</p>
-        </div>
-      </div>
+<header>
+  <img src="logo.png" class="logo">
+  <h1>GNAIAAAC LLC</h1>
+  <p>Advancing Intelligent Infrastructure</p>
+</header>
 
-      <div class="menu">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#media">Media</a>
-        <a href="#videos">Videos</a>
-        <a href="#platforms">Platforms</a>
-        <a href="#contact" class="btn">Contact</a>
-      </div>
+<div class="section">
+  <h2>Digital Innovation Platform</h2>
+  <p>Video • Podcast • Media • Blog • Webinar • Business System</p>
+
+  <a href="#pricing" class="btn">View Pricing</a>
+  <a href="#contact" class="btn">Contact</a>
+</div>
+
+<div class="section">
+  <h2>Services</h2>
+
+  <div class="grid">
+    <div class="card">Video Generator</div>
+    <div class="card">Podcast System</div>
+    <div class="card">Media Blog</div>
+    <div class="card">Webinar Platform</div>
+    <div class="card">YouTube Channel</div>
+    <div class="card">Partnership System</div>
+  </div>
+</div>
+
+<div id="pricing" class="section">
+  <h2>Pricing</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Starter</h3>
+      <p>$99</p>
+      <a href="https://www.paypal.com/paypalme/YOURUSERNAME/99" target="_blank" class="btn">Buy</a>
+    </div>
+
+    <div class="card">
+      <h3>Pro</h3>
+      <p>$299</p>
+      <a href="https://www.paypal.com/paypalme/YOURUSERNAME/299" target="_blank" class="btn">Buy</a>
+    </div>
+
+    <div class="card">
+      <h3>Enterprise</h3>
+      <p>$999</p>
+      <a href="https://www.paypal.com/paypalme/YOURUSERNAME/999" target="_blank" class="btn">Buy</a>
     </div>
   </div>
+</div>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <h2>Professional Digital Innovation, Media, Video, Podcast, and Business Platform</h2>
-        <p>
-          GNAIAAAC LLC presents a modern business platform designed for innovation, media publishing,
-          video presentation, podcast promotion, blog content, webinar access, and strategic digital growth.
-        </p>
+<div class="section video">
+  <h2>YouTube Videos</h2>
 
-        <div class="hero-actions">
-          <a href="#pricing" class="btn">View Pricing</a>
-          <a href="#contact" class="btn-outline">Partnership Inquiry</a>
-        </div>
+  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+</div>
 
-        <div class="hero-badges">
-          <div class="badge">Professional Logo Branding</div>
-          <div class="badge">Video Generator Section</div>
-          <div class="badge">Podcast + Blog + Webinar</div>
-          <div class="badge">Official Platform Links</div>
-        </div>
-      </div>
+<div class="section">
+  <h2>Platforms</h2>
 
-      <div class="hero-card">
-        <h3>Platform Highlights</h3>
-        <ul>
-          <li>Enterprise-style homepage with your official logo</li>
-          <li>Video generator and creator showcase sections</li>
-          <li>Pricing board for business packages</li>
-          <li>YouTube, podcast, blog, and webinar access areas</li>
-          <li>Official platform buttons for Apple, Amazon, Spotify, Netflix, and YouTube</li>
-          <li>Partnership and business inquiry form</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  <a class="btn" href="https://youtube.com" target="_blank">YouTube</a>
+  <a class="btn" href="https://spotify.com" target="_blank">Spotify</a>
+  <a class="btn" href="https://music.apple.com" target="_blank">Apple Music</a>
+  <a class="btn" href="https://netflix.com" target="_blank">Netflix</a>
+</div>
 
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">Innovative Services</h2>
-      <p class="section-subtitle">
-        Present your business in a strong and professional way while preparing for future upgrades like payments, automation, and client systems.
-      </p>
+<div id="contact" class="section">
+  <h2>Contact</h2>
 
-      <div class="grid-3">
-        <div class="card">
-          <h3>Video Generator</h3>
-          <p>Create a premium section for promotional videos, marketing media, AI-assisted content, creator tools, and branded production services.</p>
-        </div>
-
-        <div class="card">
-          <h3>Podcast & Audio</h3>
-          <p>Showcase podcast episodes, interviews, voice content, talk shows, educational audio, and business discussion channels.</p>
-        </div>
-
-        <div class="card">
-          <h3>Media Blog</h3>
-          <p>Publish company news, articles, feature posts, updates, releases, and long-form editorial content in a clean business format.</p>
-        </div>
-
-        <div class="card">
-          <h3>Webinar Hub</h3>
-          <p>Promote webinars, founder sessions, virtual education, demonstrations, and scheduled public or private online events.</p>
-        </div>
-
-        <div class="card">
-          <h3>YouTube Channel</h3>
-          <p>Drive visitors to your official YouTube channel, playlists, launch videos, presentation clips, and brand media library.</p>
-        </div>
-
-        <div class="card">
-          <h3>Partnership Access</h3>
-          <p>Invite business partnerships, media collaboration, client inquiries, investor interest, and commercial opportunities.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing">
-    <div class="container">
-      <h2 class="section-title">Professional Price Board</h2>
-      <p class="section-subtitle">
-        Example pricing structure for digital services, media presentation, and premium support.
-      </p>
-
-      <div class="pricing-wrap">
-        <div class="price-card">
-          <h3 class="plan">Starter</h3>
-          <div class="price">$99 <small>/ one-time</small></div>
-          <ul class="price-list">
-            <li>Professional landing page</li>
-            <li>Logo branding section</li>
-            <li>Basic contact area</li>
-            <li>Platform link buttons</li>
-            <li>Simple service presentation</li>
-          </ul>
-          <a href="https://www.paypal.com/paypalme/YOURUSERNAME/99" target="_blank" class="btn">Buy Starter</a>
-        </div>
-
-        <div class="price-card featured">
-          <div class="tag">Most Popular</div>
-          <h3 class="plan">Pro Media</h3>
-          <div class="price">$299 <small>/ one-time</small></div>
-          <ul class="price-list">
-            <li>Everything in Starter</li>
-            <li>Video showcase area</li>
-            <li>Podcast, blog, webinar cards</li>
-            <li>YouTube growth section</li>
-            <li>Premium homepage layout</li>
-          </ul>
-          <a href="https://www.paypal.com/paypalme/YOURUSERNAME/299" target="_blank" class="btn">Buy Pro Media</a>
-        </div>
-
-        <div class="price-card">
-          <h3 class="plan">Enterprise</h3>
-          <div class="price">$999 <small>/ custom</small></div>
-          <ul class="price-list">
-            <li>Custom business presentation</li>
-            <li>Extended sections and branding</li>
-            <li>Priority implementation planning</li>
-            <li>Advanced partnership inquiry</li>
-            <li>Future automation-ready structure</li>
-          </ul>
-          <a href="https://www.paypal.com/paypalme/YOURUSERNAME/999" target="_blank" class="btn">Request Enterprise</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="media">
-    <div class="container">
-      <h2 class="section-title">Podcast, Media, Blog, Webinar</h2>
-      <p class="section-subtitle">
-        Direct visitors into your content ecosystem and professional media channels.
-      </p>
-
-      <div class="grid-4">
-        <div class="card">
-          <h3>Podcast</h3>
-          <p>Add your official podcast page, audio show, voice updates, interviews, or discussion channel here.</p>
-          <br />
-          <a class="btn-outline" href="#">Open Podcast</a>
-        </div>
-
-        <div class="card">
-          <h3>Media Blog</h3>
-          <p>Publish media articles, company updates, launch notes, strategic posts, and editorial business content.</p>
-          <br />
-          <a class="btn-outline" href="#">Read Blog</a>
-        </div>
-
-        <div class="card">
-          <h3>Webinar</h3>
-          <p>Promote public webinars, training sessions, founder talks, educational events, and premium online meetings.</p>
-          <br />
-          <a class="btn-outline" href="#">Join Webinar</a>
-        </div>
-
-        <div class="card">
-          <h3>YouTube Channel</h3>
-          <p>Send visitors to your YouTube channel for shorts, playlists, featured videos, and official updates.</p>
-          <br />
-          <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Visit YouTube</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="videos">
-    <div class="container">
-      <h2 class="section-title">Featured Video Area</h2>
-      <p class="section-subtitle">
-        Showcase promo videos, music videos, interviews, trailers, or official YouTube content.
-      </p>
-
-      <div class="video-grid">
-        <div class="video-box">
-          <div class="video-thumb">VIDEO 01</div>
-          <div class="video-content">
-            <h4>Brand Promo</h4>
-            <p>Use this area for your main brand trailer or featured business introduction video.</p>
-            <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Watch</a>
-          </div>
-        </div>
-
-        <div class="video-box">
-          <div class="video-thumb">VIDEO 02</div>
-          <div class="video-content">
-            <h4>YouTube Feature</h4>
-            <p>Add your public YouTube video, showcase clip, release video, or creator presentation here.</p>
-            <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Open Video</a>
-          </div>
-        </div>
-
-        <div class="video-box">
-          <div class="video-thumb">VIDEO 03</div>
-          <div class="video-content">
-            <h4>Music / Media Spot</h4>
-            <p>Showcase public or licensed music, feature interviews, or official media campaign content.</p>
-            <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Play Media</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="platforms">
-    <div class="container">
-      <h2 class="section-title">Official Platform Links</h2>
-      <p class="section-subtitle">
-        Replace these with your official pages, channels, playlists, or licensed content destinations.
-      </p>
-
-      <div class="platform-links">
-        <div class="platform">
-          <h4>Apple Music</h4>
-          <p>Official artist, playlist, or music destination.</p>
-          <a class="btn-outline" href="https://music.apple.com/" target="_blank">Open</a>
-        </div>
-
-        <div class="platform">
-          <h4>Amazon Music</h4>
-          <p>Official audio and music page.</p>
-          <a class="btn-outline" href="https://music.amazon.com/" target="_blank">Open</a>
-        </div>
-
-        <div class="platform">
-          <h4>Spotify</h4>
-          <p>Official artist or podcast profile.</p>
-          <a class="btn-outline" href="https://open.spotify.com/" target="_blank">Open</a>
-        </div>
-
-        <div class="platform">
-          <h4>Netflix</h4>
-          <p>Official streaming destination.</p>
-          <a class="btn-outline" href="https://www.netflix.com/" target="_blank">Open</a>
-        </div>
-
-        <div class="platform">
-          <h4>YouTube</h4>
-          <p>Official channel, playlists, and video library.</p>
-          <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Open</a>
-        </div>
-
-        <div class="platform">
-          <h4>Hollywood</h4>
-          <p>Use for official studio or film pages.</p>
-          <a class="btn-outline" href="#">Add Link</a>
-        </div>
-
-        <div class="platform">
-          <h4>Bollywood</h4>
-          <p>Use for official cinema or music pages.</p>
-          <a class="btn-outline" href="#">Add Link</a>
-        </div>
-
-        <div class="platform">
-          <h4>Hindi Music Video</h4>
-          <p>Add official public or licensed video only.</p>
-          <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Open</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container two-col">
-      <div class="about-box">
-        <h3>About GNAIAAAC LLC</h3>
-        <p>
-          GNAIAAAC LLC is presented here as a professional innovation and media platform with modern branding,
-          business presentation, and scalable digital structure.
-        </p>
-        <p>
-          This website layout is designed to support media publishing, video presentation, podcast promotion,
-          webinar access, and future upgrades such as client systems, automation, and payment integrations.
-        </p>
-        <p>
-          For music, movies, and videos, use official links, your own content, public domain content, or content you have permission to use.
-        </p>
-      </div>
-
-      <div class="contact-box" id="contact">
-        <h3>Contact / Partnership Form</h3>
-        <p>Use this for pricing, media, partnerships, webinars, creator services, and business inquiries.</p>
-
-        <form action="mailto:ssgpt6@aol.com" method="post" enctype="text/plain">
-          <input type="text" name="company" placeholder="Company Name" required />
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Email Address" required />
-          <select name="interest" required>
-            <option value="">Select Interest</option>
-            <option>Starter Package</option>
-            <option>Pro Media Package</option>
-            <option>Enterprise Package</option>
-            <option>Podcast / Blog / Webinar</option>
-            <option>YouTube / Video</option>
-            <option>Music / Media Partnership</option>
-          </select>
-          <textarea name="message" placeholder="Write your message"></textarea>
-          <button type="submit" class="btn">Send Inquiry</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container footer-wrap">
-      <p>© 2026 GNAIAAAC LLC. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#media">Media</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
+  <form action="mailto:ssgpt6@aol.com" method="post">
+    <input type="text" placeholder="Name" required><br><br>
+    <input type="email" placeholder="Email" required><br><br>
+    <textarea placeholder="Message"></textarea><br><br>
+    <button class="btn">Send</button>
+  </form>
+</div>
 
 </body>
 </html>
