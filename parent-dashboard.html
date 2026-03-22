@@ -1,552 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SSGPT6 Parent Dashboard</title>
-  <style>
-    :root{
-      --bg:#081426;
-      --panel:#10233f;
-      --panel2:#173257;
-      --panel3:#1d3f6b;
-      --text:#eef4ff;
-      --muted:#c0cde0;
-      --gold:#f4c542;
-      --green:#75d27a;
-      --blue:#6ec1ff;
-      --pink:#ff8fb1;
-      --red:#ff8b8b;
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Arial,Helvetica,sans-serif;
-      background:linear-gradient(180deg,#081426 0%, #0d1c33 100%);
-      color:var(--text);
-    }
-    header{
-      position:sticky;
-      top:0;
-      z-index:20;
-      background:rgba(8,20,38,.96);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .nav{
-      max-width:1200px;
-      margin:auto;
-      padding:16px 20px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-    .brand{
-      font-size:1.2rem;
-      font-weight:800;
-      color:var(--gold);
-    }
-    .nav-links{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .nav-links a{
-      color:var(--text);
-      text-decoration:none;
-      font-size:.95rem;
-    }
-    .nav-links a:hover{color:var(--gold)}
-    .wrap{
-      max-width:1200px;
-      margin:auto;
-      padding:24px 20px 60px;
-    }
-    .hero{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:20px;
-      margin-top:8px;
-    }
-    .card,.tile,.panel{
-      background:var(--panel);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:var(--radius);
-      box-shadow:0 14px 40px rgba(0,0,0,.22);
-      padding:22px;
-    }
-    .panel{background:var(--panel3)}
-    h1{
-      margin:0 0 12px;
-      font-size:clamp(2rem,4vw,3rem);
-      line-height:1.05;
-      color:var(--gold);
-    }
-    h2{
-      margin:0 0 12px;
-      color:var(--gold);
-      font-size:1.7rem;
-    }
-    h3{
-      margin-top:0;
-      margin-bottom:8px;
-    }
-    .muted{
-      color:var(--muted);
-      line-height:1.7;
-    }
-    .badge{
-      display:inline-block;
-      padding:8px 14px;
-      border-radius:999px;
-      background:rgba(244,197,66,.12);
-      border:1px solid rgba(244,197,66,.28);
-      color:var(--gold);
-      font-weight:700;
-      font-size:.88rem;
-      margin-bottom:12px;
-    }
-    .actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:18px;
-    }
-    .btn{
-      display:inline-block;
-      padding:13px 18px;
-      border-radius:12px;
-      font-weight:700;
-      text-decoration:none;
-      border:none;
-      cursor:pointer;
-    }
-    .btn-primary{
-      background:linear-gradient(145deg,var(--gold),#ddb031);
-      color:#111;
-    }
-    .btn-secondary{
-      background:transparent;
-      color:var(--text);
-      border:1px solid rgba(255,255,255,.16);
-    }
-    .btn-green{
-      background:var(--green);
-      color:#10233f;
-    }
-    .btn-red{
-      background:var(--red);
-      color:#281313;
-    }
-    .section{margin-top:28px}
-    .grid-4{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-    }
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-    .grid-2{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:16px;
-    }
-    .mini-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
-      margin-top:16px;
-    }
-    .mini{
-      background:var(--panel2);
-      border-radius:14px;
-      padding:16px;
-      text-align:center;
-    }
-    .mini-title{
-      color:var(--muted);
-      font-size:.9rem;
-      margin-bottom:6px;
-    }
-    .mini-value{
-      font-size:1.3rem;
-      font-weight:800;
-      color:var(--text);
-    }
-    .list{
-      margin:0;
-      padding-left:18px;
-    }
-    .status{
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:.82rem;
-      font-weight:700;
-      margin-top:8px;
-    }
-    .ok{background:rgba(117,210,122,.14);color:var(--green)}
-    .warn{background:rgba(255,139,139,.14);color:var(--red)}
-    .info{background:rgba(110,193,255,.14);color:var(--blue)}
-    .input{
-      width:100%;
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background:#0b1830;
-      color:#fff;
-      margin-top:8px;
-      margin-bottom:14px;
-    }
-    .row{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .notice{
-      background:rgba(110,193,255,.08);
-      border:1px solid rgba(110,193,255,.2);
-      border-radius:14px;
-      padding:16px;
-    }
-    .success{
-      background:rgba(117,210,122,.08);
-      border:1px solid rgba(117,210,122,.2);
-      border-radius:14px;
-      padding:16px;
-    }
-    footer{
-      background:#0b1220;
-      color:#aaa;
-      padding:30px 20px;
-      margin-top:40px;
-      font-size:13px;
-      line-height:1.7;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
-    footer .footer-wrap{
-      max-width:1200px;
-      margin:auto;
-    }
-    @media (max-width:980px){
-      .hero,.grid-4,.grid-3,.grid-2,.mini-grid{
-        grid-template-columns:1fr;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parent Dashboard | SSGPT6</title>
 </head>
-<body>
 
-  <header>
-    <div class="nav">
-      <div class="brand">SSGPT6 Parent Dashboard</div>
-      <nav class="nav-links">
-        <a href="kids.html">Kids Home</a>
-        <a href="#authorization">Authorization</a>
-        <a href="#controls">Controls</a>
-        <a href="#navigation">Navigation</a>
-        <a href="#reports">Reports</a>
-      </nav>
-    </div>
-  </header>
+<body style="margin:0;font-family:Arial;background:#0b1a2f;color:white;text-align:center;">
 
-  <main class="wrap">
+<!-- LOGIN SCREEN -->
+<div id="login" style="padding:40px;min-height:100vh;">
+  <h1 style="color:gold;">Parent Access</h1>
+  <p>Enter Parent PIN</p>
 
-    <section class="hero">
-      <div class="card">
-        <span class="badge">Parent Remote Access • Authorization • Safety Controls</span>
-        <h1>Parent Remote Access and Child Navigation Control</h1>
-        <p class="muted">
-          This dashboard gives parents or guardians control over child access,
-          session time, feature permissions, navigation restrictions, and safety settings.
-          It is designed to remotely approve, block, unlock, and monitor child use.
-        </p>
+  <input type="password" id="pin" placeholder="Enter PIN"
+  style="padding:10px;border-radius:6px;border:none;margin:10px;" />
 
-        <div class="mini-grid">
-          <div class="mini">
-            <div class="mini-title">Parent Status</div>
-            <div class="mini-value" id="parentStatusText">Not Verified</div>
-          </div>
-          <div class="mini">
-            <div class="mini-title">Kids Mode</div>
-            <div class="mini-value" id="kidsModeText">Locked</div>
-          </div>
-          <div class="mini">
-            <div class="mini-title">Session Limit</div>
-            <div class="mini-value" id="sessionLimitText">60 Min</div>
-          </div>
-          <div class="mini">
-            <div class="mini-title">Cooldown</div>
-            <div class="mini-value" id="cooldownText">4 Hours</div>
-          </div>
-        </div>
+  <br>
 
-        <div class="actions">
-          <button class="btn btn-primary" onclick="verifyParent()">Verify Parent</button>
-          <button class="btn btn-green" onclick="unlockKidsMode()">Unlock Now</button>
-          <button class="btn btn-red" onclick="lockKidsMode()">Lock Now</button>
-        </div>
-      </div>
+  <button onclick="login()" style="
+  padding:12px 25px;
+  background:gold;
+  border:none;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;">
+  Unlock Dashboard
+  </button>
 
-      <div class="panel">
-        <h2 style="font-size:1.5rem;">Quick Safety Status</h2>
-        <p class="muted">These settings apply to the child learning environment.</p>
+  <p id="error" style="color:red;"></p>
+</div>
 
-        <div class="row"><strong>Parent Verification:</strong> <span class="status warn" id="verifyBadge">Required</span></div>
-        <div class="row"><strong>External Websites:</strong> <span class="status ok">Blocked</span></div>
-        <div class="row"><strong>Open Search Engines:</strong> <span class="status ok">Blocked</span></div>
-        <div class="row"><strong>Approved Learning Only:</strong> <span class="status ok">Enabled</span></div>
-        <div class="row"><strong>Remote Unlock:</strong> <span class="status info">Available</span></div>
-      </div>
-    </section>
+<!-- DASHBOARD -->
+<div id="dashboard" style="display:none;padding:30px;min-height:100vh;">
 
-    <section class="section" id="authorization">
-      <h2>Parent Authorization</h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Parent PIN Setup</h3>
-          <label for="parentPin">Create or update parent PIN</label>
-          <input class="input" id="parentPin" type="password" placeholder="Enter new parent PIN" />
-          <button class="btn btn-primary" onclick="saveParentPin()">Save Parent PIN</button>
-          <p class="muted">This PIN is used to unlock child access and change protected settings.</p>
-        </div>
+  <h1 style="color:gold;">Parent Control Panel</h1>
+  <p>Manage Child Learning Access</p>
 
-        <div class="card">
-          <h3>Authorized Adult Confirmation</h3>
-          <label for="parentName">Parent or guardian name</label>
-          <input class="input" id="parentName" type="text" placeholder="Enter parent or guardian name" />
+  <!-- CONTROLS -->
+  <div style="margin-top:30px;display:flex;flex-wrap:wrap;justify-content:center;gap:20px;">
 
-          <label for="childName">Child name</label>
-          <input class="input" id="childName" type="text" placeholder="Enter child name" />
+    <button onclick="unlockChild()" style="padding:12px 20px;background:green;border:none;border-radius:8px;color:white;">
+      🔓 Unlock Child
+    </button>
 
-          <button class="btn btn-secondary" onclick="saveAuthorizationInfo()">Save Authorization Info</button>
-          <p class="muted">Use this for household management and parent-controlled access records.</p>
-        </div>
-      </div>
-    </section>
+    <button onclick="lockChild()" style="padding:12px 20px;background:red;border:none;border-radius:8px;color:white;">
+      🔒 Lock Now
+    </button>
 
-    <section class="section" id="controls">
-      <h2>Remote Access Controls</h2>
-      <div class="grid-3">
-        <div class="tile">
-          <h3>Session Time Control</h3>
-          <label for="sessionMinutes">Session length in minutes</label>
-          <input class="input" id="sessionMinutes" type="number" min="5" max="180" value="60" />
-          <button class="btn btn-primary" onclick="saveSessionMinutes()">Save Session Limit</button>
-        </div>
+    <button onclick="resetSession()" style="padding:12px 20px;background:#1d3f6b;border:none;border-radius:8px;color:white;">
+      🔄 Reset Session
+    </button>
 
-        <div class="tile">
-          <h3>Cooldown Control</h3>
-          <label for="cooldownHours">Cooldown in hours</label>
-          <input class="input" id="cooldownHours" type="number" min="1" max="24" value="4" />
-          <button class="btn btn-primary" onclick="saveCooldownHours()">Save Cooldown</button>
-        </div>
+  </div>
 
-        <div class="tile">
-          <h3>School Hours Lock</h3>
-          <p class="muted">Recommended for restricting child use during school time.</p>
-          <button class="btn btn-secondary" onclick="toggleSchoolHoursLock()" id="schoolLockButton">Enable School Hours Lock</button>
-          <div class="status info" id="schoolLockStatus">Disabled</div>
-        </div>
-      </div>
-    </section>
+  <!-- STATUS -->
+  <div style="margin-top:40px;background:#122a45;padding:20px;border-radius:10px;">
+    <h3 style="color:gold;">Child Status</h3>
+    <p id="status">Checking...</p>
+    <p id="timeLeft"></p>
+  </div>
 
-    <section class="section" id="navigation">
-      <h2>Child Navigation System</h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Allowed Navigation Areas</h3>
-          <ul class="list">
-            <li>Reading Library</li>
-            <li>Educational Games</li>
-            <li>Avatar Lessons</li>
-            <li>Math Arena</li>
-            <li>Science Lab</li>
-            <li>History World</li>
-            <li>Coding Lab</li>
-            <li>Cosmology Zone</li>
-            <li>Team Missions</li>
-          </ul>
-        </div>
+  <!-- SETTINGS -->
+  <div style="margin-top:30px;">
+    <h3 style="color:gold;">Settings</h3>
 
-        <div class="card">
-          <h3>Blocked Navigation Areas</h3>
-          <ul class="list">
-            <li>External websites</li>
-            <li>Open search engines</li>
-            <li>Third-party links</li>
-            <li>Unapproved communication tools</li>
-            <li>Settings without parent authorization</li>
-          </ul>
-        </div>
-      </div>
+    <button onclick="setSchoolMode(true)" style="margin:5px;padding:10px;background:#ff8800;border:none;border-radius:6px;">
+      Enable School Lock
+    </button>
 
-      <div class="notice" style="margin-top:16px;">
-        Child mode should remain a closed learning environment. Navigation should be limited to approved internal learning paths only.
-      </div>
-    </section>
+    <button onclick="setSchoolMode(false)" style="margin:5px;padding:10px;background:#555;border:none;border-radius:6px;">
+      Disable School Lock
+    </button>
+  </div>
 
-    <section class="section" id="reports">
-      <h2>Parent Summary & Reports</h2>
-      <div class="grid-3">
-        <div class="tile">
-          <h3>Usage Summary</h3>
-          <p class="muted">Track whether the child account is currently locked or unlocked.</p>
-          <div class="status info" id="usageSummary">Locked</div>
-        </div>
+  <!-- BACK -->
+  <div style="margin-top:40px;">
+    <a href="kids.html" style="color:gold;">← Back to Kids Platform</a>
+  </div>
 
-        <div class="tile">
-          <h3>Authorization Record</h3>
-          <p class="muted">Shows whether parent verification has been completed.</p>
-          <div class="status warn" id="authorizationSummary">Not Verified</div>
-        </div>
+</div>
 
-        <div class="tile">
-          <h3>Remote Control Status</h3>
-          <p class="muted">Shows whether remote parent control is active.</p>
-          <div class="status ok" id="remoteSummary">Active</div>
-        </div>
-      </div>
+<script>
+// =====================
+// SETTINGS
+// =====================
+const PARENT_PIN = "1234"; // CHANGE THIS
 
-      <div class="success" style="margin-top:16px;">
-        Parent dashboard settings are stored locally in this version. In a full production system, these settings should be connected to secure accounts and a backend database.
-      </div>
-    </section>
+const lockUntilKey = "child_lock_until";
+const sessionStartKey = "child_session_start";
+const schoolModeKey = "school_mode";
 
-  </main>
+// =====================
+// LOGIN
+// =====================
+function login() {
+  const input = document.getElementById("pin").value;
 
-  <footer>
-    <div class="footer-wrap">
-      <p>© 2026 SSGPT6 Parent Dashboard — Powered by GNAIAAAC LLC</p>
-      <p>
-        This dashboard is intended to help parents or guardians manage child learning access,
-        safety controls, session timing, and navigation boundaries.
-      </p>
-    </div>
-  </footer>
+  if (input === PARENT_PIN) {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+    updateStatus();
+  } else {
+    document.getElementById("error").innerText = "Wrong PIN";
+  }
+}
 
-  <script>
-    const parentPinKey = "kids_parent_pin";
-    const parentVerifiedKey = "kids_parent_verified";
-    const kidsLockedKey = "kids_locked";
-    const schoolHoursLockKey = "kids_school_hours_lock";
-    const sessionMinutesKey = "kids_session_minutes";
-    const cooldownHoursKey = "kids_cooldown_hours";
-    const parentNameKey = "kids_parent_name";
-    const childNameKey = "kids_child_name";
+// =====================
+// CONTROL FUNCTIONS
+// =====================
+function unlockChild() {
+  localStorage.removeItem(lockUntilKey);
+  alert("Child unlocked");
+  updateStatus();
+}
 
-    function refreshDashboard() {
-      const verified = localStorage.getItem(parentVerifiedKey) === "true";
-      const locked = localStorage.getItem(kidsLockedKey) !== "false";
-      const schoolLock = localStorage.getItem(schoolHoursLockKey) === "true";
-      const sessionMinutes = localStorage.getItem(sessionMinutesKey) || "60";
-      const cooldownHours = localStorage.getItem(cooldownHoursKey) || "4";
+function lockChild() {
+  const lockTime = Date.now() + (4 * 60 * 60 * 1000); // 4 hours
+  localStorage.setItem(lockUntilKey, lockTime);
+  alert("Child locked for 4 hours");
+  updateStatus();
+}
 
-      document.getElementById("parentStatusText").textContent = verified ? "Verified" : "Not Verified";
-      document.getElementById("kidsModeText").textContent = locked ? "Locked" : "Unlocked";
-      document.getElementById("sessionLimitText").textContent = sessionMinutes + " Min";
-      document.getElementById("cooldownText").textContent = cooldownHours + " Hours";
+function resetSession() {
+  localStorage.removeItem(sessionStartKey);
+  alert("Session reset");
+  updateStatus();
+}
 
-      document.getElementById("verifyBadge").textContent = verified ? "Verified" : "Required";
-      document.getElementById("verifyBadge").className = "status " + (verified ? "ok" : "warn");
+// =====================
+// SCHOOL MODE
+// =====================
+function setSchoolMode(state) {
+  localStorage.setItem(schoolModeKey, state);
+  alert(state ? "School mode enabled" : "School mode disabled");
+}
 
-      document.getElementById("usageSummary").textContent = locked ? "Locked" : "Unlocked";
-      document.getElementById("usageSummary").className = "status " + (locked ? "warn" : "ok");
+// =====================
+// STATUS CHECK
+// =====================
+function updateStatus() {
+  const now = Date.now();
+  const lockUntil = localStorage.getItem(lockUntilKey);
 
-      document.getElementById("authorizationSummary").textContent = verified ? "Verified" : "Not Verified";
-      document.getElementById("authorizationSummary").className = "status " + (verified ? "ok" : "warn");
+  if (lockUntil && now < lockUntil) {
+    const mins = Math.ceil((lockUntil - now) / 60000);
+    document.getElementById("status").innerText = "🔒 Locked";
+    document.getElementById("timeLeft").innerText = "Time remaining: " + mins + " min";
+  } else {
+    document.getElementById("status").innerText = "✅ Active";
+    document.getElementById("timeLeft").innerText = "";
+  }
+}
 
-      document.getElementById("schoolLockStatus").textContent = schoolLock ? "Enabled" : "Disabled";
-      document.getElementById("schoolLockStatus").className = "status " + (schoolLock ? "ok" : "info");
-      document.getElementById("schoolLockButton").textContent = schoolLock ? "Disable School Hours Lock" : "Enable School Hours Lock";
+// AUTO UPDATE
+setInterval(updateStatus, 5000);
 
-      document.getElementById("sessionMinutes").value = sessionMinutes;
-      document.getElementById("cooldownHours").value = cooldownHours;
-      document.getElementById("parentName").value = localStorage.getItem(parentNameKey) || "";
-      document.getElementById("childName").value = localStorage.getItem(childNameKey) || "";
-    }
-
-    function saveParentPin() {
-      const pin = document.getElementById("parentPin").value.trim();
-      if (!pin) {
-        alert("Enter a parent PIN first.");
-        return;
-      }
-      localStorage.setItem(parentPinKey, pin);
-      alert("Parent PIN saved.");
-      document.getElementById("parentPin").value = "";
-    }
-
-    function verifyParent() {
-      const currentPin = localStorage.getItem(parentPinKey) || "1234";
-      const entered = prompt("Enter parent PIN to verify parent access:");
-      if (entered === currentPin) {
-        localStorage.setItem(parentVerifiedKey, "true");
-        alert("Parent verified successfully.");
-        refreshDashboard();
-      } else {
-        alert("Incorrect parent PIN.");
-      }
-    }
-
-    function saveAuthorizationInfo() {
-      const parentName = document.getElementById("parentName").value.trim();
-      const childName = document.getElementById("childName").value.trim();
-
-      localStorage.setItem(parentNameKey, parentName);
-      localStorage.setItem(childNameKey, childName);
-
-      alert("Authorization information saved.");
-      refreshDashboard();
-    }
-
-    function unlockKidsMode() {
-      const verified = localStorage.getItem(parentVerifiedKey) === "true";
-      if (!verified) {
-        alert("Parent verification required before unlocking.");
-        return;
-      }
-      localStorage.setItem(kidsLockedKey, "false");
-      localStorage.removeItem("kids_lock_until");
-      alert("Kids Mode unlocked.");
-      refreshDashboard();
-    }
-
-    function lockKidsMode() {
-      localStorage.setItem(kidsLockedKey, "true");
-      alert("Kids Mode locked.");
-      refreshDashboard();
-    }
-
-    function saveSessionMinutes() {
-      const mins = document.getElementById("sessionMinutes").value;
-      localStorage.setItem(sessionMinutesKey, mins);
-      alert("Session limit saved.");
-      refreshDashboard();
-    }
-
-    function saveCooldownHours() {
-      const hrs = document.getElementById("cooldownHours").value;
-      localStorage.setItem(cooldownHoursKey, hrs);
-      alert("Cooldown saved.");
-      refreshDashboard();
-    }
-
-    function toggleSchoolHoursLock() {
-      const current = localStorage.getItem(schoolHoursLockKey) === "true";
-      localStorage.setItem(schoolHoursLockKey, current ? "false" : "true");
-      refreshDashboard();
-    }
-
-    window.onload = refreshDashboard;
-  </script>
+</script>
 
 </body>
 </html>
-<a class="btn btn-secondary" href="parent-dashboard.html">Parent Dashboard</a>
