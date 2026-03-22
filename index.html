@@ -8,8 +8,8 @@
 <style>
 body {
   margin:0;
-  font-family:Arial, sans-serif;
-  background:#f5f5f5;
+  font-family:-apple-system, BlinkMacSystemFont, sans-serif;
+  background:#ffffff;
   color:#111;
 }
 
@@ -18,93 +18,101 @@ body {
   display:flex;
   justify-content:space-between;
   padding:15px 20px;
-  background:white;
-  border-bottom:1px solid #ddd;
+  border-bottom:1px solid #eee;
 }
-.nav h2 { color:#111; }
-.nav a { color:#333; margin-left:15px; text-decoration:none; }
+.nav h2 {
+  font-weight:700;
+}
+.nav a {
+  margin-left:15px;
+  text-decoration:none;
+  color:#333;
+}
 
 / HERO /
 .hero {
-  padding:60px 20px;
-  background:linear-gradient(to right,#f3f3f3,#ffffff);
+  padding:80px 20px;
+  max-width:900px;
+  margin:auto;
 }
 .hero h1 {
-  font-size:36px;
-  max-width:600px;
+  font-size:42px;
+  line-height:1.2;
+  margin-bottom:20px;
 }
 .hero p {
-  max-width:500px;
   color:#555;
+  font-size:18px;
 }
 
 / BUTTONS /
-.btn {
-  display:inline-block;
-  margin-top:20px;
-  padding:14px 25px;
-  border-radius:30px;
-  font-weight:bold;
-  text-decoration:none;
+.buttons {
+  margin-top:25px;
 }
-
-.btn-main {
+.btn-dark {
   background:#111;
   color:white;
+  padding:14px 25px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
 }
-
 .btn-light {
   background:#eee;
   color:#111;
+  padding:14px 25px;
+  border-radius:30px;
+  text-decoration:none;
   margin-left:10px;
 }
 
 / STATS /
 .stats {
   text-align:center;
-  padding:40px 20px;
+  padding:50px 20px;
 }
 .stats h1 {
-  font-size:40px;
+  font-size:42px;
+  margin-bottom:5px;
 }
 .stats p {
   color:#666;
 }
 
-/ SECTION /
+/ CARDS /
 .section {
   padding:60px 20px;
   text-align:center;
 }
-
 .cards {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
   gap:20px;
 }
-
 .card {
-  background:white;
-  padding:25px;
-  border-radius:12px;
   width:280px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:25px;
+}
+.card h3 {
+  margin-bottom:10px;
 }
 
 / CTA /
 .cta {
   background:#111;
   color:white;
-  padding:60px 20px;
   text-align:center;
+  padding:60px 20px;
 }
 
 / FOOTER */
 .footer {
   text-align:center;
-  padding:20px;
-  color:#777;
+  padding:25px;
+  color:#888;
 }
 </style>
 </head>
@@ -116,67 +124,68 @@ body {
   <h2>SSGPT6</h2>
   <div>
     <a href="#">Home</a>
-    <a href="#features">Solutions</a>
-    <a href="#cta">Start</a>
+    <a href="#solutions">Solutions</a>
+    <a href="#start">Start</a>
   </div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
   <h1>Powering Digital Trust in Business</h1>
-  <p>Certificate solutions, enterprise security, and SSL protection for modern websites.</p>
+  <p>Certificate solutions, enterprise PKI, and signing services for modern websites.</p>
 
-  <a class="btn btn-main" href="https://www.ssl.com/?idev_id=2046" target="_blank">
-    Explore Solutions →
-  </a>
+  <div class="buttons">
+    <a class="btn-dark" href="https://www.ssl.com/?idev_id=2046" target="_blank">
+      Explore solutions →
+    </a>
 
-  <a class="btn btn-light" href="https://www.ssl.com/?idev_id=2046" target="_blank">
-    Speak to Expert →
-  </a>
+    <a class="btn-light" href="https://www.ssl.com/?idev_id=2046" target="_blank">
+      Speak to an expert →
+    </a>
+  </div>
 </div>
 
 <!-- STATS -->
 <div class="stats">
   <h1>500,000+</h1>
-  <p>Trusted Certificates Issued Daily</p>
+  <p>Publicly Trusted Certificates Issued a Day</p>
 
   <br>
 
   <h1>20+</h1>
-  <p>Years Trusted Certificate Authority</p>
+  <p>Years as a Trusted Certificate Authority</p>
 </div>
 
-<!-- FEATURES -->
-<div class="section" id="features">
-  <h2>Security Solutions</h2>
+<!-- SOLUTIONS -->
+<div class="section" id="solutions">
+  <h2>Solutions</h2>
 
   <div class="cards">
-
     <div class="card">
       <h3>SSL Certificates</h3>
       <p>Secure your website with HTTPS encryption.</p>
-      <a class="btn btn-main" href="https://www.ssl.com/?idev_id=2046">Get SSL</a>
+      <a class="btn-dark" href="https://www.ssl.com/?idev_id=2046">Get SSL</a>
     </div>
 
     <div class="card">
       <h3>Code Signing</h3>
-      <p>Verify software and protect users.</p>
-      <a class="btn btn-main" href="https://www.ssl.com/?idev_id=2046">Learn More</a>
+      <p>Protect your software and users.</p>
+      <a class="btn-dark" href="https://www.ssl.com/?idev_id=2046">Learn More</a>
     </div>
 
     <div class="card">
-      <h3>Enterprise Security</h3>
-      <p>Advanced solutions for businesses.</p>
-      <a class="btn btn-main" href="https://www.ssl.com/?idev_id=2046">Explore</a>
+      <h3>Enterprise PKI</h3>
+      <p>Advanced security for organizations.</p>
+      <a class="btn-dark" href="https://www.ssl.com/?idev_id=2046">Explore</a>
     </div>
-
   </div>
 </div>
 
 <!-- CTA -->
-<div class="cta" id="cta">
+<div class="cta" id="start">
   <h2>Start Securing Your Website Today</h2>
-  <a class="btn btn-light" href="https://www.ssl.com/?idev_id=2046">
+  <br>
+  <a class="btn-light" href="https://www.ssl.com/?idev_id=2046">
     Activate SSL →
   </a>
 </div>
@@ -184,7 +193,7 @@ body {
 <!-- FOOTER -->
 <div class="footer">
   <p>© 2026 SSGPT6 | GNAIAAAC LLC</p>
-  <p>Affiliate Disclosure: We may earn commission.</p>
+  <p>Affiliate Disclosure: We may earn commission from purchases.</p>
 </div>
 
 </body>
