@@ -3,56 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SSGPT6 Kids Game + Research Platform</title>
+  <title>SSGPT6 Kids Learning Center</title>
   <style>
     :root{
-      --bg:#07111f;
-      --panel:#0f1d33;
-      --panel2:#142743;
+      --bg:#081426;
+      --panel:#10233f;
+      --panel2:#173257;
+      --panel3:#1d3f6b;
       --text:#eef4ff;
-      --muted:#b9c7dd;
+      --muted:#c0cde0;
       --gold:#f4c542;
-      --blue:#6ec1ff;
       --green:#75d27a;
+      --blue:#6ec1ff;
+      --pink:#ff8fb1;
+      --purple:#b99cff;
+      --red:#ff8b8b;
       --radius:18px;
     }
 
     *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
     body{
       margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:linear-gradient(180deg,#07111f 0%, #0c1930 100%);
+      font-family:Arial,Helvetica,sans-serif;
+      background:linear-gradient(180deg,#081426 0%, #0d1c33 100%);
       color:var(--text);
     }
 
     header{
       position:sticky;
       top:0;
-      z-index:10;
-      background:rgba(7,17,31,.95);
+      z-index:20;
+      background:rgba(8,20,38,.96);
       border-bottom:1px solid rgba(255,255,255,.08);
     }
 
     .nav{
-      max-width:1180px;
+      max-width:1200px;
       margin:auto;
+      padding:16px 20px;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:16px 20px;
       gap:16px;
       flex-wrap:wrap;
     }
 
     .brand{
-      font-size:1.1rem;
-      font-weight:700;
+      font-size:1.2rem;
+      font-weight:800;
       color:var(--gold);
     }
 
     .nav-links{
       display:flex;
-      gap:16px;
+      gap:14px;
       flex-wrap:wrap;
     }
 
@@ -62,31 +69,56 @@
       font-size:.95rem;
     }
 
-    .nav-links a:hover{color:var(--gold)}
+    .nav-links a:hover{
+      color:var(--gold);
+    }
 
     .wrap{
-      max-width:1180px;
+      max-width:1200px;
       margin:auto;
-      padding:28px 20px 60px;
+      padding:24px 20px 60px;
     }
 
     .hero{
       display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:24px;
-      align-items:center;
-      margin-top:16px;
+      grid-template-columns:1.15fr .85fr;
+      gap:20px;
+      margin-top:8px;
     }
 
-    .hero-card,.card,.zone,.price,.feature-box{
+    .card,.tile,.panel{
       background:var(--panel);
       border:1px solid rgba(255,255,255,.08);
       border-radius:var(--radius);
       box-shadow:0 14px 40px rgba(0,0,0,.22);
+      padding:22px;
     }
 
-    .hero-card{
-      padding:28px;
+    .panel{
+      background:var(--panel3);
+    }
+
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(2rem,4vw,3.1rem);
+      line-height:1.05;
+      color:var(--gold);
+    }
+
+    h2{
+      margin:0 0 12px;
+      color:var(--gold);
+      font-size:1.8rem;
+    }
+
+    h3{
+      margin-top:0;
+      margin-bottom:8px;
+    }
+
+    .muted{
+      color:var(--muted);
+      line-height:1.7;
     }
 
     .badge{
@@ -98,24 +130,14 @@
       color:var(--gold);
       font-weight:700;
       font-size:.88rem;
-    }
-
-    h1{
-      font-size:clamp(2rem,5vw,3.5rem);
-      line-height:1.08;
-      margin:16px 0 14px;
-    }
-
-    .hero p{
-      color:var(--muted);
-      line-height:1.7;
+      margin-bottom:12px;
     }
 
     .actions{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
-      margin-top:22px;
+      margin-top:18px;
     }
 
     .btn{
@@ -136,98 +158,170 @@
     .btn-secondary{
       background:transparent;
       color:var(--text);
-      border:1px solid rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.16);
     }
-
-    .hero-side{
-      padding:24px;
-    }
-
-    .hero-side h3{margin-top:0;color:var(--gold)}
-    .mini-list{padding-left:18px;color:var(--muted);line-height:1.8}
 
     .section{
-      margin-top:34px;
+      margin-top:28px;
     }
 
-    .section h2{
-      margin:0 0 12px;
-      color:var(--gold);
-      font-size:2rem;
-    }
-
-    .section p.lead{
-      color:var(--muted);
-      max-width:840px;
-      line-height:1.7;
-    }
-
-    .grid-3,.grid-4,.zones{
+    .grid-4{
       display:grid;
-      gap:18px;
-      margin-top:18px;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
     }
 
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-4{grid-template-columns:repeat(4,1fr)}
-    .zones{grid-template-columns:repeat(3,1fr)}
-
-    .card,.zone,.price,.feature-box{
-      padding:22px;
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
     }
 
-    .card h3,.zone h3,.price h3,.feature-box h3{
-      margin-top:0;
-    }
-
-    .card p,.zone p,.price p,.feature-box p,
-    .card li,.zone li,.price li,.feature-box li{
-      color:var(--muted);
-      line-height:1.7;
-    }
-
-    .zone{
-      background:var(--panel2);
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
     }
 
     .emoji{
       font-size:1.9rem;
-      margin-bottom:10px;
       display:block;
+      margin-bottom:10px;
     }
 
-    .pricing{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-      margin-top:18px;
-    }
-
-    .price.featured{
-      border:1px solid rgba(244,197,66,.35);
-      transform:scale(1.02);
-    }
-
-    .amount{
-      font-size:2rem;
-      font-weight:800;
-      color:var(--text);
-      margin:8px 0 10px;
-    }
-
-    .footer{
-      margin-top:40px;
-      padding-top:22px;
-      border-top:1px solid rgba(255,255,255,.08);
+    .tile p,.card p,.panel p,.tile li,.card li,.panel li{
       color:var(--muted);
+      line-height:1.7;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .mini{
+      background:var(--panel2);
+      border-radius:14px;
+      padding:16px;
       text-align:center;
     }
 
+    .mini-title{
+      color:var(--muted);
+      font-size:.9rem;
+      margin-bottom:6px;
+    }
+
+    .mini-value{
+      font-size:1.3rem;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .flow{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .flow li{
+      background:var(--panel2);
+      border-radius:12px;
+      padding:12px 14px;
+      margin-bottom:10px;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+      margin-right:8px;
+      margin-bottom:8px;
+    }
+
+    .pill-blue{background:rgba(110,193,255,.14); color:var(--blue);}
+    .pill-green{background:rgba(117,210,122,.14); color:var(--green);}
+    .pill-pink{background:rgba(255,143,177,.14); color:var(--pink);}
+    .pill-purple{background:rgba(185,156,255,.14); color:var(--purple);}
+
+    .list{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .notice{
+      background:rgba(117,210,122,.08);
+      border:1px solid rgba(117,210,122,.2);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .warning{
+      background:rgba(255,139,139,.08);
+      border:1px solid rgba(255,139,139,.2);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .timer-box{
+      background:var(--panel2);
+      border-radius:16px;
+      padding:18px;
+      margin-top:14px;
+      text-align:center;
+    }
+
+    .timer{
+      font-size:2rem;
+      font-weight:800;
+      color:var(--gold);
+      margin-top:8px;
+    }
+
+    .lock-screen{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,.92);
+      z-index:9999;
+      padding:20px;
+      text-align:center;
+    }
+
+    .lock-card{
+      max-width:520px;
+      background:#0c1728;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:20px;
+      padding:28px;
+      color:#fff;
+    }
+
+    footer{
+      background:#0b1220;
+      color:#aaa;
+      padding:30px 20px;
+      margin-top:40px;
+      font-size:13px;
+      line-height:1.7;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    footer .footer-wrap{
+      max-width:1200px;
+      margin:auto;
+    }
+
     @media (max-width:980px){
-      .hero,.grid-3,.grid-4,.zones,.pricing{
+      .hero,.grid-4,.grid-3,.grid-2,.mini-grid{
         grid-template-columns:1fr;
       }
-      .price.featured{transform:none}
     }
   </style>
 </head>
@@ -235,232 +329,369 @@
 
   <header>
     <div class="nav">
-      <div class="brand">SSGPT6 Kids Game + Research Platform</div>
+      <div class="brand">SSGPT6 Kids Learning Center</div>
       <nav class="nav-links">
         <a href="#home">Home</a>
-        <a href="#zones">Zones</a>
-        <a href="#features">Features</a>
         <a href="#subjects">Subjects</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#features">Features</a>
+        <a href="#safety">Safety</a>
+        <a href="#parents">Parents</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrap" id="home">
+  <main class="wrap">
 
-    <section class="hero">
-      <div class="hero-card">
-        <span class="badge">Child-safe • AI-assisted • Game-based learning</span>
-        <h1>Play, Read, Explore, and Learn in One Living Kids Platform</h1>
-        <p>
-          The SSGPT6 Kids Game + Research Platform combines 15-minute reading,
-          avatar teachers, educational games, voice support, and AI-powered learning guidance
-          into one active system for kids, parents, and teachers.
+    <section class="hero" id="home">
+      <div class="card">
+        <span class="badge">Safe AI Learning • Reading • Games • Avatar Teacher</span>
+        <h1>Learning, Reading, and Discovery for Kids</h1>
+        <p class="muted">
+          SSGPT6 Kids Learning Center is a guided learning environment for reading,
+          science, math, history, coding, AI basics, teamwork, and discovery.
+          It is built for structured learning with voice support, avatar teaching,
+          educational games, and parent-controlled safety rules.
         </p>
 
         <div class="actions">
-          <a class="btn btn-primary" href="#pricing">Join Now</a>
-          <a class="btn btn-secondary" href="#zones">Explore Learning Zones</a>
+          <button class="btn btn-primary" onclick="startKidsMode()">Start Kids Mode</button>
+          <a class="btn btn-secondary" href="#subjects">Explore Subjects</a>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini">
+            <div class="mini-title">Reading Goal</div>
+            <div class="mini-value">15 Min</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Session Limit</div>
+            <div class="mini-value">1 Hour</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Cooldown</div>
+            <div class="mini-value">4 Hours</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Parent Approval</div>
+            <div class="mini-value">Required</div>
+          </div>
         </div>
       </div>
 
-      <div class="hero-side hero-card">
-        <h3>What kids can do</h3>
-        <ul class="mini-list">
-          <li>Read for 15 minutes with guided support</li>
-          <li>Learn with avatar teachers</li>
-          <li>Play science, math, and history games</li>
-          <li>Use voice commands safely</li>
-          <li>Join team missions</li>
-          <li>Build confidence through active learning</li>
+      <div class="panel">
+        <h2 style="font-size:1.5rem;">AI Sleeping Agent Support</h2>
+
+        <span class="pill pill-blue">Voice Help</span>
+        <span class="pill pill-green">Hints</span>
+        <span class="pill pill-pink">Progress</span>
+        <span class="pill pill-purple">Safety</span>
+
+        <ul class="flow" style="margin-top:14px;">
+          <li>🤖 Gives calm help when a child gets stuck</li>
+          <li>📚 Repeats lessons in easier words</li>
+          <li>🎮 Opens approved educational activities only</li>
+          <li>🔒 Stops after 1 hour and locks for cooldown</li>
         </ul>
-      </div>
-    </section>
 
-    <section class="section" id="zones">
-      <h2>Learning Zones</h2>
-      <p class="lead">
-        Kids enter a safe digital world with subject-based zones designed to keep learning active,
-        simple, and fun.
-      </p>
-
-      <div class="zones">
-        <div class="zone">
-          <span class="emoji">📚</span>
-          <h3>Library Zone</h3>
-          <p>15-minute guided reading, read-aloud mode, bookmarks, and avatar story support.</p>
-        </div>
-        <div class="zone">
-          <span class="emoji">🔬</span>
-          <h3>Science Lab</h3>
-          <p>Experiments, nature challenges, energy concepts, and safe hands-on discovery missions.</p>
-        </div>
-        <div class="zone">
-          <span class="emoji">🧮</span>
-          <h3>Math Arena</h3>
-          <p>Puzzles, patterns, arithmetic, and logic challenges with adaptive difficulty.</p>
-        </div>
-        <div class="zone">
-          <span class="emoji">🌍</span>
-          <h3>History World</h3>
-          <p>Story-led lessons, timelines, civilizations, and mission-based learning journeys.</p>
-        </div>
-        <div class="zone">
-          <span class="emoji">🌌</span>
-          <h3>Space & Cosmology</h3>
-          <p>Planets, stars, galaxies, exploration missions, and universe discovery activities.</p>
-        </div>
-        <div class="zone">
-          <span class="emoji">🤖</span>
-          <h3>AI & Coding Lab</h3>
-          <p>Patterns, simple coding logic, how AI works, and beginner-friendly computer science.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="features">
-      <h2>Core Features</h2>
-      <div class="grid-4">
-        <div class="feature-box">
-          <h3>15-Minute Reading</h3>
-          <p>Short daily reading sessions built for child attention spans and healthy learning habits.</p>
-        </div>
-        <div class="feature-box">
-          <h3>Voice Control</h3>
-          <p>Child-friendly commands like start, pause, repeat, help, and next lesson.</p>
-        </div>
-        <div class="feature-box">
-          <h3>Avatar Teachers</h3>
-          <p>Friendly AI guides for reading, science, history, math, and beginner coding.</p>
-        </div>
-        <div class="feature-box">
-          <h3>AI Sleeping Agent</h3>
-          <p>Background automation for reminders, progress tracking, lesson recommendations, and reports.</p>
+        <div class="timer-box">
+          <div class="muted">Kids Session Timer</div>
+          <div class="timer" id="sessionTimer">Not Started</div>
         </div>
       </div>
     </section>
 
     <section class="section" id="subjects">
-      <h2>Subjects Kids Can Explore</h2>
+      <h2>Learning Subjects</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <span class="emoji">📖</span>
+          <h3>Reading Library</h3>
+          <p>Short guided reading, read-aloud mode, story lessons, and reading support.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🧮</span>
+          <h3>Math Arena</h3>
+          <p>Counting, arithmetic, patterns, geometry, puzzles, and logic games.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🔬</span>
+          <h3>Science Lab</h3>
+          <p>Nature, energy, observation, experiments, matter, and discovery missions.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🌍</span>
+          <h3>History World</h3>
+          <p>Timelines, civilizations, people, places, and story-based history learning.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">💻</span>
+          <h3>Coding Lab</h3>
+          <p>Logic, sequences, loops, conditions, and beginner computer science ideas.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🌌</span>
+          <h3>Cosmology Zone</h3>
+          <p>Planets, stars, galaxies, space exploration, and universe learning.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🤝</span>
+          <h3>Team Missions</h3>
+          <p>Communication, collaboration, teamwork, shared challenges, and leadership.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🤖</span>
+          <h3>AI Basics</h3>
+          <p>Patterns, examples, helpful AI, and safe ways AI can support people.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <h2>Main Features</h2>
       <div class="grid-3">
         <div class="card">
-          <h3>Science & Physics</h3>
-          <ul>
-            <li>experiments</li>
-            <li>energy</li>
-            <li>motion</li>
-            <li>light and sound</li>
-          </ul>
+          <h3>Avatar Teacher</h3>
+          <p>Friendly guided teaching for reading, math, science, history, coding, and AI basics.</p>
         </div>
         <div class="card">
-          <h3>Chemistry & Math</h3>
-          <ul>
-            <li>matter and mixtures</li>
-            <li>patterns and counting</li>
-            <li>logic and geometry</li>
-            <li>problem solving</li>
-          </ul>
+          <h3>Voice Learning</h3>
+          <p>Kids can use approved voice commands like start, pause, repeat, explain, and help.</p>
         </div>
         <div class="card">
-          <h3>History & Cosmology</h3>
-          <ul>
-            <li>civilizations</li>
-            <li>timelines and stories</li>
-            <li>space exploration</li>
-            <li>stars and galaxies</li>
-          </ul>
+          <h3>Educational Games</h3>
+          <p>Only approved learning games and guided activities are available in child mode.</p>
+        </div>
+        <div class="card">
+          <h3>Progress Tracking</h3>
+          <p>Track reading time, learning completion, favorite subjects, and lesson progress.</p>
+        </div>
+        <div class="card">
+          <h3>Structured Sessions</h3>
+          <p>Short, focused learning blocks designed to support healthier screen routines.</p>
+        </div>
+        <div class="card">
+          <h3>Parent Oversight</h3>
+          <p>Parent approval, time controls, and child-safe restrictions are built into the system.</p>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>How the Platform Works</h2>
-      <div class="grid-3">
+    <section class="section" id="safety">
+      <h2>Child Safety & Parent Permission Policy</h2>
+      <div class="grid-2">
         <div class="card">
-          <h3>Step 1</h3>
-          <p>Kids begin with voice start or one-click entry and open a reading or learning mission.</p>
+          <p><strong>Parent Permission Required:</strong><br>
+          Children can only use this platform with parent, guardian, or teacher approval.</p>
+
+          <p><strong>Age Verification:</strong><br>
+          Age confirmation may be required before access is granted.</p>
+
+          <p><strong>Closed System:</strong><br>
+          No external websites or search engines are allowed in child learning mode.</p>
+
+          <p><strong>Allowed Activities:</strong></p>
+          <ul class="list">
+            <li>Reading</li>
+            <li>Educational games</li>
+            <li>Avatar lessons</li>
+            <li>Voice learning tools</li>
+          </ul>
         </div>
+
         <div class="card">
-          <h3>Step 2</h3>
-          <p>They read, learn with avatars, and play an educational mission in a safe learning zone.</p>
-        </div>
-        <div class="card">
-          <h3>Step 3</h3>
-          <p>The AI system saves progress, recommends the next lesson, and prepares reports for adults.</p>
+          <p><strong>1 Hour Limit:</strong><br>
+          The child learning session automatically ends after 1 hour.</p>
+
+          <p><strong>Cooldown:</strong><br>
+          Access is locked for 4 hours unless unlocked by a parent or guardian.</p>
+
+          <p><strong>School Hours Lock:</strong><br>
+          Child mode can be blocked during school hours.</p>
+
+          <p><strong>Privacy:</strong><br>
+          No raw audio or biometric voice data is required for standard child learning support.</p>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Parent & Teacher Support</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Parent Dashboard</h3>
-          <p>See reading summaries, favorite subjects, weekly progress, and gentle recommendations.</p>
+    <section class="section" id="parents">
+      <h2>Parent & School Notices</h2>
+      <div class="grid-2">
+        <div class="notice">
+          <strong>Parent Notice:</strong><br>
+          This system is designed for safe, guided educational use only. Parents and guardians should approve and supervise use where appropriate.
         </div>
-        <div class="card">
-          <h3>Teacher Dashboard</h3>
-          <p>Track class activity, assignments, subject performance, and group participation.</p>
-        </div>
-        <div class="card">
-          <h3>Research Dashboard</h3>
-          <p>Use anonymized learning trends to improve lessons without storing sensitive child data.</p>
+        <div class="warning">
+          <strong>Important:</strong><br>
+          This platform is not a substitute for parental supervision, formal schooling, medical advice, legal advice, or professional care.
         </div>
       </div>
     </section>
 
-    <section class="section" id="pricing">
-      <h2>Pricing</h2>
-      <p class="lead">
-        Simple entry pricing for families, with deeper plans for advanced learning and school use.
-      </p>
+    <section class="section" id="legal-protection">
+      <h2>Legal Protection, Compliance & Business Ethics Notice</h2>
+      <div class="card">
+        <p><strong>Non-Discrimination Policy:</strong><br>
+        SSGPT6 and GNAIAAAC LLC operate under a strict non-discrimination policy. We do not tolerate discrimination, harassment, or unfair treatment based on protected status.</p>
 
-      <div class="pricing">
-        <div class="price">
-          <h3>Starter</h3>
-          <div class="amount">$5/mo</div>
-          <ul>
-            <li>15-minute reading library</li>
-            <li>selected games</li>
-            <li>basic avatar lessons</li>
-            <li>weekly progress summary</li>
-          </ul>
-        </div>
+        <p><strong>Respect & Conduct Requirement:</strong><br>
+        All users, clients, and partners must engage with the platform respectfully. Harmful or abusive behavior may result in restriction or termination of access.</p>
 
-        <div class="price featured">
-          <h3>Core</h3>
-          <div class="amount">$10/mo</div>
-          <ul>
-            <li>expanded lessons</li>
-            <li>more subjects</li>
-            <li>team activities</li>
-            <li>parent dashboard</li>
-            <li>teacher mode</li>
-          </ul>
-        </div>
+        <p><strong>Business Ethics Commitment:</strong><br>
+        GNAIAAAC LLC operates with a commitment to transparency, fairness, and ethical business practices.</p>
 
-        <div class="price">
-          <h3>Plus</h3>
-          <div class="amount">$29/mo</div>
-          <ul>
-            <li>advanced labs</li>
-            <li>premium avatars</li>
-            <li>extra case studies</li>
-            <li>deeper research tools</li>
-          </ul>
-        </div>
-      </div>
+        <p><strong>Legal Compliance:</strong><br>
+        This platform operates in accordance with applicable laws and regulations, including consumer protection, privacy, commerce, tax, and digital service rules.</p>
 
-      <div class="card" style="margin-top:18px;">
-        <h3>Admission Fee</h3>
-        <p><strong>$25 one-time</strong> for onboarding, account setup, orientation, and starter materials.</p>
+        <p><strong>Payments & Taxes:</strong><br>
+        Users are responsible for their own payment accuracy, tax reporting, and legal obligations in their jurisdiction. This platform does not provide legal or tax advice.</p>
+
+        <p><strong>Platform Rights:</strong><br>
+        GNAIAAAC LLC reserves the right to update policies, pricing, or features, and to restrict or terminate access for misuse.</p>
       </div>
     </section>
-
-    <div class="footer">
-      SSGPT6 Kids Game + Research Platform • Powered by GNAIAAAC LLC
-    </div>
 
   </main>
+
+  <footer>
+    <div class="footer-wrap">
+      <p>© 2026 SSGPT6 Kids Learning Center — Powered by GNAIAAAC LLC</p>
+
+      <p>
+        This platform may provide AI-assisted educational tools, reading support, educational games,
+        and guided learning systems. Content is designed for structured learning and should be used
+        under appropriate parental or educational supervision where needed.
+      </p>
+
+      <p>
+        <strong>Subscription Terms:</strong>
+        Access to some services may be provided on a subscription basis. Subscriptions may be canceled at any time unless otherwise stated.
+      </p>
+
+      <p>
+        <strong>Pricing & Consumer Notice:</strong>
+        We reserve the right to update pricing, features, or service structure in the future as the platform evolves.
+      </p>
+
+      <p>
+        <strong>Responsible Use:</strong>
+        AI-generated assistance is designed to support learning and guidance. It should not replace parental, teacher, medical, legal, or other professional judgment where such judgment is required.
+      </p>
+    </div>
+  </footer>
+
+  <div class="lock-screen" id="lockScreen">
+    <div class="lock-card">
+      <h2 style="margin-top:0;color:gold;">Break Time</h2>
+      <p id="lockMessage">Session limit reached. Please return later with parent permission.</p>
+      <button class="btn btn-primary" onclick="parentUnlock()">Parent Unlock</button>
+    </div>
+  </div>
+
+  <script>
+    const MAX_SESSION_TIME = 60 * 60 * 1000;
+    const COOLDOWN_TIME = 4 * 60 * 60 * 1000;
+
+    const sessionStartKey = "kids_session_start";
+    const lockUntilKey = "kids_lock_until";
+    const parentPinKey = "kids_parent_pin";
+
+    let timerInterval = null;
+
+    if (!localStorage.getItem(parentPinKey)) {
+      localStorage.setItem(parentPinKey, "1234");
+    }
+
+    function updateTimerDisplay() {
+      const start = localStorage.getItem(sessionStartKey);
+      const timerEl = document.getElementById("sessionTimer");
+
+      if (!start) {
+        timerEl.textContent = "Not Started";
+        return;
+      }
+
+      const elapsed = Date.now() - Number(start);
+      const remaining = Math.max(0, MAX_SESSION_TIME - elapsed);
+      const minutes = Math.floor(remaining / 60000);
+      const seconds = Math.floor((remaining % 60000) / 1000);
+      timerEl.textContent = minutes + "m " + String(seconds).padStart(2, "0") + "s";
+
+      if (remaining <= 0) {
+        endSession();
+      }
+    }
+
+    function startKidsMode() {
+      const lockUntil = localStorage.getItem(lockUntilKey);
+
+      if (lockUntil && Date.now() < Number(lockUntil)) {
+        showLockScreen(Number(lockUntil));
+        return;
+      }
+
+      if (isSchoolHours()) {
+        alert("Kids Mode may be restricted during school hours.");
+      }
+
+      localStorage.setItem(sessionStartKey, Date.now());
+
+      if (timerInterval) clearInterval(timerInterval);
+      updateTimerDisplay();
+      timerInterval = setInterval(updateTimerDisplay, 1000);
+
+      alert("Kids Mode started. Session will end automatically after 1 hour.");
+    }
+
+    function endSession() {
+      localStorage.removeItem(sessionStartKey);
+      localStorage.setItem(lockUntilKey, Date.now() + COOLDOWN_TIME);
+
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+
+      showLockScreen(Number(localStorage.getItem(lockUntilKey)));
+    }
+
+    function showLockScreen(lockUntil) {
+      const lockScreen = document.getElementById("lockScreen");
+      const lockMessage = document.getElementById("lockMessage");
+
+      const mins = Math.ceil((lockUntil - Date.now()) / 60000);
+      lockMessage.textContent = "Access is locked. Please return later with parent permission. Time remaining: " + mins + " minutes.";
+      lockScreen.style.display = "flex";
+    }
+
+    function parentUnlock() {
+      const entered = prompt("Enter parent PIN");
+      const savedPin = localStorage.getItem(parentPinKey) || "1234";
+
+      if (entered === savedPin) {
+        localStorage.removeItem(lockUntilKey);
+        document.getElementById("lockScreen").style.display = "none";
+        alert("Unlocked by parent.");
+      } else {
+        alert("Incorrect PIN.");
+      }
+    }
+
+    function isSchoolHours() {
+      const now = new Date();
+      const hour = now.getHours();
+      return hour >= 8 && hour <= 15;
+    }
+
+    window.onload = function () {
+      const lockUntil = localStorage.getItem(lockUntilKey);
+      if (lockUntil && Date.now() < Number(lockUntil)) {
+        showLockScreen(Number(lockUntil));
+      } else {
+        updateTimerDisplay();
+      }
+    };
+  </script>
+
 </body>
 </html>
