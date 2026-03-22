@@ -3,483 +3,906 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SSGPT6 Affiliate Security Hub</title>
-  <meta
-    name="description"
-    content="SSGPT6 affiliate security hub for SSL solutions, trusted website security, and safe automation funnel management."
-  />
+  <title>SSGPT6 Media Hub | Video Generator, Talk Show, Podcast & Payments</title>
+  <meta name="description" content="SSGPT6 premium AI media platform with video generator, talk show studio, podcast tools, media board, and payment gateway integration." />
+  <meta property="og:title" content="SSGPT6 Media Hub" />
+  <meta property="og:description" content="AI video, podcast, media, creator tools and payments in one premium platform." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ssgpt6.com/" />
+  <meta name="theme-color" content="#081225" />
   <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      color: #111827;
-      background: #f7f7f8;
-      line-height: 1.5;
+      padding: 0;
+      scroll-behavior: smooth;
     }
-    a { text-decoration: none; color: inherit; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #07101f 0%, #0a1830 45%, #08111f 100%);
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     .container {
-      width: min(1120px, 92%);
-      margin: 0 auto;
+      width: 92%;
+      max-width: 1250px;
+      margin: auto;
     }
-    .topbar {
+
+    .gold {
+      color: #f6c453;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.25s ease;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f6c453, #d79b19);
+      color: #081225;
+      box-shadow: 0 10px 25px rgba(246,196,83,0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(246,196,83,0.35);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: white;
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
+
+    header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e5e7eb;
+      z-index: 999;
+      background: rgba(5, 12, 24, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .topbar-inner {
+
+    .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 72px;
+      padding: 16px 0;
       gap: 16px;
     }
+
     .brand {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-    .brand span { color: #6d28d9; }
-    .nav {
       display: flex;
-      gap: 18px;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #102344;
+      border: 1px solid rgba(246,196,83,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text h1 {
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .brand-text p {
+      font-size: 12px;
+      color: #b9c7e3;
+    }
+
+    .nav-links {
+      display: flex;
       flex-wrap: wrap;
-      font-size: 0.95rem;
-      color: #374151;
+      gap: 14px;
+      font-size: 14px;
+      color: #d9e3f7;
     }
+
     .hero {
-      background: linear-gradient(120deg, #f8f8fb 0%, #fffdf6 100%);
-      padding: 72px 0 56px;
+      padding: 90px 0 60px;
     }
+
     .hero-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 28px;
       align-items: center;
     }
-    h1, h2, h3 {
-      margin: 0 0 14px;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-    }
-    h1 {
-      font-size: clamp(2.3rem, 5vw, 4.3rem);
-      max-width: 720px;
-    }
-    .subtext {
-      color: #4b5563;
-      font-size: 1.08rem;
-      max-width: 700px;
-      margin-bottom: 24px;
-    }
-    .button-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: 0.2s ease;
-      cursor: pointer;
-    }
-    .btn-primary {
-      background: #111827;
-      color: #fff;
-    }
-    .btn-primary:hover { transform: translateY(-1px); }
-    .btn-secondary {
-      background: #fff;
-      color: #111827;
-      border-color: #e5e7eb;
-    }
-    .affiliate-note {
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin-top: 10px;
-    }
-    .panel {
-      background: #fff;
-      border: 1px solid #ececf1;
+
+    .hero-card, .glass {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
       border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 10px 35px rgba(17,24,39,0.06);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.25);
     }
-    .panel h3 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
+
+    .hero-left {
+      padding: 36px;
     }
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.92rem;
-      color: #065f46;
-      background: #ecfdf5;
-      border: 1px solid #a7f3d0;
-      padding: 8px 12px;
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
       border-radius: 999px;
+      background: rgba(246,196,83,0.14);
+      border: 1px solid rgba(246,196,83,0.25);
+      color: #f6c453;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      color: #d3deef;
+      font-size: 18px;
+      margin-bottom: 26px;
+      max-width: 760px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.05);
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat h3 {
+      font-size: 25px;
+      color: #f6c453;
+      margin-bottom: 6px;
+    }
+
+    .stat p {
+      font-size: 13px;
+      margin: 0;
+      color: #d8e0f0;
+    }
+
+    .hero-right {
+      padding: 24px;
+    }
+
+    .hero-panel {
+      padding: 24px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(246,196,83,0.12), rgba(255,255,255,0.03));
+      border: 1px solid rgba(246,196,83,0.18);
+    }
+
+    .hero-panel h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .hero-panel ul {
+      list-style: none;
+    }
+
+    .hero-panel li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: #d8e4fa;
+    }
+
+    .hero-panel li:last-child {
+      border-bottom: none;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-title {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: #c8d6ec;
+      font-size: 17px;
+      margin-bottom: 24px;
+      max-width: 840px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 23px;
+    }
+
+    .card p {
+      color: #d0dcef;
+      font-size: 15px;
       margin-bottom: 16px;
     }
-    .dot {
+
+    .feature-list {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .feature-list li {
+      padding: 8px 0;
+      color: #e2ebfb;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .payment-board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 18px;
+    }
+
+    .price-card {
+      position: relative;
+      padding: 28px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.22);
+    }
+
+    .price-card.highlight {
+      border: 1px solid rgba(246,196,83,0.35);
+      box-shadow: 0 18px 40px rgba(246,196,83,0.16);
+    }
+
+    .badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(246,196,83,0.15);
+      color: #f6c453;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .plan {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 42px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      color: #f6c453;
+    }
+
+    .small {
+      font-size: 13px;
+      color: #b6c8e0;
+    }
+
+    .pay-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .pay-btn {
+      text-align: center;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    .paypal {
+      background: #0070ba;
+      color: white;
+    }
+
+    .stripe {
+      background: #635bff;
+      color: white;
+    }
+
+    .demo-board {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .screen {
+      min-height: 380px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(246,196,83,0.14), rgba(19,39,75,0.95)),
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .screen-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dots span {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: #10b981;
-    }
-    .metric-grid,
-    .card-grid,
-    .step-grid {
-      display: grid;
-      gap: 18px;
-    }
-    .metric-grid { grid-template-columns: repeat(2, 1fr); }
-    .card-grid { grid-template-columns: repeat(3, 1fr); }
-    .step-grid { grid-template-columns: repeat(3, 1fr); }
-    .metric,
-    .card,
-    .step,
-    .safe-box {
-      background: #fff;
-      border: 1px solid #ececf1;
-      border-radius: 22px;
-      padding: 22px;
-    }
-    .metric strong {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 6px;
-    }
-    .section {
-      padding: 58px 0;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      margin-bottom: 10px;
-    }
-    .section-copy {
-      color: #4b5563;
-      max-width: 760px;
-      margin-bottom: 28px;
-    }
-    .card h3, .step h3 { font-size: 1.1rem; }
-    .tag {
+      background: rgba(255,255,255,0.4);
       display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #5b21b6;
-      background: #f3e8ff;
-      padding: 6px 10px;
-      border-radius: 999px;
-      margin-bottom: 12px;
-    }
-    .dark-cta {
-      background: #111827;
-      color: #fff;
-      border-radius: 28px;
-      padding: 42px 28px;
-    }
-    .dark-cta p {
-      color: #d1d5db;
-      max-width: 760px;
-    }
-    .footer {
-      padding: 28px 0 48px;
-      color: #6b7280;
-      font-size: 0.92rem;
-      text-align: center;
-    }
-    .small {
-      font-size: 0.92rem;
-      color: #6b7280;
-    }
-    .mono {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      background: #f3f4f6;
-      border-radius: 10px;
-      padding: 2px 8px;
     }
 
-    @media (max-width: 920px) {
+    .video-box {
+      flex: 1;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.24);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #eaf0fd;
+      font-size: 18px;
+    }
+
+    .contact-box {
+      padding: 26px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-box h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .contact-box p {
+      color: #d2ddf0;
+      margin-bottom: 16px;
+    }
+
+    .contact-box input,
+    .contact-box textarea,
+    .contact-box select {
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 14px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.07);
+      color: white;
+      font-size: 15px;
+    }
+
+    .contact-box textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-box input::placeholder,
+    .contact-box textarea::placeholder {
+      color: #bfcde2;
+    }
+
+    .contact-box button {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+    }
+
+    .media-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .media-item {
+      text-align: center;
+      padding: 18px 12px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #dfe9fa;
+      font-weight: bold;
+    }
+
+    footer {
+      padding: 40px 0 70px;
+      color: #c0d0e7;
+    }
+
+    .footer-box {
+      padding: 26px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-bottom {
+      margin-top: 18px;
+      font-size: 14px;
+      color: #b8c9df;
+    }
+
+    @media (max-width: 1024px) {
       .hero-grid,
-      .card-grid,
-      .step-grid,
-      .metric-grid {
+      .grid-3,
+      .grid-2,
+      .payment-board,
+      .demo-board,
+      .media-strip,
+      .stat-row {
         grid-template-columns: 1fr;
       }
-      .topbar-inner {
-        padding: 14px 0;
-        align-items: flex-start;
-        flex-direction: column;
+
+      .hero h2 {
+        font-size: 38px;
       }
-      .nav { gap: 12px; }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 55px;
+      }
+
+      .hero-left,
+      .hero-right,
+      .card,
+      .price-card,
+      .contact-box,
+      .screen,
+      .footer-box {
+        padding: 20px;
+      }
+
+      .hero h2 {
+        font-size: 30px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .price {
+        font-size: 34px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand">SSGPT6 <span>Affiliate Hub</span></div>
-      <nav class="nav">
-        <a href="#affiliate">Affiliate</a>
-        <a href="#automation">Automation</a>
-        <a href="#funnel">Funnel</a>
-        <a href="#safe-growth">Safe Growth</a>
-        <a href="#start">Start</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="YOUR_LOGO_URL" alt="SSGPT6 Logo" onerror="this.style.display='none';this.parentNode.innerHTML='<span style=&quot;color:#f6c453;font-weight:bold;font-size:18px;&quot;>SS</span>';">
+        </div>
+        <div class="brand-text">
+          <h1>SSGPT6 Media Hub</h1>
+          <p>AI Video • Talk Show • Podcast • Media • Payments</p>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#studio">Studio</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#media">Media</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero" id="affiliate">
+  <section class="hero" id="home">
     <div class="container hero-grid">
-      <div>
-        <h1>Powering Digital Trust With Smart Affiliate Automation</h1>
-        <p class="subtext">
-          Launch your SSL affiliate section with a clean business design, direct call-to-action,
-          lead funnel entry points, and a safe “AI Sleeping Agent” operations layer for tracking,
-          maintenance, and growth.
-        </p>
-
-        <div class="button-row">
-          <a
-            class="btn btn-primary"
-            href="https://www.ssl.com/?idev_id=2046"
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-            onclick="trackAffiliateClick('hero-primary')"
-          >
-            Explore SSL Solutions →
-          </a>
-
-          <a class="btn btn-secondary" href="#automation">
-            Open Automation Panel
-          </a>
-        </div>
-
-        <p class="affiliate-note">
-          Affiliate disclosure: This page includes referral links. A commission may be earned from qualifying purchases.
-        </p>
-      </div>
-
-      <div class="panel">
-        <div class="status"><span class="dot"></span> Sleeping Agent Status: Active</div>
-        <h3>Black Box Operations Panel</h3>
-        <p class="small">
-          Safe operating mode for monitoring, content refresh reminders, internal click tracking,
-          CTA maintenance, and lead funnel health checks.
-        </p>
-        <div class="metric-grid" style="margin-top:18px;">
-          <div class="metric">
-            <strong id="clickCount">0</strong>
-            <span>Tracked CTA Clicks</span>
-          </div>
-          <div class="metric">
-            <strong>24/7</strong>
-            <span>Monitoring Design</span>
-          </div>
-          <div class="metric">
-            <strong>SEO</strong>
-            <span>Content Refresh Ready</span>
-          </div>
-          <div class="metric">
-            <strong>Safe</strong>
-            <span>No Fake Traffic Bots</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="metric-grid">
-        <div class="metric">
-          <strong>HTTPS</strong>
-          <span>Build trust with secure website recommendations</span>
-        </div>
-        <div class="metric">
-          <strong>Funnels</strong>
-          <span>Guide visitors from awareness to action</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="automation">
-    <div class="container">
-      <h2 class="section-title">AI Sleeping Agent Automation</h2>
-      <p class="section-copy">
-        This section is designed as a safe automation layer for your affiliate website. It does not create fake users
-        or fraudulent traffic. Instead, it helps you manage site health, content freshness, calls-to-action, and
-        real visitor conversion paths.
-      </p>
-
-      <div class="card-grid">
-        <div class="card">
-          <div class="tag">Monitor</div>
-          <h3>Uptime Watch</h3>
-          <p>
-            Check whether your page is reachable, whether affiliate buttons are still working,
-            and whether your core sections load correctly.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="tag">Maintain</div>
-          <h3>CTA Health Check</h3>
-          <p>
-            Review button positions, broken links, and top click zones to keep the affiliate section working properly.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="tag">Optimize</div>
-          <h3>Lead Funnel Signals</h3>
-          <p>
-            Measure real clicks, newsletter signups, and consultation requests to improve legitimate conversions.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="funnel">
-    <div class="container">
-      <h2 class="section-title">Safe Funnel Structure</h2>
-      <p class="section-copy">
-        Use a real funnel instead of bots. This gives you a lawful, durable growth system that can actually scale.
-      </p>
-
-      <div class="step-grid">
-        <div class="step">
-          <h3>1. Traffic Source</h3>
-          <p>
-            Bring visitors from search, YouTube, blog posts, your homepage, social posts, and direct outreach.
-          </p>
-        </div>
-
-        <div class="step">
-          <h3>2. Trust Layer</h3>
-          <p>
-            Explain why SSL matters: website security, customer trust, browser warnings, and business credibility.
-          </p>
-        </div>
-
-        <div class="step">
-          <h3>3. Conversion</h3>
-          <p>
-            Send qualified visitors to your affiliate link after they understand the value and are ready to act.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="safe-growth">
-    <div class="container">
-      <h2 class="section-title">What the Sleeping Agent Can Do Safely</h2>
-      <p class="section-copy">
-        These are the automation jobs you can use without risking fraud, fake traffic, or affiliate abuse.
-      </p>
-
-      <div class="card-grid">
-        <div class="safe-box">
-          <h3>Content Reminders</h3>
-          <p>Remind you to publish SEO posts like “How to fix Not Secure website” and “Why HTTPS matters.”</p>
-        </div>
-        <div class="safe-box">
-          <h3>Link Validation</h3>
-          <p>Regularly verify that your affiliate buttons still open the correct destination.</p>
-        </div>
-        <div class="safe-box">
-          <h3>Analytics Logging</h3>
-          <p>Track real on-site button clicks and section performance using your own analytics tools.</p>
-        </div>
-        <div class="safe-box">
-          <h3>Email Capture</h3>
-          <p>Collect interested visitors for follow-up newsletters, guides, and security consultations.</p>
-        </div>
-        <div class="safe-box">
-          <h3>A/B Testing</h3>
-          <p>Test different headlines and button wording to improve real conversions.</p>
-        </div>
-        <div class="safe-box">
-          <h3>Alert System</h3>
-          <p>Notify you when the page is down, when the button fails, or when content needs updating.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="start">
-    <div class="container">
-      <div class="dark-cta">
-        <h2 class="section-title" style="color:#fff;">Open the Affiliate Section Now</h2>
+      <div class="hero-card hero-left">
+        <span class="tag">Premium AI Creator Platform</span>
+        <h2>Build <span class="gold">Video</span>, <span class="gold">Podcast</span>, <span class="gold">Talk Show</span> & Media Business In One Place</h2>
         <p>
-          Your affiliate page is ready for real traffic, real trust, and real conversion tracking.
-          Use the button below to open the SSL offer through your referral link.
+          Launch your digital media platform with premium branding, content tools, service packages,
+          payment gateway buttons, creator boards, and monetization-ready sections — all inside one website.
         </p>
-        <div class="button-row" style="margin-top: 18px;">
-          <a
-            class="btn btn-secondary"
-            href="https://www.ssl.com/?idev_id=2046"
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-            onclick="trackAffiliateClick('cta-bottom')"
-          >
-            Activate SSL Affiliate Link →
-          </a>
+
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-primary">View Payment Board</a>
+          <a href="#contact" class="btn btn-secondary">Start Your Project</a>
         </div>
-        <p class="affiliate-note" style="color:#d1d5db;">
-          Your affiliate destination: <span class="mono">https://www.ssl.com/?idev_id=2046</span>
-        </p>
+
+        <div class="stat-row">
+          <div class="stat">
+            <h3>24/7</h3>
+            <p>Creator-ready media presence</p>
+          </div>
+          <div class="stat">
+            <h3>AI</h3>
+            <p>Video, podcast and automation vision</p>
+          </div>
+          <div class="stat">
+            <h3>1 Site</h3>
+            <p>Brand, content and payment hub together</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card hero-right">
+        <div class="hero-panel">
+          <h3>Platform Includes</h3>
+          <ul>
+            <li>✔ Premium logo and hero board</li>
+            <li>✔ Video Generator service section</li>
+            <li>✔ Talk Show / Live Broadcast section</li>
+            <li>✔ Podcast Studio service section</li>
+            <li>✔ Media distribution board</li>
+            <li>✔ PayPal payment buttons</li>
+            <li>✔ Stripe payment buttons</li>
+            <li>✔ Contact / request form area</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
+  <section id="services">
     <div class="container">
-      <p>© 2026 SSGPT6 | GNAIAAAC LLC</p>
-      <p>Safe automation only. No fake traffic bots, no false clicks, no affiliate manipulation.</p>
+      <h2 class="section-title">Core Services</h2>
+      <p class="section-subtitle">
+        Offer powerful creator and production services under one premium media brand.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>🎬 AI Video Generator</h3>
+          <p>
+            Create short-form videos, product promos, branded clips, ad concepts,
+            cinematic intros, and visual storytelling campaigns.
+          </p>
+          <ul class="feature-list">
+            <li>Script-to-video concept packaging</li>
+            <li>Promo clips and social content ideas</li>
+            <li>Branded intros and visual direction</li>
+            <li>Creator-ready launch pages</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>🎙 Talk Show Studio</h3>
+          <p>
+            Position your brand as a digital talk show network with interview-ready
+            presentation, speaker features, and streaming-style branding.
+          </p>
+          <ul class="feature-list">
+            <li>Host and guest show layouts</li>
+            <li>Discussion board concept</li>
+            <li>Audience-focused show branding</li>
+            <li>Media-ready episode structure</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>🎧 Podcast Production</h3>
+          <p>
+            Build your podcast identity with premium service packaging for planning,
+            show descriptions, publishing support, and episode branding.
+          </p>
+          <ul class="feature-list">
+            <li>Podcast series setup</li>
+            <li>Episode cover and show text</li>
+            <li>Topic planning and positioning</li>
+            <li>Multi-platform media presentation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="studio">
+    <div class="container">
+      <h2 class="section-title">Creator Studio Board</h2>
+      <p class="section-subtitle">
+        Show your platform as a next-generation media command center for AI content,
+        visual campaigns, streaming, voice production, and audience growth.
+      </p>
+
+      <div class="demo-board">
+        <div class="screen">
+          <div class="screen-top">
+            <h3>SSGPT6 Creator Control Panel</h3>
+            <div class="dots">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="video-box">
+            <div>
+              <h3 style="margin-bottom:12px;">Video • Podcast • Talk Show • Media Hub</h3>
+              <p style="color:#d7e3f8;">
+                Use this board as your premium visual section for content creation, service delivery,
+                package sales, and future automation upgrades.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <h3>Quick Request</h3>
+          <p>Visitors can send a service request directly from your website.</p>
+          <form action="mailto:ssgpt6@aol.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <select name="service" required>
+              <option value="">Select service</option>
+              <option>AI Video Generator</option>
+              <option>Talk Show Setup</option>
+              <option>Podcast Production</option>
+              <option>Media Package</option>
+              <option>Custom Project</option>
+            </select>
+            <textarea name="message" placeholder="Tell us what you want built..." required></textarea>
+            <button type="submit" class="btn btn-primary">Send Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">Payment Board</h2>
+      <p class="section-subtitle">
+        Use PayPal and Stripe buttons so customers can choose how they want to pay.
+        Replace the placeholder links with your real checkout links.
+      </p>
+
+      <div class="payment-board">
+        <div class="price-card">
+          <h3 class="plan">Starter Media Pack</h3>
+          <div class="price">$49</div>
+          <p class="small">Best for quick launch pages and simple branded content service offers.</p>
+          <ul class="feature-list">
+            <li>1 service landing section</li>
+            <li>Brand intro board</li>
+            <li>Payment buttons</li>
+            <li>Basic contact setup</li>
+          </ul>
+          <div class="pay-buttons">
+            <a class="pay-btn paypal" href="YOUR_PAYPAL_LINK" target="_blank">Pay with PayPal</a>
+            <a class="pay-btn stripe" href="YOUR_STRIPE_LINK" target="_blank">Pay with Stripe</a>
+          </div>
+        </div>
+
+        <div class="price-card highlight">
+          <span class="badge">Most Popular</span>
+          <h3 class="plan">Pro Creator Pack</h3>
+          <div class="price">$99</div>
+          <p class="small">Ideal for video generator, podcast, and talk show service websites.</p>
+          <ul class="feature-list">
+            <li>Full homepage design</li>
+            <li>Video + podcast sections</li>
+            <li>Premium pricing board</li>
+            <li>Dual payment gateway buttons</li>
+          </ul>
+          <div class="pay-buttons">
+            <a class="pay-btn paypal" href="YOUR_PAYPAL_LINK" target="_blank">Pay with PayPal</a>
+            <a class="pay-btn stripe" href="YOUR_STRIPE_LINK" target="_blank">Pay with Stripe</a>
+          </div>
+        </div>
+
+        <div class="price-card">
+          <h3 class="plan">Enterprise Media Hub</h3>
+          <div class="price">$199</div>
+          <p class="small">For larger brand presence with media board, studio vision, and custom workflow.</p>
+          <ul class="feature-list">
+            <li>Premium branded platform</li>
+            <li>Multiple service blocks</li>
+            <li>Media showcase board</li>
+            <li>Founder contact funnel</li>
+          </ul>
+          <div class="pay-buttons">
+            <a class="pay-btn paypal" href="YOUR_PAYPAL_LINK" target="_blank">Pay with PayPal</a>
+            <a class="pay-btn stripe" href="YOUR_STRIPE_LINK" target="_blank">Pay with Stripe</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="media">
+    <div class="container">
+      <h2 class="section-title">Media Ecosystem</h2>
+      <p class="section-subtitle">
+        Present your website as a central brand hub for media distribution, creator services,
+        public content, and future digital expansion.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>📡 Media Distribution Board</h3>
+          <p>
+            Organize your public-facing media strategy for social channels, publishing,
+            interviews, product launches, and creator outreach.
+          </p>
+          <ul class="feature-list">
+            <li>YouTube and video launch direction</li>
+            <li>Podcast and speaker brand positioning</li>
+            <li>Talk show promo and audience funnel ideas</li>
+            <li>Multi-format creator service presentation</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>💼 Monetization & Growth</h3>
+          <p>
+            Turn your website into a sales-ready media hub with payment boards,
+            service tiers, founder contact flow, and premium offers.
+          </p>
+          <ul class="feature-list">
+            <li>PayPal + Stripe payment links</li>
+            <li>Tiered service packages</li>
+            <li>Lead capture through contact form</li>
+            <li>Brand trust and premium look</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="media-strip">
+        <div class="media-item">Video</div>
+        <div class="media-item">Podcast</div>
+        <div class="media-item">Talk Show</div>
+        <div class="media-item">Streaming</div>
+        <div class="media-item">Publishing</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Start Your Project</h2>
+      <p class="section-subtitle">
+        Ready to build your AI media platform? Contact Founder Support and choose your payment method.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Founder Contact</h3>
+          <p>
+            Email: <strong>ssgpt6@aol.com</strong><br>
+            Brand: <strong>SSGPT6 Media Hub</strong><br>
+            Services: Video Generator, Podcast, Talk Show, Media Branding, Creator Packages
+          </p>
+          <div class="hero-actions">
+            <a href="mailto:ssgpt6@aol.com" class="btn btn-secondary">Email Now</a>
+            <a href="#pricing" class="btn btn-primary">Go to Pricing</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Direct Payment Options</h3>
+          <p>Use your real checkout links here.</p>
+          <div class="pay-buttons">
+            <a class="pay-btn paypal" href="YOUR_PAYPAL_LINK" target="_blank">Open PayPal Checkout</a>
+            <a class="pay-btn stripe" href="YOUR_STRIPE_LINK" target="_blank">Open Stripe Checkout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-box">
+        <h3 style="margin-bottom:10px;">SSGPT6 Media Hub</h3>
+        <p>
+          Premium digital platform for AI media services, creator launch support,
+          video generation concepts, talk show branding, podcast presentation,
+          and payment-ready service packaging.
+        </p>
+        <div class="footer-bottom">
+          © 2026 SSGPT6. All rights reserved.
+        </div>
+      </div>
     </div>
   </footer>
 
-  <script>
-    function trackAffiliateClick(source) {
-      try {
-        const current = Number(localStorage.getItem("ssgpt6_affiliate_clicks") || "0");
-        const next = current + 1;
-        localStorage.setItem("ssgpt6_affiliate_clicks", String(next));
-        localStorage.setItem("ssgpt6_last_click_source", source);
-        updateClickDisplay();
-      } catch (e) {
-        console.log("Tracking unavailable", e);
-      }
-    }
-
-    function updateClickDisplay() {
-      try {
-        const count = Number(localStorage.getItem("ssgpt6_affiliate_clicks") || "0");
-        const counter = document.getElementById("clickCount");
-        if (counter) counter.textContent = count;
-      } catch (e) {
-        console.log("Display unavailable", e);
-      }
-    }
-
-    updateClickDisplay();
-  </script>
 </body>
 </html>
