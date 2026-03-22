@@ -8,16 +8,48 @@
 <h2>Apple (AAPL)</h2>
 <p id="price">Loading...</p>
 
-<div id="news"></div>
+<div id="status" style="margin-top:10px;color:#ccc;"></div>
+
+<div id="news" style="margin-top:20px;"></div>
 
 <script>
-document.getElementById("price").innerText = "Price: $Demo (Safe Mode)";
+const API_KEY = "ZD88CFMC438XC7Q8";
 
-document.getElementById("news").innerHTML = `
-<div style="background:#132b4a;padding:10px;margin:10px;">
-• System running in safe mode (no API crash)
-</div>
-`;
+// SAFE PRICE LOADER
+async function loadPrice() {
+  try {
+    const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=${API_KEY}`;
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data["Global Quote"] && data["Global Quote"]["05. price"]) {
+      document.getElementById("price").innerText =
+        "Price: $" + data["Global Quote"]["05. price"];
+      document.getElementById("status").innerText = "Live data connected";
+    } else {
+      throw new Error("No data");
+    }
+
+  } catch (error) {
+    document.getElementById("price").innerText =
+      "Price: $Demo (Safe Mode)";
+    document.getElementById("status").innerText =
+      "Live API unavailable — safe mode active";
+  }
+}
+
+// SIMPLE NEWS (STATIC SAFE MODE)
+function loadNews() {
+  document.getElementById("news").innerHTML = `
+    <div style="background:#132b4a;padding:10px;margin:10px;">
+      • Market intelligence module active (safe mode)
+    </div>
+  `;
+}
+
+// RUN
+loadPrice();
+loadNews();
 </script>
 
 </body>
