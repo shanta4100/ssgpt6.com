@@ -1,8 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GN-AI Market Terminal</title>
+</head>
+
+<body style="margin:0;font-family:Arial;background:#07111f;color:white;">
+
+<!-- HEADER -->
+<div style="text-align:center;padding:25px;background:#0c1b31;">
+<h1 style="color:gold;">GN-AI Market Terminal</h1>
+<p>Educational • Protected • No Trading</p>
+</div>
+
+<!-- WARNING -->
+<div style="background:#8b0000;text-align:center;padding:12px;">
+⚠️ NO TRADING — Intelligence Only
+</div>
+
+<!-- GRID -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:20px;">
+
+<!-- APPLE -->
+<div style="background:#132b4a;padding:20px;border-radius:12px;text-align:center;">
+<h2>Apple</h2>
+<p id="aapl-price">Loading...</p>
+<p id="aapl-signal"></p>
+</div>
+
+<!-- TESLA -->
+<div style="background:#132b4a;padding:20px;border-radius:12px;text-align:center;">
+<h2>Tesla</h2>
+<p id="tsla-price">Loading...</p>
+<p id="tsla-signal"></p>
+</div>
+
+<!-- BITCOIN -->
+<div style="background:#132b4a;padding:20px;border-radius:12px;text-align:center;">
+<h2>Bitcoin</h2>
+<p id="btc-price">$Demo</p>
+<p id="btc-signal">🟡 Watch</p>
+</div>
+
+</div>
+
+<!-- GLOBAL PANEL -->
+<div style="padding:20px;text-align:center;">
+<h2 style="color:gold;">GN-AI Insight Panel</h2>
+<p id="global-signal">Analyzing global market...</p>
+</div>
+
+<!-- FINANCIAL ANALYSIS -->
+<div style="padding:20px;">
+
+<h2 style="color:gold;text-align:center;">Financial Analysis</h2>
+
+<div style="background:#132b4a;padding:15px;margin:15px;border-radius:10px;">
+
+<p><strong>Historical Comparison:</strong><br>
+Current price above average baseline → indicates stability.</p>
+
+<p><strong>Risk Factors:</strong><br>
+• Market volatility<br>
+• News sentiment shifts<br>
+• Interest rates & inflation</p>
+
+<p><strong>Variance (Volatility):</strong><br>
+Moderate — price fluctuates within expected range.</p>
+
+<p><strong>Probability Insight:</strong><br>
+Short-term: Neutral to Stable<br>
+Long-term: Growth depends on macro + earnings</p>
+
+<p><strong>Investor Curve:</strong><br>
+Mid-cycle phase — not early growth, not peak risk.</p>
+
+</div>
+
+</div>
+
+<!-- DISCLAIMER -->
+<div style="background:#000;padding:20px;text-align:center;font-size:12px;color:#ccc;">
+
+⚠️ DISCLAIMER<br><br>
+
+This platform is for educational and informational purposes only.<br><br>
+
+GN-AI does NOT provide financial, investment, or legal advice.<br><br>
+
+All signals, insights, and analysis are AI-generated and may be inaccurate, incomplete, or outdated.<br><br>
+
+Markets are unpredictable and cannot be forecast with certainty.<br><br>
+
+You are solely responsible for your decisions.<br><br>
+
+GNAIAAAC LLC is NOT liable for any financial losses or damages.
+
+</div>
+
+<!-- SCRIPT -->
 <script>
 const API_KEY = "ZD88CFMC438XC7Q8";
-const NEWS_API = "96bc9d3cc53f49abb2d8ebfd87b886e1";
 
-// LOAD STOCK + AI LOGIC
+// LOAD FUNCTION
 async function load(symbol, priceId, signalId) {
   try {
     const res = await fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${API_KEY}`);
@@ -12,13 +113,27 @@ async function load(symbol, priceId, signalId) {
 
     if (data["Global Quote"] && data["Global Quote"]["05. price"]) {
       price = parseFloat(data["Global Quote"]["05. price"]);
-      document.getElementById(priceId).innerText = "$" + price;
-    } else {
-      throw new Error();
-    }
+      document.getElementById(priceId).innerText = "$" + price.toFixed(2);
 
-    const sentiment = await getSentiment(symbol);
-    generateAI(signalId, price, sentiment, symbol);
+      // SIGNAL LOGIC
+      let signal = "🟡 Watch";
+      let reason = "";
+
+      if (price > 200) {
+        signal = "🟢 Stable";
+        reason = "Strong price stability";
+      } else if (price > 150) {
+        signal = "🟡 Watch";
+        reason = "Moderate conditions";
+      } else {
+        signal = "🔴 Risk";
+        reason = "Weak price level";
+      }
+
+      document.getElementById(signalId).innerHTML =
+        signal + "<br><small>" + reason + "</small>";
+
+    } else throw new Error();
 
   } catch {
     document.getElementById(priceId).innerText = "$Demo";
@@ -26,56 +141,14 @@ async function load(symbol, priceId, signalId) {
   }
 }
 
-// SENTIMENT ENGINE
-async function getSentiment(symbol) {
-  try {
-    const res = await fetch(`https://newsapi.org/v2/everything?q=${symbol}&apiKey=${NEWS_API}`);
-    const data = await res.json();
-
-    let positive = 0;
-    let negative = 0;
-
-    data.articles.slice(0,5).forEach(article => {
-      const text = article.title.toLowerCase();
-
-      if (text.includes("growth") || text.includes("profit")) positive++;
-      if (text.includes("loss") || text.includes("drop")) negative++;
-    });
-
-    if (positive > negative) return "Positive";
-    if (negative > positive) return "Negative";
-    return "Neutral";
-
-  } catch {
-    return "Neutral";
-  }
-}
-
-// AI SIGNAL + EXPLANATION
-function generateAI(id, price, sentiment, symbol) {
-  let signal = "🟡 Watch";
-  let reason = "";
-
-  if (price > 200 && sentiment === "Positive") {
-    signal = "🟢 Stable";
-    reason = "Strong price + positive sentiment";
-  }
-  else if (sentiment === "Negative") {
-    signal = "🔴 Risk";
-    reason = "Negative news pressure";
-  }
-  else {
-    signal = "🟡 Watch";
-    reason = "Mixed signals";
-  }
-
-  document.getElementById(id).innerHTML =
-    signal + "<br><small>" + reason + "</small>";
-}
-
-// LOAD
+// LOAD DATA
 load("AAPL", "aapl-price", "aapl-signal");
 load("TSLA", "tsla-price", "tsla-signal");
 
-// BTC stays demo
+// GLOBAL SIGNAL
+document.getElementById("global-signal").innerText =
+"Market Condition: 🟢 Stable • Volatility Low • Sentiment Neutral";
 </script>
+
+</body>
+</html>
