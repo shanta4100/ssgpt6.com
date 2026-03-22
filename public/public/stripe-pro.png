@@ -1,0 +1,47 @@
+<!-- STRIPE PRICING SECTION -->
+<section style="padding:60px;text-align:center;background:#0b1a2f;color:white;">
+
+  <h2 style="color:gold;font-size:34px;">Choose Your Plan</h2>
+  <p>Secure Checkout • Instant Access • 48-Hour Delivery</p>
+
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:30px;margin-top:50px;">
+
+    <!-- BASIC -->
+    <div style="background:#132b4a;padding:25px;border-radius:12px;width:280px;">
+      <h3 style="color:gold;">EarnAI Basic</h3>
+      <p style="font-size:22px;font-weight:bold;">$50</p>
+      <img src="/stripe-basic.png" style="width:180px;border-radius:10px;margin:15px 0;" />
+      <a href="https://buy.stripe.com/aFaeVc2Qr5rk5wafk557W0s"
+         target="_blank"
+         style="display:block;padding:12px;background:gold;color:black;font-weight:bold;border-radius:8px;text-decoration:none;">
+         Pay Now
+      </a>
+    </div>
+
+    <!-- STANDARD -->
+    <div style="background:#132b4a;padding:25px;border-radius:12px;width:280px;border:2px solid gold;">
+      <h3 style="color:gold;">EarnAI Standard ⭐</h3>
+      <p style="font-size:22px;font-weight:bold;">$100</p>
+      <img src="/stripe-standard.png" style="width:180px;border-radius:10px;margin:15px 0;" />
+      <a href="https://buy.stripe.com/4gM4gycr11b44s68VH57W0t"
+         target="_blank"
+         style="display:block;padding:12px;background:gold;color:black;font-weight:bold;border-radius:8px;text-decoration:none;">
+         Pay Now
+      </a>
+    </div>
+
+    <!-- PRO -->
+    <div style="background:#132b4a;padding:25px;border-radius:12px;width:280px;border:2px solid #00ffd5;">
+      <h3 style="color:#00ffd5;">EarnAI Pro 🚀</h3>
+      <p style="font-size:22px;font-weight:bold;">$150</p>
+      <img src="/stripe-pro.png" style="width:180px;border-radius:10px;margin:15px 0;" />
+      <a href="https://buy.stripe.com/14A9AScr11b4e2G9ZL57W0u"
+         target="_blank"
+         style="display:block;padding:12px;background:#00ffd5;color:black;font-weight:bold;border-radius:8px;text-decoration:none;">
+         Go Pro
+      </a>
+    </div>
+
+  </div>
+
+</section>
