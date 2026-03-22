@@ -1,276 +1,693 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SSGPT6 Founder Ecosystem</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 | Founder Intelligence Platform</title>
+  <meta name="description" content="SSGPT6 Founder Intelligence Platform — finance, systems, projects, academy, and strategic infrastructure." />
+  <style>
+    :root {
+      --bg: #060d18;
+      --panel: #0c1728;
+      --panel-2: #101d31;
+      --text: #e8edf5;
+      --muted: #9aa8bd;
+      --line: rgba(255,255,255,0.08);
+      --accent: #c7a85a;
+      --accent-soft: rgba(199,168,90,0.18);
+      --white-soft: rgba(255,255,255,0.04);
+      --max: 1180px;
+    }
 
-<style>
-html {
-  scroll-behavior: smooth;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #071326;
-  color: white;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-nav {
-  background: #020d1f;
-  padding: 15px;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top right, rgba(199,168,90,0.08), transparent 24%),
+        linear-gradient(180deg, #050b14 0%, #07101d 50%, #060d18 100%);
+      color: var(--text);
+      line-height: 1.65;
+      letter-spacing: 0.1px;
+    }
 
-nav a {
-  color: #ddd;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-nav a:hover {
-  color: gold;
-}
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
 
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(6, 13, 24, 0.84);
+      border-bottom: 1px solid var(--line);
+    }
 
-.hero h1 {
-  font-size: 2.8rem;
-  color: gold;
-  margin-bottom: 10px;
-}
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 18px 0;
+    }
 
-.hero p {
-  color: #bbb;
-  margin-top: 10px;
-  font-size: 1.1rem;
-}
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
 
-.section {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: auto;
-}
+    .brand-mark {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-.card {
-  background: #0b1f3a;
-  padding: 25px;
-  margin-top: 20px;
-  border-radius: 12px;
-}
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: flex-end;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-.card h3 {
-  color: gold;
-  margin-top: 0;
-}
+    nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+    }
 
-.btn {
-  display: inline-block;
-  background: gold;
-  color: black;
-  padding: 12px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  margin-top: 15px;
-  font-weight: bold;
-}
+    nav a:hover {
+      color: var(--text);
+    }
 
-.btn:hover {
-  background: #ffd84d;
-}
+    .hero {
+      padding: 110px 0 80px;
+      border-bottom: 1px solid var(--line);
+    }
 
-footer {
-  background: #020d1f;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 44px;
+      align-items: end;
+    }
 
-.note {
-  color: #bbb;
-  margin-top: 10px;
-}
-</style>
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(199,168,90,0.06);
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.5rem, 5vw, 4.7rem);
+      line-height: 1.08;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-side {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid var(--line);
+      padding: 28px;
+    }
+
+    .hero-side h3 {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-side p {
+      color: var(--muted);
+      margin: 0 0 14px;
+      font-size: 0.98rem;
+    }
+
+    .section {
+      padding: 76px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-intro {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 36px;
+      margin-bottom: 34px;
+      align-items: start;
+    }
+
+    .section-label {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--accent);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.15;
+      font-weight: 600;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: 1rem;
+      margin: 0;
+      max-width: 760px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.015));
+      border: 1px solid var(--line);
+      padding: 26px;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(199,168,90,0.26);
+    }
+
+    .card-top {
+      display: block;
+    }
+
+    .card-index {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--accent);
+      font-size: 0.82rem;
+      letter-spacing: 1.2px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.38rem;
+      line-height: 1.2;
+      font-weight: 600;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .card-link {
+      margin-top: 22px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      font-size: 0.95rem;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    .essay {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .essay-box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      padding: 28px;
+    }
+
+    .essay-box h3 {
+      margin: 0 0 14px;
+      font-size: 1.22rem;
+      color: var(--text);
+    }
+
+    .essay-box p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .price-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      padding: 28px;
+    }
+
+    .price-card.featured {
+      border-color: rgba(199,168,90,0.35);
+      background: linear-gradient(180deg, rgba(199,168,90,0.08), rgba(255,255,255,0.02));
+    }
+
+    .price-name {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-size: 0.82rem;
+      margin-bottom: 10px;
+    }
+
+    .price-value {
+      font-size: 2.3rem;
+      margin: 0 0 12px;
+      font-weight: 600;
+    }
+
+    .price-text {
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+
+    .action {
+      display: inline-block;
+      padding: 12px 18px;
+      border: 1px solid rgba(199,168,90,0.35);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      transition: 0.18s ease;
+    }
+
+    .action:hover {
+      background: rgba(199,168,90,0.08);
+    }
+
+    .closing {
+      padding: 86px 0;
+    }
+
+    .closing-box {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding: 34px;
+    }
+
+    .closing-box h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 600;
+    }
+
+    .closing-box p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 26px 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-intro,
+      .essay,
+      .grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding: 90px 0 64px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .brand-mark {
+        font-size: 1.45rem;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+
+      .card,
+      .essay-box,
+      .price-card,
+      .hero-side,
+      .closing-box {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#finance">Finance</a>
-  <a href="#academy">Academy</a>
-  <a href="#projects">Projects</a>
-  <a href="#affiliate">Affiliate</a>
-  <a href="#pricing">Pricing</a>
-</nav>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <div class="brand-mark">SSGPT6</div>
+        <div class="brand-sub">Founder Intelligence Platform</div>
+      </div>
 
-<div class="hero" id="home">
-  <h1>SSGPT6 Founder Ecosystem</h1>
-  <p>AI • Finance • Academy • Kids • Affiliate • Projects</p>
-  <a class="btn" href="#finance">Explore Platform</a>
-</div>
+      <nav>
+        <a href="#platform">Platform</a>
+        <a href="#finance">Finance</a>
+        <a href="#academy">Academy</a>
+        <a href="#projects">Projects</a>
+        <a href="#pricing">Access</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="section" id="finance">
-  <h2>Finance</h2>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Strategic Digital Architecture</div>
+        <h1>Built less like a website. More like an institution.</h1>
+        <p>
+          SSGPT6 is positioned as a founder-led intelligence environment for structured knowledge,
+          financial reasoning, platform architecture, project governance, and long-horizon digital development.
+        </p>
+      </div>
 
-  <div class="card" id="financial-knowledge">
-    <h3>Financial Knowledge</h3>
-    <p>Accounting, bookkeeping, and financial fundamentals.</p>
-    <a class="btn" href="#financial-knowledge-details">Open</a>
-  </div>
+      <aside class="hero-side">
+        <h3>Current Position</h3>
+        <p>
+          This platform is being shaped as a serious operating layer rather than a mass-market landing page.
+        </p>
+        <p>
+          The design direction is intentionally restrained: executive, analytical, calm, and intellectually organized.
+        </p>
+      </aside>
+    </div>
+  </section>
 
-  <div class="card" id="financial-intelligence">
-    <h3>Financial Intelligence</h3>
-    <p>Advanced analysis, reporting, and decision systems.</p>
-    <a class="btn" href="#financial-intelligence-details">Open</a>
-  </div>
+  <section class="section" id="platform">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-label">Platform</div>
+          <h2 class="section-title">A multi-domain founder system with clear internal logic.</h2>
+        </div>
+        <p class="section-copy">
+          The goal is not visual noise. The goal is structural clarity. Each layer of the platform should communicate
+          purpose: what it governs, what it teaches, what it builds, and how it expands into separate projects.
+        </p>
+      </div>
 
-  <div class="card" id="gnai-trading">
-    <h3>GNAI Trading</h3>
-    <p>Trading ideas, market structure, and financial ecosystem planning.</p>
-    <a class="btn" href="#projects">Open</a>
-  </div>
-</div>
+      <div class="essay">
+        <div class="essay-box">
+          <h3>Why this direction is different</h3>
+          <p>
+            Instead of using loud gradients, oversized buttons, and startup-style hype language, this homepage is
+            framed like a strategic brief. It creates trust by looking deliberate, not decorative.
+          </p>
+        </div>
+        <div class="essay-box">
+          <h3>What the design is signaling</h3>
+          <p>
+            Founder seriousness, policy awareness, financial depth, project discipline, and long-term system thinking.
+            It should feel closer to a high-level platform memo than a colorful consumer ad.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="section" id="financial-knowledge-details">
-  <h2>Financial Knowledge Details</h2>
-  <div class="card">
-    <p>This section is for accounting principles, bookkeeping, budget understanding, and financial foundations.</p>
-    <p class="note">You can later replace this with a separate page.</p>
-  </div>
-</div>
+  <section class="section" id="finance">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-label">Finance</div>
+          <h2 class="section-title">Financial knowledge as operating infrastructure.</h2>
+        </div>
+        <p class="section-copy">
+          Finance here is not presented as a generic course menu. It is presented as a discipline:
+          bookkeeping, accounting structure, reporting analysis, decision frameworks, and applied financial intelligence.
+        </p>
+      </div>
 
-<div class="section" id="financial-intelligence-details">
-  <h2>Financial Intelligence Details</h2>
-  <div class="card">
-    <p>This section is for advanced analysis, reporting, financial review, and intelligent decision support.</p>
-    <p class="note">You can later replace this with a separate page.</p>
-  </div>
-</div>
+      <div class="grid">
+        <article class="card">
+          <div class="card-top">
+            <div class="card-index">01</div>
+            <h3>Financial Knowledge</h3>
+            <p>
+              Core accounting foundations, bookkeeping logic, budget structure, and disciplined understanding of financial systems.
+            </p>
+          </div>
+          <a class="card-link" href="#">View module</a>
+        </article>
 
-<div class="section" id="academy">
-  <h2>Academy</h2>
+        <article class="card">
+          <div class="card-top">
+            <div class="card-index">02</div>
+            <h3>Financial Intelligence</h3>
+            <p>
+              Advanced analysis, interpretation, reporting insight, ratio thinking, and executive-grade financial reading.
+            </p>
+          </div>
+          <a class="card-link" href="#">View module</a>
+        </article>
 
-  <div class="card">
-    <h3>Learning System</h3>
-    <p>Learning system for skills, AI tools, and knowledge growth.</p>
-    <a class="btn" href="#academy-content">Enter</a>
-  </div>
-</div>
+        <article class="card">
+          <div class="card-top">
+            <div class="card-index">03</div>
+            <h3>Trading and Market Logic</h3>
+            <p>
+              Structured thinking around financial markets, strategic positioning, and analytical interpretation rather than hype.
+            </p>
+          </div>
+          <a class="card-link" href="#">View module</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<div class="section" id="academy-content">
-  <h2>Academy Content</h2>
-  <div class="card">
-    <p>This area can hold courses, lessons, and guided learning modules.</p>
-  </div>
-</div>
+  <section class="section" id="academy">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-label">Academy</div>
+          <h2 class="section-title">Learning as a serious internal system.</h2>
+        </div>
+        <p class="section-copy">
+          The academy should feel curated and strategic. Less like a casual learning site, more like a structured knowledge environment
+          where capabilities are developed intentionally over time.
+        </p>
+      </div>
 
-<div class="section" id="projects">
-  <h2>Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="card-top">
+            <div class="card-index">04</div>
+            <h3>Knowledge Tracks</h3>
+            <p>
+              Skill paths for accounting, platform literacy, systems thinking, and high-trust digital operations.
+            </p>
+          </div>
+          <a class="card-link" href="#">Open track</a>
+        </article>
 
-  <div class="card">
-    <h3>AI Media System</h3>
-    <p>Video, music, and automated content generation platform.</p>
-    <a class="btn" href="#ai-media-details">Launch</a>
-  </div>
+        <article class="card">
+          <div class="card-top">
+            <div class="card-index">05</div>
+            <h3>Applied Learning</h3>
+            <p>
+              Practical modules shaped around real project execution, web systems, infrastructure reasoning, and founder workflow.
+            </p>
+          </div>
+          <a class="card-link" href="#">Open track</a>
+        </article>
 
-  <div class="card">
-    <h3>Founder Projects</h3>
-    <p>Core initiatives, special systems, and ecosystem expansion projects.</p>
-    <a class="btn" href="#project-list">Open</a>
-  </div>
-</div>
+        <article class="card">
+          <div class="card-top">
+            <div class="card-index">06</div>
+            <h3>Intellectual Archive</h3>
+            <p>
+              A long-term library of concepts, frameworks, drafts, project notes, and strategic reference material.
+            </p>
+          </div>
+          <a class="card-link" href="#">Open archive</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<div class="section" id="ai-media-details">
-  <h2>AI Media System</h2>
-  <div class="card">
-    <p>This section can later connect to video generation, music tools, podcast systems, and media automation.</p>
-  </div>
-</div>
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-label">Projects</div>
+          <h2 class="section-title">Separate initiatives, held within one founder framework.</h2>
+        </div>
+        <p class="section-copy">
+          The platform can hold multiple serious initiatives without collapsing them into one message.
+          Each project should retain its own identity while benefiting from shared strategic architecture.
+        </p>
+      </div>
 
-<div class="section" id="project-list">
-  <h2>Project List</h2>
-  <div class="card">
-    <p>Add your Pure Water project, Water UN project, Finance platform, Kids learning system, and other founder projects here.</p>
-  </div>
-</div>
+      <div class="grid">
+        <article class="card">
+          <div class="card-top">
+            <div class="card-index">07</div>
+            <h3>Pure Water Initiative</h3>
+            <p>
+              A separate site and document track focused on water access, environmental resilience, and system-level sustainability.
+            </p>
+          </div>
+          <a class="card-link" href="#">Project brief</a>
+        </article>
 
-<div class="section" id="affiliate">
-  <h2>Affiliate</h2>
+        <article class="card">
+          <div class="card-top">
+            <div class="card-index">08</div>
+            <h3>Water Stability / UN Track</h3>
+            <p>
+              A policy-facing initiative focused on institutional framing, international presentation, and strategic water governance.
+            </p>
+          </div>
+          <a class="card-link" href="#">Project brief</a>
+        </article>
 
-  <div class="card">
-    <h3>Affiliate System</h3>
-    <p>Earn with automated referral and commission platform.</p>
-    <a class="btn" href="#affiliate-details">Join</a>
-  </div>
-</div>
+        <article class="card">
+          <div class="card-top">
+            <div class="card-index">09</div>
+            <h3>Media and Platform Systems</h3>
+            <p>
+              Future expansion into AI media, affiliate systems, platform tools, and controlled digital operating layers.
+            </p>
+          </div>
+          <a class="card-link" href="#">Project brief</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<div class="section" id="affiliate-details">
-  <h2>Affiliate Details</h2>
-  <div class="card">
-    <p>This section can later hold referral links, commission rules, and signup forms.</p>
-  </div>
-</div>
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-intro">
+        <div>
+          <div class="section-label">Access</div>
+          <h2 class="section-title">Access models should feel deliberate, not promotional.</h2>
+        </div>
+        <p class="section-copy">
+          Even pricing should be presented with restraint. The tone should communicate access structure and level of engagement,
+          not a sales page shouting for attention.
+        </p>
+      </div>
 
-<div class="section" id="pricing">
-  <h2>Pricing</h2>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-name">Foundation</div>
+          <div class="price-value">$50</div>
+          <p class="price-text">Entry-level access to selected material, foundational modules, and structured overview content.</p>
+          <a class="action" href="#">Access level</a>
+        </div>
 
-  <div class="card">
-    <h3>Basic Plan</h3>
-    <p>$50 - Starter access</p>
-    <a class="btn" href="#buy-basic">Buy</a>
-  </div>
+        <div class="price-card featured">
+          <div class="price-name">Core</div>
+          <div class="price-value">$100</div>
+          <p class="price-text">Expanded platform access for deeper learning, more modules, and higher-value internal content.</p>
+          <a class="action" href="#">Access level</a>
+        </div>
 
-  <div class="card">
-    <h3>Standard Plan</h3>
-    <p>$100 - Full features</p>
-    <a class="btn" href="#buy-standard">Buy</a>
-  </div>
+        <div class="price-card">
+          <div class="price-name">Executive</div>
+          <div class="price-value">$150</div>
+          <p class="price-text">Premium access layer for advanced content, strategic project views, and founder-level system direction.</p>
+          <a class="action" href="#">Access level</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="card">
-    <h3>Pro Plan</h3>
-    <p>$150 - Premium system</p>
-    <a class="btn" href="#buy-pro">Buy</a>
-  </div>
-</div>
+  <section class="closing">
+    <div class="container">
+      <div class="closing-box">
+        <h2>A serious platform needs a serious visual language.</h2>
+        <p>
+          This direction is intentionally quieter, sharper, and more credible. It is designed to represent disciplined thinking,
+          not ordinary web decoration. That is the correct foundation for the next stage.
+        </p>
+        <a class="action" href="#">Founder overview</a>
+      </div>
+    </div>
+  </section>
 
-<div class="section" id="buy-basic">
-  <h2>Basic Plan Checkout</h2>
-  <div class="card">
-    <p>Put your Stripe or PayPal Basic payment link here later.</p>
-  </div>
-</div>
-
-<div class="section" id="buy-standard">
-  <h2>Standard Plan Checkout</h2>
-  <div class="card">
-    <p>Put your Stripe or PayPal Standard payment link here later.</p>
-  </div>
-</div>
-
-<div class="section" id="buy-pro">
-  <h2>Pro Plan Checkout</h2>
-  <div class="card">
-    <p>Put your Stripe or PayPal Pro payment link here later.</p>
-  </div>
-</div>
-
-<footer>
-  <p>© 2026 SSGPT6 • GNAIAAAC LLC</p>
-</footer>
+  <footer>
+    <div class="container">
+      © 2026 SSGPT6 · GNAIAAAC LLC · Founder Intelligence Platform
+    </div>
+  </footer>
 
 </body>
 </html>
