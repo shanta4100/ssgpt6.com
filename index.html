@@ -1,504 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SSL Security Solutions | Secure Your Website</title>
-  <meta
-    name="description"
-    content="Protect your website with trusted SSL certificates, code signing, and website security solutions."
-  />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSGPT6 Security Hub | SSL Protection</title>
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #071224 0%, #0d1f3a 55%, #132b4f 100%);
-      color: #ffffff;
-      line-height: 1.6;
-    }
+<style>
+body {
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0b1a2f;
+  color:white;
+}
 
-    a { text-decoration: none; }
+/* NAV /
+.nav {
+  display:flex;
+  justify-content:space-between;
+  padding:15px 20px;
+  background:#071224;
+}
+.nav h2 { color:gold; }
+.nav a { color:white; margin-left:15px; text-decoration:none; }
 
-    .container {
-      width: 92%;
-      max-width: 1200px;
-      margin: auto;
-    }
+/ HERO /
+.hero {
+  text-align:center;
+  padding:60px 20px;
+}
+.hero h1 {
+  color:gold;
+  font-size:32px;
+}
+.hero p {
+  max-width:600px;
+  margin:auto;
+  color:#ccc;
+}
 
-    .topbar {
-      background: rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+.btn {
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 25px;
+  background:gold;
+  color:black;
+  font-weight:bold;
+  border-radius:6px;
+  text-decoration:none;
+}
 
-    .topbar-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 0;
-    }
+/ SECTION /
+.section {
+  padding:50px 20px;
+  text-align:center;
+}
 
-    .brand {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #ffd24a;
-      letter-spacing: 0.5px;
-    }
+.cards {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+}
 
-    .nav a {
-      color: #ffffff;
-      margin-left: 18px;
-      font-size: 0.95rem;
-    }
+.card {
+  background:#132b4f;
+  padding:20px;
+  border-radius:10px;
+  width:280px;
+}
 
-    .hero {
-      padding: 90px 0 60px;
-    }
+/ PRICING /
+.pricing {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+}
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: center;
-    }
+.price {
+  background:#132b4f;
+  padding:25px;
+  border-radius:10px;
+  width:250px;
+}
 
-    .hero h1 {
-      font-size: 3rem;
-      line-height: 1.15;
-      margin-bottom: 18px;
-      color: #ffd24a;
-    }
-
-    .hero p {
-      font-size: 1.08rem;
-      color: #dbe7ff;
-      margin-bottom: 22px;
-      max-width: 700px;
-    }
-
-    .btn-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 12px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 10px;
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: #ffd24a;
-      color: #0a1730;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      opacity: 0.95;
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #ffffff;
-      background: rgba(255,255,255,0.06);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.12);
-    }
-
-    .card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.22);
-    }
-
-    .stats {
-      display: grid;
-      gap: 14px;
-    }
-
-    .stat-box {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
-      padding: 18px;
-    }
-
-    .stat-box h3 {
-      color: #ffd24a;
-      font-size: 1.6rem;
-      margin-bottom: 6px;
-    }
-
-    .section {
-      padding: 60px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 16px;
-      color: #ffd24a;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: #d5e3ff;
-      max-width: 780px;
-      margin: 0 auto 34px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .feature h3 {
-      margin-bottom: 12px;
-      color: #ffd24a;
-    }
-
-    .feature p {
-      color: #e9f1ff;
-      font-size: 0.97rem;
-    }
-
-    .pricing {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .price-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
-      padding: 28px 22px;
-      text-align: center;
-    }
-
-    .price-card h3 {
-      color: #ffd24a;
-      margin-bottom: 10px;
-    }
-
-    .price-card p {
-      color: #dbe7ff;
-      margin-bottom: 18px;
-      font-size: 0.96rem;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #ffd24a;
-      color: #0a1730;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .step-number {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #ffd24a;
-      color: #0a1730;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    .cta {
-      text-align: center;
-    }
-
-    .cta .card {
-      padding: 40px 24px;
-    }
-
-    .cta h2 {
-      color: #ffd24a;
-      margin-bottom: 12px;
-      font-size: 2rem;
-    }
-
-    .cta p {
-      max-width: 720px;
-      margin: 0 auto 22px;
-      color: #dbe7ff;
-    }
-
-    .notice {
-      margin-top: 16px;
-      font-size: 0.88rem;
-      color: #c6d7ff;
-    }
-
-    footer {
-      padding: 30px 0 50px;
-      text-align: center;
-      color: #b9c9ee;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .grid-3,
-      .pricing,
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 2.3rem;
-      }
-
-      .topbar-inner {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .nav a {
-        margin: 0 8px;
-      }
-    }
-  </style>
+/ FOOTER */
+.footer {
+  text-align:center;
+  padding:30px;
+  background:#071224;
+  color:#aaa;
+}
+</style>
 </head>
+
 <body>
 
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand">GNAIAAAC Security Hub</div>
-      <nav class="nav">
-        <a href="#benefits">Benefits</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#steps">How It Works</a>
-        <a href="#get-started">Get Started</a>
-      </nav>
+<!-- NAV -->
+<div class="nav">
+  <h2>SSGPT6</h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Secure Your Website Today 🔐</h1>
+  <p>Protect your website, improve SEO, and gain customer trust using SSL certificates.</p>
+
+  <a class="btn" href="https://www.ssl.com/?idev_id=2046" target="_blank">
+    Get SSL Now
+  </a>
+</div>
+
+<!-- FEATURES -->
+<div class="section" id="features">
+  <h2 style="color:gold;">Why SSL is Important</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>🔒 Security</h3>
+      <p>Encrypt user data and protect your website.</p>
     </div>
-  </header>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <h1>Secure Your Website With Trusted SSL Protection</h1>
-        <p>
-          Protect your visitors, strengthen customer trust, and move your website
-          to HTTPS with reliable digital certificate solutions for websites,
-          software, and business security.
-        </p>
-        <div class="btn-wrap">
-          <a
-            class="btn btn-primary"
-            href="https://www.ssl.com/?idev_id=2046"
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-          >
-            Get SSL Now
-          </a>
-
-          <a class="btn btn-secondary" href="#solutions">
-            Explore Solutions
-          </a>
-        </div>
-        <p class="notice">
-          Affiliate disclosure: This page contains an affiliate link. I may earn a commission if you purchase through it.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="stats">
-          <div class="stat-box">
-            <h3>HTTPS Trust</h3>
-            <p>Show visitors your website is secure and professionally protected.</p>
-          </div>
-          <div class="stat-box">
-            <h3>Business Security</h3>
-            <p>Support website protection, authentication, and software signing needs.</p>
-          </div>
-          <div class="stat-box">
-            <h3>Fast Action</h3>
-            <p>Move from “Not Secure” warnings to a more trusted web presence.</p>
-          </div>
-        </div>
-      </div>
+    <div class="card">
+      <h3>🚀 SEO Boost</h3>
+      <p>Google ranks HTTPS websites higher.</p>
     </div>
-  </section>
 
-  <section id="benefits" class="section">
-    <div class="container">
-      <h2 class="section-title">Why SSL Security Matters</h2>
-      <p class="section-subtitle">
-        Today’s users expect secure browsing. SSL certificates help protect data,
-        improve trust, and support a more professional online presence.
-      </p>
-
-      <div class="grid-3">
-        <div class="card feature">
-          <h3>Protect Customer Trust</h3>
-          <p>
-            Visitors are more likely to stay on a site that uses HTTPS and appears secure.
-          </p>
-        </div>
-
-        <div class="card feature">
-          <h3>Improve Brand Credibility</h3>
-          <p>
-            Security signals help your website look serious, established, and safer to use.
-          </p>
-        </div>
-
-        <div class="card feature">
-          <h3>Support Modern Web Standards</h3>
-          <p>
-            HTTPS is now a normal expectation for businesses, creators, and online services.
-          </p>
-        </div>
-      </div>
+    <div class="card">
+      <h3>💼 Trust</h3>
+      <p>Visitors trust secure websites more.</p>
     </div>
-  </section>
+  </div>
+</div>
 
-  <section id="solutions" class="section">
-    <div class="container">
-      <h2 class="section-title">Solutions You Can Explore</h2>
-      <p class="section-subtitle">
-        Choose a path based on what you need to secure.
-      </p>
+<!-- PRICING STYLE -->
+<div class="section" id="pricing">
+  <h2 style="color:gold;">Choose Your Solution</h2>
 
-      <div class="pricing">
-        <div class="price-card">
-          <span class="badge">Website Security</span>
-          <h3>SSL Certificates</h3>
-          <p>
-            Secure websites, protect visitors, and enable HTTPS for business and personal sites.
-          </p>
-          <a
-            class="btn btn-primary"
-            href="https://www.ssl.com/?idev_id=2046"
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-          >
-            View Options
-          </a>
-        </div>
-
-        <div class="price-card">
-          <span class="badge">Developer Tools</span>
-          <h3>Code Signing</h3>
-          <p>
-            Help establish trust for software, applications, and digital downloads.
-          </p>
-          <a
-            class="btn btn-primary"
-            href="https://www.ssl.com/?idev_id=2046"
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-          >
-            Learn More
-          </a>
-        </div>
-
-        <div class="price-card">
-          <span class="badge">Business Ready</span>
-          <h3>Security Products</h3>
-          <p>
-            Explore additional digital trust and certificate-related business solutions.
-          </p>
-          <a
-            class="btn btn-primary"
-            href="https://www.ssl.com/?idev_id=2046"
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-          >
-            Get Started
-          </a>
-        </div>
-      </div>
+  <div class="pricing">
+    <div class="price">
+      <h3>Basic SSL</h3>
+      <p>For personal websites</p>
+      <a class="btn" href="https://www.ssl.com/?idev_id=2046">Buy Now</a>
     </div>
-  </section>
 
-  <section id="steps" class="section">
-    <div class="container">
-      <h2 class="section-title">How It Works</h2>
-      <p class="section-subtitle">
-        Simple path for customers who need security fast.
-      </p>
-
-      <div class="steps">
-        <div class="card">
-          <div class="step-number">1</div>
-          <h3>Choose Your Need</h3>
-          <p>
-            Decide whether you need website SSL, code signing, or a broader certificate solution.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="step-number">2</div>
-          <h3>Visit SSL.com</h3>
-          <p>
-            Use the button on this page to open the official SSL.com offer through the referral link.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="step-number">3</div>
-          <h3>Complete Purchase</h3>
-          <p>
-            Review the options that fit your website or business and complete checkout there.
-          </p>
-        </div>
-      </div>
+    <div class="price">
+      <h3>Business SSL</h3>
+      <p>For companies & startups</p>
+      <a class="btn" href="https://www.ssl.com/?idev_id=2046">Buy Now</a>
     </div>
-  </section>
 
-  <section id="get-started" class="section cta">
-    <div class="container">
-      <div class="card">
-        <h2>Ready to Secure Your Website?</h2>
-        <p>
-          Move your site toward a more trusted and professional web presence with SSL solutions built for websites, businesses, and developers.
-        </p>
-        <a
-          class="btn btn-primary"
-          href="https://www.ssl.com/?idev_id=2046"
-          target="_blank"
-          rel="noopener noreferrer sponsored"
-        >
-          Open SSL.com Offer
-        </a>
-      </div>
+    <div class="price">
+      <h3>Enterprise SSL</h3>
+      <p>Advanced security solutions</p>
+      <a class="btn" href="https://www.ssl.com/?idev_id=2046">Buy Now</a>
     </div>
-  </section>
+  </div>
+</div>
 
-  <footer>
-    <div class="container">
-      <p>© 2026 GNAIAAAC Security Hub. All rights reserved.</p>
-      <p>Affiliate disclosure: This website may earn a commission from qualifying purchases.</p>
-    </div>
-  </footer>
+<!-- FINAL CTA -->
+<div class="section">
+  <h2 style="color:gold;">Start Securing Your Website Now</h2>
+  <a class="btn" href="https://www.ssl.com/?idev_id=2046">
+    Activate SSL Protection
+  </a>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>© 2026 SSGPT6 | GNAIAAAC LLC</p>
+  <p>Affiliate Disclosure: We may earn commission from purchases.</p>
+</div>
 
 </body>
 </html>
