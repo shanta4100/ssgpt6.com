@@ -163,6 +163,140 @@ function showTerms(){hideAll();document.getElementById("terms").style.display="b
   Rules and features may change to improve safety.</p>
 
 </section>
+<script>
+// ===============================
+// SSGPT6 CHILD SAFETY SYSTEM
+// ===============================
+
+// SETTINGS
+const MAX_SESSION_TIME = 60 * 60 * 1000; // 1 hour
+const COOLDOWN_TIME = 4 * 60 * 60 * 1000; // 4 hours
+
+// STORAGE KEYS
+const sessionStartKey = "child_session_start";
+const lockUntilKey = "child_lock_until";
+
+// CHECK LOCK STATUS
+function checkAccess() {
+  const now = Date.now();
+  const lockUntil = localStorage.getItem(lockUntilKey);
+
+  if (lockUntil && now < lockUntil) {
+    showLockScreen(lockUntil);
+    return false;
+  }
+  return true;
+}
+
+// START SESSION
+function startSession() {
+  if (!checkAccess()) return;
+
+  localStorage.setItem(sessionStartKey, Date.now());
+  monitorSession();
+}
+
+// MONITOR TIME
+function monitorSession() {
+  const interval = setInterval(() => {
+    const start = localStorage.getItem(sessionStartKey);
+    if (!start) return;
+
+    const elapsed = Date.now() - start;
+
+    if (elapsed >= MAX_SESSION_TIME) {
+      endSession();
+      clearInterval(interval);
+    }
+  }, 5000);
+}
+
+// END SESSION (AUTO LOCK)
+function endSession() {
+  alert("Session finished. Please take a break.");
+
+  const lockUntil = Date.now() + COOLDOWN_TIME;
+  localStorage.setItem(lockUntilKey, lockUntil);
+
+  document.body.innerHTML = `
+    <div style="background:#000;color:#fff;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;">
+      <div>
+        <h1>⏳ Break Time</h1>
+        <p>Session limit reached (1 hour).</p>
+        <p>Please return later with parent permission.</p>
+      </div>
+    </div>
+  `;
+}
+
+// LOCK SCREEN
+function showLockScreen(lockUntil) {
+  const timeLeft = Math.ceil((lockUntil - Date.now()) / (60 * 1000));
+
+  document.body.innerHTML = `
+    <div style="background:#000;color:#fff;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;">
+      <div>
+        <h1>🔒 Access Locked</h1>
+        <p>Come back later or ask your parent.</p>
+        <p>Time remaining: ${timeLeft} minutes</p>
+        <button onclick="parentUnlock()">Parent Unlock</button>
+      </div>
+    </div>
+  `;
+}
+
+// PARENT UNLOCK (simple PIN)
+function parentUnlock() {
+  const pin = prompt("Enter parent PIN:");
+
+  if (pin === "1234") { // change this later
+    localStorage.removeItem(lockUntilKey);
+    location.reload();
+  } else {
+    alert("Incorrect PIN");
+  }
+}
+
+// SCHOOL HOURS LOCK (example 8AM–3PM)
+function schoolLock() {
+  const now = new Date();
+  const hour = now.getHours();
+
+  if (hour >= 8 && hour <= 15) {
+    document.body.innerHTML = `
+      <div style="background:#000;color:#fff;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;">
+        <div>
+          <h1>🏫 School Time</h1>
+          <p>Access restricted during school hours.</p>
+        </div>
+      </div>
+    `;
+    return false;
+  }
+  return true;
+}
+
+// DISABLE RIGHT CLICK + BASIC EXIT
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+// BLOCK EXTERNAL LINKS
+document.querySelectorAll("a").forEach(link => {
+  if (link.href.includes("http")) {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      alert("External links are disabled.");
+    });
+  }
+});
+
+// INIT SYSTEM
+window.onload = () => {
+  if (!schoolLock()) return;
+  if (!checkAccess()) return;
+
+  startSession();
+};
+</script>
 </body>
 </html>
 <footer style="background:#0b1220;color:#aaa;padding:30px;text-align:center;font-size:13px;line-height:1.6;">
