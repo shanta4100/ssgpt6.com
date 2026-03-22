@@ -2,50 +2,67 @@
 const STOCK_API = "ZD88CFMC438XC7Q8";
 const NEWS_API = "96bc9d3cc53f49abb2d8ebfd87b886e1";
 
-// LOAD PRICE
+// SAFE PRICE LOAD
 async function loadPrice() {
-  const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=${STOCK_API}`;
-  const res = await fetch(url);
-  const data = await res.json();
+  try {
+    const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=${STOCK_API}`;
+    const res = await fetch(url);
+    const data = await res.json();
 
-  const price = data["Global Quote"]["05. price"];
-  document.getElementById("price").innerText = "Price: $" + price;
+    if (data["Global Quote"] && data["Global Quote"]["05. price"]) {
+      const price = data["Global Quote"]["05. price"];
+      document.getElementById("price").innerText = "Price: $" + price;
+    } else {
+      document.getElementById("price").innerText = "Price unavailable";
+    }
+
+  } catch (error) {
+    document.getElementById("price").innerText = "Error loading price";
+  }
 }
 
-// LOAD NEWS + SENTIMENT
+// SAFE NEWS LOAD
 async function loadNews() {
-  const url = `https://newsapi.org/v2/everything?q=Apple&apiKey=${NEWS_API}`;
-  const res = await fetch(url);
-  const data = await res.json();
+  try {
+    const url = `https://newsapi.org/v2/everything?q=Apple&apiKey=${NEWS_API}`;
+    const res = await fetch(url);
+    const data = await res.json();
 
-  let positive = 0;
-  let negative = 0;
+    const container = document.getElementById("news");
+    container.innerHTML = "";
 
-  const container = document.getElementById("news");
+    if (!data.articles) {
+      container.innerHTML = "<p>No news available</p>";
+      return;
+    }
 
-  container.innerHTML = "";
+    let positive = 0;
+    let negative = 0;
 
-  data.articles.slice(0,5).forEach(article => {
-    const text = article.title.toLowerCase();
+    data.articles.slice(0,5).forEach(article => {
+      const text = article.title.toLowerCase();
 
-    if (text.includes("growth") || text.includes("profit")) positive++;
-    if (text.includes("loss") || text.includes("drop")) negative++;
+      if (text.includes("growth") || text.includes("profit")) positive++;
+      if (text.includes("loss") || text.includes("drop")) negative++;
 
-    const div = document.createElement("div");
-    div.style.background="#132b4a";
-    div.style.margin="10px";
-    div.style.padding="10px";
-    div.innerText = article.title;
+      const div = document.createElement("div");
+      div.style.background="#132b4a";
+      div.style.margin="10px";
+      div.style.padding="10px";
+      div.innerText = article.title;
 
-    container.appendChild(div);
-  });
+      container.appendChild(div);
+    });
 
-  // SENTIMENT LOGIC
-  let sentiment = "Neutral";
-  if (positive > negative) sentiment = "Positive";
-  if (negative > positive) sentiment = "Negative";
+    let sentiment = "Neutral";
+    if (positive > negative) sentiment = "Positive";
+    if (negative > positive) sentiment = "Negative";
 
-  document.getElementById("sentiment").innerText = sentiment;
+    document.getElementById("sentiment").innerText = sentiment;
+
+  } catch (error) {
+    document.getElementById("news").innerHTML = "<p>Error loading news</p>";
+  }
 }
 
 // RUN
