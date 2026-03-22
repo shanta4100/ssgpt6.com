@@ -1,214 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EarnAI + SSGPT6</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSL Security Solutions | Secure Your Website</title>
+  <meta
+    name="description"
+    content="Protect your website with trusted SSL certificates, code signing, and website security solutions."
+  />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-<style>
-body {
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto;
-  background:#050b18;
-  color:white;
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #071224 0%, #0d1f3a 55%, #132b4f 100%);
+      color: #ffffff;
+      line-height: 1.6;
+    }
 
-.container {
-  max-width:1100px;
-  margin:auto;
-  padding:20px;
-}
+    a { text-decoration: none; }
 
-/* HERO */
-.hero {
-  text-align:center;
-  padding:60px 20px;
-}
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-.hero h1 {
-  font-size:42px;
-  color:gold;
-}
+    .topbar {
+      background: rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-.hero p {
-  color:#ccc;
-  margin-top:10px;
-}
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
 
-/* CARD */
-.card {
-  background:linear-gradient(145deg,#0c1c3a,#091426);
-  border-radius:15px;
-  padding:25px;
-  margin-top:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);
-}
+    .brand {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ffd24a;
+      letter-spacing: 0.5px;
+    }
 
-/* PLANS */
-.plans {
-  display:grid;
-  grid-template-columns:1fr;
-  gap:20px;
-}
+    .nav a {
+      color: #ffffff;
+      margin-left: 18px;
+      font-size: 0.95rem;
+    }
 
-.plan {
-  border:1px solid rgba(255,215,0,0.3);
-  border-radius:15px;
-  padding:20px;
-  text-align:center;
-  transition:0.3s;
-}
+    .hero {
+      padding: 90px 0 60px;
+    }
 
-.plan:hover {
-  transform:scale(1.03);
-  border-color:gold;
-}
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
 
-.plan h3 {
-  color:gold;
-}
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      color: #ffd24a;
+    }
 
-/* BUTTONS */
-.btn {
-  display:inline-block;
-  padding:12px 20px;
-  margin:5px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.3s;
-}
+    .hero p {
+      font-size: 1.08rem;
+      color: #dbe7ff;
+      margin-bottom: 22px;
+      max-width: 700px;
+    }
 
-.stripe {
-  background:gold;
-  color:black;
-}
+    .btn-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 12px;
+    }
 
-.paypal {
-  background:#0070ba;
-  color:white;
-}
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
 
-.btn:hover {
-  opacity:0.8;
-}
+    .btn-primary {
+      background: #ffd24a;
+      color: #0a1730;
+    }
 
-/* GRID */
-.grid {
-  display:grid;
-  grid-template-columns:1fr;
-  gap:15px;
-}
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
 
-.item {
-  background:#081326;
-  padding:15px;
-  border-radius:10px;
-  text-align:center;
-  border:1px solid rgba(255,255,255,0.05);
-}
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #ffffff;
+      background: rgba(255,255,255,0.06);
+    }
 
-/* FOOTER */
-.footer {
-  text-align:center;
-  margin-top:40px;
-  color:#777;
-  font-size:14px;
-}
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+    }
 
-/* MOBILE RESPONSIVE */
-@media(min-width:768px){
-  .plans { grid-template-columns:repeat(3,1fr); }
-  .grid { grid-template-columns:repeat(2,1fr); }
-}
-</style>
+    .card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+    }
+
+    .stats {
+      display: grid;
+      gap: 14px;
+    }
+
+    .stat-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .stat-box h3 {
+      color: #ffd24a;
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+    }
+
+    .section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: #ffd24a;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #d5e3ff;
+      max-width: 780px;
+      margin: 0 auto 34px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .feature h3 {
+      margin-bottom: 12px;
+      color: #ffd24a;
+    }
+
+    .feature p {
+      color: #e9f1ff;
+      font-size: 0.97rem;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .price-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+
+    .price-card h3 {
+      color: #ffd24a;
+      margin-bottom: 10px;
+    }
+
+    .price-card p {
+      color: #dbe7ff;
+      margin-bottom: 18px;
+      font-size: 0.96rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ffd24a;
+      color: #0a1730;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #ffd24a;
+      color: #0a1730;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .cta {
+      text-align: center;
+    }
+
+    .cta .card {
+      padding: 40px 24px;
+    }
+
+    .cta h2 {
+      color: #ffd24a;
+      margin-bottom: 12px;
+      font-size: 2rem;
+    }
+
+    .cta p {
+      max-width: 720px;
+      margin: 0 auto 22px;
+      color: #dbe7ff;
+    }
+
+    .notice {
+      margin-top: 16px;
+      font-size: 0.88rem;
+      color: #c6d7ff;
+    }
+
+    footer {
+      padding: 30px 0 50px;
+      text-align: center;
+      color: #b9c9ee;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-3,
+      .pricing,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .topbar-inner {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav a {
+        margin: 0 8px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
-
-<!-- HERO -->
-<div class="hero">
-  <h1>EarnAI + SSGPT6</h1>
-  <p>AI Income System + Global Water-AI Innovation Platform</p>
-</div>
-
-<!-- EARN MONEY -->
-<div class="card">
-  <h2 style="text-align:center;color:gold;">EarnAI – Script Service</h2>
-  <p style="text-align:center;">High-converting YouTube Shorts scripts delivered in 48 hours</p>
-
-  <div class="plans">
-
-    <!-- BASIC -->
-    <div class="plan">
-      <h3>Basic – $50</h3>
-      <p>15 Scripts<br>2 Hooks per script</p>
-      <a href="PUT_STRIPE_50" target="_blank" class="btn stripe">Stripe</a>
-      <a href="https://www.paypal.com/paypalme/YOURUSERNAME/50" target="_blank" class="btn paypal">PayPal</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">GNAIAAAC Security Hub</div>
+      <nav class="nav">
+        <a href="#benefits">Benefits</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#steps">How It Works</a>
+        <a href="#get-started">Get Started</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- STANDARD -->
-    <div class="plan">
-      <h3>Standard – $100</h3>
-      <p>30 Scripts<br>3 Hooks per script</p>
-      <a href="PUT_STRIPE_100" target="_blank" class="btn stripe">Stripe</a>
-      <a href="https://www.paypal.com/paypalme/YOURUSERNAME/100" target="_blank" class="btn paypal">PayPal</a>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Secure Your Website With Trusted SSL Protection</h1>
+        <p>
+          Protect your visitors, strengthen customer trust, and move your website
+          to HTTPS with reliable digital certificate solutions for websites,
+          software, and business security.
+        </p>
+        <div class="btn-wrap">
+          <a
+            class="btn btn-primary"
+            href="https://www.ssl.com/?idev_id=2046"
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+          >
+            Get SSL Now
+          </a>
+
+          <a class="btn btn-secondary" href="#solutions">
+            Explore Solutions
+          </a>
+        </div>
+        <p class="notice">
+          Affiliate disclosure: This page contains an affiliate link. I may earn a commission if you purchase through it.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="stats">
+          <div class="stat-box">
+            <h3>HTTPS Trust</h3>
+            <p>Show visitors your website is secure and professionally protected.</p>
+          </div>
+          <div class="stat-box">
+            <h3>Business Security</h3>
+            <p>Support website protection, authentication, and software signing needs.</p>
+          </div>
+          <div class="stat-box">
+            <h3>Fast Action</h3>
+            <p>Move from “Not Secure” warnings to a more trusted web presence.</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- PRO -->
-    <div class="plan">
-      <h3>Pro – $150</h3>
-      <p>45 Scripts<br>4 Hooks per script</p>
-      <a href="PUT_STRIPE_150" target="_blank" class="btn stripe">Stripe</a>
-      <a href="https://www.paypal.com/paypalme/YOURUSERNAME/150" target="_blank" class="btn paypal">PayPal</a>
+  <section id="benefits" class="section">
+    <div class="container">
+      <h2 class="section-title">Why SSL Security Matters</h2>
+      <p class="section-subtitle">
+        Today’s users expect secure browsing. SSL certificates help protect data,
+        improve trust, and support a more professional online presence.
+      </p>
+
+      <div class="grid-3">
+        <div class="card feature">
+          <h3>Protect Customer Trust</h3>
+          <p>
+            Visitors are more likely to stay on a site that uses HTTPS and appears secure.
+          </p>
+        </div>
+
+        <div class="card feature">
+          <h3>Improve Brand Credibility</h3>
+          <p>
+            Security signals help your website look serious, established, and safer to use.
+          </p>
+        </div>
+
+        <div class="card feature">
+          <h3>Support Modern Web Standards</h3>
+          <p>
+            HTTPS is now a normal expectation for businesses, creators, and online services.
+          </p>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </div>
+  <section id="solutions" class="section">
+    <div class="container">
+      <h2 class="section-title">Solutions You Can Explore</h2>
+      <p class="section-subtitle">
+        Choose a path based on what you need to secure.
+      </p>
 
-  <p style="text-align:center;margin-top:15px;">
-    After payment: <b>ssgpt6@aol.com</b><br>
-    Delivery within 48 hours
-  </p>
-</div>
+      <div class="pricing">
+        <div class="price-card">
+          <span class="badge">Website Security</span>
+          <h3>SSL Certificates</h3>
+          <p>
+            Secure websites, protect visitors, and enable HTTPS for business and personal sites.
+          </p>
+          <a
+            class="btn btn-primary"
+            href="https://www.ssl.com/?idev_id=2046"
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+          >
+            View Options
+          </a>
+        </div>
 
-<!-- PROJECT -->
-<div class="card">
-  <h2 style="text-align:center;color:gold;">SSGPT6 Water-AI System</h2>
-  <p style="text-align:center;">
-    Autonomous AI platform integrating water, energy, and intelligent automation
-  </p>
+        <div class="price-card">
+          <span class="badge">Developer Tools</span>
+          <h3>Code Signing</h3>
+          <p>
+            Help establish trust for software, applications, and digital downloads.
+          </p>
+          <a
+            class="btn btn-primary"
+            href="https://www.ssl.com/?idev_id=2046"
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+          >
+            Learn More
+          </a>
+        </div>
 
-  <div class="grid">
-    <div class="item">AI Monitoring</div>
-    <div class="item">Decentralized Systems</div>
-    <div class="item">Automation</div>
-    <div class="item">Energy Efficiency</div>
-  </div>
+        <div class="price-card">
+          <span class="badge">Business Ready</span>
+          <h3>Security Products</h3>
+          <p>
+            Explore additional digital trust and certificate-related business solutions.
+          </p>
+          <a
+            class="btn btn-primary"
+            href="https://www.ssl.com/?idev_id=2046"
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+          >
+            Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <h3 style="text-align:center;margin-top:20px;">Benefits</h3>
-  <div class="grid">
-    <div class="item">Lower Costs</div>
-    <div class="item">Sustainability</div>
-    <div class="item">Global Access</div>
-    <div class="item">Climate Impact</div>
-  </div>
+  <section id="steps" class="section">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">
+        Simple path for customers who need security fast.
+      </p>
 
-  <p style="text-align:center;margin-top:20px;font-style:italic;">
-    “An autonomous system that unifies water, energy, and AI for global sustainability.”
-  </p>
+      <div class="steps">
+        <div class="card">
+          <div class="step-number">1</div>
+          <h3>Choose Your Need</h3>
+          <p>
+            Decide whether you need website SSL, code signing, or a broader certificate solution.
+          </p>
+        </div>
 
-  <div style="text-align:center;">
-    <a href="mailto:ssgpt6@aol.com" class="btn stripe">Contact</a>
-  </div>
-</div>
+        <div class="card">
+          <div class="step-number">2</div>
+          <h3>Visit SSL.com</h3>
+          <p>
+            Use the button on this page to open the official SSL.com offer through the referral link.
+          </p>
+        </div>
 
-<div class="footer">
-  © 2026 GNAIAAAC LLC • Premium AI Platform
-</div>
+        <div class="card">
+          <div class="step-number">3</div>
+          <h3>Complete Purchase</h3>
+          <p>
+            Review the options that fit your website or business and complete checkout there.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <section id="get-started" class="section cta">
+    <div class="container">
+      <div class="card">
+        <h2>Ready to Secure Your Website?</h2>
+        <p>
+          Move your site toward a more trusted and professional web presence with SSL solutions built for websites, businesses, and developers.
+        </p>
+        <a
+          class="btn btn-primary"
+          href="https://www.ssl.com/?idev_id=2046"
+          target="_blank"
+          rel="noopener noreferrer sponsored"
+        >
+          Open SSL.com Offer
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 GNAIAAAC Security Hub. All rights reserved.</p>
+      <p>Affiliate disclosure: This website may earn a commission from qualifying purchases.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
