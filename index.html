@@ -3,874 +3,199 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GNAIAAAC LLC | Media & Innovation Platform</title>
-  <meta
-    name="description"
-    content="GNAIAAAC LLC professional platform for media, video, podcast, webinar, YouTube, and digital business services."
-  />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #071a33;
-      color: #ffffff;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: 92%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(5, 17, 35, 0.96);
-      border-bottom: 1px solid rgba(79, 195, 255, 0.18);
-      backdrop-filter: blur(10px);
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      padding: 16px 0;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .brand img {
-      width: 72px;
-      height: 72px;
-      object-fit: contain;
-      border-radius: 12px;
-      background: #ffffff;
-      padding: 4px;
-    }
-
-    .brand-text h1 {
-      font-size: 22px;
-      color: #4fc3ff;
-      line-height: 1.15;
-    }
-
-    .brand-text p {
-      font-size: 12px;
-      color: #cfe6ff;
-      letter-spacing: 0.4px;
-    }
-
-    .menu {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .menu a {
-      font-size: 14px;
-      color: #ffffff;
-      transition: 0.25s;
-    }
-
-    .menu a:hover {
-      color: #4fc3ff;
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #00a2ff, #4fc3ff);
-      color: #051123;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      transition: 0.25s;
-      text-align: center;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 162, 255, 0.3);
-    }
-
-    .btn-outline {
-      display: inline-block;
-      border: 1px solid #4fc3ff;
-      color: #4fc3ff;
-      padding: 11px 18px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: 0.25s;
-      text-align: center;
-    }
-
-    .btn-outline:hover {
-      background: #4fc3ff;
-      color: #051123;
-    }
-
-    .hero {
-      padding: 80px 0 55px;
-      background:
-        radial-gradient(circle at top right, rgba(79,195,255,0.18), transparent 28%),
-        radial-gradient(circle at left center, rgba(255,255,255,0.06), transparent 20%),
-        #071a33;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .hero h2 {
-      font-size: 48px;
-      line-height: 1.15;
-      margin-bottom: 18px;
-      color: #4fc3ff;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #d9ecff;
-      margin-bottom: 24px;
-      max-width: 720px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
-
-    .hero-badges {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .badge {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(79,195,255,0.2);
-      color: #ffffff;
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-    }
-
-    .hero-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      border: 1px solid rgba(79,195,255,0.2);
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
-    }
-
-    .hero-card h3 {
-      color: #4fc3ff;
-      margin-bottom: 14px;
-      font-size: 24px;
-    }
-
-    .hero-card ul {
-      padding-left: 18px;
-      color: #e9f5ff;
-    }
-
-    .hero-card li {
-      margin-bottom: 10px;
-    }
-
-    section {
-      padding: 68px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 36px;
-      color: #4fc3ff;
-      margin-bottom: 12px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      max-width: 850px;
-      margin: 0 auto 36px;
-      color: #d8ebff;
-      font-size: 17px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(79,195,255,0.16);
-      border-radius: 18px;
-      padding: 24px;
-      transition: 0.25s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.24);
-      border-color: rgba(79,195,255,0.35);
-    }
-
-    .card h3 {
-      color: #4fc3ff;
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #d8ebff;
-      font-size: 15px;
-    }
-
-    .pricing-wrap {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .price-card {
-      position: relative;
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
-      border: 1px solid rgba(79,195,255,0.18);
-      border-radius: 20px;
-      padding: 28px;
-    }
-
-    .featured {
-      border: 2px solid #4fc3ff;
-      transform: scale(1.02);
-    }
-
-    .tag {
-      position: absolute;
-      top: -12px;
-      right: 18px;
-      background: #4fc3ff;
-      color: #051123;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    .plan {
-      font-size: 24px;
-      color: #4fc3ff;
-      margin-bottom: 10px;
-    }
-
-    .price {
-      font-size: 44px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .price small {
-      font-size: 15px;
-      color: #d8ebff;
-    }
-
-    .price-list {
-      list-style: none;
-      margin: 18px 0 24px;
-    }
-
-    .price-list li {
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      color: #e8f4ff;
-      font-size: 15px;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .video-box {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(79,195,255,0.16);
-      border-radius: 18px;
-      overflow: hidden;
-    }
-
-    .video-content {
-      padding: 18px;
-    }
-
-    .video-content h4 {
-      color: #4fc3ff;
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .video-content p {
-      color: #d8ebff;
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
-
-    .video-frame {
-      width: 100%;
-      height: 220px;
-      border: 0;
-      display: block;
-      background: #000;
-    }
-
-    .platform-links {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .platform {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(79,195,255,0.16);
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .platform h4 {
-      color: #4fc3ff;
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .platform p {
-      color: #d8ebff;
-      font-size: 14px;
-      margin-bottom: 14px;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
-
-    .about-box,
-    .contact-box {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(79,195,255,0.16);
-      border-radius: 20px;
-      padding: 26px;
-    }
-
-    .about-box h3,
-    .contact-box h3 {
-      color: #4fc3ff;
-      font-size: 26px;
-      margin-bottom: 14px;
-    }
-
-    .about-box p,
-    .contact-box p {
-      color: #d8ebff;
-      margin-bottom: 12px;
-    }
-
-    form input,
-    form select,
-    form textarea {
-      width: 100%;
-      padding: 13px 14px;
-      margin-bottom: 14px;
-      border: 1px solid rgba(79,195,255,0.2);
-      border-radius: 10px;
-      background: #ffffff;
-      color: #051123;
-      font-size: 15px;
-    }
-
-    form textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    footer {
-      background: #041124;
-      border-top: 1px solid rgba(79,195,255,0.16);
-      padding: 30px 0;
-    }
-
-    .footer-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-wrap p {
-      color: #d8ebff;
-      font-size: 14px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: #4fc3ff;
-      font-size: 14px;
-    }
-
-    @media (max-width: 1000px) {
-      .hero-grid,
-      .grid-3,
-      .grid-4,
-      .pricing-wrap,
-      .video-grid,
-      .platform-links,
-      .two-col {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero h2 {
-        font-size: 40px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .hero-grid,
-      .grid-3,
-      .grid-4,
-      .pricing-wrap,
-      .video-grid,
-      .platform-links,
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 44px;
-      }
-
-      .hero h2 {
-        font-size: 31px;
-      }
-
-      .section-title {
-        font-size: 28px;
-      }
-
-      .nav {
-        justify-content: center;
-      }
-
-      .menu {
-        justify-content: center;
-      }
-    }
-  </style>
+  <title>EarnAI | AI Shorts Script Service</title>
+  <meta name="description" content="EarnAI offers AI-powered YouTube Shorts script services with secure Stripe checkout." />
 </head>
-<body>
+<body style="margin:0;font-family:Arial,Helvetica,sans-serif;background:#08111f;color:#ffffff;">
 
-  <div class="topbar">
-    <div class="container nav">
-      <div class="brand">
-        <img src="public/logo.png" alt="GNAIAAAC LLC Logo" />
-        <div class="brand-text">
-          <h1>GNAIAAAC LLC</h1>
-          <p>ADVANCING INTELLIGENT INFRASTRUCTURE</p>
-        </div>
+  <!-- HERO -->
+  <section style="padding:60px 20px 30px 20px;text-align:center;background:linear-gradient(180deg,#0b1a2f 0%,#08111f 100%);">
+    <h1 style="margin:0;font-size:42px;color:gold;">EarnAI</h1>
+    <p style="margin:15px auto 0 auto;max-width:700px;font-size:18px;line-height:1.6;color:#d9e4ff;">
+      AI-powered YouTube Shorts script service for creators, brands, and businesses.
+      Choose your plan, pay securely with Stripe, and receive delivery within 48 hours.
+    </p>
+
+    <div style="margin-top:30px;">
+      <a href="#pricing" style="display:inline-block;padding:14px 24px;background:gold;color:#000;text-decoration:none;border-radius:10px;font-weight:bold;margin:8px;">
+        View Plans
+      </a>
+      <a href="mailto:ssgpt6@aol.com" style="display:inline-block;padding:14px 24px;background:#132b4a;color:#fff;text-decoration:none;border-radius:10px;font-weight:bold;margin:8px;border:1px solid #29476d;">
+        Contact Us
+      </a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section style="padding:30px 20px 20px 20px;text-align:center;background:#08111f;">
+    <div style="max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;gap:20px;justify-content:center;">
+      <div style="background:#101c31;padding:20px;border-radius:14px;width:280px;border:1px solid #1e3355;">
+        <h3 style="margin-top:0;color:gold;">Fast Delivery</h3>
+        <p style="margin-bottom:0;color:#d9e4ff;line-height:1.6;">Receive your completed Shorts script package within 48 hours after payment.</p>
       </div>
-
-      <div class="menu">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#media">Media</a>
-        <a href="#videos">Videos</a>
-        <a href="#platforms">Platforms</a>
-        <a href="#contact" class="btn">Contact</a>
+      <div style="background:#101c31;padding:20px;border-radius:14px;width:280px;border:1px solid #1e3355;">
+        <h3 style="margin-top:0;color:gold;">Secure Checkout</h3>
+        <p style="margin-bottom:0;color:#d9e4ff;line-height:1.6;">All payments are processed securely through Stripe payment links and QR checkout.</p>
+      </div>
+      <div style="background:#101c31;padding:20px;border-radius:14px;width:280px;border:1px solid #1e3355;">
+        <h3 style="margin-top:0;color:gold;">Simple Process</h3>
+        <p style="margin-bottom:0;color:#d9e4ff;line-height:1.6;">Choose a plan, complete payment, then send your topic or niche by email.</p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <h2>Professional Digital Innovation, Video, Podcast, Webinar, and Business Platform</h2>
-        <p>
-          GNAIAAAC LLC presents a modern media and innovation platform designed for branded publishing,
-          YouTube promotion, video presentation, podcast growth, webinar access, and digital business services.
+  <!-- PRICING -->
+  <section id="pricing" style="padding:60px 20px;text-align:center;background:#0b1a2f;">
+    <h2 style="margin-top:0;color:gold;font-size:34px;">Choose Your Plan</h2>
+    <p style="color:#d9e4ff;font-size:17px;max-width:700px;margin:0 auto 40px auto;line-height:1.6;">
+      Secure checkout • QR scan to pay • 48-hour delivery
+    </p>
+
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:28px;justify-content:center;align-items:stretch;">
+
+      <!-- BASIC -->
+      <div style="background:#132b4a;padding:28px;border-radius:18px;width:320px;box-sizing:border-box;border:1px solid #264c77;">
+        <h3 style="margin-top:0;color:gold;font-size:28px;">EarnAI Basic</h3>
+        <p style="font-size:32px;font-weight:bold;margin:10px 0 20px 0;">$50</p>
+
+        <p style="color:#d9e4ff;line-height:1.6;min-height:90px;">
+          Best for simple Shorts content needs and quick turnaround for one focused idea.
         </p>
 
-        <div class="hero-actions">
-          <a href="#pricing" class="btn">Buy Service</a>
-          <a href="#videos" class="btn-outline">Watch Videos</a>
+        <div style="text-align:left;margin:20px 0;color:#d9e4ff;line-height:1.8;">
+          ✓ AI-written Shorts script<br>
+          ✓ Hook + body + ending<br>
+          ✓ One topic focus<br>
+          ✓ Delivered by email
         </div>
 
-        <div class="hero-badges">
-          <div class="badge">Logo Branding</div>
-          <div class="badge">YouTube Videos</div>
-          <div class="badge">Stripe Checkout</div>
-          <div class="badge">Podcast + Blog + Webinar</div>
-        </div>
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://buy.stripe.com/aFaeVc2Qr5rk5wafk557W0s"
+          alt="EarnAI Basic QR Code"
+          style="width:220px;max-width:100%;border-radius:14px;background:#fff;padding:10px;box-sizing:border-box;margin:12px 0 20px 0;"
+        />
+
+        <a
+          href="https://buy.stripe.com/aFaeVc2Qr5rk5wafk557W0s"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display:block;padding:14px;background:gold;color:#000;font-weight:bold;text-decoration:none;border-radius:10px;margin-bottom:12px;"
+        >
+          Pay $50
+        </a>
+
+        <p style="margin:0;font-size:14px;color:#bcd1f2;">Scan QR or tap button to pay</p>
       </div>
 
-      <div class="hero-card">
-        <h3>Platform Highlights</h3>
-        <ul>
-          <li>Professional homepage with your official logo</li>
-          <li>YouTube video embeds directly on the site</li>
-          <li>Stripe payment buttons using Payment Links</li>
-          <li>Podcast, webinar, and blog sections</li>
-          <li>Business packages and contact inquiry form</li>
-          <li>Ready for future upgrades and automation</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">Innovative Services</h2>
-      <p class="section-subtitle">
-        Present your business professionally and guide customers into paid media, creator, and digital services.
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>Video Generator</h3>
-          <p>Create a service section for promotional video production, branded media, and creator-based content delivery.</p>
+      <!-- STANDARD -->
+      <div style="background:#132b4a;padding:28px;border-radius:18px;width:320px;box-sizing:border-box;border:2px solid gold;box-shadow:0 0 20px rgba(255,215,0,0.15);position:relative;">
+        <div style="position:relative;top:-8px;display:inline-block;background:gold;color:#000;padding:6px 12px;border-radius:999px;font-weight:bold;font-size:13px;">
+          MOST POPULAR
         </div>
 
-        <div class="card">
-          <h3>Podcast & Audio</h3>
-          <p>Showcase podcast episodes, interviews, voice content, and educational or business audio channels.</p>
-        </div>
+        <h3 style="margin-top:10px;color:gold;font-size:28px;">EarnAI Standard</h3>
+        <p style="font-size:32px;font-weight:bold;margin:10px 0 20px 0;">$100</p>
 
-        <div class="card">
-          <h3>Media Blog</h3>
-          <p>Publish updates, announcements, articles, features, and editorial content in a clean business layout.</p>
-        </div>
-
-        <div class="card">
-          <h3>Webinar Hub</h3>
-          <p>Promote founder sessions, training events, live presentations, and online meetings.</p>
-        </div>
-
-        <div class="card">
-          <h3>YouTube Channel</h3>
-          <p>Drive visitors to your public YouTube channel, playlists, shorts, and featured releases.</p>
-        </div>
-
-        <div class="card">
-          <h3>Partnership Access</h3>
-          <p>Invite clients, media partners, and commercial inquiries through a business-ready website structure.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing">
-    <div class="container">
-      <h2 class="section-title">Stripe Payment Plans</h2>
-      <p class="section-subtitle">
-        These buttons work with Stripe Payment Links. Replace the sample links below with your real Stripe checkout links.
-      </p>
-
-      <div class="pricing-wrap">
-        <div class="price-card">
-          <h3 class="plan">Starter</h3>
-          <div class="price">$99 <small>/ one-time</small></div>
-          <ul class="price-list">
-            <li>Professional landing page</li>
-            <li>Branding and contact section</li>
-            <li>Service presentation</li>
-            <li>Basic support</li>
-            <li>Fast setup</li>
-          </ul>
-          <a href="https://buy.stripe.com/test_StarterLinkHere" target="_blank" class="btn">Pay with Stripe</a>
-        </div>
-
-        <div class="price-card featured">
-          <div class="tag">Most Popular</div>
-          <h3 class="plan">Pro Media</h3>
-          <div class="price">$299 <small>/ one-time</small></div>
-          <ul class="price-list">
-            <li>Everything in Starter</li>
-            <li>YouTube section</li>
-            <li>Podcast and blog area</li>
-            <li>Video showcase area</li>
-            <li>Premium business layout</li>
-          </ul>
-          <a href="https://buy.stripe.com/test_ProMediaLinkHere" target="_blank" class="btn">Pay with Stripe</a>
-        </div>
-
-        <div class="price-card">
-          <h3 class="plan">Enterprise</h3>
-          <div class="price">$999 <small>/ custom</small></div>
-          <ul class="price-list">
-            <li>Custom business presentation</li>
-            <li>Extended site sections</li>
-            <li>Priority planning</li>
-            <li>Premium support</li>
-            <li>Future automation-ready setup</li>
-          </ul>
-          <a href="https://buy.stripe.com/test_EnterpriseLinkHere" target="_blank" class="btn">Pay with Stripe</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="media">
-    <div class="container">
-      <h2 class="section-title">Podcast, Media, Blog, Webinar</h2>
-      <p class="section-subtitle">
-        Direct visitors into your content ecosystem and professional channels.
-      </p>
-
-      <div class="grid-4">
-        <div class="card">
-          <h3>Podcast</h3>
-          <p>Add your official podcast page, show episodes, or audio interviews here.</p>
-          <br />
-          <a class="btn-outline" href="#">Open Podcast</a>
-        </div>
-
-        <div class="card">
-          <h3>Media Blog</h3>
-          <p>Publish articles, news, releases, and editorial content for your audience.</p>
-          <br />
-          <a class="btn-outline" href="#">Read Blog</a>
-        </div>
-
-        <div class="card">
-          <h3>Webinar</h3>
-          <p>Promote training sessions, founder talks, or premium live online events.</p>
-          <br />
-          <a class="btn-outline" href="#">Join Webinar</a>
-        </div>
-
-        <div class="card">
-          <h3>YouTube Channel</h3>
-          <p>Send visitors to your official YouTube channel, shorts, playlists, and media library.</p>
-          <br />
-          <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Visit YouTube</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="videos">
-    <div class="container">
-      <h2 class="section-title">Featured YouTube Videos</h2>
-      <p class="section-subtitle">
-        Replace these sample videos with your own YouTube video IDs anytime.
-      </p>
-
-      <div class="video-grid">
-        <div class="video-box">
-          <iframe
-            class="video-frame"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Featured Video 1"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-          <div class="video-content">
-            <h4>Featured Video 1</h4>
-            <p>Main promo, launch video, or business introduction.</p>
-            <a class="btn-outline" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Open on YouTube</a>
-          </div>
-        </div>
-
-        <div class="video-box">
-          <iframe
-            class="video-frame"
-            src="https://www.youtube.com/embed/3JZ_D3ELwOQ"
-            title="Featured Video 2"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-          <div class="video-content">
-            <h4>Featured Video 2</h4>
-            <p>Use for media feature, music video, or content showcase.</p>
-            <a class="btn-outline" href="https://www.youtube.com/watch?v=3JZ_D3ELwOQ" target="_blank">Open on YouTube</a>
-          </div>
-        </div>
-
-        <div class="video-box">
-          <iframe
-            class="video-frame"
-            src="https://www.youtube.com/embed/tgbNymZ7vqY"
-            title="Featured Video 3"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-          <div class="video-content">
-            <h4>Featured Video 3</h4>
-            <p>Add creator content, event clips, interviews, or release announcements.</p>
-            <a class="btn-outline" href="https://www.youtube.com/watch?v=tgbNymZ7vqY" target="_blank">Open on YouTube</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="platforms">
-    <div class="container">
-      <h2 class="section-title">Official Platform Links</h2>
-      <p class="section-subtitle">
-        Connect visitors to your official channels, music, streaming, and public media pages.
-      </p>
-
-      <div class="platform-links">
-        <div class="platform">
-          <h4>YouTube</h4>
-          <p>Official videos, playlists, shorts, and channel content.</p>
-          <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Open</a>
-        </div>
-
-        <div class="platform">
-          <h4>Spotify</h4>
-          <p>Official music or podcast destination.</p>
-          <a class="btn-outline" href="https://open.spotify.com/" target="_blank">Open</a>
-        </div>
-
-        <div class="platform">
-          <h4>Apple Music</h4>
-          <p>Official artist or playlist link.</p>
-          <a class="btn-outline" href="https://music.apple.com/" target="_blank">Open</a>
-        </div>
-
-        <div class="platform">
-          <h4>Amazon Music</h4>
-          <p>Official audio and music page.</p>
-          <a class="btn-outline" href="https://music.amazon.com/" target="_blank">Open</a>
-        </div>
-
-        <div class="platform">
-          <h4>Netflix</h4>
-          <p>Official streaming destination.</p>
-          <a class="btn-outline" href="https://www.netflix.com/" target="_blank">Open</a>
-        </div>
-
-        <div class="platform">
-          <h4>Hollywood</h4>
-          <p>Use for official studio or film pages.</p>
-          <a class="btn-outline" href="#">Add Link</a>
-        </div>
-
-        <div class="platform">
-          <h4>Bollywood</h4>
-          <p>Use for official cinema or music pages.</p>
-          <a class="btn-outline" href="#">Add Link</a>
-        </div>
-
-        <div class="platform">
-          <h4>Hindi Music Video</h4>
-          <p>Add only official public or licensed video links.</p>
-          <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Open</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container two-col">
-      <div class="about-box">
-        <h3>About GNAIAAAC LLC</h3>
-        <p>
-          GNAIAAAC LLC is presented here as a professional innovation and media platform with modern branding,
-          video content integration, and scalable digital business structure.
+        <p style="color:#d9e4ff;line-height:1.6;min-height:90px;">
+          Great for creators and businesses that want stronger content structure and better audience retention.
         </p>
-        <p>
-          This layout supports YouTube promotion, business packages, webinar access, podcast growth,
-          and future upgrades such as automation, real CRM, and custom client systems.
-        </p>
-        <p>
-          Stripe in this page works through Stripe Payment Links. That is the simplest way to accept payments on a static site.
-        </p>
+
+        <div style="text-align:left;margin:20px 0;color:#d9e4ff;line-height:1.8;">
+          ✓ Enhanced Shorts script<br>
+          ✓ Stronger hook strategy<br>
+          ✓ Better retention flow<br>
+          ✓ Delivered by email
+        </div>
+
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://buy.stripe.com/4gM4gycr11b44s68VH57W0t"
+          alt="EarnAI Standard QR Code"
+          style="width:220px;max-width:100%;border-radius:14px;background:#fff;padding:10px;box-sizing:border-box;margin:12px 0 20px 0;"
+        />
+
+        <a
+          href="https://buy.stripe.com/4gM4gycr11b44s68VH57W0t"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display:block;padding:14px;background:gold;color:#000;font-weight:bold;text-decoration:none;border-radius:10px;margin-bottom:12px;"
+        >
+          Pay $100
+        </a>
+
+        <p style="margin:0;font-size:14px;color:#bcd1f2;">Scan QR or tap button to pay</p>
       </div>
 
-      <div class="contact-box" id="contact">
-        <h3>Contact / Partnership Form</h3>
-        <p>Use this for pricing, media, webinars, partnerships, and business inquiries.</p>
+      <!-- PRO -->
+      <div style="background:#132b4a;padding:28px;border-radius:18px;width:320px;box-sizing:border-box;border:2px solid #00ffd5;">
+        <h3 style="margin-top:0;color:#00ffd5;font-size:28px;">EarnAI Pro</h3>
+        <p style="font-size:32px;font-weight:bold;margin:10px 0 20px 0;">$150</p>
 
-        <form action="mailto:ssgpt6@aol.com" method="post" enctype="text/plain">
-          <input type="text" name="company" placeholder="Company Name" required />
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Email Address" required />
-          <select name="interest" required>
-            <option value="">Select Interest</option>
-            <option>Starter Package</option>
-            <option>Pro Media Package</option>
-            <option>Enterprise Package</option>
-            <option>YouTube / Video</option>
-            <option>Podcast / Blog / Webinar</option>
-            <option>Media Partnership</option>
-          </select>
-          <textarea name="message" placeholder="Write your message"></textarea>
-          <button type="submit" class="btn">Send Inquiry</button>
-        </form>
+        <p style="color:#d9e4ff;line-height:1.6;min-height:90px;">
+          Best for premium content needs, stronger brand voice, and higher-value conversion-focused scripts.
+        </p>
+
+        <div style="text-align:left;margin:20px 0;color:#d9e4ff;line-height:1.8;">
+          ✓ Premium Shorts script package<br>
+          ✓ Strong CTA structure<br>
+          ✓ Brand-focused angle<br>
+          ✓ Delivered by email
+        </div>
+
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://buy.stripe.com/14A9AScr11b4e2G9ZL57W0u"
+          alt="EarnAI Pro QR Code"
+          style="width:220px;max-width:100%;border-radius:14px;background:#fff;padding:10px;box-sizing:border-box;margin:12px 0 20px 0;"
+        />
+
+        <a
+          href="https://buy.stripe.com/14A9AScr11b4e2G9ZL57W0u"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display:block;padding:14px;background:#00ffd5;color:#000;font-weight:bold;text-decoration:none;border-radius:10px;margin-bottom:12px;"
+        >
+          Pay $150
+        </a>
+
+        <p style="margin:0;font-size:14px;color:#bcd1f2;">Scan QR or tap button to pay</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section style="padding:60px 20px;background:#08111f;text-align:center;">
+    <h2 style="margin-top:0;color:gold;font-size:32px;">How It Works</h2>
+
+    <div style="max-width:1000px;margin:35px auto 0 auto;display:flex;flex-wrap:wrap;gap:20px;justify-content:center;">
+      <div style="background:#101c31;padding:22px;border-radius:14px;width:280px;border:1px solid #1e3355;">
+        <h3 style="margin-top:0;color:gold;">1. Choose a Plan</h3>
+        <p style="margin-bottom:0;color:#d9e4ff;line-height:1.6;">Select Basic, Standard, or Pro based on your content needs.</p>
+      </div>
+      <div style="background:#101c31;padding:22px;border-radius:14px;width:280px;border:1px solid #1e3355;">
+        <h3 style="margin-top:0;color:gold;">2. Pay Securely</h3>
+        <p style="margin-bottom:0;color:#d9e4ff;line-height:1.6;">Use the payment button or scan the QR code with your phone.</p>
+      </div>
+      <div style="background:#101c31;padding:22px;border-radius:14px;width:280px;border:1px solid #1e3355;">
+        <h3 style="margin-top:0;color:gold;">3. Email Your Topic</h3>
+        <p style="margin-bottom:0;color:#d9e4ff;line-height:1.6;">Send your niche, topic, or brief to <strong>ssgpt6@aol.com</strong>.</p>
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container footer-wrap">
-      <p>© 2026 GNAIAAAC LLC. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#videos">Videos</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
+  <!-- CONTACT -->
+  <section style="padding:60px 20px;background:#0b1a2f;text-align:center;">
+    <h2 style="margin-top:0;color:gold;font-size:32px;">Contact</h2>
+    <p style="max-width:700px;margin:0 auto 20px auto;color:#d9e4ff;line-height:1.7;font-size:17px;">
+      For order details, delivery information, or custom requests, contact us directly by email.
+    </p>
+    <a href="mailto:ssgpt6@aol.com" style="display:inline-block;padding:14px 24px;background:gold;color:#000;text-decoration:none;border-radius:10px;font-weight:bold;">
+      ssgpt6@aol.com
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:25px 20px;text-align:center;background:#06101d;color:#a9bfdc;font-size:14px;">
+    © 2026 EarnAI • Powered by GNAIAAAC LLC
   </footer>
 
 </body>
