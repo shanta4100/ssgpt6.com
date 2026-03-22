@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 Kids Science Lab</title>
+  <style>
+    :root{
+      --bg:#07111f;
+      --panel:#0f1d33;
+      --panel2:#142743;
+      --panel3:#1a3154;
+      --text:#eef4ff;
+      --muted:#b9c7dd;
+      --gold:#f4c542;
+      --blue:#6ec1ff;
+      --green:#75d27a;
+      --pink:#ff8fb1;
+      --red:#ff8b8b;
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#07111f 0%, #0c1930 100%);
+      color:var(--text);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(7,17,31,.95);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 20px;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      font-size:1.1rem;
+      font-weight:700;
+      color:var(--gold);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:var(--text);
+      text-decoration:none;
+      font-size:.95rem;
+    }
+
+    .nav-links a:hover{
+      color:var(--gold);
+    }
+
+    .wrap{
+      max-width:1200px;
+      margin:auto;
+      padding:24px 20px 60px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:20px;
+      margin-top:10px;
+    }
+
+    .card,.lab-tile,.signal-box{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:0 14px 40px rgba(0,0,0,.22);
+      padding:22px;
+    }
+
+    .hero h1{
+      margin:0 0 10px;
+      font-size:clamp(2rem,4vw,3rem);
+      color:var(--gold);
+    }
+
+    .muted{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(244,197,66,.12);
+      border:1px solid rgba(244,197,66,.28);
+      color:var(--gold);
+      font-weight:700;
+      font-size:.88rem;
+      margin-bottom:14px;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:13px 18px;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(145deg,var(--gold),#ddb031);
+      color:#111;
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .section{
+      margin-top:28px;
+    }
+
+    .section h2{
+      color:var(--gold);
+      margin:0 0 12px;
+      font-size:1.8rem;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .lab-tile h3,.card h3,.signal-box h3{
+      margin-top:0;
+      margin-bottom:8px;
+    }
+
+    .lab-tile p,.card p,.card li,.signal-box p,.signal-box li{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .emoji{
+      font-size:1.8rem;
+      display:block;
+      margin-bottom:10px;
+    }
+
+    .list{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .status-row{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .mini{
+      background:var(--panel2);
+      border-radius:14px;
+      padding:16px;
+      text-align:center;
+    }
+
+    .mini-title{
+      color:var(--muted);
+      font-size:.9rem;
+      margin-bottom:6px;
+    }
+
+    .mini-value{
+      font-size:1.35rem;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .agent-panel{
+      background:var(--panel3);
+      border:1px solid rgba(110,193,255,.15);
+    }
+
+    .pill{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+      margin-right:8px;
+      margin-bottom:8px;
+    }
+
+    .pill-blue{background:rgba(110,193,255,.14); color:var(--blue);}
+    .pill-green{background:rgba(117,210,122,.14); color:var(--green);}
+    .pill-pink{background:rgba(255,143,177,.14); color:var(--pink);}
+
+    .help-flow{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .help-flow li{
+      background:var(--panel2);
+      border-radius:12px;
+      padding:12px 14px;
+      margin-bottom:10px;
+    }
+
+    .signal-bar{
+      margin-top:10px;
+      background:#0a1528;
+      border-radius:999px;
+      overflow:hidden;
+      height:12px;
+    }
+
+    .signal-fill{
+      height:12px;
+      border-radius:999px;
+    }
+
+    .fill-focus{width:82%; background:var(--green);}
+    .fill-help{width:36%; background:var(--blue);}
+    .fill-stuck{width:22%; background:var(--pink);}
+    .fill-complete{width:71%; background:var(--gold);}
+
+    .notice{
+      background:rgba(117,210,122,.08);
+      border:1px solid rgba(117,210,122,.20);
+      border-radius:14px;
+      padding:16px;
+      color:var(--text);
+    }
+
+    .safety{
+      background:rgba(255,139,139,.08);
+      border:1px solid rgba(255,139,139,.20);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .footer{
+      margin-top:40px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      text-align:center;
+    }
+
+    @media (max-width:980px){
+      .hero,.grid-4,.grid-3,.grid-2,.status-row{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="brand">SSGPT6 Kids Science Lab</div>
+      <nav class="nav-links">
+        <a href="kids-platform.html">Home</a>
+        <a href="kids-dashboard.html">Dashboard</a>
+        <a href="kids-library.html">Library</a>
+        <a href="#labs">Labs</a>
+        <a href="#agent">AI Helper</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div class="card">
+        <span class="badge">Science • Exploration • Safe AI Help</span>
+        <h1>Kids Science Lab with Always-On AI Learning Support</h1>
+        <p class="muted">
+          This lab gives kids an active science learning space with missions, simulations,
+          avatar guidance, voice support, and an AI Sleeping Agent that helps when they get stuck.
+          It is built to reduce routine interruptions by giving children instant, gentle learning support.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#labs">Start Science Mission</a>
+          <a class="btn btn-secondary" href="#agent">Open AI Helper</a>
+        </div>
+
+        <div class="status-row">
+          <div class="mini">
+            <div class="mini-title">Today’s Lab Goal</div>
+            <div class="mini-value">20 Min</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Science Missions Done</div>
+            <div class="mini-value">12</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Avatar Help Used</div>
+            <div class="mini-value">4</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Confidence Level</div>
+            <div class="mini-value">Growing</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card agent-panel">
+        <h2 style="margin-top:0;color:var(--gold);font-size:1.5rem;">AI Sleeping Agent Helper</h2>
+        <p class="muted">
+          The AI helper stays in the background and only steps in when a child needs routine learning help.
+        </p>
+
+        <span class="pill pill-blue">Voice Help</span>
+        <span class="pill pill-green">Hint Mode</span>
+        <span class="pill pill-pink">Stuck Detection</span>
+
+        <ul class="help-flow" style="margin-top:14px;">
+          <li>🎙 “Help me” opens guided support</li>
+          <li>🤖 Avatar explains the current science concept</li>
+          <li>🧠 AI gives a smaller, easier next step</li>
+          <li>📊 Progress updates automatically</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How the Support System Works</h2>
+      <div class="grid-3">
+        <div class="lab-tile">
+          <span class="emoji">1️⃣</span>
+          <h3>Detects Routine Learning Struggles</h3>
+          <p>The system watches for repeated retries, inactivity, hint requests, or unfinished steps.</p>
+        </div>
+        <div class="lab-tile">
+          <span class="emoji">2️⃣</span>
+          <h3>Gives Gentle AI Support</h3>
+          <p>It responds with simpler instructions, avatar walkthroughs, read-back help, and encouragement.</p>
+        </div>
+        <div class="lab-tile">
+          <span class="emoji">3️⃣</span>
+          <h3>Saves Progress Automatically</h3>
+          <p>Every session updates the learning record and recommends the next science mission.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="labs">
+      <h2>Science Lab Missions</h2>
+      <div class="grid-4">
+        <div class="lab-tile">
+          <span class="emoji">🌱</span>
+          <h3>Ecosystem Lab</h3>
+          <p>Learn about plants, animals, habitats, and balance in nature through safe game missions.</p>
+        </div>
+        <div class="lab-tile">
+          <span class="emoji">⚡</span>
+          <h3>Energy Lab</h3>
+          <p>Explore light, heat, motion, and simple energy systems using interactive learning tasks.</p>
+        </div>
+        <div class="lab-tile">
+          <span class="emoji">🪐</span>
+          <h3>Planet Lab</h3>
+          <p>Travel through the solar system and discover planets, moons, and space environments.</p>
+        </div>
+        <div class="lab-tile">
+          <span class="emoji">🧪</span>
+          <h3>Matter Lab</h3>
+          <p>Study solids, liquids, gases, mixtures, and simple safe chemistry ideas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="agent">
+      <h2>Automated AI Help Center</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>What the AI can handle by itself</h3>
+          <ul class="list">
+            <li>repeat instructions</li>
+            <li>explain one step at a time</li>
+            <li>show a simpler example</li>
+            <li>open a hint card</li>
+            <li>switch to easy mode</li>
+            <li>read the lesson out loud</li>
+            <li>move a child to the next safe step</li>
+          </ul>
+
+          <div class="notice" style="margin-top:16px;">
+            This helps with normal learning frustration so kids can keep going without needing routine adult help for every small step.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>What still should escalate to a parent or teacher</h3>
+          <ul class="list">
+            <li>account issues</li>
+            <li>payments or subscriptions</li>
+            <li>device safety problems</li>
+            <li>major emotional distress</li>
+            <li>anything involving health or physical safety</li>
+          </ul>
+
+          <div class="safety" style="margin-top:16px;">
+            The AI helper is for learning support, not emergency or health decision-making.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Real-Time Learning Signals</h2>
+      <div class="grid-2">
+        <div class="signal-box">
+          <h3>Live Session Signals</h3>
+          <p class="muted">These signals help the platform know when to encourage, simplify, or guide.</p>
+
+          <p>Focus Score</p>
+          <div class="signal-bar"><div class="signal-fill fill-focus"></div></div>
+
+          <p style="margin-top:16px;">Help Request Rate</p>
+          <div class="signal-bar"><div class="signal-fill fill-help"></div></div>
+
+          <p style="margin-top:16px;">Stuck Detection</p>
+          <div class="signal-bar"><div class="signal-fill fill-stuck"></div></div>
+
+          <p style="margin-top:16px;">Mission Completion</p>
+          <div class="signal-bar"><div class="signal-fill fill-complete"></div></div>
+        </div>
+
+        <div class="signal-box">
+          <h3>Automatic AI Actions</h3>
+          <ul class="list">
+            <li>offer hint after repeated retries</li>
+            <li>trigger avatar explanation after inactivity</li>
+            <li>switch to guided mode when confidence drops</li>
+            <li>unlock encouragement message after success</li>
+            <li>recommend easier or harder missions automatically</li>
+            <li>save a teacher/parent summary at session end</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Voice Support Commands</h2>
+      <div class="grid-3">
+        <div class="lab-tile">
+          <h3>Learning Commands</h3>
+          <p>“Help me” • “Repeat that” • “Explain again” • “Next step”</p>
+        </div>
+        <div class="lab-tile">
+          <h3>Reading Commands</h3>
+          <p>“Read it aloud” • “Pause” • “Start again” • “Slower please”</p>
+        </div>
+        <div class="lab-tile">
+          <h3>Lab Commands</h3>
+          <p>“Open science lab” • “Start mission” • “Show hint” • “Easy mode”</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Parent, Teacher, and Research Support</h2>
+      <div class="grid-3">
+        <div class="lab-tile">
+          <h3>Parent Summary</h3>
+          <p>Get simple progress updates instead of being interrupted for every routine learning step.</p>
+        </div>
+        <div class="lab-tile">
+          <h3>Teacher Summary</h3>
+          <p>See who needs extra help, which labs are hardest, and where the AI is most used.</p>
+        </div>
+        <div class="lab-tile">
+          <h3>Research Summary</h3>
+          <p>Use anonymized patterns to improve science lessons while protecting child privacy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Automation Rules</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Automatic Functions</h3>
+          <ul class="list">
+            <li>science mission scheduling</li>
+            <li>lesson hints and retries</li>
+            <li>reading + lab combination flow</li>
+            <li>progress reports</li>
+            <li>achievement badges</li>
+            <li>next-lesson recommendation</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Privacy Rules</h3>
+          <ul class="list">
+            <li>no raw audio storage</li>
+            <li>no biometric voiceprints</li>
+            <li>no hidden recording</li>
+            <li>no manipulative game systems</li>
+            <li>no unsafe autonomous decisions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      SSGPT6 Kids Science Lab • AI Sleeping Agent Support • Powered by GNAIAAAC LLC
+    </div>
+
+  </main>
+</body>
+</html>
