@@ -1,340 +1,214 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>@ssgpt6</title>
 </head>
 
-<body style="margin:0;font-family:Arial;background:#0b1a2f;color:white;">
+<body style="margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b1a2f;color:white;">
 
-<!-- HOME -->
-<div id="home" style="text-align:center;padding:40px;min-height:100vh;">
+  <!-- HOME -->
+  <div id="home" style="text-align:center;padding:40px;min-height:100vh;">
 
-<h1 style="color:gold;">@ssgpt6</h1>
-<p>Global AI Governance Platform</p>
+    <h1 style="color:gold;">@ssgpt6</h1>
+    <p>Global AI Governance Platform</p>
 
-<button onclick="showDashboard()" style="
-padding:12px 25px;
-background:gold;
-border:none;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;">
-Enter Dashboard
-</button>
+    <button onclick="showDashboard()" style="padding:12px 25px;background:gold;border:none;border-radius:8px;font-weight:bold;cursor:pointer;">
+      Enter Dashboard
+    </button>
 
-<!-- SERVICES -->
-<h2 style="margin-top:50px;color:gold;">Services</h2>
+    <!-- SERVICES -->
+    <h2 style="margin-top:50px;color:gold;">Services</h2>
 
-<div style="display:flex;flex-wrap:wrap;justify-content:center;">
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:20px;">
 
-<div style="background:#122a45;margin:10px;padding:20px;border-radius:10px;width:250px;">
-<h3 style="color:gold;">Basic</h3>
-<p>$50</p>
-<a href="https://www.paypal.me/ssgpt6/50" target="_blank"
-style="background:gold;color:black;padding:10px;border-radius:6px;text-decoration:none;">
-Pay
-</a>
-</div>
+      <div style="background:#122a45;padding:20px;border-radius:10px;width:250px;">
+        <h3 style="color:gold;">Basic</h3>
+        <p>$50</p>
+        <a href="https://www.paypal.me/ssgpt6/50" target="_blank" style="display:inline-block;background:gold;color:black;padding:10px 16px;border-radius:6px;text-decoration:none;font-weight:bold;">
+          Pay
+        </a>
+      </div>
 
-<div style="background:#122a45;margin:10px;padding:20px;border-radius:10px;width:250px;">
-<h3 style="color:gold;">Standard</h3>
-<p>$100</p>
-<a href="https://www.paypal.me/ssgpt6/100" target="_blank"
-style="background:gold;color:black;padding:10px;border-radius:6px;text-decoration:none;">
-Pay
-</a>
-</div>
+      <div style="background:#122a45;padding:20px;border-radius:10px;width:250px;">
+        <h3 style="color:gold;">Standard</h3>
+        <p>$100</p>
+        <a href="https://www.paypal.me/ssgpt6/100" target="_blank" style="display:inline-block;background:gold;color:black;padding:10px 16px;border-radius:6px;text-decoration:none;font-weight:bold;">
+          Pay
+        </a>
+      </div>
 
-<div style="background:#122a45;margin:10px;padding:20px;border-radius:10px;width:250px;">
-<h3 style="color:gold;">Full</h3>
-<p>$150</p>
-<a href="https://www.paypal.me/ssgpt6/150" target="_blank"
-style="background:gold;color:black;padding:10px;border-radius:6px;text-decoration:none;">
-Pay
-</a>
-</div>
+      <div style="background:#122a45;padding:20px;border-radius:10px;width:250px;">
+        <h3 style="color:gold;">Full</h3>
+        <p>$150</p>
+        <a href="https://www.paypal.me/ssgpt6/150" target="_blank" style="display:inline-block;background:gold;color:black;padding:10px 16px;border-radius:6px;text-decoration:none;font-weight:bold;">
+          Pay
+        </a>
+      </div>
 
-</div>
+    </div>
 
-<!-- CONTACT -->
-<div style="margin-top:40px;">
-<h3 style="color:gold;">Contact</h3>
-<p>Email: <a href="mailto:ssgpt6@aol.com" style="color:gold;">ssgpt6@aol.com</a></p>
-<p>Powered by GNAIAAAC LLC</p>
-</div>
+    <!-- CONTACT -->
+    <div style="margin-top:40px;">
+      <h3 style="color:gold;">Contact</h3>
+      <p>Email: <a href="mailto:ssgpt6@aol.com" style="color:gold;">ssgpt6@aol.com</a></p>
+      <p>Powered by GNAIAAAC LLC</p>
+    </div>
 
-<!-- POLICY LINKS -->
-<div style="margin-top:30px;">
-<button onclick="showPrivacy()" style="margin:5px;">Privacy</button>
-<button onclick="showTerms()" style="margin:5px;">Terms</button>
-</div>
+    <!-- POLICY LINKS -->
+    <div style="margin-top:30px;">
+      <button onclick="showPrivacy()" style="margin:5px;padding:10px 16px;border:none;border-radius:6px;cursor:pointer;">Privacy</button>
+      <button onclick="showTerms()" style="margin:5px;padding:10px 16px;border:none;border-radius:6px;cursor:pointer;">Terms</button>
+    </div>
 
-</div>
+  </div>
 
-<!-- DASHBOARD -->
-<div id="dashboard" style="display:none;text-align:center;padding:40px;min-height:100vh;">
-<h1 style="color:gold;">@ssgpt6 Dashboard</h1>
-<p>System Active</p>
+  <!-- DASHBOARD -->
+  <div id="dashboard" style="display:none;text-align:center;padding:40px;min-height:100vh;">
+    <h1 style="color:gold;">@ssgpt6 Dashboard</h1>
+    <p>System Active</p>
 
-<button onclick="showHome()" style="
-margin-top:20px;
-padding:10px 20px;
-background:gold;
-border:none;
-border-radius:8px;">
-Back
-</button>
-</div>
+    <button onclick="showHome()" style="margin-top:20px;padding:10px 20px;background:gold;border:none;border-radius:8px;cursor:pointer;">
+      Back
+    </button>
+  </div>
 
-<!-- PRIVACY -->
-<div id="privacy" style="display:none;padding:40px;">
-<h2 style="color:gold;">Privacy Policy</h2>
-<p>We collect basic customer info (name, email, order details).</p>
-<p>We do not sell your data.</p>
-<p>Payments handled by PayPal.</p>
+  <!-- PRIVACY -->
+  <div id="privacy" style="display:none;padding:40px;min-height:100vh;">
+    <h2 style="color:gold;">Privacy Policy</h2>
+    <p>We collect basic customer information such as name, email, and order details when needed to deliver services.</p>
+    <p>We do not sell personal data.</p>
+    <p>Payments are handled by PayPal or other payment providers and may be subject to their own terms and privacy policies.</p>
 
-<button onclick="showHome()">Back</button>
-</div>
+    <button onclick="showHome()" style="margin-top:20px;padding:10px 20px;background:gold;border:none;border-radius:8px;cursor:pointer;">
+      Back
+    </button>
+  </div>
 
-<!-- TERMS -->
-<div id="terms" style="display:none;padding:40px;">
-<h2 style="color:gold;">Terms of Use</h2>
-<p>All services are provided as requested by the customer.</p>
-<p>No guaranteed outcomes.</p>
-<p>Customer must send order details after payment.</p>
+  <!-- TERMS -->
+  <div id="terms" style="display:none;padding:40px;min-height:100vh;">
+    <h2 style="color:gold;">Terms of Use</h2>
+    <p>All services are provided based on customer request and scope.</p>
+    <p>No guaranteed business, legal, financial, or technical outcomes are promised unless specifically stated in writing.</p>
+    <p>Customers are responsible for sending clear order details after payment when required.</p>
 
-<button onclick="showHome()">Back</button>
-</div>
+    <button onclick="showHome()" style="margin-top:20px;padding:10px 20px;background:gold;border:none;border-radius:8px;cursor:pointer;">
+      Back
+    </button>
+  </div>
 
-<!-- SCRIPT -->
-<script>
-function hideAll() {
-document.getElementById("home").style.display="none";
-document.getElementById("dashboard").style.display="none";
-document.getElementById("privacy").style.display="none";
-document.getElementById("terms").style.display="none";
-}
+  <!-- CHILD PROTECTION POLICY -->
+  <section id="child-protection-policy" style="background:#05070f;color:#e6e6e6;padding:30px 20px;font-size:14px;line-height:1.7;">
+    <h2 style="margin-top:0;color:#ffffff;">Child Safety & Parent Permission Policy</h2>
 
-function showHome(){hideAll();document.getElementById("home").style.display="block";}
-function showDashboard(){hideAll();document.getElementById("dashboard").style.display="block";}
-function showPrivacy(){hideAll();document.getElementById("privacy").style.display="block";}
-function showTerms(){hideAll();document.getElementById("terms").style.display="block";}
-</script>
-<section id="child-protection-policy" style="background:#05070f;color:#e6e6e6;padding:30px 20px;font-size:14px;line-height:1.7;">
+    <p><strong>Parent Permission Required:</strong><br>
+    Children can only use this platform with parent, guardian, or teacher approval.</p>
 
-  <h2>Child Safety & Parent Permission Policy</h2>
+    <p><strong>Age Verification:</strong><br>
+    Age confirmation may be required before access is granted.</p>
 
-  <p><strong>Parent Permission Required:</strong><br>
-  Children can only use this platform with parent, guardian, or teacher approval.</p>
+    <p><strong>Closed System:</strong><br>
+    No external websites or search engines are allowed in child learning mode. Kids can only use approved learning features inside the platform.</p>
 
-  <p><strong>Age Verification:</strong><br>
-  Age confirmation may be required before access is granted.</p>
+    <p><strong>Allowed Activities:</strong></p>
+    <ul>
+      <li>Reading</li>
+      <li>Educational games</li>
+      <li>Avatar lessons</li>
+      <li>Voice learning tools</li>
+    </ul>
 
-  <p><strong>Closed System:</strong><br>
-  No external websites or search engines are allowed. Kids can only use this platform.</p>
+    <p><strong>1 Hour Limit:</strong><br>
+    In child learning mode, the system may automatically stop after 1 hour.</p>
 
-  <p><strong>Allowed Activities:</strong></p>
-  <ul>
-    <li>Reading</li>
-    <li>Educational games</li>
-    <li>Avatar lessons</li>
-    <li>Voice learning tools</li>
-  </ul>
+    <p><strong>Cooldown:</strong><br>
+    Access may be locked for a period such as 4 hours unless a parent, guardian, or teacher unlocks it.</p>
 
-  <p><strong>1 Hour Limit:</strong><br>
-  The system will automatically stop after 1 hour.</p>
+    <p><strong>School Hours Lock:</strong><br>
+    Access may be restricted during school time in child learning mode.</p>
 
-  <p><strong>Cooldown:</strong><br>
-  Access may be locked for a period (example: 4 hours) unless a parent unlocks it.</p>
+    <p><strong>No Child Control:</strong><br>
+    Kids cannot change settings or bypass rules without adult authorization.</p>
 
-  <p><strong>School Hours Lock:</strong><br>
-  Access can be restricted during school time.</p>
+    <p><strong>Privacy:</strong><br>
+    No raw audio or biometric voice data is required for standard child learning support.</p>
 
-  <p><strong>No Child Control:</strong><br>
-  Kids cannot change settings or bypass rules.</p>
+    <p><strong>Safety Laws:</strong><br>
+    Child safety features are designed with principles aligned to child protection rules such as COPPA and GDPR-K where applicable.</p>
 
-  <p><strong>Privacy:</strong><br>
-  No raw audio or voice data is stored.</p>
+    <p><strong>Platform Rights:</strong><br>
+    Rules and features may change in the future to improve safety and service quality.</p>
+  </section>
 
-  <p><strong>Safety Laws:</strong><br>
-  This platform follows child protection laws like COPPA and GDPR-K.</p>
+  <!-- FOOTER -->
+  <footer style="background:#0b1220;color:#aaa;padding:30px;text-align:center;font-size:13px;line-height:1.6;">
+    <p>© 2026 SSGPT6 Kids Research & Learning Center — Powered by GNAIAAAC LLC</p>
 
-  <p><strong>Platform Rights:</strong><br>
-  Rules and features may change to improve safety.</p>
+    <p>
+      This platform may provide AI-assisted educational tools, reading support, educational games,
+      and guided learning systems. Content is designed for structured learning and should be used
+      under appropriate parental or educational supervision where needed.
+    </p>
 
-</section>
-<script>
-// ===============================
-// SSGPT6 CHILD SAFETY SYSTEM
-// ===============================
+    <p>
+      <strong>Subscription Terms:</strong>
+      Access to some services may be provided on a subscription basis.
+      Subscriptions may be canceled at any time unless otherwise stated.
+    </p>
 
-// SETTINGS
-const MAX_SESSION_TIME = 60 * 60 * 1000; // 1 hour
-const COOLDOWN_TIME = 4 * 60 * 60 * 1000; // 4 hours
+    <p>
+      <strong>Pricing & Consumer Notice:</strong>
+      We reserve the right to update pricing, features, or service structure in the future as the platform evolves.
+      Any material changes will be communicated in advance where required.
+    </p>
 
-// STORAGE KEYS
-const sessionStartKey = "child_session_start";
-const lockUntilKey = "child_lock_until";
+    <p>
+      <strong>User Protection:</strong>
+      We are committed to maintaining a safe environment. The platform does not require storage of raw audio,
+      biometric voiceprints, or unnecessary sensitive personal data for standard educational features.
+    </p>
 
-// CHECK LOCK STATUS
-function checkAccess() {
-  const now = Date.now();
-  const lockUntil = localStorage.getItem(lockUntilKey);
+    <p>
+      <strong>Responsible Use:</strong>
+      AI-generated assistance is designed to support learning and guidance. It should not replace parental,
+      teacher, medical, legal, or other professional judgment where such judgment is required.
+    </p>
+  </footer>
 
-  if (lockUntil && now < lockUntil) {
-    showLockScreen(lockUntil);
-    return false;
-  }
-  return true;
-}
-
-// START SESSION
-function startSession() {
-  if (!checkAccess()) return;
-
-  localStorage.setItem(sessionStartKey, Date.now());
-  monitorSession();
-}
-
-// MONITOR TIME
-function monitorSession() {
-  const interval = setInterval(() => {
-    const start = localStorage.getItem(sessionStartKey);
-    if (!start) return;
-
-    const elapsed = Date.now() - start;
-
-    if (elapsed >= MAX_SESSION_TIME) {
-      endSession();
-      clearInterval(interval);
+  <!-- SCRIPT -->
+  <script>
+    function hideAll() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("dashboard").style.display = "none";
+      document.getElementById("privacy").style.display = "none";
+      document.getElementById("terms").style.display = "none";
     }
-  }, 5000);
-}
 
-// END SESSION (AUTO LOCK)
-function endSession() {
-  alert("Session finished. Please take a break.");
+    function showHome() {
+      hideAll();
+      document.getElementById("home").style.display = "block";
+      window.scrollTo(0, 0);
+    }
 
-  const lockUntil = Date.now() + COOLDOWN_TIME;
-  localStorage.setItem(lockUntilKey, lockUntil);
+    function showDashboard() {
+      hideAll();
+      document.getElementById("dashboard").style.display = "block";
+      window.scrollTo(0, 0);
+    }
 
-  document.body.innerHTML = `
-    <div style="background:#000;color:#fff;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;">
-      <div>
-        <h1>⏳ Break Time</h1>
-        <p>Session limit reached (1 hour).</p>
-        <p>Please return later with parent permission.</p>
-      </div>
-    </div>
-  `;
-}
+    function showPrivacy() {
+      hideAll();
+      document.getElementById("privacy").style.display = "block";
+      window.scrollTo(0, 0);
+    }
 
-// LOCK SCREEN
-function showLockScreen(lockUntil) {
-  const timeLeft = Math.ceil((lockUntil - Date.now()) / (60 * 1000));
+    function showTerms() {
+      hideAll();
+      document.getElementById("terms").style.display = "block";
+      window.scrollTo(0, 0);
+    }
+  </script>
 
-  document.body.innerHTML = `
-    <div style="background:#000;color:#fff;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;">
-      <div>
-        <h1>🔒 Access Locked</h1>
-        <p>Come back later or ask your parent.</p>
-        <p>Time remaining: ${timeLeft} minutes</p>
-        <button onclick="parentUnlock()">Parent Unlock</button>
-      </div>
-    </div>
-  `;
-}
-
-// PARENT UNLOCK (simple PIN)
-function parentUnlock() {
-  const pin = prompt("Enter parent PIN:");
-
-  if (pin === "1234") { // change this later
-    localStorage.removeItem(lockUntilKey);
-    location.reload();
-  } else {
-    alert("Incorrect PIN");
-  }
-}
-
-// SCHOOL HOURS LOCK (example 8AM–3PM)
-function schoolLock() {
-  const now = new Date();
-  const hour = now.getHours();
-
-  if (hour >= 8 && hour <= 15) {
-    document.body.innerHTML = `
-      <div style="background:#000;color:#fff;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;">
-        <div>
-          <h1>🏫 School Time</h1>
-          <p>Access restricted during school hours.</p>
-        </div>
-      </div>
-    `;
-    return false;
-  }
-  return true;
-}
-
-// DISABLE RIGHT CLICK + BASIC EXIT
-document.addEventListener("contextmenu", e => e.preventDefault());
-
-// BLOCK EXTERNAL LINKS
-document.querySelectorAll("a").forEach(link => {
-  if (link.href.includes("http")) {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-      alert("External links are disabled.");
-    });
-  }
-});
-
-// INIT SYSTEM
-window.onload = () => {
-  if (!schoolLock()) return;
-  if (!checkAccess()) return;
-
-  startSession();
-};
-</script>
 </body>
 </html>
-<footer style="background:#0b1220;color:#aaa;padding:30px;text-align:center;font-size:13px;line-height:1.6;">
-
-  <p>
-    © 2026 SSGPT6 Kids Research & Learning Center — Powered by GNAIAAAC LLC
-  </p>
-
-  <p>
-    This platform provides AI-assisted educational tools for children, including reading support, 
-    educational games, and guided learning systems. Content is designed for safe, structured learning 
-    and should be used under appropriate parental or educational supervision.
-  </p>
-
-  <p>
-    <strong>Subscription Terms:</strong>  
-    Access to the platform is provided on a monthly subscription basis of $5/month.  
-    Subscriptions may be canceled at any time. No hidden fees.
-  </p>
-
-  <p>
-    <strong>Pricing & Consumer Notice:</strong>  
-    We reserve the right to update pricing, features, or service structure in the future as the platform evolves.  
-    Any changes will be communicated in advance to users. Continued use of the service after updates 
-    constitutes acceptance of the revised pricing or terms.
-  </p>
-
-  <p>
-    <strong>User Protection:</strong>  
-    We are committed to maintaining a safe, child-focused environment. The platform does not store raw audio, 
-    biometric data, or sensitive personal information. All systems are designed with privacy, safety, and 
-    educational integrity in mind.
-  </p>
-
-  <p>
-    <strong>Responsible Use:</strong>  
-    This platform is intended for educational purposes only. AI-generated assistance is designed to support learning 
-    and should not replace parental, teacher, or professional guidance in critical decisions.
-  </p>
-
-</footer>
