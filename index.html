@@ -3,35 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SSGPT6 | UN-Aligned Global Governance & AI</title>
+  <title>SSGPT6 | Zero-Carbon Strategic Framework</title>
   <style>
     :root {
-      --bg: #02060c;
-      --panel: #0a1424;
+      --bg: #02070e;
       --un-blue: #009edb;
       --accent: #c7a85a;
-      --text: #f1f5f9;
+      --text: #f8fafc;
       --muted: #94a3b8;
-      --border: rgba(199, 168, 90, 0.2);
+      --panel: #0a1628;
+      --border: rgba(199, 168, 90, 0.25);
     }
 
-    * { box-sizing: border-box; scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: 'Times New Roman', Times, serif;
       background: var(--bg);
       color: var(--text);
+      font-family: 'Times New Roman', Times, serif;
       line-height: 1.6;
     }
 
     .container { width: min(94%, 1200px); margin: 0 auto; }
 
-    /* TOP RIGHT NAVIGATION & BRAND */
+    /* HEADER: UN ALIGNMENT TOP RIGHT */
     header {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-      background: rgba(2, 6, 12, 0.9);
+      padding: 25px 0;
+      background: rgba(2, 7, 14, 0.95);
       backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -39,69 +39,46 @@
 
     .nav-flex { display: flex; justify-content: space-between; align-items: center; }
     
-    .un-alignment-bold {
-      font-family: Arial, sans-serif;
-      font-weight: 900;
-      font-size: 1.4rem;
-      letter-spacing: 2px;
-      color: var(--text);
+    .logo-container { display: flex; align-items: center; gap: 15px; }
+    .logo-img { height: 45px; width: auto; }
+    .brand-id { font-family: Arial; font-weight: bold; letter-spacing: 2px; font-size: 1rem; color: var(--accent); }
+
+    .un-tag-top { 
+      font-family: Arial, sans-serif; 
+      font-weight: 900; 
+      font-size: 1.2rem; 
+      color: var(--text); 
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
 
-    nav { display: flex; gap: 30px; align-items: center; }
-    nav a {
-      font-family: Arial, sans-serif;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: 0.3s;
+    nav { display: flex; gap: 25px; }
+    nav a { 
+        font-family: Arial; font-size: 0.7rem; text-transform: uppercase; 
+        letter-spacing: 2px; color: var(--muted); text-decoration: none; 
     }
-    nav a:hover { color: var(--un-blue); }
 
-    /* HERO SECTION */
-    .hero { padding: 80px 0; border-bottom: 1px solid var(--border); }
-    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: start; }
-    
-    .hero-content h2 { font-family: Arial, sans-serif; color: var(--accent); font-size: 0.9rem; letter-spacing: 4px; margin-bottom: 10px; }
-    .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin: 0 0 25px; font-weight: 500; }
-    
-    .platform-specs {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border);
-      padding: 30px;
-      font-family: Arial, sans-serif;
-    }
-    .platform-specs h3 { color: var(--un-blue); font-size: 0.8rem; margin-top: 0; letter-spacing: 2px; }
-    .platform-specs ul { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--muted); }
-    .platform-specs li { margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
+    /* ZERO CARBON HERO */
+    .hero { padding: 100px 0 60px; border-bottom: 1px solid var(--border); }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 20px; }
+    .hero-sub { font-family: Arial; color: var(--un-blue); letter-spacing: 4px; font-size: 0.85rem; font-weight: bold; }
 
-    /* UN SCIENTIFIC MODULE */
+    /* SCIENTIFIC MODULE */
     .scientific-module {
       margin: 60px 0;
-      padding: 60px;
+      padding: 50px;
       border: 1px solid var(--un-blue);
       background: linear-gradient(135deg, rgba(0, 158, 219, 0.05) 0%, transparent 100%);
     }
 
-    .module-header {
-      color: var(--un-blue);
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      font-size: 1.5rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 30px;
-      border-bottom: 2px solid var(--un-blue);
-      display: inline-block;
-      padding-bottom: 10px;
+    .module-title {
+      font-family: Arial; font-size: 1.4rem; color: var(--un-blue); 
+      text-transform: uppercase; letter-spacing: 3px; margin-bottom: 25px;
+      border-bottom: 2px solid var(--un-blue); display: inline-block;
     }
 
-    .module-text { font-size: 1.2rem; max-width: 900px; margin-bottom: 40px; font-style: italic; }
-
-    /* SIDE-BY-SIDE BOXES */
-    .dual-box-container {
+    /* DUAL BOX SYSTEM */
+    .dual-box {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 30px;
@@ -111,15 +88,16 @@
     .slideshow-box {
       background: #000;
       border: 1px solid var(--border);
-      height: 350px;
+      height: 400px;
+      position: relative;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
     }
-    .slideshow-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
-    .slide-label { position: absolute; bottom: 20px; left: 20px; font-family: Arial; font-size: 0.7rem; color: var(--accent); letter-spacing: 2px; }
+    
+    .slideshow-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
+    .overlay-text { position: absolute; bottom: 20px; left: 20px; font-family: Arial; font-size: 0.7rem; color: var(--accent); letter-spacing: 2px; }
 
     .document-box {
       background: var(--panel);
@@ -127,105 +105,86 @@
       padding: 40px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
     }
 
-    .doc-item {
-      font-family: Arial, sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      margin-bottom: 15px;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 15px;
+    .doc-points { list-style: none; padding: 0; margin: 0; }
+    .doc-points li {
+      font-family: Arial; font-size: 0.85rem; letter-spacing: 1px;
+      padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex; align-items: center; gap: 15px;
     }
-    .doc-item::before { content: "•"; color: var(--un-blue); font-size: 1.5rem; }
+    .doc-points li::before { content: "■"; color: var(--un-blue); }
 
-    .btn-download {
-      margin-top: 30px;
-      padding: 18px 30px;
+    .download-btn {
       background: var(--un-blue);
       color: white;
       text-decoration: none;
-      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      font-family: Arial;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 2px;
-      text-align: center;
+      margin-top: 20px;
       transition: 0.3s;
     }
-    .btn-download:hover { background: #007bb0; transform: translateY(-2px); }
+    .download-btn:hover { background: #0082b4; }
 
-    /* FOOTER */
-    footer {
-      padding: 60px 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      font-family: Arial;
-      color: var(--muted);
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-    }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.7rem; color: var(--muted); font-family: Arial; letter-spacing: 2px; }
 
-    @media (max-width: 900px) {
-      .hero-grid, .dual-box-container { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 850px) { .dual-box, .nav-flex { grid-template-columns: 1fr; flex-direction: column; gap: 20px; } }
   </style>
 </head>
 <body>
 
 <header>
   <div class="container nav-flex">
-    <div class="un-alignment-bold">UN CLIMATE ALIGNMENT</div>
-    <nav>
-      <a>AI Digital Platform</a>
-      <a>World First Digital Governance</a>
-      <a>Zero Carbon Solutions</a>
-      <a href="/chat" style="color:var(--accent)">ChatSSGPT6</a>
-    </nav>
+    <div class="logo-container">
+      <img src="https://raw.githubusercontent.com/shanta4100/ssgpt6.com/main/public/logo.png" alt="SSGPT6 Logo" class="logo-img">
+      <div class="brand-id">GNAIAAAC LLC</div>
+    </div>
+    <div class="un-tag-top">UN CLIMATE ALIGNMENT</div>
   </div>
 </header>
 
 <section class="hero">
-  <div class="container hero-grid">
-    <div class="hero-content">
-      <h2>NEXT TRACK CATEGORY</h2>
-      <h1>Strategic AI Integration for Global Hydrological Stasis.</h1>
-      <p style="font-size: 1.3rem; color: var(--muted);">Driving sustainable development through decentralized monitoring and intelligent, autonomous operations.</p>
-    </div>
-    <aside class="platform-specs">
-      <h3>INSTITUTE FRAMEWORK</h3>
-      <ul>
-        <li>SSGPT6-CORE Infrastructure</li>
-        <li>GNAI TV Media Network</li>
-        <li>Learning Academy Protocols</li>
-        <li>Zero-Carbon Energy Research</li>
-      </ul>
-    </aside>
+  <div class="container">
+    <div class="hero-sub">AI & TINY AUTOMATION</div>
+    <h1>Zero Carbon Energy Solutions <br>& Digital Governance</h1>
+    <p style="max-width: 800px; color: var(--muted); font-size: 1.2rem; font-style: italic;">
+        World First Digital Governance providing human-centered digital infrastructure for global solution development.
+    </p>
+    <nav style="margin-top: 30px;">
+        <a href="#">Institute Framework</a>
+        <a href="#">AI Digital Platform</a>
+        <a href="#">ChatSSGPT6</a>
+    </nav>
   </div>
 </section>
 
 <section class="container">
   <div class="scientific-module">
-    <div class="module-header">UN Scientific Module: Water-AI Efficiency</div>
-    <div class="module-text">
-      SSGPT6 integrates autonomous "Sleeping Agent" protocols into a unified, self-optimizing management system. By merging decentralized resilience with intelligent monitoring, the platform ensures equitable resource access and data-driven transparency aligned with global sustainability goals.
-    </div>
+    <div class="module-title">UN Scientific Module: Water-AI Efficiency</div>
+    <p style="font-size: 1.2rem; margin-bottom: 30px;">
+      SSGPT6 integrates autonomous "Sleeping Agent" protocols into a unified, self-optimizing management system. 
+      The platform ensures equitable resource access and data-driven transparency aligned with global sustainability goals.
+    </p>
 
-    <div class="dual-box-container">
+    <div class="dual-box">
       <div class="slideshow-box">
-        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000" alt="Global Network">
-        <div class="slide-label">ACTIVE MONITORING: NODE ALPHA PHASE</div>
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1000" alt="Zero Carbon Energy">
+        <div class="overlay-text">REAL-TIME ENERGY HARVESTING: ACTIVE</div>
       </div>
 
       <div class="document-box">
-        <div class="doc-item">HYDROL-STASIS LEVEL 1 VERIFICATION</div>
-        <div class="doc-item">TRANSBOUNDARY ASSET LEDGER</div>
-        <div class="doc-item">SOVEREIGN NODE AUTONOMY</div>
-        <div class="doc-item">RESTORATIVE ALPHA DIVIDENDS</div>
-        
-        <a href="#" class="btn-download">Download Framework Document (PDF)</a>
+        <ul class="doc-points">
+          <li>HYDROL-STASIS LEVEL 1 VERIFICATION</li>
+          <li>TRANSBOUNDARY ASSET LEDGER</li>
+          <li>SOVEREIGN NODE AUTONOMY</li>
+          <li>RESTORATIVE ALPHA DIVIDENDS</li>
+        </ul>
+        <a href="#" class="download-btn">Download Framework Document</a>
       </div>
     </div>
   </div>
@@ -233,7 +192,7 @@
 
 <footer>
   <div class="container">
-    © 2026 GNAIAAAC LLC · POWERED BY SSGPT6-CORE · GLOBAL RESTORATIVE TRUSTEE
+    © 2026 GNAIAAAC LLC | SSGPT6-CORE | WORLD-FIRST DIGITAL GOVERNANCE
   </div>
 </footer>
 
