@@ -84,10 +84,7 @@
       background:#fff;
     }
 
-    .brand-text{
-      min-width:0;
-    }
-
+    .brand-text{min-width:0}
     .brand-title{
       font-size:clamp(2rem,3vw,3.2rem);
       line-height:1;
@@ -129,10 +126,7 @@
     .pill.blue{background:var(--blue)}
     .pill.purple{background:var(--purple)}
     .pill.green{background:var(--green)}
-    .pill.gold{
-      background:var(--gold);
-      color:#111;
-    }
+    .pill.gold{background:var(--gold);color:#111}
 
     .hero{
       padding:72px 0 42px;
@@ -190,6 +184,7 @@
       border:1px solid transparent;
       transition:.18s ease;
       text-align:center;
+      cursor:pointer;
     }
 
     .btn.gold{background:var(--gold);color:#111}
@@ -334,6 +329,56 @@
       margin:0 0 28px;
     }
 
+    .request-section{
+      max-width:860px;
+      margin:0 auto;
+    }
+
+    .request-form{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:28px;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-bottom:18px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .field.full{
+      grid-column:1 / -1;
+    }
+
+    label{
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:0.9rem;
+      color:var(--muted);
+    }
+
+    input, select, textarea{
+      width:100%;
+      background:#06101f;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:8px;
+      padding:14px 14px;
+      font:inherit;
+    }
+
+    textarea{
+      min-height:130px;
+      resize:vertical;
+    }
+
     .support{
       max-width:760px;
       margin:0 auto;
@@ -377,7 +422,8 @@
         justify-content:flex-start;
       }
       .two-grid,
-      .unit-grid{
+      .unit-grid,
+      .form-grid{
         grid-template-columns:1fr;
       }
     }
@@ -409,7 +455,8 @@
       }
       .unit-card,
       .summary-card,
-      .status-card{
+      .status-card,
+      .request-form{
         padding:24px;
       }
       .banner{
@@ -451,7 +498,7 @@
 
       <div class="hero-cta">
         <a class="btn gold" href="#summary">Informational: First Digital Governance</a>
-        <a class="btn outline" href="#support">AI Customer Service</a>
+        <a class="btn outline" href="#request-access">Request Project Access</a>
       </div>
     </div>
   </section>
@@ -475,7 +522,7 @@
           <div class="mini-access">
             <div class="small">Financial Analysis Access</div>
             <div class="price">$1 / Week</div>
-            <a class="btn gold" href="#tiers">Review Access Tier</a>
+            <a class="btn gold" href="#request-access">Review Access Tier</a>
           </div>
         </div>
 
@@ -507,7 +554,7 @@
             Managed through AI Sleeping Agent Black Box Automation. Secure IP acquisition and royalty tracking
             can be structured as a controlled digital service workflow.
           </p>
-          <a class="btn gold" href="mailto:ssgpt6@aol.com?subject=Pharma%20Vault%20Access%20Request">$150 Request Access</a>
+          <a class="btn gold" href="#request-access">Request Pharma Vault Access</a>
         </article>
 
         <article class="unit-card">
@@ -516,8 +563,63 @@
             Pure water sustainability monitoring and black-box operational management designed for more efficient
             execution and structured project oversight.
           </p>
-          <a class="btn gold" href="mailto:ssgpt6@aol.com?subject=Hydrol-Stasis%20Access%20Request">$100 Request Access</a>
+          <a class="btn gold" href="#request-access">Request Hydrol-Stasis Access</a>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="request-access">
+    <div class="container request-section">
+      <h2 class="section-title">Request Access</h2>
+      <p class="section-copy">
+        This form works now by opening the visitor’s email app with the request details. Later, this same section can connect to a real database, payment flow, and protected dashboard.
+      </p>
+
+      <div class="request-form">
+        <form id="accessForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" name="fullName" type="text" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="field">
+              <label for="projectUnit">Project Unit</label>
+              <select id="projectUnit" name="projectUnit" required>
+                <option value="">Select a unit</option>
+                <option value="Pharma Vault">Pharma Vault</option>
+                <option value="Hydrol-Stasis">Hydrol-Stasis</option>
+                <option value="Water Bankruptcy Solutions">Water Bankruptcy Solutions</option>
+                <option value="Financial Analysis Access">Financial Analysis Access</option>
+                <option value="General Matrix Inquiry">General Matrix Inquiry</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="budget">Budget Range</label>
+              <select id="budget" name="budget">
+                <option value="">Select a range</option>
+                <option value="$1 / Week">$1 / Week</option>
+                <option value="$100">$100</option>
+                <option value="$150">$150</option>
+                <option value="Custom Request">Custom Request</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="message">Request Details</label>
+              <textarea id="message" name="message" placeholder="Write your request here"></textarea>
+            </div>
+          </div>
+
+          <button class="btn gold" type="submit">Send Access Request</button>
+        </form>
       </div>
     </div>
   </section>
@@ -539,6 +641,33 @@
   <footer>
     © 2026 SSGPT6 · GNAIAAAC LLC · Matrix Governance Layer
   </footer>
+
+  <script>
+    const form = document.getElementById('accessForm');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const projectUnit = document.getElementById('projectUnit').value.trim();
+      const budget = document.getElementById('budget').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const subject = encodeURIComponent(`SSGPT6 Access Request - ${projectUnit || 'General Inquiry'}`);
+      const body = encodeURIComponent(
+`Full Name: ${fullName}
+Email: ${email}
+Project Unit: ${projectUnit}
+Budget Range: ${budget}
+
+Request Details:
+${message}`
+      );
+
+      window.location.href = `mailto:ssgpt6@aol.com?subject=${subject}&body=${body}`;
+    });
+  </script>
 
 </body>
 </html>
