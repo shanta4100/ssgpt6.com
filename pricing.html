@@ -1,150 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSGPT6 | Sovereign Pricing Matrix</title>
-    <style>
-        :root {
-            --bg: #010409;
-            --gold: #d4af37;
-            --un-blue: #009edb;
-            --card-bg: #0d1117;
-            --rainbow: linear-gradient(90deg, #009edb, #00ffcc, #ffeb3b, #ff5722, #e91e63);
-        }
-
-        body {
-            background-color: var(--bg);
-            color: #fff;
-            font-family: 'Arial Black', sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .header-banner {
-            background: var(--rainbow);
-            padding: 15px;
-            font-size: 0.8rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
-
-        .container { width: 90%; max-width: 1200px; margin: 80px auto; }
-
-        h1 { font-size: 3rem; color: var(--gold); margin-bottom: 50px; text-transform: uppercase; }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .price-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 40px;
-            border-radius: 5px;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .price-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-10px);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-        }
-
-        .tier-name { color: var(--un-blue); font-size: 1rem; letter-spacing: 2px; }
-        .price { font-size: 3.5rem; margin: 20px 0; color: #fff; }
-        .price span { font-size: 1rem; color: var(--gold); }
-
-        .features {
-            list-style: none;
-            padding: 0;
-            margin: 30px 0;
-            font-family: 'Arial', sans-serif;
-            font-size: 0.9rem;
-            text-align: left;
-            color: #8b949e;
-        }
-
-        .features li { margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px; }
-        .features li::before { content: "✓ "; color: var(--gold); }
-
-        .btn {
-            display: block;
-            background: var(--gold);
-            color: var(--bg);
-            padding: 15px;
-            text-decoration: none;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 20px;
-        }
-
-        .special { border: 2px solid var(--gold); background: radial-gradient(circle at top, rgba(212, 175, 55, 0.1), transparent); }
-    </style>
-</head>
-<body>
-
-<div class="header-banner">Global Bailout Initiative: Authorized Pricing Protocol</div>
-
-<div class="container">
-    <h1>135 Sovereign Projects</h1>
-    
-    <div class="pricing-grid">
-        <div class="price-card">
-            <div class="tier-name">ZONE A: EMERGING</div>
-            <div class="price">$5<span>/mo</span></div>
-            <ul class="features">
-                <li>D2D Satellite Link</li>
-                <li>Basic Education Access</li>
-                <li>Water-AI Lite</li>
-                <li>Local Mesh Connectivity</li>
-            </ul>
-            <a href="#" class="btn">Initialize</a>
-        </div>
-
-        <div class="price-card special">
-            <div class="tier-name">ZONE B: GLOBAL</div>
-            <div class="price">$10<span>/mo</span></div>
-            <ul class="features">
-                <li>135 Project Marketplace</li>
-                <li>AI Automation Academy</li>
-                <li>Global Health Portal</li>
-                <li>Sovereign ChatSSGPT6</li>
-            </ul>
-            <a href="#" class="btn">Deploy Now</a>
-        </div>
-
-        <div class="price-card">
-            <div class="tier-name">ZONE C: ENTERPRISE</div>
-            <div class="price">$500<span>/mo</span></div>
-            <ul class="features">
-                <li>Pharma Bidding Portal</li>
-                <li>Zero-Carbon Credits</li>
-                <li>B2B Logistics Mesh</li>
-                <li>Priority API Access</li>
-            </ul>
-            <a href="#" class="btn">Incorporate</a>
-        </div>
-
-        <div class="price-card">
-            <div class="tier-name">ZONE D: SOVEREIGN</div>
-            <div class="price">CUSTOM<span>/vault</span></div>
-            <ul class="features">
-                <li>Stellar Guardian Rights</li>
-                <li>Mars Seed-Ship Equity</li>
-                <li>Institutional Vault Access</li>
-                <li>Galactic Governance Voice</li>
-            </ul>
-            <a href="#" class="btn">Contact Founder</a>
+<section class="section">
+    <div class="container">
+        <div class="section-label">Revenue Protocols</div>
+        <h2 class="section-title">Access Structure</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="tier">ZONE A: EMERGING</div>
+                <div class="price">$5<span>/mo</span></div>
+                <p>D2D Link (Satellite), Basic Education Hub, Water-AI Lite.</p>
+                <a href="#" class="action">Initialize</a>
+            </div>
+            <div class="card" style="background:var(--accent-soft);">
+                <div class="tier">ZONE B: GLOBAL</div>
+                <div class="price">$10<span>/mo</span></div>
+                <p>135 Project Marketplace, AI Academy, Global Health Portal.</p>
+                <a href="#" class="action">Deploy Now</a>
+            </div>
+            <div class="card">
+                <div class="tier">ZONE D: SOVEREIGN</div>
+                <div class="price">CUSTOM</div>
+                <p>Stellar Guardian Rights, Mars Seed-Ship Equity, Vault Governance.</p>
+                <a href="contact.html" class="action">Contact Founder</a>
+            </div>
         </div>
     </div>
-</div>
-
-</body>
-</html>
+</section>
