@@ -5,41 +5,43 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+// Middleware to handle form data
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public'))); // Serves your HTML files
+app.use(express.static(path.join(__dirname, 'public')));
 
-// POST Route for Contact Form
+// THE INQUIRY ROUTE
 app.post('/send-inquiry', async (req, res) => {
     const { name, email, subject, message } = req.body;
 
-    // Configure your email transporter
-    // Note: Use Environment Variables (Secrets) for these for security
+    // This block pulls directly from your Replit Secrets
     let transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.aol.com',
+        port: 465,
+        secure: true, 
         auth: {
-            user: process.env.EMAIL_USER, // Your Gmail
-            pass: process.env.EMAIL_PASS  // Your Gmail App Password
+            user: process.env.EMAIL_USER, // Your ssgpt6@aol.com secret
+            pass: process.env.EMAIL_PASS  // Your 16-character AOL App Password secret
         }
     });
 
-    let mailOptions = {
-        from: email,
-        to: process.env.EMAIL_USER, 
-        subject: `SSGPT6 Inquiry: ${subject} from ${name}`,
-        text: `New Inquiry Received:\n\nName: ${name}\nEmail: ${email}\nTier: ${subject}\nMessage: ${message}`
+    // Email sent to YOU (the Founder)
+    let adminMail = {
+        from: `"SSGPT6 System" <${process.env.EMAIL_USER}>`,
+        to: process.env.EMAIL_USER,
+        subject: `NEW INQUIRY: ${subject}`,
+        text: `Lead Name: ${name}\nClient Email: ${email}\nTier Selected: ${subject}\n\nMessage:\n${message}`
     };
 
     try {
-        await transporter.sendMail(mailOptions);
-        // Redirect to your success.html page
+        await transporter.sendMail(adminMail);
+        console.log(`Inquiry from ${name} sent to ssgpt6@aol.com`);
         res.redirect('/success.html');
     } catch (error) {
-        console.error("Email failed:", error);
-        res.status(500).send("Form submission failed. Please try again.");
+        console.error("Critical Email Error:", error);
+        res.status(500).send("System Error: Could not route inquiry. Please check AOL App Password.");
     }
 });
 
 app.listen(PORT, () => {
-    console.log(`SSGPT6 Server running on port ${PORT}`);
+    console.log(`SSGPT6 Infrastructure Live on Port ${PORT}`);
 });
