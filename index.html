@@ -1,425 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SSGPT6 | World First Digital Governance</title>
-  <meta name="description" content="World First Digital Governance. Global Pure Water, Water Bankruptcy solutions, Zero carbon satellite coil grid energy, and AI-powered digital governance systems." />
-  <style>
-    :root{
-      --bg:#04101f;
-      --panel:#0b1c33;
-      --text:#eef3fb;
-      --muted:#b4bfd1;
-      --gold:#d3b05b;
-      --gold-dark:#bc9a49;
-      --line:rgba(255,255,255,0.08);
-      --max:1180px;
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Georgia,"Times New Roman",serif;
-      background:linear-gradient(180deg,#020914 0%, #04101f 50%, #071629 100%);
-      color:var(--text);
-      line-height:1.6;
-    }
-    a{text-decoration:none;color:inherit}
-    img{display:block;max-width:100%}
-    .container{width:min(92%, var(--max));margin:0 auto}
-    .top-rainbow{
-      height:12px;
-      background:linear-gradient(90deg,#00d9ff,#00ffb3,#dfff4f,#ffbe3b,#ff6b57,#ff2e8e);
-    }
-    header{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:rgba(4,16,31,0.93);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--line);
-    }
-    .header-inner{
-      padding:18px 0;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
-    .brand-logo{
-      width:66px;
-      height:66px;
-      background:#fff;
-      border-radius:6px;
-      overflow:hidden;
-      box-shadow:0 0 30px rgba(211,176,91,0.25);
-      flex-shrink:0;
-    }
-    .brand-text h1{
-      margin:0;
-      font-size:2rem;
-      line-height:1;
-      font-weight:700;
-    }
-    .brand-text p{
-      margin:6px 0 0;
-      color:var(--gold);
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:.86rem;
-      letter-spacing:1.2px;
-      text-transform:uppercase;
-    }
-    .nav{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      font-family:Arial,Helvetica,sans-serif;
-    }
-    .nav a{
-      padding:12px 16px;
-      border-radius:12px;
-      font-size:.92rem;
-      font-weight:800;
-      border:1px solid rgba(255,255,255,0.05);
-      transition:.18s ease;
-    }
-    .nav a:hover{transform:translateY(-2px)}
-    .nav .blue{background:#1d4770}
-    .nav .purple{background:#4f2d78}
-    .nav .green{background:#1d5a3d}
-    .nav .gold{background:var(--gold); color:#111}
-    .hero{
-      padding:82px 0 64px;
-      text-align:center;
-      border-bottom:1px solid var(--line);
-    }
-    .eyebrow{
-      color:var(--gold);
-      font-family:Arial,Helvetica,sans-serif;
-      text-transform:uppercase;
-      letter-spacing:3px;
-      font-size:1rem;
-      margin-bottom:18px;
-      font-weight:800;
-    }
-    .hero h2{
-      margin:0;
-      font-size:clamp(2.8rem,8vw,5.5rem);
-      line-height:1.05;
-      font-weight:900;
-    }
-    .hero p{
-      max-width:920px;
-      margin:24px auto 0;
-      font-size:clamp(1.1rem,2.4vw,1.7rem);
-      color:#55b2ff;
-      font-weight:800;
-    }
-    .hero-actions{
-      margin-top:32px;
-      display:flex;
-      gap:14px;
-      justify-content:center;
-      flex-wrap:wrap;
-      font-family:Arial,Helvetica,sans-serif;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:16px 24px;
-      border-radius:12px;
-      font-weight:800;
-      text-align:center;
-      border:1px solid transparent;
-      transition:.18s ease;
-      cursor:pointer;
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:.98rem;
-    }
-    .btn.gold{background:var(--gold);color:#111}
-    .btn.gold:hover{background:var(--gold-dark)}
-    .btn.outline{
-      border-color:rgba(211,176,91,0.42);
-      color:var(--gold);
-      background:transparent;
-    }
-    .btn.outline:hover{background:rgba(211,176,91,0.08)}
-    .section{
-      padding:58px 0;
-      border-bottom:1px solid var(--line);
-    }
-    .section-title{
-      text-align:center;
-      color:var(--gold);
-      font-size:clamp(1.7rem,3vw,2.5rem);
-      margin:0 0 14px;
-    }
-    .section-copy{
-      max-width:900px;
-      margin:0 auto 28px;
-      text-align:center;
-      color:var(--muted);
-      font-size:1.02rem;
-    }
-    .highlight-banner{
-      background:linear-gradient(90deg,#00d9ff,#00ffb3,#dfff4f,#ffbe3b,#ff6b57,#ff2e8e);
-      color:#08111e;
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:clamp(1.2rem,2.7vw,2rem);
-      font-weight:900;
-      text-transform:uppercase;
-      text-align:center;
-      padding:22px 18px;
-      border-radius:14px;
-      margin:0 auto;
-      max-width:1100px;
-      letter-spacing:1px;
-    }
-    .grid-2{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-    }
-    .grid-3{
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:24px;
-    }
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.015));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:28px;
-      box-shadow:0 12px 28px rgba(0,0,0,0.15);
-    }
-    .card h3{
-      margin:0 0 12px;
-      color:var(--gold);
-      font-size:1.45rem;
-    }
-    .card p{
-      margin:0 0 16px;
-      color:#dbe3ef;
-    }
-    .card ul{
-      margin:0;
-      padding-left:20px;
-      color:var(--muted);
-    }
-    .card li{margin-bottom:6px}
-    .big-link{
-      display:block;
-      background:var(--gold);
-      color:#111;
-      text-align:center;
-      padding:26px 18px;
-      border-radius:14px;
-      font-size:clamp(1.3rem,2.6vw,2.2rem);
-      font-weight:900;
-      font-family:Arial,Helvetica,sans-serif;
-      letter-spacing:1px;
-    }
-    .short-access{
-      max-width:960px;
-      margin:24px auto 0;
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(211,176,91,0.22);
-      border-radius:14px;
-      padding:18px;
-      text-align:center;
-      color:#dbe3ef;
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:.96rem;
-    }
-    .help-box{
-      max-width:900px;
-      margin:0 auto;
-      text-align:center;
-    }
-    .help-box h3{
-      color:var(--gold);
-      font-size:clamp(1.8rem,3vw,2.5rem);
-      margin:0 0 12px;
-    }
-    .help-box p{
-      color:var(--muted);
-      font-size:1.05rem;
-      margin:0 0 24px;
-    }
-    footer{
-      padding:32px 0 50px;
-      text-align:center;
-      color:var(--muted);
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:.92rem;
-    }
-    @media (max-width:1024px){
-      .header-inner{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-      .nav{
-        width:100%;
-        justify-content:flex-start;
-      }
-      .grid-2,.grid-3{
-        grid-template-columns:1fr;
-      }
-    }
-    @media (max-width:680px){
-      .brand-logo{
-        width:56px;
-        height:56px;
-      }
-      .brand-text h1{
-        font-size:1.7rem;
-      }
-      .hero{
-        padding:58px 0 40px;
-      }
-      .card{
-        padding:22px;
-      }
-      .nav a{
-        padding:10px 13px;
-        font-size:.88rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSGPT6 | Digital Governance Platform</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#020812;
+  color:#fff;
+}
+
+.top{
+  height:10px;
+  background:linear-gradient(90deg,cyan,green,yellow,orange,red,pink);
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px;
+  background:#061a2b;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+}
+
+.logo img{
+  width:60px;
+  margin-right:10px;
+}
+
+nav a{
+  margin:5px;
+  padding:10px 15px;
+  border-radius:6px;
+  font-weight:bold;
+  text-decoration:none;
+  color:white;
+}
+
+.blue{background:#1f4b6e;}
+.purple{background:#5b2c6f;}
+.green{background:#1d8348;}
+.gold{background:#c7a85a;color:#000;}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:60px 20px;
+}
+
+.hero h1{
+  font-size:42px;
+  margin:0;
+}
+
+.hero p{
+  color:#4db8ff;
+  font-size:18px;
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  margin:10px;
+  padding:12px 20px;
+  border-radius:6px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.btn-gold{
+  background:#c7a85a;
+  color:#000;
+}
+
+.btn-outline{
+  border:1px solid #c7a85a;
+  color:#c7a85a;
+}
+
+/* SECTION */
+.section{
+  padding:40px 20px;
+  text-align:center;
+}
+
+.card{
+  border:1px solid #333;
+  margin:15px;
+  padding:20px;
+}
+
+/* BIG LINK */
+.big{
+  background:#c7a85a;
+  color:#000;
+  padding:20px;
+  font-weight:bold;
+  display:block;
+  margin:20px auto;
+  max-width:600px;
+  text-decoration:none;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  color:#888;
+}
+</style>
 </head>
+
 <body>
-  <div class="top-rainbow"></div>
 
-  <header>
-    <div class="container header-inner">
-      <div class="brand">
-        <div class="brand-logo">
-          <img src="logo.png" alt="SSGPT6 logo">
-        </div>
-        <div class="brand-text">
-          <h1>SSGPT6</h1>
-          <p>GNAIAAAC LLC</p>
-        </div>
-      </div>
+<div class="top"></div>
 
-      <nav class="nav">
-        <a class="blue" href="/governance.html">Digital Governance</a>
-        <a class="purple" href="/projects.html">135 Matrix</a>
-        <a class="green" href="/portal.html">Service Portal</a>
-        <a class="gold" href="/voicehub.html">AI Voice Hub</a>
-      </nav>
+<header>
+  <div class="logo">
+    <img src="logo.png">
+    <div>
+      <b>SSGPT6</b><br>
+      <small>GNAIAAAC LLC</small>
     </div>
-  </header>
+  </div>
 
-  <section class="hero">
-    <div class="container">
-      <div class="eyebrow">World First Digital Governance</div>
-      <h2>Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Satellite Coil Grid Energy</h2>
-      <p>Contact For Global Climate Crisis Solution</p>
+  <nav>
+    <a href="governance.html" class="blue">Governance</a>
+    <a href="projects.html" class="purple">135 Matrix</a>
+    <a href="portal.html" class="green">Portal</a>
+    <a href="voicehub.html" class="gold">AI Voice Hub</a>
+  </nav>
+</header>
 
-      <div class="hero-actions">
-        <a class="btn gold" href="/governance.html">Open Digital Governance</a>
-        <a class="btn outline" href="/projects.html">Open 135 Project Listing</a>
-      </div>
+<!-- HERO -->
+<div class="hero">
+  <h1>World First Digital Governance</h1>
 
-      <div class="short-access">
-        Shorter Accessibility and Communication Layer: usable for seniors, disabled users, and customers who prefer voice, keyboard, or multilingual guidance. Voice + Typing supported where available.
-      </div>
-    </div>
-  </section>
+  <p>
+  Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Energy
+  </p>
 
-  <section class="section">
-    <div class="container">
-      <div class="highlight-banner">Learn Earn Through 135 Projects</div>
-      <div style="text-align:center; margin-top:22px;">
-        <a class="big-link" href="/projects.html">View Project Summaries, Services, Fees, and Website Delivery Path</a>
-      </div>
-    </div>
-  </section>
+  <a href="governance.html" class="btn btn-gold">
+    Open Digital Governance
+  </a>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Why Digital Governance Is Needed</h2>
-      <p class="section-copy">
-        Every digital company, government, UN-facing institution, and G7-scale technology platform needs digital governance for service control, licensing, accountability, workflow structure, and trusted access.
-      </p>
+  <a href="projects.html" class="btn btn-outline">
+    View 135 Projects
+  </a>
 
-      <div class="grid-3">
-        <div class="card">
-          <h3>For Digital Companies</h3>
-          <p>Digital governance creates clear service logic, customer pathways, software use rules, and operational trust.</p>
-        </div>
-        <div class="card">
-          <h3>For Governments</h3>
-          <p>Governments need governance layers for digital systems, public services, security, and structured policy delivery.</p>
-        </div>
-        <div class="card">
-          <h3>For UN and G7 Context</h3>
-          <p>International systems require scalable governance models for resilience, compliance, coordination, and technology stewardship.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <p style="margin-top:20px;color:#aaa;">
+  Voice + Typing Supported • Accessible for seniors & disabled users
+  </p>
+</div>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Software Purchases, Uses, and License Policy</h2>
-      <p class="section-copy">
-        Customers should understand what the software is for, why they buy it, what they receive, and how use is governed.
-      </p>
+<!-- PROJECT ACCESS -->
+<div class="section">
+  <h2 style="color:#c7a85a;">LEARN EARN THROUGH 135 PROJECTS</h2>
 
-      <div class="grid-2">
-        <div class="card">
-          <h3>Uses of the Software</h3>
-          <ul>
-            <li>Digital governance planning and review</li>
-            <li>Water and climate project service workflows</li>
-            <li>AI-guided service intake and communication</li>
-            <li>Founder-led access to structured project systems</li>
-            <li>Institutional and enterprise solution preparation</li>
-          </ul>
-        </div>
+  <a href="projects.html" class="big">
+    OPEN PROJECT SYSTEM & SERVICES
+  </a>
+</div>
 
-        <div class="card">
-          <h3>Purchase and License Policy</h3>
-          <ul>
-            <li>Customers purchase access to digital service layers and guided software-supported workflows</li>
-            <li>Service tiers define scope, features, and response level</li>
-            <li>Purchased access is for authorized use only</li>
-            <li>Redistribution or resale of proprietary SSGPT6 materials is not allowed without permission</li>
-            <li>Support and service routing occur through the website portal and help desk layers</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- SERVICES -->
+<div class="section">
 
-  <section class="section">
-    <div class="container">
-      <div class="help-box">
-        <h3>AI Voice Messages Recording Hub</h3>
-        <p>
-          Your personal phone number is removed from front-facing support. Customers use the AI Voice Hub and website system instead of calling a personal number. Voice messages can be recorded and reviewed later.
-        </p>
-        <div class="hero-actions">
-          <a class="btn gold" href="/voicehub.html">Open AI Voice Hub</a>
-          <a class="btn outline" href="/portal.html">Open Customer Portal</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <h2 style="color:#c7a85a;">What Customers Get</h2>
 
-  <footer>
-    © 2026 SSGPT6 · GNAIAAAC LLC · World First Digital Governance
-  </footer>
+  <div class="card">
+    <h3>AI Governance System</h3>
+    <p>Structured decision system for digital business, UN-level governance, and automation.</p>
+  </div>
+
+  <div class="card">
+    <h3>Water AI Solutions</h3>
+    <p>Pure water systems, climate solutions, and water bankruptcy recovery frameworks.</p>
+  </div>
+
+  <div class="card">
+    <h3>Automation Platform</h3>
+    <p>AI Sleeping Agent black box system delivering services automatically.</p>
+  </div>
+
+</div>
+
+<!-- VOICE HUB -->
+<div class="section">
+
+  <h2 style="color:#c7a85a;">AI Communication System</h2>
+
+  <p>
+  No phone calls required. Customers communicate using AI Voice & text system.
+  </p>
+
+  <a href="voicehub.html" class="btn btn-gold">
+    Open AI Voice Messages Hub
+  </a>
+
+</div>
+
+<!-- POLICY -->
+<div class="section">
+
+  <h2 style="color:#c7a85a;">Software & License Policy</h2>
+
+  <p>
+  Customers purchase access to digital services, AI systems, and structured workflows.<br><br>
+  Access is provided through the platform automatically.<br><br>
+  No physical product — digital service only.
+  </p>
+
+</div>
+
+<footer>
+© 2026 SSGPT6 · GNAIAAAC LLC
+</footer>
+
 </body>
 </html>
