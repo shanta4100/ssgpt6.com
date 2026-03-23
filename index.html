@@ -3,66 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSGPT6 | 135 Project Ledger</title>
+    <title>SSGPT6 | UN Global Governance Platform</title>
     <style>
-        :root { --bg: #060d18; --gold: #c7a85a; --line: rgba(255,255,255,0.1); }
-        body { background: var(--bg); color: #e8edf5; font-family: Georgia, serif; margin: 0; }
-        .container { width: min(94%, 1200px); margin: 0 auto; padding: 50px 0; }
-        .header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 40px; }
-        h1 { font-family: Arial, sans-serif; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
-        
-        /* SEARCH BAR FOR 135 PROJECTS */
-        .search-box { width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--gold); color: #fff; margin-bottom: 40px; }
+        :root {
+            --bg: #010409;
+            --gold: #d4af37;
+            --un-blue: #009edb;
+            --rainbow: linear-gradient(90deg, #009edb, #00ffcc, #ffeb3b, #ff5722, #e91e63);
+            --line: rgba(212, 175, 55, 0.3);
+        }
 
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .project-card { background: #0c1728; border: 1px solid var(--line); padding: 25px; transition: 0.3s; }
-        .project-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .project-id { color: var(--gold); font-family: Arial; font-size: 0.7rem; font-weight: bold; }
-        .category { font-size: 0.6rem; text-transform: uppercase; color: #5bc0de; margin-bottom: 10px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg); color: #fff; font-family: 'Arial Black', sans-serif; line-height: 1.4; overflow-x: hidden; }
+
+        .container { width: min(94%, 1300px); margin: 0 auto; }
+
+        /* HEADER & RAINBOW ALIGNMENT */
+        header { padding: 40px 0; border-bottom: 2px solid var(--line); text-align: center; }
         
-        nav { margin-bottom: 20px; }
-        nav a { color: var(--gold); text-decoration: none; margin-right: 20px; font-family: Arial; font-size: 0.8rem; }
+        .un-alignment-text {
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: var(--rainbow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .main-title {
+            color: var(--gold);
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        /* NAVIGATION: GOLD & BOLD */
+        nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin: 40px 0; }
+        nav a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            border: 2px solid var(--gold);
+            padding: 15px 25px;
+            transition: 0.3s;
+        }
+        nav a:hover { background: var(--gold); color: var(--bg); }
+
+        /* HERO MISSION STATEMENT */
+        .mission-hero { padding: 60px 0; text-align: center; border-bottom: 1px solid var(--line); }
+        .mission-statement {
+            color: var(--gold);
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            max-width: 1000px;
+            margin: 0 auto;
+            letter-spacing: 1px;
+        }
+
+        /* DUAL MODULE: SLIDESHOW & DOCUMENT */
+        .dual-module {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 80px 0;
+            min-height: 600px;
+        }
+
+        .side-slideshow {
+            border: 4px solid var(--un-blue);
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .side-slideshow img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+
+        .side-document {
+            border: 4px solid var(--gold);
+            background: #0d1117;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .doc-title { color: var(--gold); font-size: 1.5rem; margin-bottom: 30px; text-transform: uppercase; border-bottom: 2px solid var(--gold); padding-bottom: 10px; }
+        .doc-point { font-family: 'Arial', sans-serif; color: #8b949e; font-size: 1.1rem; margin-bottom: 20px; display: flex; gap: 15px; }
+        .doc-point::before { content: "●"; color: var(--un-blue); }
+
+        .footer { padding: 40px; text-align: center; border-top: 2px solid var(--gold); color: var(--gold); font-size: 0.8rem; letter-spacing: 5px; }
+
+        @media (max-width: 1000px) { .dual-module { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
+<header>
     <div class="container">
+        <div class="un-alignment-text">UN CLIMATE ALIGNMENT</div>
+        <h1 class="main-title">UN GLOBAL GOVERNANCE PLATFORM</h1>
+        
         <nav>
-            <a href="index.html">← BACK TO UN HUB</a>
-            <a href="pricing.html">VIEW PRICING</a>
+            <a href="#">AI Automation Sleeping Agent</a>
+            <a href="#">World First Digital Governance</a>
+            <a href="#">Zero Carbon Solutions</a>
+            <a href="#">ChatSSGPT6</a>
         </nav>
-        <div class="header">
-            <h1>The 135 Project Matrix</h1>
-            <p>Sovereign Infrastructure, Medical Breakthroughs, and Interplanetary Logistics.</p>
-        </div>
+    </div>
+</header>
 
-        <input type="text" class="search-box" placeholder="Search the 135 Project Ledger (e.g. 'Water', 'Pharma', 'Satellite')...">
+<section class="mission-hero">
+    <div class="container">
+        <p class="mission-statement">
+            Driving sustainable development through decentralized monitoring and intelligent, autonomous operations.
+        </p>
+    </div>
+</section>
 
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-id">GNAI-001</div>
-                <div class="category">Medicine</div>
-                <h3>Pharma Bidding Portal</h3>
-                <p>Secure interface for $75M milestone acquisitions by Pfizer/GSK.</p>
-            </div>
-            <div class="project-card">
-                <div class="project-id">GNAI-005</div>
-                <div class="category">Energy</div>
-                <h3>Tesla Coil Relay</h3>
-                <p>Zero-point energy distribution for the 500 NGO Hubs.</p>
-            </div>
-            <div class="project-card">
-                <div class="project-id">GNAI-012</div>
-                <div class="category">Water</div>
-                <h3>Hydrol-Stasis AI</h3>
-                <p>UN-aligned water bankruptcy prevention and monitoring.</p>
-            </div>
-            <div class="project-card">
-                <div class="project-id">GNAI-135</div>
-                <div class="category">Space</div>
-                <h3>Mars Seed-Ship</h3>
-                <p>The final project: Interstellar logistics and colonization.</p>
-            </div>
+<section class="container dual-module">
+    <div class="side-slideshow">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200" alt="Global Connectivity">
+        <div style="position:absolute; bottom:20px; left:20px; background:rgba(0,0,0,0.8); padding:10px; border:1px solid var(--un-blue); font-size:0.7rem;">
+            LIVE SATELLITE FEED: WATER-AI MESH ACTIVE
         </div>
     </div>
+
+    <div class="side-document">
+        <h2 class="doc-title">Water Bankruptcy & Energy Protocol</h2>
+        <div class="doc-point">National Water-Debt Monitoring via GNAI Mesh</div>
+        <div class="doc-point">Transboundary Asset Recovery & Liquidity</div>
+        <div class="doc-point">Zero-Carbon Energy Dividend Redistribution</div>
+        <div class="doc-point">Institutional Governance Framework v229.0</div>
+        
+        <a href="#" style="margin-top:40px; background:var(--gold); color:#000; padding:20px; text-align:center; text-decoration:none; font-weight:900;">DOWNLOAD UN DELEGATE DOSSIER</a>
+    </div>
+</section>
+
+<footer class="footer">
+    GNAIAAAC LLC © 2026 | ARCHITECT SHANTA | SOVEREIGN STRATEGIC SYSTEMS
+</footer>
+
 </body>
 </html>
