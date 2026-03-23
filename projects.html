@@ -3,204 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | SSGPT6</title>
-  <meta name="description" content="SSGPT6 projects page for core initiatives, water systems, governance programs, and founder-led digital units." />
+  <title>SSGPT6 | 135 Project Matrix</title>
+  <meta name="description" content="SSGPT6 project matrix with project summaries, services, fees, and website delivery pathways." />
   <style>
     :root{
-      --bg:#06101d;
-      --panel:#0d1d33;
-      --text:#ecf1f8;
-      --muted:#aab6c8;
-      --gold:#c7a85a;
-      --gold-dark:#ad8f45;
+      --bg:#04101f;
+      --panel:#0b1c33;
+      --panel2:#102743;
+      --text:#eef3fb;
+      --muted:#b4bfd1;
+      --gold:#d3b05b;
+      --gold-dark:#bc9a49;
       --line:rgba(255,255,255,0.08);
-      --blue:#17385a;
-      --green:#174732;
-      --purple:#3f245e;
       --max:1180px;
-      --radius:14px;
+      --radius:18px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:Georgia,"Times New Roman",serif;
-      background:
-        radial-gradient(circle at top right, rgba(199,168,90,0.08), transparent 20%),
-        linear-gradient(180deg,#040b14 0%, #06101d 45%, #081321 100%);
+      font-family:Arial,Helvetica,sans-serif;
+      background:linear-gradient(180deg,#020914 0%, #04101f 50%, #071629 100%);
       color:var(--text);
-      line-height:1.65;
+      line-height:1.6;
     }
 
     a{text-decoration:none;color:inherit}
     .container{width:min(92%, var(--max));margin:0 auto}
 
-    .top-line{
-      height:6px;
-      background:linear-gradient(90deg,#00b8ff,#50e3a4,#d8ea5d,#ffbc59,#ff6d6d,#ff3aa7);
+    .top{
+      height:10px;
+      background:linear-gradient(90deg,cyan,green,yellow,orange,red,pink);
     }
 
     header{
       position:sticky;
       top:0;
       z-index:1000;
-      background:rgba(6,16,29,0.92);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px;
+      background:rgba(6,26,43,0.94);
       backdrop-filter:blur(10px);
       border-bottom:1px solid var(--line);
     }
 
-    .header-inner{
-      padding:18px 0;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-    }
-
-    .brand{
+    .logo{
       display:flex;
       align-items:center;
-      gap:14px;
+      gap:10px;
     }
 
-    .brand-logo{
-      width:66px;
-      height:66px;
-      background:#fff;
-      border-radius:4px;
-      overflow:hidden;
-      box-shadow:0 0 30px rgba(199,168,90,0.22);
-      flex-shrink:0;
-    }
-
-    .brand-logo img{
-      width:100%;
-      height:100%;
+    .logo img{
+      width:60px;
+      height:60px;
       object-fit:contain;
       background:#fff;
+      border-radius:6px;
+      box-shadow:0 0 24px rgba(211,176,91,0.25);
     }
 
-    .brand-text h1{
-      margin:0;
-      font-size:2rem;
-      line-height:1;
-      letter-spacing:0.4px;
+    .logo b{
+      font-size:1.6rem;
     }
 
-    .brand-text p{
-      margin:6px 0 0;
+    .logo small{
       color:var(--gold);
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:0.86rem;
-      letter-spacing:1.2px;
-      text-transform:uppercase;
+      letter-spacing:1px;
     }
 
-    .nav{
+    nav{
       display:flex;
-      gap:12px;
+      gap:10px;
       flex-wrap:wrap;
       justify-content:flex-end;
-      font-family:Arial,Helvetica,sans-serif;
     }
 
-    .nav a{
-      padding:12px 16px;
-      border-radius:10px;
-      font-size:0.92rem;
-      font-weight:700;
-      transition:.18s ease;
-      border:1px solid rgba(255,255,255,0.05);
+    nav a{
+      padding:10px 14px;
+      border-radius:8px;
+      font-weight:bold;
+      font-size:.92rem;
     }
 
-    .nav a:hover{transform:translateY(-2px)}
-    .nav .blue{background:var(--blue)}
-    .nav .green{background:var(--green)}
-    .nav .purple{background:var(--purple)}
-    .nav .gold{background:var(--gold); color:#111}
+    .blue{background:#1f4b6e;}
+    .purple{background:#5b2c6f;}
+    .green{background:#1d8348;}
+    .gold{background:#c7a85a;color:#000;}
 
     .hero{
-      padding:82px 0 54px;
+      text-align:center;
+      padding:60px 20px;
       border-bottom:1px solid var(--line);
     }
 
-    .hero-wrap{
-      max-width:940px;
-    }
-
-    .eyebrow{
-      color:var(--gold);
-      font-family:Arial,Helvetica,sans-serif;
-      text-transform:uppercase;
-      letter-spacing:2.4px;
-      font-size:0.9rem;
-      margin-bottom:18px;
-    }
-
-    .hero h2{
-      margin:0 0 20px;
-      font-size:clamp(2.6rem,6vw,4.8rem);
-      line-height:1.08;
-      font-weight:700;
+    .hero h1{
+      font-size:clamp(2.4rem,7vw,4.5rem);
+      margin:0;
+      font-weight:900;
     }
 
     .hero p{
-      color:#d7dfea;
-      font-size:1.1rem;
-      max-width:780px;
-      margin:0;
-    }
-
-    .hero-actions{
-      margin-top:28px;
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      font-family:Arial,Helvetica,sans-serif;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:15px 22px;
-      border-radius:10px;
+      color:#4db8ff;
+      font-size:1.15rem;
+      max-width:900px;
+      margin:18px auto 0;
       font-weight:700;
-      text-align:center;
-      border:1px solid transparent;
-      transition:.18s ease;
-      cursor:pointer;
-      font-family:Arial,Helvetica,sans-serif;
     }
-
-    .btn.gold{background:var(--gold);color:#111}
-    .btn.gold:hover{background:var(--gold-dark)}
-    .btn.outline{
-      border-color:rgba(199,168,90,0.4);
-      color:var(--gold);
-      background:transparent;
-    }
-    .btn.outline:hover{background:rgba(199,168,90,0.08)}
 
     .section{
-      padding:58px 0;
+      padding:50px 20px;
       border-bottom:1px solid var(--line);
     }
 
-    .section-title{
-      text-align:center;
+    .section h2{
       color:var(--gold);
-      font-size:clamp(1.5rem,3vw,2.3rem);
+      text-align:center;
+      font-size:clamp(1.6rem,3vw,2.4rem);
       margin:0 0 14px;
     }
 
     .section-copy{
-      max-width:820px;
-      margin:0 auto 28px;
       text-align:center;
+      max-width:900px;
+      margin:0 auto 28px;
       color:var(--muted);
-      font-size:1rem;
     }
 
     .project-grid{
@@ -210,288 +139,384 @@
     }
 
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:30px;
-      box-shadow:0 10px 28px rgba(0,0,0,0.16);
-    }
-
-    .tag{
-      display:inline-block;
-      margin-bottom:14px;
-      color:var(--gold);
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:0.82rem;
-      text-transform:uppercase;
-      letter-spacing:1.2px;
-    }
-
-    .card h3{
-      margin:0 0 14px;
-      font-size:clamp(1.7rem,3vw,2.3rem);
-      line-height:1.15;
-    }
-
-    .card p{
-      margin:0 0 22px;
-      color:#d8dfea;
-      font-size:1.03rem;
-    }
-
-    .button-stack{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-
-    .mini-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-
-    .mini-card{
-      background:var(--panel);
+      background:linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.015));
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:24px;
     }
 
-    .mini-card h4{
-      margin:0 0 10px;
+    .tag{
       color:var(--gold);
-      font-size:1.2rem;
+      font-size:.82rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      margin-bottom:8px;
     }
 
-    .mini-card p{
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.8rem;
+    }
+
+    .fee{
+      color:var(--gold);
+      font-weight:800;
+      margin-bottom:12px;
+    }
+
+    .card p{
+      color:#dbe3ef;
+      margin:0 0 14px;
+    }
+
+    .list{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:12px;
+      padding:14px 16px;
+      margin:16px 0;
+    }
+
+    .list strong{
+      color:var(--gold);
+      display:block;
+      margin-bottom:8px;
+    }
+
+    .list ul{
       margin:0;
+      padding-left:18px;
       color:var(--muted);
     }
 
-    .quote-box{
-      background:var(--panel);
-      border:1px solid rgba(199,168,90,0.28);
-      border-radius:var(--radius);
-      padding:30px;
-      max-width:900px;
-      margin:0 auto;
+    .list li{
+      margin-bottom:6px;
+    }
+
+    .btn-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:800;
       text-align:center;
     }
 
-    .quote-box p{
-      margin:0;
-      font-size:1.2rem;
-      color:#eef2f8;
+    .btn-gold{
+      background:var(--gold);
+      color:#111;
+    }
+
+    .btn-outline{
+      border:1px solid rgba(211,176,91,0.42);
+      color:var(--gold);
+      background:transparent;
+    }
+
+    .banner{
+      background:linear-gradient(90deg,#00d9ff,#00ffb3,#dfff4f,#ffbe3b,#ff6b57,#ff2e8e);
+      color:#08111e;
+      font-weight:900;
+      text-transform:uppercase;
+      text-align:center;
+      padding:22px 18px;
+      border-radius:14px;
+      margin:0 auto;
+      max-width:1100px;
+      letter-spacing:1px;
+      font-size:clamp(1.1rem,2.3vw,1.8rem);
+    }
+
+    .note{
+      max-width:960px;
+      margin:24px auto 0;
+      text-align:center;
+      color:var(--muted);
+      font-size:.95rem;
     }
 
     footer{
-      padding:30px 0 48px;
       text-align:center;
-      color:var(--muted);
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:0.92rem;
+      padding:28px 20px 46px;
+      color:#888;
+      font-size:.92rem;
     }
 
     @media (max-width:1024px){
-      .header-inner{
+      header{
         flex-direction:column;
         align-items:flex-start;
+        gap:14px;
       }
-      .nav{
-        width:100%;
+      nav{
         justify-content:flex-start;
       }
-      .project-grid,
-      .mini-grid{
+      .project-grid{
         grid-template-columns:1fr;
-      }
-    }
-
-    @media (max-width:680px){
-      .brand-logo{
-        width:56px;
-        height:56px;
-      }
-      .brand-text h1{
-        font-size:1.7rem;
-      }
-      .hero{
-        padding:56px 0 36px;
-      }
-      .card,
-      .mini-card,
-      .quote-box{
-        padding:22px;
-      }
-      .nav a{
-        padding:10px 13px;
-        font-size:0.88rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-line"></div>
+<div class="top"></div>
 
-  <header>
-    <div class="container header-inner">
-      <div class="brand">
-        <div class="brand-logo">
-          <img src="logo.png" alt="SSGPT6 logo">
-        </div>
-        <div class="brand-text">
-          <h1>SSGPT6</h1>
-          <p>GNAIAAAC LLC</p>
-        </div>
-      </div>
-
-      <nav class="nav">
-        <a class="blue" href="/index.html">Home</a>
-        <a class="purple" href="/matrix.html">135 Matrix</a>
-        <a class="green" href="/governance.html">Governance</a>
-        <a class="gold" href="/projects.html">Projects</a>
-      </nav>
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="SSGPT6 logo">
+    <div>
+      <b>SSGPT6</b><br>
+      <small>GNAIAAAC LLC</small>
     </div>
-  </header>
+  </div>
 
-  <section class="hero">
-    <div class="container hero-wrap">
-      <div class="eyebrow">Core Initiatives</div>
-      <h2>Separate projects, one strategic ecosystem.</h2>
-      <p>
-        SSGPT6 is designed to hold multiple serious initiatives without losing structure:
-        water systems, governance frameworks, founder-led service units, and future AI operating layers.
-      </p>
+  <nav>
+    <a href="index.html" class="blue">Home</a>
+    <a href="governance.html" class="purple">Digital Governance</a>
+    <a href="portal.html" class="green">Portal</a>
+    <a href="voicehub.html" class="gold">AI Voice Hub</a>
+  </nav>
+</header>
 
-      <div class="hero-actions">
-        <a class="btn gold" href="#core-projects">View Core Projects</a>
-        <a class="btn outline" href="/matrix.html">Return to Matrix</a>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+  <h1>Learn Earn Through 135 Projects</h1>
+  <p>
+    Project summaries, services, fees, and how customers receive services through the website.
+  </p>
+</section>
 
-  <section class="section" id="core-projects">
-    <div class="container">
-      <h2 class="section-title">Core Project Tracks</h2>
-      <p class="section-copy">
-        Each project should remain distinct in message, audience, and function while still belonging to the wider founder governance system.
-      </p>
+<section class="section">
+  <div class="container">
+    <div class="banner">135 Project Listing Site</div>
+    <p class="note">
+      Customers should be able to understand each project quickly: what it is, what service is offered, what it costs, and how the service is received on the website.
+    </p>
+  </div>
+</section>
 
-      <div class="project-grid">
-        <div class="card">
-          <div class="tag">Project 01</div>
-          <h3>Pure Water Initiative</h3>
-          <p>
-            A separate clean-water platform focused on sustainability, access, resilience, and long-term system thinking around pure water.
-          </p>
-          <div class="button-stack">
-            <a class="btn gold" href="mailto:ssgpt6@aol.com?subject=Pure%20Water%20Initiative%20Inquiry">Request Brief</a>
-            <a class="btn outline" href="/matrix.html">View Matrix Context</a>
-          </div>
-        </div>
+<section class="section">
+  <div class="container">
+    <h2>Featured Project Services</h2>
+    <p class="section-copy">
+      These are example lead projects from the larger 135-project system. Each project card explains the service clearly so customers know the benefit.
+    </p>
 
-        <div class="card">
-          <div class="tag">Project 02</div>
-          <h3>Water Bankruptcy / UN Track</h3>
-          <p>
-            A policy-facing initiative focused on water debt, governance instability, institutional framing, and UN-style strategic presentation.
-          </p>
-          <div class="button-stack">
-            <a class="btn gold" href="mailto:ssgpt6@aol.com?subject=Water%20Bankruptcy%20UN%20Track%20Inquiry">Request Brief</a>
-            <a class="btn outline" href="/governance.html">Open Governance</a>
-          </div>
-        </div>
+    <div class="project-grid">
 
-        <div class="card">
-          <div class="tag">Project 03</div>
-          <h3>Pharma Vault</h3>
-          <p>
-            A protected service unit for controlled IP review, strategic packaging, and royalty-aware structuring through founder-led access control.
-          </p>
-          <div class="button-stack">
-            <a class="btn gold" href="mailto:ssgpt6@aol.com?subject=Pharma%20Vault%20Inquiry">Request Access</a>
-            <a class="btn outline" href="/matrix.html#units">See Unit</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="tag">Project 04</div>
-          <h3>Hydrol-Stasis</h3>
-          <p>
-            A pure water sustainability and monitoring unit built for structured oversight, operational thinking, and future automation.
-          </p>
-          <div class="button-stack">
-            <a class="btn gold" href="mailto:ssgpt6@aol.com?subject=Hydrol-Stasis%20Inquiry">Request Access</a>
-            <a class="btn outline" href="/matrix.html#units">See Unit</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Project Architecture</h2>
-      <p class="section-copy">
-        A serious project ecosystem needs defined roles so each initiative can evolve without creating confusion.
-      </p>
-
-      <div class="mini-grid">
-        <div class="mini-card">
-          <h4>Separate Identity</h4>
-          <p>Each initiative should have its own message, its own documents, and its own future website path.</p>
-        </div>
-        <div class="mini-card">
-          <h4>Shared Governance</h4>
-          <p>All projects still connect back to one founder-led governance logic and operational control layer.</p>
-        </div>
-        <div class="mini-card">
-          <h4>Scalable Expansion</h4>
-          <p>New project units can be added later without needing to redesign the whole system from zero.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Functional Direction</h2>
-      <p class="section-copy">
-        The project page should evolve from informational cards into real service pathways.
-      </p>
-
-      <div class="mini-grid">
-        <div class="mini-card">
-          <h4>Request Layer</h4>
-          <p>Each project card can connect to its own intake or inquiry form.</p>
-        </div>
-        <div class="mini-card">
-          <h4>Payment Layer</h4>
-          <p>Each approved service can later connect to Stripe, invoice, or a protected access model.</p>
-        </div>
-        <div class="mini-card">
-          <h4>Delivery Layer</h4>
-          <p>Approved users can receive briefs, dashboards, document access, or next-step instructions.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="quote-box">
+      <div class="card">
+        <div class="tag">Project 001</div>
+        <h3>Global Pure Water Initiative</h3>
+        <div class="fee">Custom Climate / Water Service</div>
         <p>
-          “Projects become stronger when each one is allowed to stand on its own while still belonging to a disciplined strategic system.”
+          A strategic water solution project focused on resilience, purification pathways, sustainability planning, and long-term water access concepts.
         </p>
-      </div>
-    </div>
-  </section>
 
-  <footer>
-    © 2026 SSGPT6 · GNAIAAAC LLC · Projects Framework
-  </footer>
+        <div class="list">
+          <strong>What the service includes</strong>
+          <ul>
+            <li>Pure water concept briefing</li>
+            <li>Climate-aligned water planning summary</li>
+            <li>AI-guided service intake through the website</li>
+            <li>Structured response pathway</li>
+          </ul>
+        </div>
+
+        <div class="list">
+          <strong>How customers get the service</strong>
+          <ul>
+            <li>Open the customer portal or AI console</li>
+            <li>Submit needs through the website</li>
+            <li>Receive guided next-step response</li>
+          </ul>
+        </div>
+
+        <div class="btn-row">
+          <a href="portal.html" class="btn btn-gold">Open Service Portal</a>
+          <a href="matrix.html" class="btn btn-outline">Open AI Console</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Project 002</div>
+        <h3>Water Bankruptcy Solutions</h3>
+        <div class="fee">Institutional / Strategic Service</div>
+        <p>
+          A high-level service for water governance stress, resource imbalance, climate pressure, and strategic response design.
+        </p>
+
+        <div class="list">
+          <strong>What the service includes</strong>
+          <ul>
+            <li>Water instability concept support</li>
+            <li>Governance-oriented strategic framing</li>
+            <li>Institutional response pathway</li>
+            <li>Website-based request flow</li>
+          </ul>
+        </div>
+
+        <div class="list">
+          <strong>How customers get the service</strong>
+          <ul>
+            <li>Choose the service through the platform</li>
+            <li>Use portal or AI intake form</li>
+            <li>Receive structured website-guided response</li>
+          </ul>
+        </div>
+
+        <div class="btn-row">
+          <a href="governance.html" class="btn btn-gold">Digital Governance Page</a>
+          <a href="portal.html" class="btn btn-outline">Request Access</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Project 003</div>
+        <h3>Hydrol-Stasis</h3>
+        <div class="fee">$100 Access</div>
+        <p>
+          Water sustainability and monitoring logic offered as a structured digital service layer.
+        </p>
+
+        <div class="list">
+          <strong>What the service includes</strong>
+          <ul>
+            <li>Hydrol-Stasis system access pathway</li>
+            <li>Project logic and monitoring concept support</li>
+            <li>Website intake and guided workflow</li>
+            <li>Accessible digital interaction mode</li>
+          </ul>
+        </div>
+
+        <div class="list">
+          <strong>How customers get the service</strong>
+          <ul>
+            <li>Enter through matrix service page</li>
+            <li>Use automated intake workflow</li>
+            <li>Continue through platform service routing</li>
+          </ul>
+        </div>
+
+        <div class="btn-row">
+          <a href="matrix.html" class="btn btn-gold">Open Hydrol-Stasis Access</a>
+          <a href="voicehub.html" class="btn btn-outline">Voice Request</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Project 004</div>
+        <h3>Financial Analysis Access</h3>
+        <div class="fee">$1 / Week</div>
+        <p>
+          Entry service for financial analysis, ecosystem review, and AI-guided access to structured project intelligence.
+        </p>
+
+        <div class="list">
+          <strong>What the service includes</strong>
+          <ul>
+            <li>Basic analysis pathway</li>
+            <li>Financial review support</li>
+            <li>Structured digital access model</li>
+            <li>AI-guided intake flow</li>
+          </ul>
+        </div>
+
+        <div class="list">
+          <strong>How customers get the service</strong>
+          <ul>
+            <li>Select service through the website</li>
+            <li>Use AI console or portal</li>
+            <li>Receive guided access pathway</li>
+          </ul>
+        </div>
+
+        <div class="btn-row">
+          <a href="matrix.html" class="btn btn-gold">Open Financial Access</a>
+          <a href="portal.html" class="btn btn-outline">Customer Portal</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Project 005</div>
+        <h3>Enterprise Intelligence System</h3>
+        <div class="fee">$500 Access</div>
+        <p>
+          Higher-tier digital service for enterprise strategy, advanced AI intake, and structured service routing.
+        </p>
+
+        <div class="list">
+          <strong>What the service includes</strong>
+          <ul>
+            <li>Enterprise onboarding pathway</li>
+            <li>Priority digital routing</li>
+            <li>Advanced project support layer</li>
+            <li>Website-based guided service interaction</li>
+          </ul>
+        </div>
+
+        <div class="list">
+          <strong>How customers get the service</strong>
+          <ul>
+            <li>Begin from matrix page</li>
+            <li>Use portal or AI system</li>
+            <li>Continue through higher-tier workflow</li>
+          </ul>
+        </div>
+
+        <div class="btn-row">
+          <a href="matrix.html" class="btn btn-gold">Open Enterprise Access</a>
+          <a href="voicehub.html" class="btn btn-outline">Voice Hub</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Project 006</div>
+        <h3>AI Voice Messages Hub</h3>
+        <div class="fee">Communication Layer</div>
+        <p>
+          A website-based communication path that removes public exposure of personal phone support and replaces it with voice-ready message intake.
+        </p>
+
+        <div class="list">
+          <strong>What the service includes</strong>
+          <ul>
+            <li>Voice message recording interface</li>
+            <li>Playback later through the site/device</li>
+            <li>Accessible communication path</li>
+            <li>Support-layer replacement for public phone number</li>
+          </ul>
+        </div>
+
+        <div class="list">
+          <strong>How customers get the service</strong>
+          <ul>
+            <li>Open the AI Voice Hub page</li>
+            <li>Record message in browser</li>
+            <li>Use playback and support routing later</li>
+          </ul>
+        </div>
+
+        <div class="btn-row">
+          <a href="voicehub.html" class="btn btn-gold">Open AI Voice Hub</a>
+          <a href="portal.html" class="btn btn-outline">Support Portal</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 SSGPT6 · GNAIAAAC LLC · 135 Project Matrix
+</footer>
 
 </body>
 </html>
