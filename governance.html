@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Governance | SSGPT6</title>
+  <meta name="description" content="SSGPT6 governance page for founder-led digital systems, policy structure, and operational architecture." />
+  <style>
+    :root{
+      --bg:#06101d;
+      --panel:#0d1d33;
+      --panel-2:#10233d;
+      --text:#ecf1f8;
+      --muted:#aab6c8;
+      --gold:#c7a85a;
+      --gold-dark:#ad8f45;
+      --line:rgba(255,255,255,0.08);
+      --blue:#17385a;
+      --green:#174732;
+      --purple:#3f245e;
+      --max:1180px;
+      --radius:14px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      background:
+        radial-gradient(circle at top right, rgba(199,168,90,0.08), transparent 20%),
+        linear-gradient(180deg,#040b14 0%, #06101d 45%, #081321 100%);
+      color:var(--text);
+      line-height:1.65;
+    }
+
+    a{text-decoration:none;color:inherit}
+    .container{width:min(92%, var(--max));margin:0 auto}
+
+    .top-line{
+      height:6px;
+      background:linear-gradient(90deg,#00b8ff,#50e3a4,#d8ea5d,#ffbc59,#ff6d6d,#ff3aa7);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(6,16,29,0.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .header-inner{
+      padding:18px 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .brand-logo{
+      width:66px;
+      height:66px;
+      background:#fff;
+      border-radius:4px;
+      overflow:hidden;
+      box-shadow:0 0 30px rgba(199,168,90,0.22);
+      flex-shrink:0;
+    }
+
+    .brand-logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      background:#fff;
+    }
+
+    .brand-text h1{
+      margin:0;
+      font-size:2rem;
+      line-height:1;
+      letter-spacing:0.4px;
+    }
+
+    .brand-text p{
+      margin:6px 0 0;
+      color:var(--gold);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:0.86rem;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    .nav{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      font-family:Arial,Helvetica,sans-serif;
+    }
+
+    .nav a{
+      padding:12px 16px;
+      border-radius:10px;
+      font-size:0.92rem;
+      font-weight:700;
+      transition:.18s ease;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav a:hover{transform:translateY(-2px)}
+    .nav .blue{background:var(--blue)}
+    .nav .green{background:var(--green)}
+    .nav .purple{background:var(--purple)}
+    .nav .gold{background:var(--gold); color:#111}
+
+    .hero{
+      padding:82px 0 54px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero-wrap{
+      max-width:940px;
+    }
+
+    .eyebrow{
+      color:var(--gold);
+      font-family:Arial,Helvetica,sans-serif;
+      text-transform:uppercase;
+      letter-spacing:2.4px;
+      font-size:0.9rem;
+      margin-bottom:18px;
+    }
+
+    .hero h2{
+      margin:0 0 20px;
+      font-size:clamp(2.6rem,6vw,4.8rem);
+      line-height:1.08;
+      font-weight:700;
+    }
+
+    .hero p{
+      color:#d7dfea;
+      font-size:1.1rem;
+      max-width:780px;
+      margin:0;
+    }
+
+    .hero-actions{
+      margin-top:28px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      font-family:Arial,Helvetica,sans-serif;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:15px 22px;
+      border-radius:10px;
+      font-weight:700;
+      text-align:center;
+      border:1px solid transparent;
+      transition:.18s ease;
+      cursor:pointer;
+      font-family:Arial,Helvetica,sans-serif;
+    }
+
+    .btn.gold{background:var(--gold);color:#111}
+    .btn.gold:hover{background:var(--gold-dark)}
+    .btn.outline{
+      border-color:rgba(199,168,90,0.4);
+      color:var(--gold);
+      background:transparent;
+    }
+    .btn.outline:hover{background:rgba(199,168,90,0.08)}
+
+    .section{
+      padding:58px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section-title{
+      text-align:center;
+      color:var(--gold);
+      font-size:clamp(1.5rem,3vw,2.3rem);
+      margin:0 0 14px;
+    }
+
+    .section-copy{
+      max-width:820px;
+      margin:0 auto 28px;
+      text-align:center;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:0 10px 28px rgba(0,0,0,0.16);
+    }
+
+    .card h3{
+      margin:0 0 12px;
+      color:var(--gold);
+      font-size:1.3rem;
+    }
+
+    .card p{
+      margin:0;
+      color:#d8dfea;
+      font-size:1rem;
+    }
+
+    .principle{
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--muted);
+      font-size:0.9rem;
+      margin-bottom:10px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .quote-box{
+      background:var(--panel);
+      border:1px solid rgba(199,168,90,0.28);
+      border-radius:var(--radius);
+      padding:30px;
+      max-width:900px;
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .quote-box p{
+      margin:0;
+      font-size:1.2rem;
+      color:#eef2f8;
+    }
+
+    footer{
+      padding:30px 0 48px;
+      text-align:center;
+      color:var(--muted);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:0.92rem;
+    }
+
+    @media (max-width:1024px){
+      .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .nav{
+        width:100%;
+        justify-content:flex-start;
+      }
+      .grid-3,
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:680px){
+      .brand-logo{
+        width:56px;
+        height:56px;
+      }
+      .brand-text h1{
+        font-size:1.7rem;
+      }
+      .hero{
+        padding:56px 0 36px;
+      }
+      .card,
+      .quote-box{
+        padding:22px;
+      }
+      .nav a{
+        padding:10px 13px;
+        font-size:0.88rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-line"></div>
+
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="logo.png" alt="SSGPT6 logo">
+        </div>
+        <div class="brand-text">
+          <h1>SSGPT6</h1>
+          <p>GNAIAAAC LLC</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="blue" href="/index.html">Home</a>
+        <a class="purple" href="/matrix.html">135 Matrix</a>
+        <a class="green" href="/governance.html">Governance</a>
+        <a class="gold" href="/success.html">Success</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-wrap">
+      <div class="eyebrow">Governance Framework</div>
+      <h2>Founder-led digital governance for serious systems.</h2>
+      <p>
+        This page defines the operating logic behind SSGPT6: disciplined structure, controlled access,
+        project oversight, and long-horizon system management across multiple initiatives.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn gold" href="#principles">View Principles</a>
+        <a class="btn outline" href="/matrix.html">Open Matrix</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="principles">
+    <div class="container">
+      <h2 class="section-title">Core Governance Principles</h2>
+      <p class="section-copy">
+        SSGPT6 should not behave like an ordinary brochure site. It should behave like a controlled governance layer with clear logic, defined authority, and operational discipline.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="principle">Principle 01</div>
+          <h3>Clarity of Control</h3>
+          <p>Every project, module, and service should have a clear owner, clear purpose, and clear decision structure.</p>
+        </div>
+
+        <div class="card">
+          <div class="principle">Principle 02</div>
+          <h3>Structured Access</h3>
+          <p>Access should be governed through review, approval, invoice, or defined pathways—not random open sprawl.</p>
+        </div>
+
+        <div class="card">
+          <div class="principle">Principle 03</div>
+          <h3>Institutional Tone</h3>
+          <p>The interface should communicate seriousness, stability, and credibility instead of visual noise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Operational Layers</h2>
+      <p class="section-copy">
+        A working governance platform requires more than content. It requires layered systems that define how information moves, how requests are handled, and how approval happens.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Access Layer</h3>
+          <p>Handles entry, inquiry, invoice request, permissions, and user routing across units and projects.</p>
+        </div>
+
+        <div class="card">
+          <h3>Review Layer</h3>
+          <p>Allows founder-led or team-led evaluation before documents, solutions, or premium access are released.</p>
+        </div>
+
+        <div class="card">
+          <h3>Payment Layer</h3>
+          <p>Starts with invoice request and later evolves into Stripe links, hosted payment pages, or controlled checkout flows.</p>
+        </div>
+
+        <div class="card">
+          <h3>Delivery Layer</h3>
+          <p>Routes approved clients to email fulfillment, document release, dashboard access, or project onboarding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Governance Matters Here</h2>
+      <p class="section-copy">
+        Because this platform spans water systems, financial analysis, matrix projects, and future AI services, it needs a governance standard that can hold complexity without becoming chaotic.
+      </p>
+
+      <div class="quote-box">
+        <p>
+          “A serious platform becomes stronger when every page, every project, and every request flows through a clear operating logic.”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Next Functional Stage</h2>
+      <p class="section-copy">
+        Once governance is defined, the next stage is implementation: real forms, payment links, project records, dashboards, and protected content release.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Real Request Database</h3>
+          <p>Replace mailto flow with form storage and submission tracking.</p>
+        </div>
+        <div class="card">
+          <h3>Stripe Checkout</h3>
+          <p>Replace manual invoice-only flow with a cleaner card payment option.</p>
+        </div>
+        <div class="card">
+          <h3>Founder Dashboard</h3>
+          <p>View requests, approvals, payments, and project units from one control layer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 SSGPT6 · GNAIAAAC LLC · Governance Framework
+  </footer>
+
+</body>
+</html>
