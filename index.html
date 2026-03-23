@@ -1,237 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GN-AI Financial & Zero-Carbon Terminal | GNAIAAAC LLC</title>
-  <script src="https://js.stripe.com/v3/"></script>
-  <style>
-    :root {
-      --bg: #07111f;
-      --panel: #0c1b31;
-      --gold: #d4af37;
-      --un-blue: #009edb;
-      --text: #ffffff;
-      --muted: #9fb7d6;
-      --rainbow: linear-gradient(90deg, #009edb, #00ffcc, #ffeb3b, #ff5722, #e91e63);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSGPT6 | Founder Intelligence & Global Governance</title>
+    <style>
+        :root {
+            --bg: #060d18;
+            --panel: #0c1728;
+            --text: #e8edf5;
+            --accent: #c7a85a; /* Institutional Gold */
+            --un-blue: #009edb;
+            --rainbow: linear-gradient(90deg, #009edb, #00ffcc, #ffeb3b, #ff5722, #e91e63);
+            --line: rgba(255,255,255,0.08);
+        }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.7;
-    }
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
-    /* ZERO CARBON RAINBOW HEADER */
-    header {
-      padding: 15px 0;
-      background: rgba(12, 27, 49, 0.9);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-    }
+        .container { width: min(92%, 1180px); margin: 0 auto; }
 
-    .container { width: min(94%, 1100px); margin: 0 auto; }
-    
-    .header-flex { display: flex; justify-content: space-between; align-items: center; }
-    .un-banner {
-      font-weight: 900;
-      font-size: 1.1rem;
-      letter-spacing: 2px;
-      background: var(--rainbow);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+        /* UN ALIGNMENT HEADER */
+        header {
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(6, 13, 24, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
+        }
 
-    /* HERO SECTION */
-    .hero {
-      padding: 80px 20px;
-      background: linear-gradient(180deg, #0c1b31 0%, #07111f 100%);
-      text-align: center;
-    }
+        .un-banner { background: var(--rainbow); height: 4px; width: 100%; }
 
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      border-radius: 999px;
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
+        .topbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 0;
+        }
 
-    h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 15px; }
+        .brand-mark { font-family: Arial, sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: 2px; }
+        .brand-sub { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; }
 
-    /* PAYMENT TERMINAL GRID */
-    .payment-section { padding: 60px 0; background: #081423; }
-    .payment-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
+        nav a { color: #8b949e; text-decoration: none; margin-left: 25px; font-family: Arial; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
 
-    .payment-card {
-      background: #102038;
-      border: 1px solid #1e3454;
-      border-radius: 18px;
-      padding: 35px;
-      transition: 0.3s;
-    }
-    .payment-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-    
-    .price-tag { font-size: 2.5rem; font-weight: 900; color: var(--gold); display: block; margin: 15px 0; }
+        /* HERO SECTION */
+        .hero { padding: 120px 0; text-align: center; border-bottom: 1px solid var(--line); }
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; color: #fff; }
+        .gold-label { color: var(--accent); text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; }
 
-    .pay-btn {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      border-radius: 8px;
-      font-weight: 900;
-      text-transform: uppercase;
-      text-decoration: none;
-      text-align: center;
-      margin-top: 20px;
-      cursor: pointer;
-      border: none;
-      transition: 0.3s;
-    }
+        /* PRICING MATRIX */
+        .section { padding: 80px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--line);
+            padding: 40px;
+            transition: 0.3s;
+        }
 
-    .stripe-btn { background: #635bff; color: white; }
-    .paypal-btn { background: #ffc439; color: #111; }
+        .card:hover { border-color: var(--accent); background: rgba(199,168,90,0.05); }
 
-    /* FINANCIAL MODULES */
-    .module-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 40px 0;
-    }
+        .btn {
+            display: inline-block; padding: 12px 24px; border: 1px solid var(--accent);
+            color: var(--accent); text-decoration: none; margin-top: 20px; font-family: Arial;
+        }
 
-    .module-card {
-      background: #132b4a;
-      border: 1px solid #24486e;
-      border-radius: 16px;
-      padding: 22px;
-    }
-    .module-card h3 { color: var(--gold); margin-bottom: 10px; }
+        .btn:hover { background: var(--accent); color: var(--bg); }
 
-    footer {
-      padding: 40px 20px;
-      background: #06101d;
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-      border-top: 1px solid rgba(212, 175, 55, 0.2);
-    }
-
-    .tag-zero { color: #00ffcc; font-weight: bold; }
-  </style>
+        footer { padding: 60px 0; text-align: center; border-top: 1px solid var(--line); color: #8b949e; font-size: 0.8rem; }
+    </style>
 </head>
 <body>
 
-<header>
-  <div class="container header-flex">
-    <div style="font-weight: 900; letter-spacing: 1px;">GNAIAAAC <span style="color:var(--gold)">LLC</span></div>
-    <div class="un-banner">UN CLIMATE ALIGNMENT</div>
-  </div>
-</header>
+    <div class="un-banner"></div>
+    <header>
+        <div class="container topbar">
+            <div>
+                <div class="brand-mark">SSGPT6</div>
+                <div class="brand-sub">Founder Intelligence Platform</div>
+            </div>
+            <nav>
+                <a href="#projects">135 Projects</a>
+                <a href="#pricing">Access</a>
+                <a href="#vault">The Vault</a>
+            </nav>
+        </div>
+    </header>
 
-<section class="hero">
-  <div class="container">
-    <div class="badge">GN-AI Financial Knowledge Framework</div>
-    <h1>Secure Sovereign Payments</h1>
-    <p style="color: var(--muted); max-size: 800px; margin: 0 auto;">
-      Connect your local operations to the global economy. Supporting <span class="tag-zero">Zero Carbon Initiatives</span> through transparent, auditable financial governance.
-    </p>
-  </div>
-</section>
+    <section class="hero">
+        <div class="container">
+            <div class="gold-label">Global Bailout Initiative</div>
+            <h1>Sovereign Infrastructure & Strategic Governance</h1>
+            <p style="color: #8b949e; max-width: 700px; margin: 0 auto;">
+                A founder-led environment for structured intelligence, 0-carbon power, and long-horizon project oversight.
+            </p>
+        </div>
+    </section>
 
-<section class="payment-section">
-  <div class="container">
-    <h2 style="text-align:center; color: var(--gold);">Global Access Tiers</h2>
-    
-    <div class="payment-grid">
-      <div class="payment-card">
-        <h3>CORE MEMBER</h3>
-        <p style="color: var(--muted);">Foundational access to GN-AI tools & research.</p>
-        <span class="price-tag">$100.00</span>
-        <button class="pay-btn stripe-btn">Pay with Stripe</button>
-        <button class="pay-btn paypal-btn">Pay with PayPal</button>
-      </div>
+    <section class="container section" id="pricing">
+        <h2 style="margin-bottom: 40px; color: var(--accent);">Access Structures</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Foundation</h3>
+                <p>Entry-level access to selected platform material.</p>
+                <div style="font-size: 1.5rem; margin: 15px 0;">$50</div>
+                <a href="#" class="btn">Initialize</a>
+            </div>
+            <div class="card" style="border-color: var(--accent);">
+                <h3>Core</h3>
+                <p>Expanded learning and strategic material.</p>
+                <div style="font-size: 1.5rem; margin: 15px 0;">$100</div>
+                <a href="#" class="btn">Initialize</a>
+            </div>
+            <div class="card">
+                <h3>Executive</h3>
+                <p>Advanced founder-level strategic direction.</p>
+                <div style="font-size: 1.5rem; margin: 15px 0;">$150</div>
+                <a href="#" class="btn">Initialize</a>
+            </div>
+        </div>
+    </section>
 
-      <div class="payment-card" style="border-color: var(--gold);">
-        <h3>EXECUTIVE</h3>
-        <p style="color: var(--muted);">Full Strategic Infrastructure & Priority Support.</p>
-        <span class="price-tag">$150.00</span>
-        <button class="pay-btn stripe-btn">Pay with Stripe</button>
-        <button class="pay-btn paypal-btn">Pay with PayPal</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="container" style="padding: 60px 0;">
-  <h2 style="color: var(--gold); text-align: center;">Core Knowledge Domains</h2>
-  <div class="module-grid">
-    <div class="module-card">
-      <h3>1) Bookkeeping</h3>
-      <p>Clean recordkeeping as the base layer of financial truth.</p>
-    </div>
-    <div class="module-card">
-      <h3>2) Advanced Accounting</h3>
-      <p>Complex treatment of accruals, assets, and liability logic.</p>
-    </div>
-    <div class="module-card">
-      <h3>3) Managerial Intelligence</h3>
-      <p>Unit economics and operational decision support.</p>
-    </div>
-    <div class="module-card">
-      <h3>4) Zero Carbon Costing</h3>
-      <p>Lifecycle tracking for sustainable energy investments.</p>
-    </div>
-  </div>
-</section>
-
-<section style="background: #0c1b31; padding: 50px 0;">
-  <div class="container" style="text-align: center;">
-    <h2 style="color: var(--gold); margin-bottom: 20px;">Zero Carbon Logic</h2>
-    <p style="max-width: 800px; margin: 0 auto; color: var(--muted);">
-      Every transaction processed through the SSGPT6-CORE framework is mapped to our global sustainability ledger. 
-      We prioritize <span style="color:#00ffcc">Zero-Emission Energy Research</span> and <span style="color:#009edb">Pure Water Sustainability</span> as our core ROI metrics.
-    </p>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <p>© 2026 GN-AI World • Powered by GNAIAAAC LLC</p>
-    <p style="margin-top: 10px; font-size: 11px; opacity: 0.6;">
-      Sovereign Strategic Systems | UN Climate Aligned | Zero Carbon Sourcing
-    </p>
-  </div>
-</footer>
-
-<script>
-  // Placeholder for real Stripe/PayPal Logic
-  document.querySelectorAll('.stripe-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      alert('Connecting to Stripe Secure Gateway... (Replace with your Stripe API Key in Replit secrets)');
-    });
-  });
-
-  document.querySelectorAll('.paypal-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      alert('Redirecting to PayPal... (Replace with your Client ID in Replit secrets)');
-    });
-  });
-</script>
+    <footer>
+        <div class="container">
+            © 2026 SSGPT6 · GNAIAAAC LLC · UN CLIMATE ALIGNMENT AUTHORIZED
+        </div>
+    </footer>
 
 </body>
 </html>
