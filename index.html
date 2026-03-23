@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSGPT6 | UN Global Governance & 135 Matrix</title>
+    <title>GNAIAAAC LLC | Miracle Magical AI & SSGPT6 Sovereign Hub</title>
     <style>
         :root {
-            --bg: #060d18;
-            --panel: #0c1728;
-            --text: #e8edf5;
-            --gold: #c7a85a;
-            --un-blue: #009edb;
+            --bg: #060d18; --panel: #0c1728; --text: #e8edf5;
+            --gold: #c7a85a; --un-blue: #009edb;
             --rainbow: linear-gradient(90deg, #009edb, #00ffcc, #ffeb3b, #ff5722, #e91e63);
             --line: rgba(255,255,255,0.08);
         }
@@ -18,135 +15,138 @@
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { margin: 0; font-family: Georgia, serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { width: min(94%, 1250px); margin: 0 auto; }
 
-        .container { width: min(92%, 1200px); margin: 0 auto; }
-        
-        /* UN RAINBOW HEADER */
-        header { position: sticky; top: 0; z-index: 1000; background: rgba(6, 13, 24, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+        /* 1. HEADER & COLORED TABS */
+        header { position: sticky; top: 0; z-index: 1000; background: rgba(6, 13, 24, 0.98); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
         .un-strip { background: var(--rainbow); height: 6px; width: 100%; }
         .topbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
         
         .brand { display: flex; align-items: center; gap: 15px; }
-        .brand-mark { font-family: Arial; font-weight: 700; font-size: 1.5rem; color: #fff; }
-        .brand-sub { font-family: Arial; font-size: 0.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; }
+        .logo-img { height: 60px; filter: drop-shadow(0 0 10px var(--gold)); }
 
-        nav a { color: var(--muted); margin-left: 20px; text-decoration: none; font-family: Arial; font-size: 0.9rem; transition: 0.3s; }
-        nav a:hover { color: var(--gold); }
+        nav { display: flex; gap: 10px; align-items: center; }
+        nav a { padding: 10px 18px; text-decoration: none; font-family: Arial, sans-serif; font-weight: 900; font-size: 0.75rem; border-radius: 4px; transition: 0.3s; color: #fff; text-transform: uppercase; }
+        
+        /* 2. RIGHT CORNER DIFFERENT TABS */
+        .tab-gov { background: #1a3a5a; } 
+        .tab-matrix { background: #3a1a5a; } 
+        .tab-pricing { background: #1a5a3a; } 
+        .tab-chat { background: var(--gold); color: #000 !important; }
 
-        /* HERO SECTION: UN GOVERNANCE */
-        .hero { padding: 120px 0; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
-        .hero-grid { display: grid; grid-template-columns: 1.4fr 0.8fr; gap: 50px; align-items: center; }
-        .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 20px; }
-        h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin: 0 0 20px; font-weight: 900; }
-        .hero-side { background: rgba(255,255,255,0.02); border: 1px solid var(--line); padding: 30px; backdrop-filter: blur(4px); }
+        /* 3. HERO & MIDDLE GAP TEXT */
+        .hero { padding: 80px 0; text-align: center; border-bottom: 1px solid var(--line); }
+        .miracle-text { font-family: 'Arial Black', sans-serif; font-size: 1.4rem; color: var(--gold); text-transform: uppercase; margin: 20px 0; letter-spacing: 2px; }
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 900; }
 
-        /* DUAL MODULE: SLIDESHOW & UN DOCUMENT */
-        .dual-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 80px 0; }
-        .slideshow-box { border: 2px solid var(--un-blue); background: #000; min-height: 400px; display: flex; align-items: center; justify-content: center; position: relative; }
-        .document-box { border: 2px solid var(--gold); background: var(--panel); padding: 40px; }
-        .doc-title { color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; font-family: Arial; text-transform: uppercase; }
+        /* 4. LEFT SIDE: LIVE TRADING & ANALYTICAL BOARD */
+        .dual-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 40px; margin-top: 50px; }
+        .trading-board { background: #000; border: 2px solid var(--un-blue); padding: 30px; font-family: monospace; }
+        .trading-item { color: #00ff00; margin-bottom: 10px; font-size: 0.9rem; border-bottom: 1px solid #111; padding-bottom: 5px; }
 
-        /* 135 MATRIX: BIG EARNINGS */
-        .matrix-section { padding: 80px 0; background: rgba(199, 168, 90, 0.02); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: var(--panel); border: 1px solid var(--line); padding: 30px; transition: 0.3s; }
-        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .price-tag { color: var(--gold); font-weight: 900; margin-top: 20px; font-family: Arial; }
+        /* 5. RIGHT SIDE: UN PROJECT SUMMARY */
+        .doc-side { border: 2px solid var(--gold); background: var(--panel); padding: 40px; }
+        .doc-title { color: var(--gold); text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; }
 
-        .btn { display: inline-block; background: var(--gold); color: var(--bg); padding: 15px 30px; text-decoration: none; font-weight: 900; font-family: Arial; text-transform: uppercase; margin-top: 20px; }
+        /* 6. SOVEREIGN BOX: LEARN & EARN */
+        .matrix-section { padding: 80px 0; }
+        .sovereign-header { background: var(--gold); color: #000; padding: 20px; font-family: 'Arial Black'; text-align: center; margin-bottom: 30px; letter-spacing: 2px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .card { background: var(--panel); border: 1px solid var(--line); padding: 35px; transition: 0.3s; }
+        
+        .btn-gold { display: inline-block; background: var(--gold); color: #000; padding: 15px 30px; text-decoration: none; font-weight: 900; text-transform: uppercase; font-family: Arial; border: none; cursor: pointer; transition: 0.3s; }
+        .btn-gold:hover { background: #fff; transform: scale(1.05); }
 
-        footer { padding: 50px 0; text-align: center; border-top: 1px solid var(--gold); color: #8b949e; font-family: Arial; font-size: 0.8rem; }
+        footer { padding: 50px 0; text-align: center; border-top: 1px solid var(--gold); color: #8b949e; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-<div class="un-strip"></div>
 <header>
+    <div class="un-strip"></div>
     <div class="container topbar">
         <div class="brand">
-            <svg style="width:40px; height:40px; stroke:var(--gold); fill:none;" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45" stroke-width="2.5"/>
-                <path d="M35 40 L50 30 L65 40 V60 L50 70 L35 60 Z" />
-            </svg>
+            <img src="logo.png" alt="GNAI Logo" class="logo-img">
             <div>
-                <div class="brand-mark">SSGPT6</div>
-                <div class="brand-sub">UN GLOBAL GOVERNANCE HUB</div>
+                <div style="color: #fff; font-size: 1.5rem; font-weight: 700;">SSGPT6</div>
+                <div style="color: var(--gold); font-size: 0.7rem; text-transform: uppercase;">GNAIAAAC LLC</div>
             </div>
         </div>
         <nav>
-            <a href="index.html">Governance</a>
-            <a href="#matrix">135 Matrix</a>
-            <a href="pricing.html">Access Tiers</a>
-            <a href="contact.html">Consultation</a>
-            <a href="login.html" style="color:#fff; background:var(--un-blue); padding:5px 15px;">Secure Login</a>
+            <a href="index.html" class="tab-gov">GOVERNANCE</a>
+            <a href="projects.html" class="tab-matrix">135 MATRIX</a>
+            <a href="pricing.html" class="tab-pricing">ACCESS TIERS</a>
+            <a href="chat.html" class="tab-chat">CHATSSGPT6: The AI that Thinks for the Future</a>
         </nav>
     </div>
 </header>
 
 <section class="hero">
-    <div class="container hero-grid">
-        <div>
-            <div class="eyebrow">Institutional Architecture</div>
-            <h1>World-First Digital Governance & AI</h1>
-            <p style="color:var(--gold); font-weight:900; font-size:1.2rem;">UN Pure Water & Zero-Carbon Energy Solutions</p>
-            <p>Deploying human-centered infrastructure for resource stability and global economic bailout protocols.</p>
-            <a href="#matrix" class="btn">Explore 135 Matrix</a>
-        </div>
-        <aside class="hero-side">
-            <h3 style="color:var(--gold); text-transform:uppercase; font-size:0.8rem;">Live UN Status</h3>
-            <ul style="list-style:none; padding:0; font-size:0.85rem; color:#8b949e;">
-                <li style="margin-bottom:10px;">● Water Bankruptcy Nodes: Active</li>
-                <li style="margin-bottom:10px;">● Carbon Offset: 14.2M T</li>
-                <li style="margin-bottom:10px;">● Zero-Carbon Efficiency: 99.9%</li>
-            </ul>
-        </aside>
-    </div>
-</section>
-
-<section class="container dual-panel">
-    <div class="slideshow-box">
-        <img src="https://images.unsplash.com/photo-1540324155974-7523202daa3f?auto=format&fit=crop&q=80" alt="Pure Water Solution" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-        <div style="position:absolute; bottom:20px; left:20px; background:var(--un-blue); padding:5px 15px; font-size:0.7rem; font-family:Arial;">LIVE: PURE WATER PROJECT BRANCH</div>
-    </div>
-    <div class="document-box">
-        <h2 class="doc-title">Water Bankruptcy Dossier</h2>
-        <ul style="list-style:none; padding:0; color:#8b949e;">
-            <li style="margin-bottom:15px;">● National Water-Debt Monitoring via GNAI Mesh</li>
-            <li style="margin-bottom:15px;">● Transboundary Asset Recovery & Liquidity</li>
-            <li style="margin-bottom:15px;">● Zero-Carbon Energy Dividend Redistribution</li>
-            <li style="margin-bottom:15px;">● 0-Carbon Sourcing & Climate Alignment</li>
-        </ul>
-        <a href="contact.html" class="btn" style="width:100%; text-align:center;">Download UN Framework</a>
-    </div>
-</section>
-
-<section class="matrix-section" id="matrix">
     <div class="container">
-        <div class="eyebrow">Active Sovereign Inventory</div>
-        <h2 style="font-size:2.5rem; margin-bottom:40px;">The 135 Matrix: Big Earnings</h2>
+        <div class="miracle-text">Miracle Magical AI & Tiny AI Sleeping Agent Black Box Automation</div>
+        <h1>Operational Management Solutions</h1>
+        <p style="color:var(--un-blue); font-weight:900;">Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Satellite Coil Grid Energy</p>
+        <a href="governance-info.html" class="btn-gold">Informational: First Digital Governance</a>
+    </div>
+</section>
+
+<section class="container dual-grid">
+    <div class="trading-board">
+        <h3 style="color:#fff; text-transform: uppercase; margin-bottom: 20px;">135 Projects Live Trading Display</h3>
+        <div class="trading-item">● BTC/SSC INDEX: +4.24%</div>
+        <div class="trading-item">● WATER EQUITY NODES: STABLE</div>
+        <div class="trading-item">● 0-CARBON GRID YIELD: 14.2M T</div>
+        <div class="trading-item">● PHARMA ROYALTY STREAM: ACTIVE</div>
+        <div style="margin-top:30px; border: 1px dashed var(--un-blue); padding: 15px;">
+            <p style="color:#fff; font-size: 0.8rem;">Financial Analysis: Paid Access</p>
+            <p style="color:var(--gold); font-size: 1.1rem; font-weight: 900;">$1 / WEEK</p>
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_BUSINESS_ID" class="btn-gold" style="padding: 10px 20px; font-size: 0.7rem;">Subscribe via PayPal</a>
+        </div>
+    </div>
+
+    <div class="doc-side">
+        <h2 class="doc-title">UN Pure Water & Water Bankruptcy</h2>
+        <p style="color:#9fb7d6; font-size: 0.95rem;">
+            SSGPT6 AI autonomously identifies transboundary water debt, preventing economic resource collapse through automated liquidity redistribution. All insights are operated through Black Box Automation software—the most efficient way to get the job done. The company is very good for the job.
+        </p>
+        <ul style="list-style:none; padding:0; color:var(--un-blue); font-size: 0.85rem; margin-top:20px;">
+            <li>● National Water-Debt Monitoring</li>
+            <li>● Transboundary Asset Recovery</li>
+            <li>● Zero-Carbon Energy Grid Dividends</li>
+        </ul>
+        <a href="contact.html" class="btn-gold" style="width:100%; text-align:center; margin-top:20px;">Request Consultation</a>
+    </div>
+</section>
+
+<section class="matrix-section">
+    <div class="container">
+        <div class="sovereign-header">LEARN & EARN THROUGH 135 PROJECTS</div>
         <div class="grid">
             <div class="card" style="border: 2px solid var(--gold);">
                 <h3>UNIT 001: PHARMA VAULT</h3>
-                <p>Secured acquisition portal for medical IP and $75M royalty streams.</p>
-                <div class="price-tag">$75,000,000 ACQUISITION</div>
+                <p style="font-size: 0.85rem; color:#8b949e;">Managed through AI Sleeping Agent Black Box Automation. Efficiently securing $75M acquisitions.</p>
+                <div style="color:var(--gold); font-weight:900; margin: 15px 0;">$150.00 / ACCESS</div>
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_BUSINESS_ID" class="btn-gold">Pay via PayPal</a>
             </div>
             <div class="card">
                 <h3>UNIT 012: HYDROL-STASIS</h3>
-                <p>Real-time water debt monitoring for national bailout protocols.</p>
-                <div class="price-tag">$100.00 ACCESS</div>
-            </div>
-            <div class="card">
-                <h3>UNIT 045: TESLA-RELAY</h3>
-                <p>Distributed zero-carbon energy mesh for institutional hubs.</p>
-                <div class="price-tag">$500.00 ENTERPRISE</div>
+                <p style="font-size: 0.85rem; color:#8b949e;">Strategic monitoring of water bankruptcy solutions. The software gets the job done efficiently.</p>
+                <div style="color:var(--gold); font-weight:900; margin: 15px 0;">$100.00 / ACCESS</div>
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_BUSINESS_ID" class="btn-gold">Pay via PayPal</a>
             </div>
         </div>
     </div>
+</section>
+
+<section class="container" style="padding: 60px 0; border-top: 1px solid var(--line); text-align: center;">
+    <h2 style="color: var(--gold); text-transform: uppercase;">AI Customer Service</h2>
+    <p style="color: var(--muted);">Chat / Phone: 24/7 Managed by Sleeping Agent Black Box Software.</p>
+    <p style="font-size: 0.85rem; max-width: 700px; margin: 20px auto;">All insights and operations are managed through AI sleeping agent black box Automation software. This company is very good for the job and the software gets the job done in the most efficient way possible.</p>
 </section>
 
 <footer>
     <div class="container">
-        GNAIAAAC LLC © 2026 | SSGPT6-CORE | UN CLIMATE ALIGNMENT SECURE
+        <p>© 2026 GNAIAAAC LLC | SSGPT6-CORE | Managed by Miracle Magical AI</p>
     </div>
 </footer>
 
