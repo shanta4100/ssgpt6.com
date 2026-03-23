@@ -3,155 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSGPT6 | AI Digital Institute & Governance</title>
+    <title>SSGPT6 | AI Digital Institute & Global Governance</title>
     <style>
         :root {
-            --bg: #03070b;
-            --panel: #0a1219;
+            --bg: #020508;
+            --panel: #080c12;
             --accent: #c7a85a; /* Institute Gold */
-            --text: #ffffff;
-            --muted: #8e9aaf;
-            --border: rgba(199, 168, 90, 0.3);
-            --blue-accent: #009edb; /* UN Blue tint */
+            --un-blue: #009edb;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+            --border: rgba(199, 168, 90, 0.15);
         }
 
-        * { box-sizing: border-box; transition: all 0.3s ease; }
+        * { box-sizing: border-box; }
         body {
             margin: 0;
             background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
+            color: var(--text-main);
+            font-family: 'Times New Roman', Times, serif; /* High-class academic feel */
+            overflow-x: hidden;
         }
 
         .container { width: min(90%, 1200px); margin: 0 auto; }
 
         /* Navigation */
         header {
-            padding: 20px 0;
+            padding: 30px 0;
             border-bottom: 1px solid var(--border);
-            background: rgba(3, 7, 11, 0.95);
-            position: sticky;
+            backdrop-filter: blur(10px);
+            background: rgba(2, 5, 8, 0.8);
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
         }
 
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; color: var(--accent); font-family: sans-serif; }
-        .nav-links a { color: var(--text); text-decoration: none; margin-left: 30px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .header-flex { display: flex; justify-content: space-between; align-items: center; }
+        .institute-brand { font-family: 'Arial', sans-serif; font-weight: 800; letter-spacing: 4px; color: var(--accent); font-size: 1.2rem; }
+        nav a { color: var(--text-dim); text-decoration: none; margin-left: 40px; font-family: 'Arial', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; }
+        nav a:hover { color: var(--accent); }
 
-        /* Hero / Institute Focus */
-        .hero { padding: 100px 0 60px; }
-        .category-tag { color: var(--muted); text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; margin-bottom: 10px; display: block; }
-        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); color: var(--accent); margin: 0; line-height: 1.1; text-transform: uppercase; }
-        .hero-sub { font-size: 1.4rem; color: var(--text); max-width: 800px; margin: 30px 0; font-style: italic; opacity: 0.9; }
+        /* Hero Presentation */
+        .hero { padding: 180px 0 100px; border-bottom: 1px solid var(--border); }
+        .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: 6px; font-size: 0.9rem; margin-bottom: 20px; display: block; font-family: 'Arial', sans-serif; }
+        h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 0.95; margin: 0; text-transform: uppercase; font-weight: 400; }
+        .hero-desc { font-size: 1.6rem; color: var(--text-dim); max-width: 850px; margin-top: 40px; font-style: italic; line-height: 1.4; }
 
-        /* UN Scientific Module */
-        .module-card {
-            border: 1px solid var(--blue-accent);
-            background: rgba(0, 158, 219, 0.03);
-            padding: 40px;
-            margin-top: 40px;
+        /* UN Scientific Module Section */
+        .scientific-frame {
+            margin: 80px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
-        .module-card h2 { color: var(--blue-accent); text-transform: uppercase; letter-spacing: 2px; margin-top: 0; }
-        .module-list { list-style: none; padding: 0; }
-        .module-list li { margin-bottom: 15px; padding-left: 25px; position: relative; color: var(--muted); }
-        .module-list li::before { content: "•"; color: var(--blue-accent); position: absolute; left: 0; font-size: 1.5rem; top: -5px; }
-
-        /* Services & Pricing Grid */
-        .section-label { text-align: center; margin-top: 100px; color: var(--accent); font-size: 2rem; text-transform: uppercase; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-
-        .price-card {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            padding: 30px;
-            text-align: center;
+        .blue-module {
+            border: 1px solid var(--un-blue);
+            background: linear-gradient(135deg, rgba(0, 158, 219, 0.05) 0%, transparent 100%);
+            padding: 50px;
+            position: relative;
         }
 
-        .price-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-        .price-card h3 { color: var(--accent); margin-top: 0; }
-        .price-val { font-size: 2.5rem; font-weight: bold; margin: 20px 0; }
-        
-        .btn {
+        .blue-module h2 { color: var(--un-blue); font-family: 'Arial', sans-serif; text-transform: uppercase; font-size: 1.5rem; letter-spacing: 3px; margin-top: 0; }
+        .blue-module p { font-size: 1.1rem; line-height: 1.7; color: var(--text-dim); }
+
+        .list-style { list-style: none; padding: 0; margin-top: 30px; }
+        .list-style li { margin-bottom: 15px; border-left: 2px solid var(--un-blue); padding-left: 20px; color: var(--text-main); font-family: 'Arial', sans-serif; font-size: 0.9rem; }
+
+        /* Institutional Content Grid */
+        .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 100px 0; }
+        .info-card { border-top: 1px solid var(--border); padding-top: 30px; }
+        .info-card h4 { color: var(--accent); text-transform: uppercase; font-family: 'Arial', sans-serif; margin-bottom: 15px; }
+        .info-card p { color: var(--text-dim); font-size: 0.95rem; }
+
+        /* Call to Action - Professional Inquiry */
+        .cta-section { text-align: center; padding: 120px 0; background: var(--panel); border-top: 1px solid var(--border); }
+        .cta-section h2 { font-size: 2.5rem; color: var(--accent); margin-bottom: 40px; }
+        .btn-portal {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 20px 60px;
             border: 1px solid var(--accent);
             color: var(--accent);
             text-decoration: none;
+            font-family: 'Arial', sans-serif;
             text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            width: 100%;
+            letter-spacing: 4px;
+            transition: 0.4s;
         }
+        .btn-portal:hover { background: var(--accent); color: var(--bg); box-shadow: 0 0 30px rgba(199, 168, 90, 0.2); }
 
-        .btn:hover { background: var(--accent); color: var(--bg); }
+        footer { padding: 60px 0; text-align: center; border-top: 1px solid var(--border); font-family: 'Arial', sans-serif; color: var(--text-dim); font-size: 0.7rem; letter-spacing: 2px; }
 
-        /* Footer */
-        footer { padding: 80px 0 40px; border-top: 1px solid var(--border); margin-top: 100px; text-align: center; color: var(--muted); font-size: 0.8rem; }
+        @media (max-width: 900px) {
+            .scientific-frame { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="container nav-flex">
-        <div class="logo">SSGPT6 | INSTITUTE</div>
-        <div class="nav-links">
-            <a href="#institute">Initiatives</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </div>
+    <div class="container header-flex">
+        <div class="institute-brand">SSGPT6 | GNAIAAAC LLC</div>
+        <nav>
+            <a href="#initiatives">Initiatives</a>
+            <a href="#framework">Framework</a>
+            <a href="/contact.html">Strategic Portal</a>
+        </nav>
     </div>
 </header>
 
-<section class="hero" id="institute">
+<section class="hero">
     <div class="container">
-        <span class="category-tag">Next Track Category</span>
+        <span class="eyebrow">Next Track Category</span>
         <h1>AI Digital Institute</h1>
-        <p class="hero-sub">World First Digital Governance & Hydrological Bankruptcy Framework. Advancing scientific proof for UN climate initiatives.</p>
-        
-        <div class="module-card">
-            <h2>UN Water Scientific Proof</h2>
-            <p>This module contains the verified scientific documentation for Water Bankruptcy mitigation. Integrating satellite data with AI sovereign policy to protect global aquifers.</p>
-            <ul class="module-list">
-                <li>Real-time Hydrological Stasis Protocols</li>
-                <li>Transboundary Water Asset Ledger</li>
-                <li>Nova Energy Desalination Logic</li>
+        <p class="hero-desc">Advancing global governance through the world's first Hydrological Bankruptcy Framework and AI-driven sovereign stasis protocols.</p>
+    </div>
+</section>
+
+<section class="container" id="framework">
+    <div class="scientific-frame">
+        <div class="blue-module">
+            <h2>UN Scientific Module</h2>
+            <p>Verification of water-stasis and aquifer recovery logic. This infrastructure provides the administrative proof required for international climate asset protection.</p>
+            <ul class="list-style">
+                <li>HYDROL-STASIS LEVEL 1 VERIFICATION</li>
+                <li>TRANSBOUNDARY ASSET LEDGER</li>
+                <li>GOVERNANCE DEPLOYMENT LOGIC</li>
             </ul>
+        </div>
+        <div>
+            <h3 style="color:var(--accent); text-transform: uppercase; letter-spacing: 2px;">Sovereign Digital Infrastructure</h3>
+            <p style="color:var(--text-dim); line-height: 1.8;">The SSGPT6 core ecosystem operates as a silent operating layer for high-level governance. By integrating satellite telemetry with automated policy deployment, we secure resources before the point of bankruptcy.</p>
+            <img src="/logo.png" alt="SSGPT6 Logo" style="height: 60px; margin-top: 20px; opacity: 0.5;">
         </div>
     </div>
 </section>
 
-<h2 class="section-label" id="services">Strategic Access</h2>
-
-<section class="container grid">
-    <div class="price-card">
-        <h3>Basic Scripts</h3>
-        <p>15 High-retention AI scripts for global communication.</p>
-        <div class="price-val">$19</div>
-        <a href="https://buy.stripe.com/example1" class="btn">Procure Access</a>
+<section class="container info-grid" id="initiatives">
+    <div class="info-card">
+        <h4>AI Automation</h4>
+        <p>Dynamic script generation and media intelligence tailored for institutional briefing and global communication reach.</p>
     </div>
-
-    <div class="price-card" style="border-color: var(--accent);">
-        <h3>Standard Scripts</h3>
-        <p>30 High-retention AI scripts for active digital media.</p>
-        <div class="price-val">$29</div>
-        <a href="https://buy.stripe.com/example2" class="btn" style="background: var(--accent); color: var(--bg);">Procure Access</a>
+    <div class="info-card">
+        <h4>Sovereign Nodes</h4>
+        <p>Localized server infrastructure providing total data autonomy for organizations and government entities.</p>
     </div>
+    <div class="info-card">
+        <h4>Energy Systems</h4>
+        <p>Monitoring and implementation of multi-source energy harvesting managed by the Sleeping Agent AI layer.</p>
+    </div>
+</section>
 
-    <div class="price-card">
-        <h3>Sovereign Node</h3>
-        <p>Full institutional deployment for private governance.</p>
-        <div class="price-val">$1,500</div>
-        <a href="contact.html" class="btn">Consultation</a>
+<section class="cta-section">
+    <div class="container">
+        <h2>Initiate Strategic Access</h2>
+        <p style="color:var(--text-dim); margin-bottom: 50px; font-style: italic;">Access to the AI Digital Institute is strictly managed via our strategic portal.</p>
+        <a href="/contact.html" class="btn-portal">Enter Portal</a>
     </div>
 </section>
 
 <footer>
     <div class="container">
-        <p>© 2026 GNAIAAAC LLC | SSGPT6 GLOBAL INITIATIVE</p>
-        <p>STRIPE • PAYPAL • SECURE GATEWAY</p>
+        <p>SSGPT6 GLOBAL GOVERNANCE | PROPRIETARY FRAMEWORK 2026</p>
+        <p style="margin-top:10px;">GNAIAAAC LLC · ALL RIGHTS RESERVED</p>
     </div>
 </footer>
 
