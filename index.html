@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SSGPT6 | UN Water & Digital Governance</title>
+  <title>SSGPT6 | Founder Intelligence & AI Automation Hub</title>
   <style>
     :root {
-      --bg: #02060c;
-      --panel: #0b1524;
-      --text: #e2e8f0;
-      --muted: #8a99ae;
+      --bg: #060d18;
+      --panel: #0c1728;
+      --text: #e8edf5;
+      --muted: #9aa8bd;
+      --accent: #c7a85a; /* The Gold tone from the old version */
       --line: rgba(255,255,255,0.08);
-      --accent: #d4af37; /* Solid Gold */
-      --un-blue: #009edb;
-      --max: 1280px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
@@ -21,238 +20,250 @@
 
     body {
       margin: 0;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: Georgia, "Times New Roman", serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    /* Top Navigation Bar */
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(92%, var(--max)); margin: 0 auto; }
+
+    /* Navigation */
     header {
-      position: sticky; top: 0; z-index: 2000;
-      background: rgba(2, 6, 12, 0.95);
-      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(6, 13, 24, 0.9);
       border-bottom: 1px solid var(--line);
     }
 
-    .container { width: min(94%, var(--max)); margin: 0 auto; }
-    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
-    
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; color: var(--accent); font-size: 1.2rem; }
-
-    nav { display: flex; gap: 24px; align-items: center; }
-    nav a { 
-      color: var(--muted); 
-      text-decoration: none; 
-      font-size: 0.75rem; 
-      text-transform: uppercase; 
-      letter-spacing: 1.5px;
-      transition: 0.3s;
-    }
-    nav a:hover, nav a.active { color: var(--accent); }
-
-    /* Hero Section: UN Water Bankruptcy */
-    .hero-un {
-      padding: 100px 0;
-      background: radial-gradient(circle at top right, rgba(0, 158, 219, 0.1), transparent);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .label-next { color: var(--muted); letter-spacing: 6px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 10px; display: block; }
-    
-    .main-title { 
-      font-size: clamp(2.5rem, 8vw, 5.5rem); 
-      font-weight: 900; 
-      color: var(--accent); 
-      line-height: 0.95; 
-      margin: 0 0 20px;
-      text-transform: uppercase;
-    }
-
-    /* Category Grid */
-    .section { padding: 80px 0; border-bottom: 1px solid var(--line); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      padding: 40px;
-      transition: 0.4s;
+    .topbar {
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
     }
 
-    .card:hover { border-color: var(--accent); transform: translateY(-5px); }
-    .card h2 { font-size: 1.5rem; margin-bottom: 15px; }
+    .brand-mark {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      font-family: Arial, sans-serif;
+    }
 
-    /* Scientific Proof Section */
-    .un-proof-box {
-      border: 1px solid var(--un-blue);
-      background: rgba(0, 158, 219, 0.03);
-      padding: 40px;
-      margin-top: 40px;
+    nav { display: flex; gap: 20px; font-family: Arial, sans-serif; }
+    nav a { color: var(--muted); font-size: 0.9rem; transition: 0.3s; }
+    nav a:hover { color: var(--accent); }
+
+    /* Hero Section */
+    .hero {
+      padding: 120px 0 80px;
+      border-bottom: 1px solid var(--line);
+      background: radial-gradient(circle at top right, rgba(199, 168, 90, 0.05), transparent 40%);
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 40px;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 44px;
       align-items: center;
     }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid rgba(199, 168, 90, 0.2);
+      color: var(--accent);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.1;
+      margin: 0 0 20px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    /* Service Grid */
+    .section { padding: 80px 0; border-bottom: 1px solid var(--line); }
+    .section-title { font-size: 2.4rem; margin-bottom: 40px; text-align: center; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.015);
+      border: 1px solid var(--line);
+      padding: 30px;
+      transition: 0.3s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      background: rgba(199,168,90,0.03);
+    }
+
+    .card h3 { color: var(--accent); margin: 0 0 12px; font-size: 1.3rem; }
+    .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 20px; }
+
+    /* Tags */
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      margin-right: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+    }
+
+    .tag.backend { color: #ffd875; border-color: rgba(255, 180, 0, 0.3); }
 
     /* Buttons */
     .btn {
       display: inline-block;
-      padding: 14px 28px;
-      border: 2px solid var(--accent);
+      padding: 12px 24px;
+      border: 1px solid var(--accent);
       color: var(--accent);
-      text-decoration: none;
-      font-weight: 800;
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-align: center;
+      font-family: Arial, sans-serif;
       transition: 0.3s;
-      cursor: pointer;
-      background: transparent;
     }
 
     .btn:hover { background: var(--accent); color: var(--bg); }
-    .btn-un { border-color: var(--un-blue); color: var(--un-blue); }
-    .btn-un:hover { background: var(--un-blue); color: #fff; }
 
-    /* 135 Projects Drawer */
-    .project-directory {
-      margin-top: 30px;
-      padding: 20px;
-      background: rgba(255,255,255,0.02);
-      border: 1px dashed var(--line);
-      font-size: 0.85rem;
+    footer {
+      padding: 40px 0;
       color: var(--muted);
+      text-align: center;
+      font-size: 0.85rem;
+      font-family: Arial, sans-serif;
     }
 
     @media (max-width: 900px) {
-      .un-proof-box { grid-template-columns: 1fr; }
+      .hero-grid { grid-template-columns: 1fr; }
       nav { display: none; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="container topbar">
-    <div class="brand">SSGPT6 | <span style="color: #fff; margin-left:5px;">INSTITUTE</span></div>
-    <nav>
-      <a href="#chat">CHATSSGPT6</a>
-      <a href="#un-page">UN Water</a>
-      <a href="#governance">Governance</a>
-      <a href="#trading">Live Trading</a>
-      <a href="#projects">135 Projects</a>
-    </nav>
-    <a href="#projects" class="btn" style="padding: 8px 16px; font-size: 0.65rem;">Search More</a>
-  </div>
-</header>
+  <header>
+    <div class="container topbar">
+      <div class="brand-mark">SSGPT6</div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#services">AI Systems</a>
+        <a href="#pricing">Access</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<section class="hero-un" id="un-page">
-  <div class="container">
-    <span class="label-next">Next Track Category</span>
-    <h1 class="main-title">AI Digital Institute</h1>
-    <p style="font-size: 1.2rem; color: var(--muted); max-width: 800px;">
-      World First Digital Governance & Hydrological Bankruptcy Framework. Advancing scientific proof for UN climate initiatives.
-    </p>
-
-    <div class="un-proof-box">
+  <section class="hero" id="home">
+    <div class="container hero-grid">
       <div>
-        <h3 style="color: var(--un-blue); text-transform: uppercase;">UN Water Scientific Proof</h3>
-        <p>This module contains the verified scientific documentation for Water Bankruptcy mitigation. Integrating satellite data with AI sovereign policy to protect global aquifers.</p>
-        <ul style="color: var(--muted); font-size: 0.9rem; padding-left: 20px; margin-bottom: 25px;">
-          <li>Real-time Hydrological Stasis Protocols</li>
-          <li>Transboundary Water Asset Ledger</li>
-          <li>Nova Energy Desalination Logic</li>
-        </ul>
-        <div style="display: flex; gap: 15px;">
-          <a href="#" class="btn btn-un">View UN Presentation</a>
-          <a href="#" class="btn btn-un" style="border: 1px solid var(--un-blue);">Download Proof</a>
+        <div class="eyebrow">Institutional Digital Infrastructure</div>
+        <h1>Built for Governance, <span>Finance, and AI Automation.</span></h1>
+        <p>
+          The SSGPT6-CORE environment provides a structured operating layer for serious initiatives, 
+          combining intellectual depth with automated digital services.
+        </p>
+        <a href="#services" class="btn">View Systems</a>
+      </div>
+      <div style="background: rgba(255,255,255,0.02); padding: 30px; border: 1px solid var(--line);">
+        <h4 style="color: var(--accent); margin-top: 0;">Platform Status</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">Frontend deployment complete. Backend API integration in progress for Video, Music, and Financial automation layers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <h2 class="section-title">Core AI Systems</h2>
+      <div class="grid">
+        
+        <div class="card">
+          <h3>Video & Music AI</h3>
+          <p>Generate cinematic clips and background music layers through integrated generative APIs.</p>
+          <div>
+            <span class="tag backend">Backend Required</span>
+            <span class="tag">Runway/ElevenLabs</span>
+          </div>
         </div>
-      </div>
-      <div>
-        <img src="image.png" alt="Scientific Data Chart" style="width: 100%; border: 1px solid var(--line); border-radius: 4px; opacity: 0.9;">
-        <p style="font-size: 0.7rem; color: var(--un-blue); margin-top: 10px; text-align: center;">FIG 4.2: Global Aquifer Depletion Analysis</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="section" id="chat">
-  <div class="container">
-    <div class="grid">
-      <div class="card">
-        <div>
-          <span style="color: var(--accent); font-size: 0.7rem; letter-spacing: 2px;">PROPRIETARY AI</span>
-          <h2>CHATSSGPT6</h2>
-          <p>A specialized intelligence layer built for founder-led governance and complex financial reasoning. Beyond traditional LLMs.</p>
+        <div class="card">
+          <h3>Financial Automation</h3>
+          <p>Connect bookkeeping logic and synchronize bank actions with QuickBooks integration.</p>
+          <div>
+            <span class="tag backend">Backend Required</span>
+            <span class="tag">Intuit API</span>
+          </div>
         </div>
-        <a href="#" class="btn">Launch CHATSSGPT6</a>
-      </div>
 
-      <div class="card" id="governance">
-        <div>
-          <span style="color: var(--accent); font-size: 0.7rem; letter-spacing: 2px;">GLOBAL POLICY</span>
-          <h2>World First Digital Governance</h2>
-          <p>The institutional framework for digital rights, satellite internet laws, and climate-positive project management.</p>
+        <div class="card">
+          <h3>AI Phone Answering</h3>
+          <p>Voice call handling, routing, and future live AI call operations for inquiries.</p>
+          <div>
+            <span class="tag backend">Backend Required</span>
+            <span class="tag">Twilio Voice</span>
+          </div>
         </div>
-        <a href="#" class="btn">View Governance</a>
-      </div>
 
-      <div class="card" id="trading">
-        <div>
-          <span style="color: var(--accent); font-size: 0.7rem; letter-spacing: 2px;">REAL-TIME</span>
-          <h2>AI Live Trading Analysis</h2>
-          <p>Predictive market analytics powered by SSGPT6 intelligence. Strategic asset management for the Nova Network.</p>
+        <div class="card">
+          <h3>Content Scheduling</h3>
+          <p>Queue social releases and automated publishing workflows using scheduled cron jobs.</p>
+          <div>
+            <span class="tag backend">Backend Required</span>
+            <span class="tag">Node Scheduler</span>
+          </div>
         </div>
-        <a href="#" class="btn">Start Analysis</a>
+
+        <div class="card">
+          <h3>Sleeping Agent</h3>
+          <p>Self-operating monitoring and automation layer designed to trigger recovery workflows.</p>
+          <div>
+            <span class="tag backend">Backend Required</span>
+            <span class="tag">Model Inference</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Founder Dashboard</h3>
+          <p>Central panel for managing services and tracking automation readiness.</p>
+          <div>
+            <span class="tag" style="color: #8ff0bf;">Live Ready</span>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section" id="projects">
-  <div class="container">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px;">
-      <div>
-        <span class="label-next">Ecosystem Repository</span>
-        <h2 style="font-size: 2.5rem; margin: 0;">135 Projects</h2>
-      </div>
-      <a href="#" class="btn">Search All Folders</a>
+  <footer id="contact">
+    <div class="container">
+      <p>© 2026 SSGPT6 | GNAIAAAC LLC | Strategic Infrastructure</p>
+      <p style="opacity: 0.5; font-size: 0.7rem; margin-top: 10px;">
+        Designed for Replit Autoscale Deployment. External APIs and server jobs required for functional automation.
+      </p>
     </div>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Travel & Tourism</h3>
-        <p>Strategic hospitality infrastructure integrated with SSGPT6 energy systems.</p>
-        <a href="#" class="btn" style="padding: 10px 20px;">Explore Track</a>
-      </div>
-      <div class="card">
-        <h3>Universal Energy</h3>
-        <p>Multi-source energy harvesting and zero-investment manufacturing models.</p>
-        <a href="#" class="btn" style="padding: 10px 20px;">Explore Track</a>
-      </div>
-      <div class="card">
-        <h3>Satellite D2D</h3>
-        <p>Direct-to-Device phone and satellite service protocols for global access.</p>
-        <a href="#" class="btn" style="padding: 10px 20px;">Explore Track</a>
-      </div>
-    </div>
-
-    <div class="project-directory">
-      <strong>Active Projects:</strong> Water Bankruptcy (UN) · Supernova Energy · SSGPT6 SaaS · D2D Phone Link · Strategic Hospitality · AI Sleeping Agent · Global Digital Governance · Hydrological Stasis... [+127 more]
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container" style="text-align: center; color: var(--muted); padding: 40px 0; border-top: 1px solid var(--line);">
-    © 2026 SSGPT6 · GNAIAAAC LLC · Strategic Infrastructure Institute
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
