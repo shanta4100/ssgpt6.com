@@ -3,216 +3,210 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SSGPT6 | Nova Network & Climate Intelligence</title>
+  <title>SSGPT6 | Nova Network & UN Water Intelligence</title>
   <style>
     :root {
       --bg: #03070f;
-      --accent: #c7a85a;
+      --panel: #0c1728;
       --text: #e8edf5;
       --muted: #8492a6;
       --line: rgba(255,255,255,0.08);
-      --glass: rgba(10, 20, 38, 0.7);
+      --accent: #c7a85a;
+      --accent-soft: rgba(199,168,90,0.15);
+      --un-blue: #009edb;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
+      font-family: Georgia, serif;
       background: var(--bg);
       color: var(--text);
-      font-family: 'Georgia', serif;
-      line-height: 1.6;
-      overflow-x: hidden;
+      line-height: 1.65;
     }
 
-    /* Large Logo & Header */
     header {
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
+      position: sticky; top: 0; z-index: 1000;
       backdrop-filter: blur(15px);
+      background: rgba(3, 7, 15, 0.85);
       border-bottom: 1px solid var(--line);
-      background: rgba(3, 7, 15, 0.8);
     }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
+    .container { width: min(92%, var(--max)); margin: 0 auto; }
+
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 0;
     }
 
-    .brand-group { display: flex; align-items: center; gap: 20px; }
+    /* Larger Logo Branding */
+    .brand { display: flex; align-items: center; gap: 20px; }
+    .main-logo { height: 65px; width: auto; filter: drop-shadow(0 0 10px rgba(199,168,90,0.2)); }
     
-    .main-logo {
-      height: 65px; /* Larger as requested */
-      width: auto;
-      filter: drop-shadow(0 0 10px rgba(199, 168, 90, 0.3));
-    }
+    .brand-text { font-family: Arial, sans-serif; }
+    .brand-mark { font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; }
+    .brand-sub { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
 
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      margin-left: 25px;
-      font-family: Arial, sans-serif;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+    nav { display: flex; gap: 25px; font-family: Arial, sans-serif; }
+    nav a { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+    nav a:hover { color: var(--accent); }
 
-    /* Hero with AI Agent Video */
+    /* Hero: Sleeping AI Agent Concept */
     .hero {
-      position: relative;
-      height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
+      position: relative; height: 85vh; min-height: 600px;
+      display: flex; align-items: center; overflow: hidden;
+      border-bottom: 1px solid var(--line);
     }
 
-    .video-wrap {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      z-index: -1;
+    .video-background {
+      position: absolute; top: 50%; left: 50%;
+      min-width: 100%; min-height: 100%; width: auto; height: auto;
+      z-index: -1; transform: translate(-50%, -50%);
+      opacity: 0.2; filter: grayscale(100%) contrast(120%);
     }
 
-    video {
-      width: 100%; height: 100%; object-fit: cover;
-      opacity: 0.25;
-      filter: grayscale(100%) brightness(0.8);
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
+    .eyebrow { 
+      display: inline-block; padding: 6px 14px; background: var(--accent-soft);
+      color: var(--accent); font-family: Arial; font-size: 0.75rem; 
+      text-transform: uppercase; margin-bottom: 25px; letter-spacing: 1.5px;
     }
 
-    .hero-content { max-width: 800px; padding: 20px; }
-    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 10px; }
-    .hero p { color: var(--accent); font-family: Arial; letter-spacing: 2px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin: 0 0 25px; font-weight: 600; }
+    .hero p { color: var(--muted); font-size: 1.15rem; max-width: 600px; }
 
-    /* Scientific Presentation Section */
-    .presentation-box {
-      background: var(--glass);
-      border: 1px solid var(--line);
-      margin: 60px auto;
-      max-width: 1000px;
-      padding: 50px;
-      position: relative;
+    /* UN Pure Water & Scientific Presentation */
+    .section { padding: 100px 0; border-bottom: 1px solid var(--line); }
+    .un-box { 
+      background: rgba(255,255,255,0.02); border: 1px solid var(--line);
+      padding: 50px; position: relative; margin-top: 40px;
     }
-
     .un-badge {
-      position: absolute;
-      top: -20px;
-      right: 40px;
-      background: #009edb; /* UN Blue */
-      padding: 8px 20px;
-      font-family: Arial;
-      font-weight: bold;
-      font-size: 0.7rem;
-      border-radius: 4px;
+      position: absolute; top: -15px; right: 40px;
+      background: var(--un-blue); color: #fff; padding: 5px 15px;
+      font-family: Arial; font-size: 0.7rem; font-weight: bold; border-radius: 2px;
     }
 
-    .science-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-top: 30px;
+    .science-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+    .metric-card { border-left: 2px solid var(--accent); padding-left: 20px; margin-bottom: 25px; }
+    .metric-card h4 { color: var(--accent); font-family: Arial; margin: 0 0 5px; text-transform: uppercase; font-size: 0.85rem; }
+
+    .btn-action {
+      display: inline-block; padding: 15px 35px; border: 1px solid var(--accent);
+      color: var(--accent); font-family: Arial; text-transform: uppercase;
+      letter-spacing: 2px; font-size: 0.85rem; transition: 0.4s; margin-top: 20px;
     }
+    .btn-action:hover { background: var(--accent); color: var(--bg); }
 
-    .metric-card {
-      border-left: 2px solid var(--accent);
-      padding-left: 20px;
-      margin-bottom: 20px;
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 40px; }
+    .card { 
+      background: rgba(255,255,255,0.015); border: 1px solid var(--line); 
+      padding: 35px; transition: 0.3s; 
     }
+    .card:hover { border-color: var(--accent); transform: translateY(-5px); }
 
-    .metric-card h4 { color: var(--accent); margin: 0; font-family: Arial; }
-
-    .btn-nova {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 40px;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      transition: 0.4s;
-      cursor: pointer;
-    }
-
-    .btn-nova:hover { background: var(--accent); color: var(--bg); }
-
-    footer { text-align: center; padding: 40px; border-top: 1px solid var(--line); color: var(--muted); }
+    footer { padding: 60px 0; text-align: center; color: var(--muted); font-family: Arial; font-size: 0.85rem; }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="nav-container">
-    <div class="brand-group">
-      <img src="image.png" alt="SSGPT6 Logo" class="main-logo">
-      <div style="font-family: Arial;">
-        <div style="font-weight: bold; font-size: 1.2rem;">SSGPT6</div>
-        <div style="font-size: 0.65rem; color: var(--accent); letter-spacing: 1px;">NOVA NETWORK INTELLIGENCE</div>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <img src="image.png" alt="SSGPT6" class="main-logo">
+        <div class="brand-text">
+          <div class="brand-mark">SSGPT6</div>
+          <div class="brand-sub">Nova Network Intelligence</div>
+        </div>
       </div>
+      <nav>
+        <a href="#un-project">UN Water</a>
+        <a href="#nova">Nova Academy</a>
+        <a href="#finance">Finance</a>
+        <a href="#access">Access</a>
+      </nav>
     </div>
-    <nav>
-      <a href="#un-pure">UN Project</a>
-      <a href="#scientific">Scientific Proof</a>
-      <a href="#academy">Nova Academy</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
-<section class="hero">
-  <div class="video-wrap">
-    <video autoplay muted loop playsinline>
+  <section class="hero">
+    <video autoplay muted loop playsinline class="video-background">
       <source src="https://static.videezy.com/system/resources/previews/000/038/545/original/C0010_1.mp4" type="video/mp4">
     </video>
-  </div>
-  <div class="hero-content">
-    <p>Climate Change Friendly Intelligence</p>
-    <h1>The Nova Network</h1>
-    <div style="max-width: 600px; margin: 0 auto; color: var(--muted);">
-      A sleeping agent protocol designed for global energy redistribution and atmospheric governance.
-    </div>
-  </div>
-</section>
-
-<section id="un-pure" style="padding: 100px 20px;">
-  <div class="presentation-box">
-    <div class="un-badge">UN ADVISORY TRACK</div>
-    <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Project: Water Bankruptcy</h2>
-    <p style="color: var(--muted); margin-bottom: 40px;">Strategic Proposal for Global Hydro-Sovereignty and UN Pure Water Standards.</p>
-
-    <div class="science-grid">
+    <div class="container hero-grid">
       <div>
-        <h3>Scientific Proof: Hydrological Stress</h3>
-        <p>Utilizing high-resolution satellite gravimetry to track aquifer depletion in real-time. Our models predict a 40% shortfall in global water supply by 2030 without the Nova Network intervention.</p>
-        
-        <div class="metric-card">
-          <h4>Vulnerability Index</h4>
-          <p>Analyzing 156 transboundary river basins at risk of economic collapse.</p>
-        </div>
-        
-        <div class="metric-card">
-          <h4>Nova Desalination</h4>
-          <p>Energy-neutral water purification via tidal-locked AI governance.</p>
-        </div>
+        <div class="eyebrow">Atmospheric Governance</div>
+        <h1>Intelligence that survives the climate transition.</h1>
+        <p>A founder-led environment for the Nova Network—integrating energy harvesting, water sovereignty, and AI stasis protocols.</p>
+        <a href="#un-project" class="btn-action">View UN Proposal</a>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="un-project">
+    <div class="container">
+      <div style="text-transform: uppercase; color: var(--accent); font-family: Arial; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 10px;">Institutional Track</div>
+      <h2 style="font-size: 2.8rem; margin: 0 0 20px;">Project: Water Bankruptcy</h2>
       
-      <div>
-        <img src="image.png" alt="Presentation Graphic" style="width: 100%; border: 1px solid var(--accent-soft); opacity: 0.8;">
-        <p style="font-size: 0.8rem; margin-top: 15px; font-style: italic; color: var(--accent);">Figure 1.1: The Supernova Climate Transition Model.</p>
+      <div class="un-box">
+        <div class="un-badge">UN PURE WATER STANDARDS</div>
+        <div class="science-grid">
+          <div>
+            <h3>Scientific Proof & Framework</h3>
+            <p style="color: var(--muted);">The Nova Network utilizes quantum-ledgering to track hydrological depletion. Our scientific proof demonstrates a direct correlation between localized water bankruptcy and regional economic collapse.</p>
+            
+            <div class="metric-card">
+              <h4>Desalination Efficiency</h4>
+              <p>Tidal-locked energy harvesting allows for 0% carbon water purification.</p>
+            </div>
+            <div class="metric-card">
+              <h4>Aquifer Monitoring</h4>
+              <p>Real-time AI surveillance of transboundary water basins.</p>
+            </div>
+          </div>
+          <div>
+             <img src="image.png" alt="Scientific Model" style="width: 100%; border: 1px solid var(--line); opacity: 0.7;">
+             <p style="font-size: 0.75rem; color: var(--accent); margin-top: 10px; font-family: Arial;">FIG 4.2: THE SUPERNOVA ENERGY-WATER EQUILIBRIUM MODEL</p>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div style="text-align: center;">
-      <a class="btn-nova">Download Full UN Proposal</a>
+  <section class="section" id="nova">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 50px;">
+        <h2 style="font-size: 2.5rem;">Nova Academy</h2>
+        <p style="color: var(--muted); max-width: 700px; margin: 0 auto;">Educational modules for the next phase of human-environment synergy.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Climate Nova</h3>
+          <p>Applied learning for energy harvesting and zero-investment manufacturing.</p>
+          <a href="#" style="color: var(--accent); font-family: Arial; font-size: 0.8rem;">OPEN TRACK →</a>
+        </div>
+        <div class="card">
+          <h3>Sleeping Agents</h3>
+          <p>Understanding autonomous AI protocols for long-horizon governance.</p>
+          <a href="#" style="color: var(--accent); font-family: Arial; font-size: 0.8rem;">OPEN TRACK →</a>
+        </div>
+        <div class="card">
+          <h3>Financial Nova</h3>
+          <p>Accounting for the post-water-bankruptcy global economy.</p>
+          <a href="#" style="color: var(--accent); font-family: Arial; font-size: 0.8rem;">OPEN TRACK →</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  © 2026 SSGPT6 · GNAIAAAC LLC · "Advancing Human-Water Equilibrium"
-</footer>
+  <footer>
+    <div class="container">
+      © 2026 SSGPT6 · GNAIAAAC LLC · Strategic Climate Infrastructure
+    </div>
+  </footer>
 
 </body>
 </html>
