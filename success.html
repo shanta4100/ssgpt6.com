@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transaction Success | SSGPT6</title>
+  <style>
+    :root {
+      --bg: #060d18;
+      --text: #e8edf5;
+      --muted: #9aa8bd;
+      --accent: #c7a85a; 
+      --line: rgba(255,255,255,0.08);
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .success-box {
+      max-width: 500px;
+      padding: 60px 40px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      position: relative;
+    }
+
+    .success-icon {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    h1 { font-size: 2rem; margin-bottom: 15px; }
+    p { color: var(--muted); line-height: 1.6; margin-bottom: 30px; }
+
+    .order-details {
+      text-align: left;
+      background: rgba(0,0,0,0.2);
+      padding: 20px;
+      border-radius: 4px;
+      font-family: sans-serif;
+      font-size: 0.85rem;
+      margin-bottom: 30px;
+    }
+
+    .detail-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+    }
+
+    .btn-home {
+      display: inline-block;
+      padding: 12px 30px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .btn-home:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="success-box">
+    <div class="success-icon">✓</div>
+    <h1>Transmission Received</h1>
+    <p>Your request has been logged into the SSGPT6 ecosystem. Our automated delivery systems and strategic team are now processing your order.</p>
+
+    <div class="order-details">
+      <div class="detail-item">
+        <span>Status:</span>
+        <span style="color: #8ff0bf;">Verified / Processing</span>
+      </div>
+      <div class="detail-item">
+        <span>Script Delivery:</span>
+        <span>Within 48 Hours</span>
+      </div>
+      <div class="detail-item">
+        <span>Infrastructure Sync:</span>
+        <span>Awaiting Founder Review</span>
+      </div>
+    </div>
+
+    <a href="index.html" class="btn-home">Return to Dashboard</a>
+    
+    <p style="font-size: 0.75rem; margin-top: 40px; opacity: 0.5;">
+      A confirmation receipt has been sent via Stripe/PayPal to your registered email address.
+    </p>
+  </div>
+
+</body>
+</html>
