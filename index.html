@@ -3,185 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSGPT6 | Global Governance & Zero Carbon</title>
+    <title>GNAIAAAC LLC | SSGPT6-CORE Platform</title>
     <style>
         :root {
-            --bg: #010409;
+            --bg: #060d18;
+            --panel: #0c1728;
             --un-blue: #009edb;
-            --gold: #d4af37; /* Bold Institutional Gold */
-            --text: #ffffff;
-            --muted: #8b949e;
-            --panel: #0d1117;
+            --gold: #d4af37;
+            --text: #e8edf5;
+            --muted: #9aa8bd;
             --rainbow: linear-gradient(90deg, #009edb, #00ffcc, #ffeb3b, #ff5722, #e91e63);
+            --border: rgba(212, 175, 55, 0.2);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background-color: var(--bg);
             color: var(--text);
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        .container { width: min(94%, 1200px); margin: 0 auto; }
+        .container { width: min(94%, 1250px); margin: 0 auto; }
 
-        /* HEADER & UN RAINBOW ALIGNMENT */
+        /* HEADER: RAINBOW & NAVIGATION */
         header {
-            padding: 30px 0;
-            background: rgba(1, 4, 9, 0.95);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 20px 0;
+            background: rgba(6, 13, 24, 0.98);
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 2000;
         }
 
-        .header-flex { display: flex; justify-content: space-between; align-items: center; }
+        .header-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 15px; }
         
-        .logo-box { display: flex; align-items: center; gap: 20px; }
-        .logo-img { height: 60px; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); }
-
+        .brand-box { display: flex; align-items: center; gap: 15px; }
+        .logo-img { height: 50px; }
+        
         .un-alignment-banner {
-            font-family: Arial, sans-serif;
             font-weight: 900;
-            font-size: 1.4rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
             background: var(--rainbow);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
         }
 
-        /* GOLD & BOLD NAVIGATION */
-        nav { display: flex; gap: 40px; margin-top: 20px; }
+        nav { display: flex; gap: 20px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; }
         nav a {
-            font-family: 'Arial Black', sans-serif;
             font-weight: 900;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             color: var(--gold);
             text-decoration: none;
-            letter-spacing: 2px;
-            transition: 0.3s;
+            letter-spacing: 1.5px;
+            transition: 0.2s;
         }
-        nav a:hover { transform: scale(1.05); text-shadow: 0 0 15px rgba(212, 175, 55, 0.6); }
+        nav a:hover { color: #fff; text-shadow: 0 0 10px var(--gold); }
 
-        /* HERO: MISSION CRITICAL */
-        .hero { padding: 100px 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .hero h1 { 
-            font-family: 'Arial Black', sans-serif; 
-            font-size: clamp(2rem, 6vw, 4.5rem); 
-            line-height: 1; 
-            margin-bottom: 30px; 
-            color: #fff;
-        }
+        /* HERO SECTION */
+        .hero { padding: 100px 0 60px; text-align: center; border-bottom: 1px solid var(--border); background: radial-gradient(circle at center, #101d31 0%, #060d18 100%); }
+        .hero h1 { font-weight: 900; font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 20px; color: #fff; }
+        .hero-mission { color: var(--gold); font-size: 1.3rem; font-weight: bold; max-width: 900px; margin: 0 auto 30px; text-transform: uppercase; }
 
-        .mission-statement {
-            font-family: 'Arial Black', sans-serif;
-            font-weight: 900;
-            font-size: 1.8rem;
-            color: var(--gold);
-            max-width: 900px;
-            margin: 0 auto;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            line-height: 1.3;
-        }
+        /* DYNAMIC GRID SYSTEM (FOR 135 PROJECTS) */
+        .grid-section { padding: 80px 0; }
+        .section-label { color: var(--un-blue); font-weight: bold; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px; display: block; font-size: 1.5rem; }
 
-        /* SCIENTIFIC MODULE */
-        .scientific-module {
-            margin: 80px 0;
-            padding: 60px;
-            border: 2px solid var(--un-blue);
-            background: radial-gradient(circle at top left, rgba(0, 158, 219, 0.1), transparent);
-            position: relative;
-        }
-
-        .module-label {
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-            color: var(--un-blue);
-            font-size: 1.5rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            display: block;
-        }
-
-        /* DUAL BOX: SLIDESHOW & VERIFICATION */
-        .dual-box {
+        .app-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
         }
 
-        .slideshow-frame {
-            background: #000;
-            border: 1px solid var(--gold);
-            height: 450px;
-            position: relative;
-            overflow: hidden;
-        }
-        .slideshow-frame img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
-        
-        .doc-frame {
+        .card {
             background: var(--panel);
-            border: 1px solid var(--un-blue);
-            padding: 50px;
+            border: 1px solid var(--border);
+            padding: 30px;
+            transition: 0.3s;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
         }
+        .card:hover { border-color: var(--un-blue); transform: translateY(-5px); background: #0e1a2d; }
+        .card h3 { color: var(--gold); margin-bottom: 15px; font-weight: 900; text-transform: uppercase; font-size: 1.1rem; }
+        .card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 20px; }
 
-        .doc-point {
-            font-family: 'Arial Black', sans-serif;
-            font-weight: 900;
-            font-size: 1.1rem;
-            color: var(--text);
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            text-transform: uppercase;
-        }
-        .doc-point::before { content: ""; width: 12px; height: 12px; background: var(--un-blue); box-shadow: 0 0 10px var(--un-blue); }
-
-        .download-btn {
+        .btn {
             background: var(--gold);
-            color: var(--bg);
+            color: #000;
             text-decoration: none;
-            padding: 25px;
-            font-family: 'Arial Black', sans-serif;
-            font-weight: 900;
+            padding: 12px;
             text-align: center;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-top: 20px;
-            transition: 0.3s;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
         }
-        .download-btn:hover { background: #fff; transform: translateY(-5px); }
 
-        footer { padding: 50px 0; text-align: center; border-top: 1px solid var(--gold); color: var(--gold); font-family: Arial; font-size: 0.8rem; letter-spacing: 4px; }
+        /* PRICING TABLE */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-top: 40px; }
+        .price-card { background: #101d31; border: 1px solid var(--un-blue); padding: 25px; text-align: center; }
+        .price-card h4 { color: #fff; margin-bottom: 10px; }
+        .price-card .cost { font-size: 2rem; color: var(--gold); font-weight: 900; display: block; margin-bottom: 15px; }
 
-        @media (max-width: 950px) { .dual-box { grid-template-columns: 1fr; } .header-flex { flex-direction: column; gap: 20px; } }
+        footer { padding: 60px 0; border-top: 1px solid var(--gold); text-align: center; font-size: 0.8rem; color: var(--muted); }
+        .policy-links { margin-top: 20px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .policy-links a { color: var(--un-blue); text-decoration: none; font-weight: bold; }
+
+        @media (max-width: 768px) { nav { gap: 10px; } .hero { padding: 60px 0; } }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="container header-flex">
-        <div class="logo-box">
-            <img src="https://raw.githubusercontent.com/shanta4100/ssgpt6.com/main/public/logo.png" alt="SSGPT6" class="logo-img">
-        </div>
-        <div class="un-alignment-banner">UN CLIMATE ALIGNMENT</div>
-    </div>
     <div class="container">
+        <div class="header-top">
+            <div class="brand-box">
+                <img src="https://raw.githubusercontent.com/shanta4100/ssgpt6.com/main/public/logo.png" alt="GNAIAAAC LLC" class="logo-img">
+                <span style="font-weight: 900; color: #fff;">GNAIAAAC LLC</span>
+            </div>
+            <div class="un-alignment-banner">UN CLIMATE ALIGNMENT</div>
+        </div>
         <nav>
-            <a href="#">Platform</a>
-            <a href="#">World First Digital Governance</a>
-            <a href="#">Zero Carbon Solutions</a>
-            <a href="#">ChatSSGPT6</a>
+            <a href="#platform">Platform</a>
+            <a href="#governance">World First Digital Governance</a>
+            <a href="#zero-carbon">Zero Carbon Solutions</a>
+            <a href="#media">Media Network</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#support">Support</a>
+            <a href="#chat" style="background: var(--gold); color: #000; padding: 2px 8px; border-radius: 4px;">ChatSSGPT6</a>
         </nav>
     </div>
 </header>
@@ -189,39 +142,105 @@
 <section class="hero">
     <div class="container">
         <h1>GLOBAL BAILOUT INITIATIVE</h1>
-        <p class="mission-statement">
-            Driving sustainable development through decentralized monitoring and intelligent, autonomous operations.
-        </p>
+        <p class="hero-mission">Driving sustainable development through decentralized monitoring and autonomous operations.</p>
+        <p style="color: var(--muted); max-width: 800px; margin: 0 auto;">Human-centered digital infrastructure for services, media, and global solution development.</p>
     </div>
 </section>
 
-<section class="container">
-    <div class="scientific-module">
-        <span class="module-label">UN Scientific Module: Water-AI Efficiency</span>
-        
-        <div class="dual-box">
-            <div class="slideshow-frame">
-                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1000" alt="Climate Monitoring">
-                <div style="position:absolute; bottom:20px; left:20px; color:var(--gold); font-family:Arial; font-size:0.7rem; letter-spacing:2px; background:rgba(0,0,0,0.7); padding:5px 10px;">
-                    LIVE FEED: ZERO-CARBON OPTIMIZATION IN PROGRESS
-                </div>
+<main class="container">
+    
+    <section class="grid-section" id="governance">
+        <span class="section-label">Institutional Services</span>
+        <div class="app-grid">
+            <div class="card">
+                <h3>Digital Governance</h3>
+                <p>Structured digital platform design and communication architecture for evolving systems.</p>
+                <a href="#" class="btn">Access Service</a>
             </div>
-
-            <div class="doc-frame">
-                <div class="doc-point">Hydrol-Stasis Level 1 Verification</div>
-                <div class="doc-point">Transboundary Asset Ledger</div>
-                <div class="doc-point">Sovereign Node Autonomy</div>
-                <div class="doc-point">Restorative Alpha Dividends</div>
-                
-                <a href="#" class="download-btn">Download Institutional Framework</a>
+            <div class="card">
+                <h3>AI Media Production</h3>
+                <p>Automated content planning, publishing support, and branded communication pathways.</p>
+                <a href="#" class="btn">View Media</a>
+            </div>
+            <div class="card">
+                <h3>Climate Research</h3>
+                <p>Strategic modeling for zero-carbon energy and water sustainability models.</p>
+                <a href="#" class="btn">Review Data</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section class="grid-section" id="platform">
+        <span class="section-label">Active Project Portfolio</span>
+        <div class="app-grid">
+            <div class="card">
+                <h3>SSGPT6-CORE</h3>
+                <p>The central infrastructure layer for global service delivery and project management.</p>
+                <a href="#" class="btn">Explore Core</a>
+            </div>
+            <div class="card">
+                <h3>GNAI TV</h3>
+                <p>Global media network for company updates, video releases, and digital storytelling.</p>
+                <a href="#" class="btn">Watch TV</a>
+            </div>
+            <div class="card">
+                <h3>Fashion Showcase</h3>
+                <p>Creative campaign support and visual storytelling for branded fashion movements.</p>
+                <a href="#" class="btn">Open Showcase</a>
+            </div>
+            <div class="card">
+                <h3>Learning Academy</h3>
+                <p>Structured knowledge paths for AI automation and founder intelligence.</p>
+                <a href="#" class="btn">Start Learning</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid-section" id="pricing">
+        <span class="section-label">Membership & Access</span>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h4>FOUNDATION</h4>
+                <span class="cost">$50</span>
+                <p>Entry-level access to selected modules.</p>
+                <a href="#" class="btn">Purchase</a>
+            </div>
+            <div class="price-card">
+                <h4>CORE MEMBER</h4>
+                <span class="cost">$100</span>
+                <p>Expanded access and strategic material.</p>
+                <a href="#" class="btn">Purchase</a>
+            </div>
+            <div class="price-card" style="border-color: var(--gold);">
+                <h4>EXECUTIVE</h4>
+                <span class="cost">$150</span>
+                <p>Premium founder-level direction.</p>
+                <a href="#" class="btn">Purchase</a>
+            </div>
+            <div class="price-card">
+                <h4>ENTERPRISE</h4>
+                <span class="cost">Custom</span>
+                <p>Full institutional partnership.</p>
+                <a href="#" class="btn">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+</main>
 
 <footer>
     <div class="container">
-        GNAIAAAC LLC © 2026 | SSGPT6-CORE | SOVEREIGN STRATEGIC SYSTEMS
+        <p>GNAIAAAC LLC © 2026 | SSGPT6-CORE | SOVEREIGN STRATEGIC SYSTEMS</p>
+        <div class="policy-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Refund Policy</a>
+            <a href="#">Anti-Fraud</a>
+            <a href="#">Accessibility</a>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.65rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            NOTICE: This platform does not provide direct medical treatment or emergency rescue services. D2D phone services are officially decommissioned.
+        </p>
     </div>
 </footer>
 
