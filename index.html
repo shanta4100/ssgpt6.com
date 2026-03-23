@@ -36,25 +36,19 @@
     }
 
     .container { width: min(92%, var(--max)); margin: 0 auto; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
 
-    .topbar {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 18px 0;
-    }
-
-    /* Larger Logo Branding */
+    /* Branding */
     .brand { display: flex; align-items: center; gap: 20px; }
-    .main-logo { height: 65px; width: auto; filter: drop-shadow(0 0 10px rgba(199,168,90,0.2)); }
-    
-    .brand-text { font-family: Arial, sans-serif; }
-    .brand-mark { font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; }
-    .brand-sub { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
+    .main-logo { height: 60px; width: auto; filter: drop-shadow(0 0 10px rgba(199,168,90,0.2)); }
+    .brand-mark { font-family: Arial, sans-serif; font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; }
+    .brand-sub { font-family: Arial; font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
 
     nav { display: flex; gap: 25px; font-family: Arial, sans-serif; }
     nav a { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
     nav a:hover { color: var(--accent); }
 
-    /* Hero: Sleeping AI Agent Concept */
+    /* Hero Section */
     .hero {
       position: relative; height: 85vh; min-height: 600px;
       display: flex; align-items: center; overflow: hidden;
@@ -65,7 +59,7 @@
       position: absolute; top: 50%; left: 50%;
       min-width: 100%; min-height: 100%; width: auto; height: auto;
       z-index: -1; transform: translate(-50%, -50%);
-      opacity: 0.2; filter: grayscale(100%) contrast(120%);
+      opacity: 0.3; filter: grayscale(100%) contrast(120%);
     }
 
     .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
@@ -76,10 +70,12 @@
     }
 
     h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin: 0 0 25px; font-weight: 600; }
-    .hero p { color: var(--muted); font-size: 1.15rem; max-width: 600px; }
-
-    /* UN Pure Water & Scientific Presentation */
+    
+    /* Sections */
     .section { padding: 100px 0; border-bottom: 1px solid var(--line); }
+    .section-label { color: var(--accent); font-family: Arial; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 2px; }
+    
+    /* UN Presentation Box */
     .un-box { 
       background: rgba(255,255,255,0.02); border: 1px solid var(--line);
       padding: 50px; position: relative; margin-top: 40px;
@@ -94,21 +90,27 @@
     .metric-card { border-left: 2px solid var(--accent); padding-left: 20px; margin-bottom: 25px; }
     .metric-card h4 { color: var(--accent); font-family: Arial; margin: 0 0 5px; text-transform: uppercase; font-size: 0.85rem; }
 
+    /* Button Styling */
     .btn-action {
       display: inline-block; padding: 15px 35px; border: 1px solid var(--accent);
       color: var(--accent); font-family: Arial; text-transform: uppercase;
-      letter-spacing: 2px; font-size: 0.85rem; transition: 0.4s; margin-top: 20px;
+      letter-spacing: 2px; font-size: 0.85rem; transition: 0.4s; cursor: pointer; background: transparent;
     }
-    .btn-action:hover { background: var(--accent); color: var(--bg); }
+    .btn-action:hover { background: var(--accent); color: var(--bg); transform: scale(1.05); }
 
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 40px; }
     .card { 
       background: rgba(255,255,255,0.015); border: 1px solid var(--line); 
-      padding: 35px; transition: 0.3s; 
+      padding: 35px; transition: 0.4s; 
     }
-    .card:hover { border-color: var(--accent); transform: translateY(-5px); }
+    .card:hover { border-color: var(--accent); transform: translateY(-10px); background: rgba(199,168,90,0.05); }
 
     footer { padding: 60px 0; text-align: center; color: var(--muted); font-family: Arial; font-size: 0.85rem; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .science-grid, .grid { grid-template-columns: 1fr; }
+      nav { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -123,10 +125,10 @@
         </div>
       </div>
       <nav>
-        <a href="#un-project">UN Water</a>
-        <a href="#nova">Nova Academy</a>
+        <a href="#un-project">UN Project</a>
+        <a href="#projects">Other Projects</a>
+        <a href="#academy">Academy</a>
         <a href="#finance">Finance</a>
-        <a href="#access">Access</a>
       </nav>
     </div>
   </header>
@@ -139,64 +141,86 @@
       <div>
         <div class="eyebrow">Atmospheric Governance</div>
         <h1>Intelligence that survives the climate transition.</h1>
-        <p>A founder-led environment for the Nova Network—integrating energy harvesting, water sovereignty, and AI stasis protocols.</p>
-        <a href="#un-project" class="btn-action">View UN Proposal</a>
+        <p>Strategic infrastructure for the Nova Network—integrating energy harvesting, water sovereignty, and AI stasis protocols.</p>
+        <button class="btn-action" onclick="location.href='#un-project'">Enter Presentation</button>
       </div>
     </div>
   </section>
 
   <section class="section" id="un-project">
     <div class="container">
-      <div style="text-transform: uppercase; color: var(--accent); font-family: Arial; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 10px;">Institutional Track</div>
-      <h2 style="font-size: 2.8rem; margin: 0 0 20px;">Project: Water Bankruptcy</h2>
+      <div class="section-label">Institutional Track</div>
+      <h2 style="font-size: 2.8rem; margin: 0;">Project: Water Bankruptcy</h2>
       
       <div class="un-box">
         <div class="un-badge">UN PURE WATER STANDARDS</div>
         <div class="science-grid">
           <div>
             <h3>Scientific Proof & Framework</h3>
-            <p style="color: var(--muted);">The Nova Network utilizes quantum-ledgering to track hydrological depletion. Our scientific proof demonstrates a direct correlation between localized water bankruptcy and regional economic collapse.</p>
+            <p style="color: var(--muted); margin-bottom: 30px;">Our proof demonstrates a direct correlation between localized water bankruptcy and regional economic collapse. The Nova Network uses quantum-ledgering to restore equilibrium.</p>
             
             <div class="metric-card">
               <h4>Desalination Efficiency</h4>
-              <p>Tidal-locked energy harvesting allows for 0% carbon water purification.</p>
+              <p>Energy-neutral water purification via tidal-locked AI governance.</p>
             </div>
             <div class="metric-card">
               <h4>Aquifer Monitoring</h4>
               <p>Real-time AI surveillance of transboundary water basins.</p>
             </div>
+            <button class="btn-action">Download UN Proposal</button>
           </div>
-          <div>
-             <img src="image.png" alt="Scientific Model" style="width: 100%; border: 1px solid var(--line); opacity: 0.7;">
-             <p style="font-size: 0.75rem; color: var(--accent); margin-top: 10px; font-family: Arial;">FIG 4.2: THE SUPERNOVA ENERGY-WATER EQUILIBRIUM MODEL</p>
+          <div style="text-align: center;">
+             <img src="image.png" alt="Scientific Model" style="width: 100%; border: 1px solid var(--line); opacity: 0.8; border-radius: 4px;">
+             <p style="font-size: 0.75rem; color: var(--accent); margin-top: 15px; font-family: Arial;">SUPERNOVA ENERGY-WATER EQUILIBRIUM MODEL</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="nova">
+  <section class="section" id="projects">
     <div class="container">
-      <div style="text-align: center; margin-bottom: 50px;">
-        <h2 style="font-size: 2.5rem;">Nova Academy</h2>
-        <p style="color: var(--muted); max-width: 700px; margin: 0 auto;">Educational modules for the next phase of human-environment synergy.</p>
-      </div>
-
+      <div class="section-label">Project Portfolio</div>
+      <h2 style="font-size: 2.5rem;">The Nova Network Initiatives</h2>
       <div class="grid">
         <div class="card">
-          <h3>Climate Nova</h3>
-          <p>Applied learning for energy harvesting and zero-investment manufacturing.</p>
-          <a href="#" style="color: var(--accent); font-family: Arial; font-size: 0.8rem;">OPEN TRACK →</a>
+          <h3>D2D Satellite</h3>
+          <p>Direct-to-Device satellite internet integration for global rural access.</p>
+          <button class="btn-action" style="font-size: 0.7rem; padding: 8px 15px;">View Concept</button>
         </div>
         <div class="card">
-          <h3>Sleeping Agents</h3>
-          <p>Understanding autonomous AI protocols for long-horizon governance.</p>
-          <a href="#" style="color: var(--accent); font-family: Arial; font-size: 0.8rem;">OPEN TRACK →</a>
+          <h3>Energy Harvesting</h3>
+          <p>Multi-source universal energy system managed by AI Sleeping Agents.</p>
+          <button class="btn-action" style="font-size: 0.7rem; padding: 8px 15px;">View Concept</button>
         </div>
         <div class="card">
-          <h3>Financial Nova</h3>
-          <p>Accounting for the post-water-bankruptcy global economy.</p>
-          <a href="#" style="color: var(--accent); font-family: Arial; font-size: 0.8rem;">OPEN TRACK →</a>
+          <h3>Project Omniscience</h3>
+          <p>A strategic podcast and media archive for high-level intelligence sharing.</p>
+          <button class="btn-action" style="font-size: 0.7rem; padding: 8px 15px;">Listen Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="academy">
+    <div class="container">
+      <div class="section-label">Education</div>
+      <h2 style="font-size: 2.5rem;">Hands-on AI Automation Academy</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Knowledge Tracks</h3>
+          <p>Curated paths for finance, systems thinking, and climate resilience.</p>
+          <button class="btn-action" style="font-size: 0.7rem; padding: 8px 15px;">Enroll</button>
+        </div>
+        <div class="card">
+          <h3>Applied Learning</h3>
+          <p>Practical modules shaped around real project execution.</p>
+          <button class="btn-action" style="font-size: 0.7rem; padding: 8px 15px;">Enroll</button>
+        </div>
+        <div class="card">
+          <h3>Archive</h3>
+          <p>A long-term library of notes, frameworks, and project references.</p>
+          <button class="btn-action" style="font-size: 0.7rem; padding: 8px 15px;">Browse</button>
         </div>
       </div>
     </div>
@@ -204,7 +228,7 @@
 
   <footer>
     <div class="container">
-      © 2026 SSGPT6 · GNAIAAAC LLC · Strategic Climate Infrastructure
+      © 2026 SSGPT6 · GNAIAAAC LLC · Strategic Infrastructure
     </div>
   </footer>
 
