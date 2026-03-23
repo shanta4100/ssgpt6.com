@@ -47,21 +47,22 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 0;
+      padding: 12px 0;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
     }
 
-    .brand-logo-svg {
-      width: 42px;
-      height: 42px;
-      fill: none;
-      stroke: var(--accent);
-      stroke-width: 2.5;
+    /* Logo Styling */
+    .brand-logo-img {
+      height: 48px; /* Slightly larger for the detailed logo */
+      width: auto;
+      display: block;
+      /* Ensures the logo pops against the dark theme */
+      filter: drop-shadow(0 0 8px rgba(199, 168, 90, 0.2));
     }
 
     .brand-mark {
@@ -81,14 +82,15 @@
 
     nav {
       display: flex;
-      gap: 20px;
+      gap: 24px;
       font-family: Arial, sans-serif;
-      flex-wrap: wrap;
     }
 
     nav a {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       transition: 0.3s;
     }
 
@@ -96,7 +98,7 @@
 
     .hero {
       position: relative;
-      padding: 140px 0 100px;
+      padding: 160px 0 120px;
       overflow: hidden;
       border-bottom: 1px solid var(--line);
     }
@@ -111,8 +113,8 @@
       height: auto;
       z-index: -1;
       transform: translate(-50%, -50%);
-      opacity: 0.15;
-      filter: grayscale(100%) contrast(110%);
+      opacity: 0.12;
+      filter: grayscale(100%) contrast(120%);
     }
 
     .hero-grid {
@@ -131,19 +133,19 @@
       font-size: 0.75rem;
       text-transform: uppercase;
       font-family: Arial, sans-serif;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     h1 {
       font-size: clamp(2.5rem, 5vw, 4.2rem);
       line-height: 1.1;
-      margin: 0 0 20px;
+      margin: 0 0 24px;
       font-weight: 600;
     }
 
     .hero p {
       color: var(--muted);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       max-width: 600px;
     }
 
@@ -155,7 +157,7 @@
     }
 
     .section {
-      padding: 80px 0;
+      padding: 100px 0;
       border-bottom: 1px solid var(--line);
     }
 
@@ -164,57 +166,45 @@
       font-family: Arial, sans-serif;
       font-size: 0.8rem;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .section-title {
-      font-size: 2.4rem;
-      margin: 0 0 30px;
-    }
-
-    .section-copy {
-      color: var(--muted);
-      max-width: 780px;
-      margin-bottom: 30px;
-      font-size: 1rem;
+      font-size: 2.6rem;
+      margin: 0 0 32px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 24px;
     }
 
     .card {
-      background: rgba(255,255,255,0.015);
+      background: rgba(255,255,255,0.01);
       border: 1px solid var(--line);
-      padding: 30px;
-      transition: 0.3s;
+      padding: 34px;
+      transition: 0.4s ease;
     }
 
     .card:hover {
-      border-color: var(--accent);
-      background: rgba(199,168,90,0.03);
+      border-color: rgba(199, 168, 90, 0.4);
+      background: rgba(199, 168, 90, 0.04);
+      transform: translateY(-4px);
     }
 
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.3rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 20px;
-    }
+    .card h3 { margin: 0 0 12px; font-size: 1.4rem; }
+    .card p { color: var(--muted); font-size: 1rem; margin-bottom: 24px; }
 
     .action {
       display: inline-block;
-      padding: 12px 24px;
+      padding: 12px 28px;
       border: 1px solid var(--accent);
       color: var(--accent);
       font-family: Arial, sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       transition: 0.3s;
     }
 
@@ -224,26 +214,18 @@
     }
 
     footer {
-      padding: 40px 0;
+      padding: 60px 0;
       color: var(--muted);
       font-family: Arial, sans-serif;
       font-size: 0.85rem;
       text-align: center;
-      opacity: 0.6;
+      opacity: 0.5;
     }
 
     @media (max-width: 900px) {
-      .hero-grid, .grid {
-        grid-template-columns: 1fr;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .hero {
-        padding: 100px 0 70px;
-      }
+      .hero-grid, .grid { grid-template-columns: 1fr; }
+      nav { display: none; }
+      .hero { padding: 120px 0 80px; }
     }
   </style>
 </head>
@@ -252,11 +234,7 @@
   <header>
     <div class="container topbar">
       <div class="brand">
-        <svg class="brand-logo-svg" viewBox="0 0 100 100" aria-hidden="true">
-          <circle cx="50" cy="50" r="45" />
-          <path d="M35 40 L50 30 L65 40 V60 L50 70 L35 60 Z" />
-          <path d="M50 30 V70" opacity="0.5" />
-        </svg>
+        <img src="image.png" alt="SSGPT6 Logo" class="brand-logo-img">
         <div>
           <div class="brand-mark">SSGPT6</div>
           <div class="brand-sub">Founder Intelligence Platform</div>
@@ -278,7 +256,7 @@
 
     <div class="container hero-grid">
       <div>
-        <div class="eyebrow">Institutional Architecture</div>
+        <div class="eyebrow">Strategic Digital Architecture</div>
         <h1>Built like a digital institution.</h1>
         <p>
           A founder-led environment for structured intelligence, financial reasoning,
@@ -286,9 +264,10 @@
         </p>
       </div>
       <aside class="hero-side">
-        <h3 style="color:var(--accent); text-transform: uppercase; font-size: 0.9rem; font-family: Arial, sans-serif;">Strategic Position</h3>
-        <p style="font-size: 0.9rem; color: var(--muted);">
-          This platform is an operating layer for serious initiatives, designed for clarity and depth.
+        <h3 style="color:var(--accent); text-transform: uppercase; font-size: 0.85rem; font-family: Arial, sans-serif; letter-spacing: 1px;">Current Position</h3>
+        <p style="font-size: 0.95rem; color: var(--muted);">
+          The platform operates as a serious layer for initiatives that require precision, 
+          intellectual depth, and operational clarity.
         </p>
       </aside>
     </div>
@@ -298,83 +277,21 @@
     <div class="container">
       <div class="section-label">Finance</div>
       <h2 class="section-title">Knowledge as Infrastructure</h2>
-      <p class="section-copy">
-        Finance is presented here as operating logic: accounting structure,
-        market interpretation, and governance discipline.
-      </p>
-
       <div class="grid">
         <div class="card">
           <h3>Accounting Logic</h3>
-          <p>Bookkeeping structures and disciplined financial reporting for founders.</p>
-          <a href="#finance" class="action">Enter Module</a>
+          <p>Bookkeeping structures and disciplined financial reporting for modern founders.</p>
+          <a href="#" class="action">Enter Module</a>
         </div>
         <div class="card">
           <h3>Market Analysis</h3>
-          <p>Strategic positioning and analytical interpretation of market data.</p>
-          <a href="#finance" class="action">Enter Module</a>
+          <p>Strategic positioning and analytical interpretation of global market data.</p>
+          <a href="#" class="action">Enter Module</a>
         </div>
         <div class="card">
-          <h3>System Governance</h3>
-          <p>Frameworks for long-term project management and oversight.</p>
-          <a href="#finance" class="action">Enter Module</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="academy">
-    <div class="container">
-      <div class="section-label">Academy</div>
-      <h2 class="section-title">Structured Learning Environment</h2>
-      <p class="section-copy">
-        The academy layer is intended to hold guided learning, intellectual archives,
-        and applied knowledge systems for long-term development.
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Knowledge Tracks</h3>
-          <p>Curated paths for finance, systems thinking, and founder operations.</p>
-          <a href="#academy" class="action">Open Track</a>
-        </div>
-        <div class="card">
-          <h3>Applied Learning</h3>
-          <p>Practical modules shaped around real execution, projects, and platform building.</p>
-          <a href="#academy" class="action">Open Track</a>
-        </div>
-        <div class="card">
-          <h3>Archive</h3>
-          <p>A long-term library of notes, frameworks, project references, and internal thought structure.</p>
-          <a href="#academy" class="action">Open Archive</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="pricing">
-    <div class="container">
-      <div class="section-label">Access</div>
-      <h2 class="section-title">Access Structure</h2>
-      <p class="section-copy">
-        Access levels should feel intentional and professional, not noisy or promotional.
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Foundation</h3>
-          <p>Entry-level access to selected platform material and foundational modules.</p>
-          <a href="#pricing" class="action">$50 Access</a>
-        </div>
-        <div class="card">
-          <h3>Core</h3>
-          <p>Expanded access to deeper learning, internal modules, and strategic material.</p>
-          <a href="#pricing" class="action">$100 Access</a>
-        </div>
-        <div class="card">
-          <h3>Executive</h3>
-          <p>Premium access layer for advanced content and founder-level strategic direction.</p>
-          <a href="#pricing" class="action">$150 Access</a>
+          <h3>Governance</h3>
+          <p>Frameworks for long-term project management and institutional oversight.</p>
+          <a href="#" class="action">Enter Module</a>
         </div>
       </div>
     </div>
@@ -382,7 +299,7 @@
 
   <footer>
     <div class="container">
-      © 2026 SSGPT6 · GNAIAAAC LLC · Strategic Infrastructure
+      © 2026 SSGPT6 · GNAIAAAC LLC · Founder Intelligence Platform
     </div>
   </footer>
 
