@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 Matrix | Governance & Project Access</title>
+  <meta name="description" content="SSGPT6 Matrix — governance, project summaries, access tiers, and strategic founder systems." />
+  <style>
+    :root{
+      --bg:#020c1b;
+      --panel:#08162b;
+      --panel-2:#0b1d36;
+      --text:#eef2f8;
+      --muted:#a9b4c8;
+      --gold:#c9ab5d;
+      --gold-dark:#b99a4b;
+      --blue:#214d7b;
+      --purple:#4b2574;
+      --green:#1e6a4c;
+      --cyan:#00c2ff;
+      --line:rgba(255,255,255,0.08);
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#020914 0%,#020c1b 35%,#031022 100%);
+      color:var(--text);
+      font-family:Georgia,"Times New Roman",serif;
+      line-height:1.65;
+    }
+
+    a{text-decoration:none;color:inherit}
+    .container{width:min(92%,var(--max));margin:0 auto}
+
+    .top-rainbow{
+      height:8px;
+      background:linear-gradient(90deg,#00d0ff,#50e3a4,#d7ea46,#ffb347,#ff5b5b,#ff2f92);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(2,12,27,0.94);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .header-inner{
+      padding:18px 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      min-width:0;
+    }
+
+    .brand-logo{
+      width:92px;
+      height:92px;
+      background:#fff;
+      border-radius:2px;
+      box-shadow:0 0 30px rgba(201,171,93,0.35);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      flex-shrink:0;
+    }
+
+    .brand-logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      background:#fff;
+    }
+
+    .brand-text{
+      min-width:0;
+    }
+
+    .brand-title{
+      font-size:clamp(2rem,3vw,3.2rem);
+      line-height:1;
+      font-weight:700;
+      letter-spacing:0.4px;
+    }
+
+    .brand-sub{
+      font-size:1rem;
+      color:var(--gold);
+      margin-top:6px;
+      letter-spacing:0.5px;
+    }
+
+    .nav-pills{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      font-family:Arial,Helvetica,sans-serif;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      min-height:64px;
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:700;
+      font-size:0.98rem;
+      line-height:1.2;
+      border:1px solid rgba(255,255,255,0.06);
+      transition:transform .18s ease,opacity .18s ease;
+    }
+
+    .pill:hover{transform:translateY(-2px)}
+    .pill.blue{background:var(--blue)}
+    .pill.purple{background:var(--purple)}
+    .pill.green{background:var(--green)}
+    .pill.gold{
+      background:var(--gold);
+      color:#111;
+    }
+
+    .hero{
+      padding:72px 0 42px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero-wrap{
+      max-width:980px;
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .eyebrow{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:3px;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:clamp(0.95rem,1.8vw,1.3rem);
+      line-height:1.7;
+      margin-bottom:24px;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(3rem,8vw,5.8rem);
+      line-height:1.08;
+      font-weight:700;
+      letter-spacing:0.2px;
+    }
+
+    .hero-sub{
+      margin:26px auto 0;
+      max-width:860px;
+      color:#2ea6ff;
+      font-size:clamp(1.1rem,2.3vw,1.8rem);
+      font-weight:600;
+    }
+
+    .hero-cta{
+      margin-top:28px;
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
+      font-family:Arial,Helvetica,sans-serif;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px 24px;
+      border-radius:8px;
+      font-weight:700;
+      border:1px solid transparent;
+      transition:.18s ease;
+      text-align:center;
+    }
+
+    .btn.gold{background:var(--gold);color:#111}
+    .btn.gold:hover{background:var(--gold-dark)}
+    .btn.outline{
+      border-color:rgba(201,171,93,0.45);
+      color:var(--gold);
+      background:transparent;
+    }
+    .btn.outline:hover{background:rgba(201,171,93,0.08)}
+
+    .section{
+      padding:54px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section-title{
+      text-align:center;
+      color:var(--gold);
+      font-size:clamp(1.4rem,3vw,2.3rem);
+      margin:0 0 14px;
+      letter-spacing:.3px;
+    }
+
+    .section-copy{
+      max-width:820px;
+      margin:0 auto 28px;
+      text-align:center;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    .two-grid{
+      display:grid;
+      grid-template-columns:0.88fr 1.12fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .status-card{
+      background:#04080c;
+      border:2px solid var(--cyan);
+      padding:24px;
+      box-shadow:inset 0 0 0 1px rgba(0,194,255,0.08);
+    }
+
+    .status-card h3{
+      margin:0 0 22px;
+      font-size:1.45rem;
+      line-height:1.35;
+      font-family:"Courier New",monospace;
+      color:#fff;
+      text-transform:uppercase;
+    }
+
+    .status-item{
+      color:#31ff72;
+      font-family:"Courier New",monospace;
+      font-size:1.05rem;
+      padding:16px 0;
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
+
+    .mini-access{
+      margin-top:22px;
+      border:1px dashed rgba(0,194,255,0.35);
+      padding:22px;
+      background:rgba(0,0,0,0.18);
+    }
+
+    .mini-access .small{
+      font-family:Arial,Helvetica,sans-serif;
+      color:#fff;
+      font-weight:700;
+      margin-bottom:16px;
+    }
+
+    .mini-access .price{
+      color:var(--gold);
+      font-size:2rem;
+      font-weight:700;
+      font-family:Arial,Helvetica,sans-serif;
+      margin:8px 0 18px;
+    }
+
+    .summary-card{
+      background:var(--panel);
+      border:2px solid rgba(201,171,93,0.8);
+      padding:30px;
+      border-radius:10px;
+    }
+
+    .summary-card h3{
+      margin:0 0 18px;
+      color:var(--gold);
+      font-size:clamp(1.7rem,3vw,2.6rem);
+      line-height:1.24;
+    }
+
+    .summary-card p{
+      color:#cfd7e6;
+      font-size:1.08rem;
+      margin:0 0 22px;
+    }
+
+    .banner{
+      margin:36px auto 0;
+      background:var(--gold);
+      color:#111;
+      text-align:center;
+      padding:22px 18px;
+      font-size:clamp(1.2rem,2.5vw,2.2rem);
+      letter-spacing:3px;
+      text-transform:uppercase;
+      border-radius:2px;
+    }
+
+    .unit-grid{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:26px;
+    }
+
+    .unit-card{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      padding:34px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.18);
+    }
+
+    .unit-card h3{
+      margin:0 0 22px;
+      font-size:clamp(1.8rem,3vw,2.7rem);
+      line-height:1.18;
+    }
+
+    .unit-card p{
+      color:#d8dfeb;
+      font-size:1.05rem;
+      margin:0 0 28px;
+    }
+
+    .support{
+      max-width:760px;
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .support h3{
+      margin:0 0 12px;
+      color:var(--gold);
+      font-size:clamp(1.8rem,3vw,2.5rem);
+    }
+
+    .support .sub{
+      color:#2ea6ff;
+      font-size:clamp(1.1rem,2.1vw,1.5rem);
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    .support p{
+      color:var(--muted);
+      font-size:1.04rem;
+      margin:0 0 28px;
+    }
+
+    footer{
+      padding:30px 0 50px;
+      text-align:center;
+      color:var(--muted);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:0.92rem;
+    }
+
+    @media (max-width: 1024px){
+      .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .nav-pills{
+        width:100%;
+        justify-content:flex-start;
+      }
+      .two-grid,
+      .unit-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 680px){
+      .brand{
+        align-items:flex-start;
+      }
+      .brand-logo{
+        width:72px;
+        height:72px;
+      }
+      .brand-title{
+        font-size:2.3rem;
+      }
+      .pill{
+        min-height:54px;
+        padding:10px 14px;
+        font-size:0.9rem;
+      }
+      .hero{
+        padding:52px 0 34px;
+      }
+      h1{
+        font-size:3.7rem;
+      }
+      .eyebrow{
+        letter-spacing:2px;
+      }
+      .unit-card,
+      .summary-card,
+      .status-card{
+        padding:24px;
+      }
+      .banner{
+        letter-spacing:2px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-rainbow"></div>
+
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="logo.png" alt="GNAIAAAC LLC logo">
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">SSGPT6</div>
+          <div class="brand-sub">GNAIAAAC LLC</div>
+        </div>
+      </div>
+
+      <nav class="nav-pills">
+        <a class="pill blue" href="#governance">Governance</a>
+        <a class="pill purple" href="#matrix">135 Matrix</a>
+        <a class="pill green" href="#tiers">Access Tiers</a>
+        <a class="pill gold" href="#support">ChatSSGPT6: The AI That Thinks For The Future</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="governance">
+    <div class="container hero-wrap">
+      <div class="eyebrow">Miracle Magical AI & Tiny AI Sleeping Agent Black Box Automation Operational Management Solutions</div>
+      <h1>World-First Digital Governance & AI</h1>
+      <div class="hero-sub">Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Satellite Coil Grid Energy</div>
+
+      <div class="hero-cta">
+        <a class="btn gold" href="#summary">Informational: First Digital Governance</a>
+        <a class="btn outline" href="#support">AI Customer Service</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="summary">
+    <div class="container">
+      <h2 class="section-title">Strategic Overview</h2>
+      <p class="section-copy">
+        The matrix is presented as a founder-level operating structure for project visibility, governance logic,
+        transboundary water solutions, and access-based digital infrastructure.
+      </p>
+
+      <div class="two-grid">
+        <div class="status-card" id="matrix">
+          <h3>135 Projects Live Trading Display</h3>
+
+          <div class="status-item">● BTC/SSC Index: +4.24% [View Analysis]</div>
+          <div class="status-item">● Water Equity Nodes: Stable [Live Data]</div>
+          <div class="status-item">● 0-Carbon Grid Yield: 14.2M T [Verified]</div>
+
+          <div class="mini-access">
+            <div class="small">Financial Analysis Access</div>
+            <div class="price">$1 / Week</div>
+            <a class="btn gold" href="#tiers">Review Access Tier</a>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <h3>Water Bankruptcy Project Summary</h3>
+          <p>
+            SSGPT6 AI is positioned to identify transboundary water debt and systemic liquidity stress, while
+            linking governance, pure water strategy, and automated operational management through a black-box framework.
+          </p>
+          <a class="btn gold" href="mailto:ssgpt6@aol.com?subject=UN%20Water%20Solutions%20Request">View Full UN Water Solutions</a>
+        </div>
+      </div>
+
+      <div class="banner">Learn Earn Through 135 Projects</div>
+    </div>
+  </section>
+
+  <section class="section" id="tiers">
+    <div class="container">
+      <h2 class="section-title">Project Units and Access</h2>
+      <p class="section-copy">
+        Each unit can become a fully functional service card with payment, intake, delivery workflow, and founder-controlled access rules.
+      </p>
+
+      <div class="unit-grid">
+        <article class="unit-card">
+          <h3>Unit 001: Pharma Vault</h3>
+          <p>
+            Managed through AI Sleeping Agent Black Box Automation. Secure IP acquisition and royalty tracking
+            can be structured as a controlled digital service workflow.
+          </p>
+          <a class="btn gold" href="mailto:ssgpt6@aol.com?subject=Pharma%20Vault%20Access%20Request">$150 Request Access</a>
+        </article>
+
+        <article class="unit-card">
+          <h3>Unit 012: Hydrol-Stasis</h3>
+          <p>
+            Pure water sustainability monitoring and black-box operational management designed for more efficient
+            execution and structured project oversight.
+          </p>
+          <a class="btn gold" href="mailto:ssgpt6@aol.com?subject=Hydrol-Stasis%20Access%20Request">$100 Request Access</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="support">
+    <div class="container">
+      <div class="support">
+        <h3>AI Customer Service</h3>
+        <div class="sub">Chat / Phone: 24/7 Managed by Black Box</div>
+        <p>
+          Insights and content can be routed through structured AI operational support. This section is ready
+          to be connected later to a real chat system, phone workflow, intake form, or protected founder dashboard.
+        </p>
+        <a class="btn gold" href="mailto:ssgpt6@aol.com?subject=AI%20Support%20Request">Contact AI Support</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 SSGPT6 · GNAIAAAC LLC · Matrix Governance Layer
+  </footer>
+
+</body>
+</html>
