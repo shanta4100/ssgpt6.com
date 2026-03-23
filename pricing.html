@@ -1,52 +1,733 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>SSGPT6 Access</title>
-<style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#060d18;
-  color:white;
-  text-align:center;
-}
-h1{color:#c7a85a;}
-.card{
-  border:1px solid #333;
-  padding:30px;
-  margin:20px;
-}
-.btn{
-  background:#c7a85a;
-  padding:12px 25px;
-  color:black;
-  text-decoration:none;
-  display:inline-block;
-}
-</style>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6-CORE Pricing</title>
+  <meta name="description" content="SSGPT6-CORE pricing, memberships, secure checkout, customer access, billing support, and consultation pathways." />
+  <style>
+    :root{
+      --bg:#06111f;
+      --panel:#0d1d33;
+      --panel2:#122642;
+      --text:#eef3fb;
+      --muted:#b7c5d8;
+      --gold:#d2ae59;
+      --gold-dark:#b89443;
+      --line:rgba(255,255,255,0.08);
+      --blue:#1f4b6e;
+      --green:#1d8348;
+      --purple:#5b2c6f;
+      --max:1200px;
+      --radius:18px;
+    }
 
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(210,174,89,0.12), transparent 22%),
+        linear-gradient(180deg,#03101c 0%, #06111f 50%, #09172a 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    .container{width:min(92%, var(--max));margin:0 auto}
+
+    .top-rainbow{
+      height:10px;
+      background:linear-gradient(90deg,#00d9ff,#00ffb3,#dfff4f,#ffbe3b,#ff6b57,#ff2e8e);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(6,17,31,0.94);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .header-inner{
+      padding:18px 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand img{
+      width:60px;
+      height:60px;
+      object-fit:contain;
+      background:#fff;
+      border-radius:6px;
+      box-shadow:0 0 24px rgba(210,174,89,0.25);
+    }
+
+    .brand h1{
+      margin:0;
+      font-size:1.7rem;
+      color:var(--gold);
+    }
+
+    .brand p{
+      margin:4px 0 0;
+      color:var(--muted);
+      font-size:.88rem;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:800;
+      font-size:.92rem;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-blue{background:var(--blue)}
+    .nav-purple{background:var(--purple)}
+    .nav-green{background:var(--green)}
+    .nav-gold{background:var(--gold);color:#111}
+
+    .hero{
+      padding:72px 0 50px;
+      border-bottom:1px solid var(--line);
+      text-align:center;
+    }
+
+    .hero h2{
+      margin:0;
+      font-size:clamp(2.4rem,7vw,4.8rem);
+      line-height:1.05;
+      font-weight:900;
+      color:var(--gold);
+    }
+
+    .hero p{
+      max-width:920px;
+      margin:18px auto 0;
+      color:#58b6ff;
+      font-size:clamp(1rem,2.2vw,1.35rem);
+      font-weight:700;
+    }
+
+    .hero-actions{
+      margin-top:28px;
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:800;
+      text-align:center;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.18s ease;
+      font-size:.96rem;
+    }
+
+    .btn-gold{
+      background:var(--gold);
+      color:#111;
+    }
+
+    .btn-gold:hover{background:var(--gold-dark)}
+
+    .btn-outline{
+      border-color:rgba(210,174,89,0.42);
+      color:var(--gold);
+      background:transparent;
+    }
+
+    .btn-outline:hover{
+      background:rgba(210,174,89,0.08);
+    }
+
+    .section{
+      padding:56px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section-title{
+      text-align:center;
+      color:var(--gold);
+      font-size:clamp(1.6rem,3vw,2.5rem);
+      margin:0 0 14px;
+      font-weight:900;
+    }
+
+    .section-copy{
+      max-width:920px;
+      margin:0 auto 28px;
+      text-align:center;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .image-wrap{
+      max-width:950px;
+      margin:0 auto 26px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      background:rgba(255,255,255,0.02);
+      box-shadow:0 14px 30px rgba(0,0,0,0.18);
+    }
+
+    .image-wrap img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    .tier-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 12px 26px rgba(0,0,0,0.16);
+    }
+
+    .featured{
+      border-color:rgba(210,174,89,0.32);
+      box-shadow:0 0 0 1px rgba(210,174,89,0.16), 0 12px 26px rgba(0,0,0,0.18);
+    }
+
+    .tag{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(210,174,89,0.12);
+      color:var(--gold);
+      border:1px solid rgba(210,174,89,0.18);
+      font-size:.78rem;
+      font-weight:800;
+      margin-bottom:12px;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+    }
+
+    .card h3{
+      margin:0 0 8px;
+      font-size:1.35rem;
+      color:#fff;
+    }
+
+    .price{
+      color:var(--gold);
+      font-size:2rem;
+      font-weight:900;
+      margin-bottom:4px;
+    }
+
+    .price-sub{
+      color:var(--muted);
+      font-size:.9rem;
+      margin-bottom:16px;
+    }
+
+    .card p{
+      color:#dce5f2;
+      margin:0 0 14px;
+    }
+
+    .card ul{
+      margin:0 0 18px;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    .card li{margin-bottom:7px}
+
+    .button-stack{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .payment-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .pay-box{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:24px;
+    }
+
+    .pay-box h3{
+      margin:0 0 10px;
+      color:var(--gold);
+    }
+
+    .pay-box p{
+      margin:0 0 12px;
+      color:#dce5f2;
+    }
+
+    .pay-methods{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .pill{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      color:#fff;
+      font-size:.9rem;
+      font-weight:700;
+    }
+
+    .notice-box{
+      max-width:980px;
+      margin:24px auto 0;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(210,174,89,0.18);
+      border-radius:14px;
+      padding:20px;
+      color:#dce5f2;
+    }
+
+    .notice-box h4{
+      margin:0 0 10px;
+      color:var(--gold);
+      font-size:1rem;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:22px;
+    }
+
+    .info-card{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+    }
+
+    .info-card h4{
+      margin:0 0 10px;
+      color:var(--gold);
+    }
+
+    .info-card p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    footer{
+      text-align:center;
+      padding:30px 20px 48px;
+      color:#8e9cb2;
+      font-size:.92rem;
+    }
+
+    @media (max-width:1100px){
+      .tier-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width:900px){
+      .payment-grid,
+      .info-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:700px){
+      .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .tier-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
 <body>
 
-<h1>SSGPT6 Access Tiers</h1>
+<div class="top-rainbow"></div>
 
-<div class="card">
-<h2>$1 / Week</h2>
-<p>Financial Analysis Access</p>
-<a class="btn" href="https://buy.stripe.com/YOUR_LINK">Pay with Stripe</a>
-</div>
+<header>
+  <div class="container header-inner">
+    <div class="brand">
+      <img src="logo.png" alt="SSGPT6 logo">
+      <div>
+        <h1>SSGPT6-CORE</h1>
+        <p>GNAIAAAC LLC</p>
+      </div>
+    </div>
 
-<div class="card">
-<h2>$100</h2>
-<p>Hydrol-Stasis System</p>
-<a class="btn" href="https://buy.stripe.com/YOUR_LINK">Activate</a>
-</div>
+    <nav>
+      <a href="index.html" class="nav-blue">Home</a>
+      <a href="services.html" class="nav-purple">Services</a>
+      <a href="projects.html" class="nav-green">Projects</a>
+      <a href="contact.html" class="nav-gold">Contact</a>
+    </nav>
+  </div>
+</header>
 
-<div class="card">
-<h2>$500</h2>
-<p>Enterprise Access</p>
-<a class="btn" href="https://buy.stripe.com/YOUR_LINK">Activate</a>
-</div>
+<section class="hero">
+  <div class="container">
+    <h2>Pricing and Secure Checkout</h2>
+    <p>
+      Memberships, services, and commercial access for SSGPT6-CORE. Use Stripe as the main secure checkout path and PayPal as a secondary option where needed.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#tiers" class="btn btn-gold">View Pricing</a>
+      <a href="#payments" class="btn btn-outline">Payment Methods</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Pricing Innovation</h2>
+    <p class="section-copy">
+      Use your pricing board image here as the visual anchor for memberships, services, upgrades, and checkout innovation.
+    </p>
+
+    <div class="image-wrap">
+      <img src="pricing-board.png" alt="SSGPT6 pricing board">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tiers">
+  <div class="container">
+    <h2 class="section-title">Membership and Service Tiers</h2>
+    <p class="section-copy">
+      These are structured pricing examples for the commercial platform. Replace the placeholder checkout links later with your real Stripe Checkout links or server-created Stripe sessions.
+    </p>
+
+    <div class="tier-grid">
+
+      <div class="card">
+        <div class="tag">Free</div>
+        <h3>Free Access</h3>
+        <div class="price">$0</div>
+        <div class="price-sub">Entry overview</div>
+        <p>Basic access to public pages, selected updates, and general information.</p>
+        <ul>
+          <li>Public platform access</li>
+          <li>General updates</li>
+          <li>Basic contact path</li>
+        </ul>
+        <div class="button-stack">
+          <a class="btn btn-gold" href="contact.html">Get Started</a>
+        </div>
+      </div>
+
+      <div class="card featured">
+        <div class="tag">Core Member</div>
+        <h3>Core Member</h3>
+        <div class="price">$19</div>
+        <div class="price-sub">per month</div>
+        <p>Core access for members who want regular entry into platform services and updates.</p>
+        <ul>
+          <li>Member content access</li>
+          <li>Service updates</li>
+          <li>Basic support path</li>
+          <li>Newsletter inclusion</li>
+        </ul>
+        <div class="button-stack">
+          <a class="btn btn-gold" href="https://buy.stripe.com/test_placeholder_core" target="_blank" rel="noopener noreferrer">Secure Checkout</a>
+          <a class="btn btn-outline" href="contact.html">Ask Questions</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Plus Member</div>
+        <h3>Plus Member</h3>
+        <div class="price">$49</div>
+        <div class="price-sub">per month</div>
+        <p>Expanded access for customers who want more support, more features, and stronger communication pathways.</p>
+        <ul>
+          <li>Extended member access</li>
+          <li>Priority updates</li>
+          <li>Member communication tools</li>
+          <li>Additional service eligibility</li>
+        </ul>
+        <div class="button-stack">
+          <a class="btn btn-gold" href="https://buy.stripe.com/test_placeholder_plus" target="_blank" rel="noopener noreferrer">Secure Checkout</a>
+          <a class="btn btn-outline" href="contact.html">Contact Sales</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Pro Member</div>
+        <h3>Pro Member</h3>
+        <div class="price">$99</div>
+        <div class="price-sub">per month</div>
+        <p>Professional tier for customers who want stronger platform engagement and premium workflow access.</p>
+        <ul>
+          <li>Premium pathway access</li>
+          <li>Expanded support options</li>
+          <li>Priority notifications</li>
+          <li>Broader platform benefits</li>
+        </ul>
+        <div class="button-stack">
+          <a class="btn btn-gold" href="https://buy.stripe.com/test_placeholder_pro" target="_blank" rel="noopener noreferrer">Secure Checkout</a>
+          <a class="btn btn-outline" href="contact.html">Request Consultation</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Business</div>
+        <h3>Business Member</h3>
+        <div class="price">$249</div>
+        <div class="price-sub">per month</div>
+        <p>For organizations and teams that want structured access to platform services and business support.</p>
+        <ul>
+          <li>Business workflow support</li>
+          <li>Billing support path</li>
+          <li>Priority account handling</li>
+          <li>Expanded service access</li>
+        </ul>
+        <div class="button-stack">
+          <a class="btn btn-gold" href="https://buy.stripe.com/test_placeholder_business" target="_blank" rel="noopener noreferrer">Secure Checkout</a>
+          <a class="btn btn-outline" href="contact.html">Contact Sales</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Starter</div>
+        <h3>Starter Service</h3>
+        <div class="price">$99</div>
+        <div class="price-sub">one-time</div>
+        <p>One-time service purchase for entry-level business or project support.</p>
+        <ul>
+          <li>Single purchase path</li>
+          <li>Basic service support</li>
+          <li>Simple onboarding</li>
+        </ul>
+        <div class="button-stack">
+          <a class="btn btn-gold" href="https://buy.stripe.com/test_placeholder_starter" target="_blank" rel="noopener noreferrer">Secure Checkout</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Growth</div>
+        <h3>Growth Service</h3>
+        <div class="price">$299</div>
+        <div class="price-sub">one-time</div>
+        <p>Structured service path for more developed business or project needs.</p>
+        <ul>
+          <li>Growth-level service access</li>
+          <li>Expanded support scope</li>
+          <li>Project communication path</li>
+        </ul>
+        <div class="button-stack">
+          <a class="btn btn-gold" href="https://buy.stripe.com/test_placeholder_growth" target="_blank" rel="noopener noreferrer">Secure Checkout</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">Premium</div>
+        <h3>Premium Service</h3>
+        <div class="price">$799</div>
+        <div class="price-sub">one-time</div>
+        <p>Higher-tier premium commercial service for advanced needs.</p>
+        <ul>
+          <li>Premium service pathway</li>
+          <li>Priority handling</li>
+          <li>Advanced support route</li>
+        </ul>
+        <div class="button-stack">
+          <a class="btn btn-gold" href="https://buy.stripe.com/test_placeholder_premium" target="_blank" rel="noopener noreferrer">Secure Checkout</a>
+        </div>
+      </div>
+
+      <div class="card featured">
+        <div class="tag">Enterprise</div>
+        <h3>Enterprise</h3>
+        <div class="price">Custom</div>
+        <div class="price-sub">contact sales</div>
+        <p>Enterprise onboarding for larger organizations, custom workflows, and structured commercial arrangements.</p>
+        <ul>
+          <li>Custom scoping</li>
+          <li>Sales-led onboarding</li>
+          <li>Structured planning pathway</li>
+          <li>Enterprise support discussion</li>
+        </ul>
+        <div class="button-stack">
+          <a class="btn btn-gold" href="contact.html">Contact Sales</a>
+          <a class="btn btn-outline" href="services.html">Review Services</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="payments">
+  <div class="container">
+    <h2 class="section-title">Payment Methods</h2>
+    <p class="section-copy">
+      Stripe should be the primary checkout flow. PayPal can remain as a secondary option. Wallet and card availability depend on device, browser, region, and provider support.
+    </p>
+
+    <div class="payment-grid">
+      <div class="pay-box">
+        <h3>Primary Gateway</h3>
+        <p>
+          Use Stripe Checkout as the default path for one-time payments and memberships. This gives you a hosted secure payment page and a cleaner conversion path.
+        </p>
+        <div class="pay-methods">
+          <div class="pill">Stripe</div>
+          <div class="pill">Apple Pay</div>
+          <div class="pill">Google Pay</div>
+          <div class="pill">Global Card Payments</div>
+        </div>
+      </div>
+
+      <div class="pay-box">
+        <h3>Secondary Gateway</h3>
+        <p>
+          PayPal can be offered as an optional second checkout path for customers who prefer it. Keep it off the homepage and place it only on pricing or checkout-specific pages.
+        </p>
+        <div class="pay-methods">
+          <div class="pill">PayPal</div>
+          <div class="pill">Card via PayPal</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice-box">
+      <h4>Payment and billing notice</h4>
+      <p>
+        Payments may be processed through trusted third-party providers. Availability of Stripe, PayPal, Apple Pay, Google Pay, and card payments depends on provider support, device, browser, location, and technical readiness.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Billing and Renewal Information</h2>
+    <p class="section-copy">
+      Subscription and billing terms should always be shown clearly before checkout.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>Billing Disclosure</h4>
+        <p>
+          Plans should be labeled clearly as one-time or recurring. Renewal timing, cancellation process, and billing interval should be visible before purchase.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h4>Permission and Consent</h4>
+        <p>
+          Customers should confirm purchase authorization and, where applicable, consent to automatic renewal before subscribing.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h4>Failed Payment Support</h4>
+        <p>
+          If a recurring payment fails, the account may pause and the customer should receive a billing notice with an update-payment option.
+        </p>
+      </div>
+    </div>
+
+    <div class="notice-box">
+      <h4>Hosted payment direction</h4>
+      <p>
+        Best practice: do not put raw payment secrets in the frontend. Create Stripe Checkout Sessions on the server and redirect customers to a hosted secure payment page. Use a thank-you page on success and return customers to pricing if they cancel.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Customer Access and Support</h2>
+    <p class="section-copy">
+      Pricing should connect naturally into customer access, billing help, and support workflows.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>Member Login</h4>
+        <p>
+          Add a member portal later for plan status, billing visibility, purchased services, and renewal reminders.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h4>Billing Support</h4>
+        <p>
+          Customers should be able to contact support for billing questions, service support, and account help.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h4>Consultation Path</h4>
+        <p>
+          Enterprise and custom buyers should go through consultation, contact, or webinar pathways before purchase.
+        </p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:28px;">
+      <a class="btn btn-gold" href="contact.html">Contact Sales</a>
+      <a class="btn btn-outline" href="support-center.html">Support Center</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 SSGPT6-CORE · GNAIAAAC LLC · Pricing and Secure Checkout
+</footer>
 
 </body>
 </html>
