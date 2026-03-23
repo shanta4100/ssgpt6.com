@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SSGPT6 Matrix</title>
-  <meta name="description" content="SSGPT6 service matrix with clear offers, payment links, and delivery instructions." />
+  <title>SSGPT6 Matrix | Automated Service Access</title>
+  <meta name="description" content="SSGPT6 SaaS access portal with automated service intake, AI help desk, accessibility features, and guided customer workflow." />
   <style>
     :root{
-      --bg:#060d18;
+      --bg:#06101d;
       --panel:#0d1d33;
       --panel-2:#10233d;
-      --text:#eef2f8;
+      --text:#ecf1f8;
       --muted:#aab6c8;
       --gold:#c7a85a;
       --gold-dark:#ad8f45;
@@ -18,13 +18,13 @@
       --blue:#17385a;
       --green:#174732;
       --purple:#3f245e;
-      --max:1100px;
+      --max:1180px;
       --radius:14px;
+      --body-scale:1;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-
     body{
       margin:0;
       font-family:Georgia,"Times New Roman",serif;
@@ -33,24 +33,64 @@
         linear-gradient(180deg,#040b14 0%, #06101d 45%, #081321 100%);
       color:var(--text);
       line-height:1.65;
+      font-size:calc(16px * var(--body-scale));
     }
 
     a{text-decoration:none;color:inherit}
     img{display:block;max-width:100%}
-
-    .container{
-      width:min(92%, var(--max));
-      margin:0 auto;
-    }
+    .container{width:min(92%, var(--max));margin:0 auto}
 
     .top-line{
       height:6px;
       background:linear-gradient(90deg,#00b8ff,#50e3a4,#d8ea5d,#ffbc59,#ff6d6d,#ff3aa7);
     }
 
-    header{
+    .access-toolbar{
       position:sticky;
       top:0;
+      z-index:1200;
+      background:#020914;
+      border-bottom:1px solid var(--line);
+      font-family:Arial,Helvetica,sans-serif;
+    }
+
+    .access-inner{
+      width:min(96%, var(--max));
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:10px 0;
+      flex-wrap:wrap;
+    }
+
+    .access-group{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+
+    .mini-btn{
+      border:1px solid rgba(255,255,255,0.12);
+      background:#0b1830;
+      color:var(--text);
+      padding:9px 12px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:700;
+      font-size:.86rem;
+    }
+
+    .mini-btn:hover{
+      border-color:rgba(199,168,90,0.4);
+      color:var(--gold);
+    }
+
+    header{
+      position:sticky;
+      top:49px;
       z-index:1000;
       background:rgba(6,16,29,0.92);
       backdrop-filter:blur(10px);
@@ -137,7 +177,7 @@
 
     .hero h2{
       margin:0;
-      font-size:clamp(2.6rem,6vw,4.8rem);
+      font-size:clamp(2.5rem,6vw,4.5rem);
       line-height:1.08;
       font-weight:700;
     }
@@ -145,8 +185,23 @@
     .hero p{
       color:#d7dfea;
       font-size:1.08rem;
-      max-width:820px;
+      max-width:860px;
       margin:22px auto 0;
+    }
+
+    .welcome-card{
+      margin:30px auto 0;
+      max-width:860px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      border:1px solid rgba(199,168,90,0.25);
+      border-radius:16px;
+      padding:22px;
+    }
+
+    .welcome-card h3{
+      margin:0 0 10px;
+      color:var(--gold);
+      font-size:1.4rem;
     }
 
     .hero-actions{
@@ -172,22 +227,14 @@
       font-family:Arial,Helvetica,sans-serif;
     }
 
-    .btn.gold{
-      background:var(--gold);
-      color:#111;
-    }
-
+    .btn.gold{background:var(--gold);color:#111}
     .btn.gold:hover{background:var(--gold-dark)}
-
     .btn.outline{
       border-color:rgba(199,168,90,0.4);
       color:var(--gold);
       background:transparent;
     }
-
-    .btn.outline:hover{
-      background:rgba(199,168,90,0.08);
-    }
+    .btn.outline:hover{background:rgba(199,168,90,0.08)}
 
     .section{
       padding:58px 0;
@@ -202,7 +249,7 @@
     }
 
     .section-copy{
-      max-width:820px;
+      max-width:860px;
       margin:0 auto 28px;
       text-align:center;
       color:var(--muted);
@@ -235,7 +282,7 @@
 
     .card h3{
       margin:0 0 10px;
-      font-size:2rem;
+      font-size:1.8rem;
       line-height:1.15;
     }
 
@@ -274,9 +321,7 @@
       color:var(--muted);
     }
 
-    .deliver li{
-      margin-bottom:6px;
-    }
+    .deliver li{margin-bottom:6px}
 
     .button-stack{
       display:flex;
@@ -321,8 +366,32 @@
       color:var(--muted);
     }
 
-    .request-wrap{
-      max-width:880px;
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .feature-card{
+      background:var(--panel-2);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+    }
+
+    .feature-card h4{
+      margin:0 0 10px;
+      color:var(--gold);
+      font-size:1.1rem;
+    }
+
+    .feature-card p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .automation-wrap{
+      max-width:980px;
       margin:0 auto;
     }
 
@@ -371,6 +440,40 @@
       resize:vertical;
     }
 
+    .voice-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:10px;
+      font-family:Arial,Helvetica,sans-serif;
+    }
+
+    .status-box{
+      margin-top:20px;
+      padding:18px;
+      border:1px solid rgba(199,168,90,0.2);
+      border-radius:12px;
+      background:rgba(255,255,255,0.02);
+      display:none;
+    }
+
+    .status-box h4{
+      margin:0 0 8px;
+      color:var(--gold);
+      font-family:Arial,Helvetica,sans-serif;
+    }
+
+    .status-box p{
+      margin:0;
+      color:#d8dfea;
+    }
+
+    .help-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
     .notice{
       max-width:860px;
       margin:20px auto 0;
@@ -389,6 +492,7 @@
     }
 
     @media (max-width:1024px){
+      header{top:74px}
       .header-inner{
         flex-direction:column;
         align-items:flex-start;
@@ -399,12 +503,17 @@
       }
       .service-grid,
       .steps,
-      .form-grid{
+      .form-grid,
+      .feature-grid,
+      .help-grid{
         grid-template-columns:1fr;
       }
     }
 
     @media (max-width:680px){
+      .access-inner{
+        align-items:flex-start;
+      }
       .brand-logo{
         width:56px;
         height:56px;
@@ -417,7 +526,8 @@
       }
       .card,
       .request-form,
-      .step{
+      .step,
+      .feature-card{
         padding:22px;
       }
       .nav a{
@@ -430,6 +540,30 @@
 <body>
 
   <div class="top-line"></div>
+
+  <div class="access-toolbar">
+    <div class="access-inner">
+      <div class="access-group">
+        <button class="mini-btn" onclick="changeTextSize(0.08)">A+</button>
+        <button class="mini-btn" onclick="changeTextSize(-0.08)">A-</button>
+        <button class="mini-btn" onclick="resetTextSize()">Reset Text</button>
+      </div>
+
+      <div class="access-group">
+        <label for="languageSelect" style="font-size:.9rem;color:#aab6c8;">Preferred language</label>
+        <select id="languageSelect" class="mini-btn" onchange="updateLanguageNotice()" aria-label="Preferred language">
+          <option value="English">English</option>
+          <option value="Spanish">Spanish</option>
+          <option value="French">French</option>
+          <option value="Arabic">Arabic</option>
+          <option value="Bengali">Bengali</option>
+          <option value="Hindi">Hindi</option>
+          <option value="Portuguese">Portuguese</option>
+          <option value="Chinese">Chinese</option>
+        </select>
+      </div>
+    </div>
+  </div>
 
   <header>
     <div class="container header-inner">
@@ -454,15 +588,22 @@
 
   <section class="hero">
     <div class="container">
-      <div class="eyebrow">Founder Services • Project Access • Water & Governance Solutions</div>
-      <h2>What customers get, why they pay, and how delivery works.</h2>
+      <div class="eyebrow">24/7 SaaS • AI Sleeping Agent • Voice & Typed Access • Accessible Service System</div>
+      <h2>Automated service access for customers, guided by AI and founder logic.</h2>
       <p>
-        Clear service offers, clear benefits, clear pricing, and clear delivery. This is the business layer of SSGPT6.
+        This page now presents SSGPT6 as a SaaS service platform. Customers can choose service, request support, use typed or voice input where supported, and begin an automated intake workflow.
       </p>
+
+      <div class="welcome-card">
+        <h3 id="greetingTitle">Welcome to SSGPT6</h3>
+        <p id="greetingText" style="margin:0;color:#d8dfea;">
+          Your service portal is active. Automated intake, accessibility support, and AI-guided customer workflow are available 24/7.
+        </p>
+      </div>
 
       <div class="hero-actions">
         <a class="btn gold" href="#services">View Services</a>
-        <a class="btn outline" href="#request-access">Request Access</a>
+        <a class="btn outline" href="#automation">Start Automated Intake</a>
       </div>
     </div>
   </section>
@@ -471,7 +612,7 @@
     <div class="container">
       <h2 class="section-title">Service Matrix</h2>
       <p class="section-copy">
-        Customers should immediately understand what they are buying, what benefit they receive, and how service is delivered.
+        Customers should understand what they buy, why it helps them, and how they receive it. These offers are structured as SaaS-style guided services with AI-supported intake and human escalation only when needed.
       </p>
 
       <div class="service-grid">
@@ -484,22 +625,20 @@
           </p>
 
           <div class="deliver">
-            <h4>What you get</h4>
+            <h4>Customer benefit</h4>
             <ul>
-              <li>Basic financial insights</li>
-              <li>Analysis tools and review context</li>
-              <li>Founder-guided response workflow</li>
-              <li>Weekly access model</li>
+              <li>Basic financial insight pathway</li>
+              <li>Guided analysis access</li>
+              <li>AI-assisted intake workflow</li>
+              <li>Weekly access structure</li>
             </ul>
           </div>
 
           <div class="button-stack">
             <a href="https://www.paypal.com/paypalme/ssgpt6/1" class="btn gold" target="_blank" rel="noopener noreferrer">Start Access</a>
-            <a href="#request-access" class="btn outline">Ask Question</a>
+            <a href="#automation" class="btn outline">Automate My Request</a>
             <p class="note">
-              After payment, email your receipt to:<br>
-              <b>ssgpt6@aol.com</b><br>
-              Access delivered within 24 hours.
+              After payment, the customer proceeds through the automated intake workflow below. Help desk remains available 24/7.
             </p>
           </div>
         </div>
@@ -513,22 +652,20 @@
           </p>
 
           <div class="deliver">
-            <h4>What you get</h4>
+            <h4>Customer benefit</h4>
             <ul>
-              <li>Water system concept access</li>
-              <li>Hydrol-Stasis response package</li>
-              <li>Founder review and delivery</li>
-              <li>Follow-up by email</li>
+              <li>Water sustainability intake path</li>
+              <li>Hydrol-Stasis concept workflow</li>
+              <li>Automation-ready service routing</li>
+              <li>Accessible interaction options</li>
             </ul>
           </div>
 
           <div class="button-stack">
             <a href="https://www.paypal.com/paypalme/ssgpt6/100" class="btn gold" target="_blank" rel="noopener noreferrer">Activate System</a>
-            <a href="#request-access" class="btn outline">Ask Question</a>
+            <a href="#automation" class="btn outline">Automate My Request</a>
             <p class="note">
-              After payment, email your receipt to:<br>
-              <b>ssgpt6@aol.com</b><br>
-              Access delivered within 24 hours.
+              After payment, the customer continues through the automated workflow. Voice and typed request options are available below.
             </p>
           </div>
         </div>
@@ -538,26 +675,24 @@
           <h3>$500</h3>
           <div class="price">Full SSGPT6 Enterprise Intelligence System</div>
           <p>
-            A higher-tier founder service for strategic access, enterprise-level briefing, and advanced system review.
+            Higher-tier strategic access for enterprise-level service routing, AI-supported intake, and advanced system review.
           </p>
 
           <div class="deliver">
-            <h4>What you get</h4>
+            <h4>Customer benefit</h4>
             <ul>
-              <li>Enterprise-grade service access</li>
-              <li>Founder-level strategic response</li>
-              <li>Advanced project intelligence review</li>
-              <li>Priority delivery path</li>
+              <li>Enterprise workflow intake</li>
+              <li>Priority AI-assisted routing</li>
+              <li>Advanced service packaging</li>
+              <li>24/7 help desk escalation path</li>
             </ul>
           </div>
 
           <div class="button-stack">
             <a href="https://www.paypal.com/paypalme/ssgpt6/500" class="btn gold" target="_blank" rel="noopener noreferrer">Get Full Access</a>
-            <a href="#request-access" class="btn outline">Ask Question</a>
+            <a href="#automation" class="btn outline">Automate My Request</a>
             <p class="note">
-              After payment, email your receipt to:<br>
-              <b>ssgpt6@aol.com</b><br>
-              Access delivered within 24 hours.
+              Enterprise customers can begin with payment or start the intake form directly below for guided onboarding.
             </p>
           </div>
         </div>
@@ -567,48 +702,72 @@
 
   <section class="section">
     <div class="container">
-      <h2 class="section-title">How Service Works</h2>
+      <h2 class="section-title">How Automated Service Works</h2>
       <p class="section-copy">
-        This is the current delivery model so customers know exactly what happens.
+        This is the service process customers follow on the website. It is designed to feel like a SaaS workflow rather than a generic email page.
       </p>
 
       <div class="steps">
         <div class="step">
           <div class="step-number">Step 1</div>
-          <h4>Choose Service</h4>
-          <p>Select the access level or service that matches your need.</p>
+          <h4>Select Service</h4>
+          <p>The customer chooses the service tier or solution category that matches the need.</p>
         </div>
 
         <div class="step">
           <div class="step-number">Step 2</div>
-          <h4>Pay</h4>
-          <p>Complete payment through the linked PayPal business account.</p>
+          <h4>Use AI Intake</h4>
+          <p>The customer types or uses voice input where supported to describe the request.</p>
         </div>
 
         <div class="step">
           <div class="step-number">Step 3</div>
-          <h4>Email Receipt</h4>
-          <p>Send your payment receipt to ssgpt6@aol.com for confirmation.</p>
+          <h4>Automation Routing</h4>
+          <p>The AI Sleeping Agent prepares the workflow summary, service path, and next-step status.</p>
         </div>
 
         <div class="step">
           <div class="step-number">Step 4</div>
-          <h4>Receive Service</h4>
-          <p>You receive access or your response package within 24 hours.</p>
+          <h4>Help Desk Support</h4>
+          <p>Any question or exception is routed to the 24/7 support layer for assistance.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="request-access">
-    <div class="container request-wrap">
-      <h2 class="section-title">Request Access</h2>
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Accessibility and Communication Layer</h2>
       <p class="section-copy">
-        Use this form if you want more detail before payment or if you need a custom service request.
+        The platform should remain usable for seniors, users with disabilities, and customers who prefer voice, keyboard, or multilingual guidance.
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h4>Voice + Typing</h4>
+          <p>Customers can type requests, and browser-based voice input is supported where available.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Accessible Interface</h4>
+          <p>Text resizing, clear buttons, simple structure, and low-friction navigation are built into the page.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Language-Ready Workflow</h4>
+          <p>The system includes a preferred-language selector now. Full large-scale multilingual automation requires dedicated speech and translation APIs later.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="automation">
+    <div class="container automation-wrap">
+      <h2 class="section-title">Start Automated Service Intake</h2>
+      <p class="section-copy">
+        This workflow prepares the customer request through the AI Sleeping Agent intake layer. Customers can type directly or use voice input if the browser supports speech recognition.
       </p>
 
       <div class="request-form">
-        <form id="accessForm">
+        <form id="intakeForm">
           <div class="form-grid">
             <div class="field">
               <label for="fullName">Full Name</label>
@@ -621,72 +780,218 @@
             </div>
 
             <div class="field">
-              <label for="projectUnit">Service</label>
-              <select id="projectUnit" required>
+              <label for="serviceType">Service</label>
+              <select id="serviceType" required>
                 <option value="">Select a service</option>
-                <option value="Financial Analysis Access">$1 / Week - Financial Analysis Access</option>
-                <option value="Hydrol-Stasis">$100 - Water AI + Hydrol-Stasis</option>
-                <option value="Enterprise Intelligence">$500 - Full SSGPT6 Enterprise Intelligence System</option>
+                <option value="Financial Analysis Access">Financial Analysis Access</option>
+                <option value="Water AI + Hydrol-Stasis">Water AI + Hydrol-Stasis</option>
+                <option value="Full SSGPT6 Enterprise Intelligence System">Full SSGPT6 Enterprise Intelligence System</option>
                 <option value="Custom Request">Custom Request</option>
               </select>
             </div>
 
             <div class="field">
-              <label for="budget">Budget Range</label>
-              <select id="budget">
-                <option value="">Select a range</option>
-                <option value="$1 / Week">$1 / Week</option>
-                <option value="$100">$100</option>
-                <option value="$500">$500</option>
-                <option value="Custom Request">Custom Request</option>
+              <label for="interactionMode">Preferred Interaction</label>
+              <select id="interactionMode">
+                <option value="Typing">Typing</option>
+                <option value="Voice Command">Voice Command</option>
+                <option value="Accessible Guided Mode">Accessible Guided Mode</option>
               </select>
             </div>
 
             <div class="field full">
-              <label for="message">Request Details</label>
-              <textarea id="message" placeholder="Tell us what you need"></textarea>
+              <label for="requestDetails">Request Details</label>
+              <textarea id="requestDetails" placeholder="Describe your service need, project, or question"></textarea>
+              <div class="voice-row">
+                <button class="mini-btn" type="button" onclick="startVoiceInput()">Start Voice Input</button>
+                <button class="mini-btn" type="button" onclick="stopVoiceInput()">Stop Voice Input</button>
+              </div>
             </div>
           </div>
 
-          <button class="btn gold" type="submit">Send Request</button>
+          <div class="button-stack" style="max-width:320px;">
+            <button class="btn gold" type="submit">Prepare Automated Service</button>
+            <a class="btn outline" href="#helpdesk">Go to Help Desk</a>
+          </div>
         </form>
+
+        <div class="status-box" id="automationStatus">
+          <h4>AI Sleeping Agent Status</h4>
+          <p id="automationMessage"></p>
+        </div>
       </div>
 
       <div class="notice">
-        Payment links above go to the SSGPT6 PayPal business account. Request form below opens your email app for direct contact.
+        This page now creates an on-screen automated intake summary. Full end-to-end autonomous fulfillment, voice recognition at scale, and 140-language service control require backend APIs and hosted AI services to be connected next.
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="helpdesk">
+    <div class="container">
+      <h2 class="section-title">Customer Service and Help Desk 24/7</h2>
+      <p class="section-copy">
+        Customers who have questions, accessibility needs, or service issues should always have a clear support path.
+      </p>
+
+      <div class="help-grid">
+        <div class="card">
+          <div class="tag">Help Desk</div>
+          <h3>Immediate Support Path</h3>
+          <p>
+            Use the intake workflow first for service setup. If anything is unclear, use the customer support link below for direct assistance.
+          </p>
+          <div class="button-stack">
+            <a class="btn gold" href="mailto:ssgpt6@aol.com?subject=SSGPT6%20Customer%20Support%20Request">Contact Customer Service</a>
+            <a class="btn outline" href="tel:+10000000000">Help Desk Phone Placeholder</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="tag">AI Help Layer</div>
+          <h3>Accessible Support Mode</h3>
+          <p>
+            Seniors, users with disabilities, and customers preferring guided help can use the accessible mode through the intake form and toolbar controls above.
+          </p>
+          <div class="button-stack">
+            <a class="btn gold" href="#automation">Open Guided Intake</a>
+            <a class="btn outline" href="/success.html">View Status Page</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice">
+        Replace the phone placeholder with your real help desk number when ready.
       </div>
     </div>
   </section>
 
   <footer>
-    © 2026 SSGPT6 · GNAIAAAC LLC · Service Matrix
+    © 2026 SSGPT6 · GNAIAAAC LLC · Automated Service Matrix
   </footer>
 
   <script>
-    const form = document.getElementById('accessForm');
+    let bodyScale = 1;
+    let recognition = null;
 
-    form.addEventListener('submit', function (e) {
+    function changeTextSize(amount){
+      bodyScale = Math.max(0.9, Math.min(1.4, bodyScale + amount));
+      document.documentElement.style.setProperty('--body-scale', bodyScale);
+    }
+
+    function resetTextSize(){
+      bodyScale = 1;
+      document.documentElement.style.setProperty('--body-scale', 1);
+    }
+
+    function updateGreeting(){
+      const hour = new Date().getHours();
+      const title = document.getElementById('greetingTitle');
+      const text = document.getElementById('greetingText');
+
+      if(hour < 12){
+        title.textContent = 'Good morning and welcome to SSGPT6';
+      } else if(hour < 18){
+        title.textContent = 'Good afternoon and welcome to SSGPT6';
+      } else {
+        title.textContent = 'Good evening and welcome to SSGPT6';
+      }
+
+      text.textContent = 'Your automated service portal is active. Choose a service, start the AI intake workflow, and reach the 24/7 help desk any time you need support.';
+    }
+
+    function updateLanguageNotice(){
+      const language = document.getElementById('languageSelect').value;
+      const statusBox = document.getElementById('automationStatus');
+      const message = document.getElementById('automationMessage');
+      statusBox.style.display = 'block';
+      message.textContent = `Preferred language updated to ${language}. Full multilingual automation can be connected next through dedicated translation and speech APIs.`;
+    }
+
+    function startVoiceInput(){
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      if(!SpeechRecognition){
+        const statusBox = document.getElementById('automationStatus');
+        const message = document.getElementById('automationMessage');
+        statusBox.style.display = 'block';
+        message.textContent = 'Voice input is not available in this browser. Please type your request or use a supported browser.';
+        return;
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.onresult = function(event){
+        const transcript = event.results[0][0].transcript;
+        const textarea = document.getElementById('requestDetails');
+        textarea.value = textarea.value ? textarea.value + ' ' + transcript : transcript;
+
+        const statusBox = document.getElementById('automationStatus');
+        const message = document.getElementById('automationMessage');
+        statusBox.style.display = 'block';
+        message.textContent = 'Voice input captured successfully and added to your request.';
+      };
+
+      recognition.onerror = function(){
+        const statusBox = document.getElementById('automationStatus');
+        const message = document.getElementById('automationMessage');
+        statusBox.style.display = 'block';
+        message.textContent = 'Voice input could not be completed. Please try again or type your request.';
+      };
+
+      recognition.start();
+    }
+
+    function stopVoiceInput(){
+      if(recognition){
+        recognition.stop();
+      }
+    }
+
+    document.getElementById('intakeForm').addEventListener('submit', function(e){
       e.preventDefault();
 
       const fullName = document.getElementById('fullName').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const projectUnit = document.getElementById('projectUnit').value.trim();
-      const budget = document.getElementById('budget').value.trim();
-      const message = document.getElementById('message').value.trim();
+      const serviceType = document.getElementById('serviceType').value.trim();
+      const interactionMode = document.getElementById('interactionMode').value.trim();
+      const details = document.getElementById('requestDetails').value.trim();
+      const language = document.getElementById('languageSelect').value;
 
-      const subject = encodeURIComponent(`SSGPT6 Service Request - ${projectUnit || 'General Inquiry'}`);
+      const statusBox = document.getElementById('automationStatus');
+      const message = document.getElementById('automationMessage');
+
+      statusBox.style.display = 'block';
+      message.textContent =
+        `AI Sleeping Agent prepared a service workflow for ${fullName || 'the customer'}.
+Service: ${serviceType || 'Not selected'}.
+Mode: ${interactionMode}.
+Language: ${language}.
+Current status: intake prepared, service routing ready, help desk available 24/7.`;
+
+      statusBox.scrollIntoView({behavior:'smooth', block:'center'});
+
+      const subject = encodeURIComponent(`SSGPT6 Automated Service Intake - ${serviceType || 'General Inquiry'}`);
       const body = encodeURIComponent(
-`Full Name: ${fullName}
-Email: ${email}
-Service: ${projectUnit}
-Budget Range: ${budget}
+`Customer Name: ${fullName}
+Service: ${serviceType}
+Preferred Interaction: ${interactionMode}
+Preferred Language: ${language}
 
 Request Details:
-${message}`
+${details}
+
+Automated intake prepared through matrix.html`
       );
 
-      window.location.href = `mailto:ssgpt6@aol.com?subject=${subject}&body=${body}`;
+      setTimeout(() => {
+        window.location.href = `mailto:ssgpt6@aol.com?subject=${subject}&body=${body}`;
+      }, 700);
     });
+
+    updateGreeting();
   </script>
 
 </body>
