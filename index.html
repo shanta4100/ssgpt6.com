@@ -1,176 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSGPT6 | Miracle Magical AI Sovereign Hub</title>
-    <style>
-        :root {
-            --bg: #060d18; --panel: #0c1728; --text: #e8edf5;
-            --gold: #c7a85a; --un-blue: #009edb;
-            --rainbow: linear-gradient(90deg, #009edb, #00ffcc, #ffeb3b, #ff5722, #e91e63);
-            --line: rgba(255,255,255,0.08);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 | World First Digital Governance</title>
+  <meta name="description" content="World First Digital Governance. Global Pure Water, Water Bankruptcy solutions, Zero Carbon Satellite Coil Grid Energy, and AI-powered digital governance systems." />
+  <style>
+    :root{
+      --bg:#04101f;
+      --panel:#0b1c33;
+      --panel2:#102743;
+      --text:#eef3fb;
+      --muted:#b4bfd1;
+      --gold:#d3b05b;
+      --gold-dark:#bc9a49;
+      --line:rgba(255,255,255,0.08);
+      --max:1180px;
+      --radius:18px;
+    }
 
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { margin: 0; font-family: Georgia, serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        .container { width: min(94%, 1250px); margin: 0 auto; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      background:linear-gradient(180deg,#020914 0%, #04101f 50%, #071629 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
 
-        /* 1. HEADER & COLORED TABS */
-        header { position: sticky; top: 0; z-index: 1000; background: rgba(6, 13, 24, 0.98); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
-        .un-strip { background: var(--rainbow); height: 6px; width: 100%; }
-        .topbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        
-        .brand { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .logo-img { height: 65px; filter: drop-shadow(0 0 10px var(--gold)); }
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
 
-        nav { display: flex; gap: 10px; align-items: center; }
-        nav a { padding: 10px 18px; text-decoration: none; font-family: Arial, sans-serif; font-weight: 900; font-size: 0.75rem; border-radius: 4px; transition: 0.3s; color: #fff; text-transform: uppercase; }
-        
-        /* RIGHT CORNER COLORED TABS */
-        .tab-gov { background: #1a3a5a; } 
-        .tab-matrix { background: #3a1a5a; } 
-        .tab-pricing { background: #1a5a3a; } 
-        .tab-chat { background: var(--gold); color: #000 !important; }
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
+    }
 
-        /* HERO & MIDDLE GAP */
-        .hero { padding: 60px 0; text-align: center; border-bottom: 1px solid var(--line); }
-        .miracle-text { font-family: 'Arial Black', sans-serif; font-size: 1.4rem; color: var(--gold); text-transform: uppercase; margin: 20px 0; letter-spacing: 2px; }
-        
-        /* SOVEREIGN LIVE STATION */
-        .dual-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 40px; margin-top: 50px; }
-        .trading-board { background: #000; border: 2px solid var(--un-blue); padding: 30px; font-family: monospace; }
-        .trading-item { color: #00ff00; margin-bottom: 10px; font-size: 0.9rem; border-bottom: 1px solid #111; padding-bottom: 5px; cursor: pointer; }
-        .trading-item:hover { background: rgba(0,255,0,0.1); }
+    .top-rainbow{
+      height:10px;
+      background:linear-gradient(90deg,#00d9ff,#00ffb3,#dfff4f,#ffbe3b,#ff6b57,#ff2e8e);
+    }
 
-        .doc-side { border: 2px solid var(--gold); background: var(--panel); padding: 40px; border-radius: 8px; }
-        
-        /* BUTTONS */
-        .btn-gold { display: inline-block; background: var(--gold); color: #000; padding: 15px 30px; text-decoration: none; font-weight: 900; text-transform: uppercase; font-family: Arial; border: none; cursor: pointer; transition: 0.3s; border-radius: 2px; }
-        .btn-gold:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(4,16,31,0.93);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
 
-        /* MATRIX BOX */
-        .matrix-section { padding: 80px 0; }
-        .sovereign-header { background: var(--gold); color: #000; padding: 20px; font-family: 'Arial Black'; text-align: center; margin-bottom: 30px; letter-spacing: 2px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .card { background: var(--panel); border: 1px solid var(--line); padding: 35px; border-radius: 8px; transition: 0.3s; }
-        .card:hover { border-color: var(--gold); }
+    .header-inner{
+      padding:18px 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
 
-        footer { padding: 50px 0; text-align: center; border-top: 1px solid var(--gold); color: #8b949e; font-size: 0.8rem; }
-        .footer-links a { color: var(--gold); text-decoration: none; margin: 0 15px; }
-    </style>
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .brand-logo{
+      width:66px;
+      height:66px;
+      background:#fff;
+      border-radius:6px;
+      overflow:hidden;
+      box-shadow:0 0 30px rgba(211,176,91,0.25);
+      flex-shrink:0;
+    }
+
+    .brand-text h1{
+      margin:0;
+      font-size:2rem;
+      line-height:1;
+      font-weight:700;
+    }
+
+    .brand-text p{
+      margin:6px 0 0;
+      color:var(--gold);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:.86rem;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    .nav{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      font-family:Arial,Helvetica,sans-serif;
+    }
+
+    .nav a{
+      padding:12px 16px;
+      border-radius:12px;
+      font-size:.92rem;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,0.05);
+      transition:.18s ease;
+    }
+
+    .nav a:hover{transform:translateY(-2px)}
+    .nav .blue{background:#1d4770}
+    .nav .purple{background:#4f2d78}
+    .nav .green{background:#1d5a3d}
+    .nav .gold{background:var(--gold); color:#111}
+
+    .hero{
+      padding:82px 0 64px;
+      text-align:center;
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      color:var(--gold);
+      font-family:Arial,Helvetica,sans-serif;
+      text-transform:uppercase;
+      letter-spacing:3px;
+      font-size:1rem;
+      margin-bottom:18px;
+      font-weight:800;
+    }
+
+    .hero h2{
+      margin:0;
+      font-size:clamp(2.8rem,8vw,5.5rem);
+      line-height:1.05;
+      font-weight:800;
+    }
+
+    .hero p{
+      max-width:920px;
+      margin:24px auto 0;
+      font-size:clamp(1.1rem,2.4vw,1.7rem);
+      color:#55b2ff;
+      font-weight:700;
+    }
+
+    .hero-actions{
+      margin-top:32px;
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
+      font-family:Arial,Helvetica,sans-serif;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px 24px;
+      border-radius:12px;
+      font-weight:800;
+      text-align:center;
+      border:1px solid transparent;
+      transition:.18s ease;
+      cursor:pointer;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:.98rem;
+    }
+
+    .btn.gold{background:var(--gold);color:#111}
+    .btn.gold:hover{background:var(--gold-dark)}
+    .btn.outline{
+      border-color:rgba(211,176,91,0.42);
+      color:var(--gold);
+      background:transparent;
+    }
+    .btn.outline:hover{background:rgba(211,176,91,0.08)}
+
+    .section{
+      padding:58px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section-title{
+      text-align:center;
+      color:var(--gold);
+      font-size:clamp(1.7rem,3vw,2.5rem);
+      margin:0 0 14px;
+    }
+
+    .section-copy{
+      max-width:900px;
+      margin:0 auto 28px;
+      text-align:center;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    .highlight-banner{
+      background:linear-gradient(90deg,#00d9ff,#00ffb3,#dfff4f,#ffbe3b,#ff6b57,#ff2e8e);
+      color:#08111e;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:clamp(1.2rem,2.7vw,2rem);
+      font-weight:900;
+      text-transform:uppercase;
+      text-align:center;
+      padding:22px 18px;
+      border-radius:14px;
+      margin:0 auto;
+      max-width:1100px;
+      letter-spacing:1px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:24px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:0 12px 28px rgba(0,0,0,0.15);
+    }
+
+    .card h3{
+      margin:0 0 12px;
+      color:var(--gold);
+      font-size:1.45rem;
+    }
+
+    .card p{
+      margin:0 0 16px;
+      color:#dbe3ef;
+    }
+
+    .card ul{
+      margin:0;
+      padding-left:20px;
+      color:var(--muted);
+    }
+
+    .card li{margin-bottom:6px}
+
+    .big-link{
+      display:block;
+      background:var(--gold);
+      color:#111;
+      text-align:center;
+      padding:26px 18px;
+      border-radius:14px;
+      font-size:clamp(1.3rem,2.6vw,2.2rem);
+      font-weight:900;
+      font-family:Arial,Helvetica,sans-serif;
+      letter-spacing:1px;
+    }
+
+    .help-box{
+      max-width:900px;
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .help-box h3{
+      color:var(--gold);
+      font-size:clamp(1.8rem,3vw,2.5rem);
+      margin:0 0 12px;
+    }
+
+    .help-box p{
+      color:var(--muted);
+      font-size:1.05rem;
+      margin:0 0 24px;
+    }
+
+    .access-strip{
+      max-width:960px;
+      margin:24px auto 0;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(211,176,91,0.22);
+      border-radius:14px;
+      padding:18px;
+      text-align:center;
+      color:#dbe3ef;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:.96rem;
+    }
+
+    footer{
+      padding:32px 0 50px;
+      text-align:center;
+      color:var(--muted);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:.92rem;
+    }
+
+    @media (max-width:1024px){
+      .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .nav{
+        width:100%;
+        justify-content:flex-start;
+      }
+      .grid-2,
+      .grid-3{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:680px){
+      .brand-logo{
+        width:56px;
+        height:56px;
+      }
+      .brand-text h1{
+        font-size:1.7rem;
+      }
+      .hero{
+        padding:58px 0 40px;
+      }
+      .card{
+        padding:22px;
+      }
+      .nav a{
+        padding:10px 13px;
+        font-size:.88rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <div class="un-strip"></div>
-    <div class="container topbar">
-        <a href="index.html" class="brand">
-            <img src="https://raw.githubusercontent.com/shanta4100/ssgpt6.com/main/public/logo.png" alt="GNAI Logo" class="logo-img">
-            <div>
-                <div style="color: #fff; font-size: 1.5rem; font-weight: 700;">SSGPT6</div>
-                <div style="color: var(--gold); font-size: 0.7rem; text-transform: uppercase;">GNAIAAAC LLC</div>
-            </div>
-        </a>
-        <nav>
-            <a href="governance.html" class="tab-gov">GOVERNANCE</a>
-            <a href="matrix.html" class="tab-matrix">135 MATRIX</a>
-            <a href="pricing.html" class="tab-pricing">ACCESS TIERS</a>
-            <a href="chat.html" class="tab-chat">CHATSSGPT6: The AI that Thinks for the Future</a>
-        </nav>
-    </div>
-</header>
+  <div class="top-rainbow"></div>
 
-<section class="hero">
-    <div class="container">
-        <div class="miracle-text">Miracle Magical AI & Tiny AI sleeping agent black box Automation operational management solutions</div>
-        <h1 style="font-size: 3rem; margin-bottom: 10px;">World-First Digital Governance & AI</h1>
-        <p style="color:var(--un-blue); font-weight:900; font-size: 1.2rem;">Global Pure Water | Water Bankruptcy solutions | Zero carbon satellite Coil grid Energy</p>
-        
-        <a href="info.html" class="btn-gold" style="margin-top: 30px;">Informational: First Digital Governance</a>
-    </div>
-</section>
-
-<section class="container dual-grid">
-    <div class="trading-board">
-        <h3 style="color:#fff; text-transform: uppercase; margin-bottom: 20px;">135 Projects Live Trading Display</h3>
-        <div class="trading-item" onclick="location.href='trading.html'">● BTC/SSC INDEX: +4.24% [View Analysis]</div>
-        <div class="trading-item" onclick="location.href='trading.html'">● WATER EQUITY NODES: STABLE [Live Data]</div>
-        <div class="trading-item" onclick="location.href='trading.html'">● 0-CARBON GRID YIELD: 14.2M T [Verified]</div>
-        
-        <div style="margin-top:30px; border: 1px dashed var(--un-blue); padding: 20px; background: rgba(0,0,0,0.5);">
-            <p style="color:#fff; font-size: 1rem; font-weight: bold;">Financial Analysis Access</p>
-            <p style="color:var(--gold); font-size: 1.5rem; font-weight: 900;">$1 / WEEK</p>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_xclick-subscriptions">
-                <input type="hidden" name="business" value="ssgpt6@aol.com">
-                <input type="hidden" name="item_name" value="Weekly Financial Analysis">
-                <input type="hidden" name="a3" value="1.00">
-                <input type="hidden" name="p3" value="1">
-                <input type="hidden" name="t3" value="W">
-                <input type="hidden" name="src" value="1">
-                <button type="submit" class="btn-gold" style="width: 100%;">Pay $1 via PayPal Account</button>
-            </form>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="logo.png" alt="SSGPT6 logo">
         </div>
-    </div>
+        <div class="brand-text">
+          <h1>SSGPT6</h1>
+          <p>GNAIAAAC LLC</p>
+        </div>
+      </div>
 
-    <div class="doc-side">
-        <h2 style="color:var(--gold); text-transform: uppercase; margin-top: 0;">Water Bankruptcy Project Summary</h2>
-        <p style="color:#9fb7d6; font-size: 1rem;">
-            SSGPT6 AI autonomously identifies transboundary water debt, preventing economic resource collapse through automated liquidity redistribution. Our black box automation manages pure water solutions efficiently, ensuring the company gets the job done at the highest standard.
+      <nav class="nav">
+        <a class="blue" href="/governance.html">Digital Governance</a>
+        <a class="purple" href="/projects.html">135 Matrix</a>
+        <a class="green" href="/portal.html">Service Portal</a>
+        <a class="gold" href="/matrix.html">AI Console</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">World First Digital Governance</div>
+      <h2>Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Satellite Coil Grid Energy</h2>
+      <p>Contact for global climate crisis solution.</p>
+
+      <div class="hero-actions">
+        <a class="btn gold" href="/governance.html">Open Digital Governance</a>
+        <a class="btn outline" href="/projects.html">Open 135 Project Listing</a>
+      </div>
+
+      <div class="access-strip">
+        Shorter accessibility and communication layer: voice + typing, readable layout, large controls, and multilingual-ready structure for seniors, disabled users, and customers who need simple guided access.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="highlight-banner">
+        Learn Earn Through 135 Projects
+      </div>
+
+      <div style="text-align:center; margin-top:22px;">
+        <a class="big-link" href="/projects.html">View Project Listing, Services, Fees, and Summaries</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Digital Governance Matters</h2>
+      <p class="section-copy">
+        Digital governance is no longer optional. Every digital company, government institution, UN-facing system, and G7-scale technology platform needs clear control, compliance logic, service structure, and access pathways.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>For Digital Companies</h3>
+          <p>Digital governance helps companies control service logic, customer access, workflow structure, and accountability.</p>
+        </div>
+        <div class="card">
+          <h3>For Governments</h3>
+          <p>Governments need governance layers for digital systems, public trust, resource control, and reliable service delivery.</p>
+        </div>
+        <div class="card">
+          <h3>For UN and G7 Use Cases</h3>
+          <p>Institutional and international systems need governance models that support resilience, transparency, security, and scalable coordination.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Software Services, Uses, and Customer Benefits</h2>
+      <p class="section-copy">
+        Customers should know exactly why they would purchase software access and how it helps them.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>What the software is used for</h3>
+          <ul>
+            <li>Digital governance planning</li>
+            <li>Water and climate project structuring</li>
+            <li>AI-guided service intake and request automation</li>
+            <li>Founder-controlled project access and service pathways</li>
+            <li>Strategic review for institutional and enterprise use</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Why customers purchase it</h3>
+          <ul>
+            <li>To get structured digital governance guidance</li>
+            <li>To access water, climate, and project intelligence systems</li>
+            <li>To use AI-guided service workflows</li>
+            <li>To receive organized service preparation and routing</li>
+            <li>To access premium founder-level project services</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Policy and License Structure</h2>
+      <p class="section-copy">
+        Software purchases should be governed by clear use rules, service boundaries, and licensing terms.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Purchase Policy</h3>
+          <p>
+            Customers purchase access to digital service layers, project preparation pathways, and software-assisted workflow support. Access level depends on selected service tier and approved use scope.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>License Policy</h3>
+          <p>
+            Access is limited to authorized use. Customers may use purchased services for their own planning, review, and guided workflow interaction, but may not redistribute or resell proprietary SSGPT6 materials without permission.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="helpdesk">
+    <div class="container">
+      <div class="help-box">
+        <h3>AI Voice Messages Recording Hub and 24/7 Help Desk</h3>
+        <p>
+          Customers can use the AI console, portal, and help desk as the front-facing support layer. This creates a voice-ready, typing-ready, and accessibility-conscious communication system suitable for a SaaS environment.
         </p>
-        <a href="water-full.html" class="btn-gold" style="width:100%; text-align:center;">View Full UN Water Solutions</a>
-    </div>
-</section>
 
-<section class="matrix-section">
-    <div class="container">
-        <div class="sovereign-header">LEARN EARN THROUGH 135 PROJECTS</div>
-        <div class="grid">
-            <div class="card">
-                <h3>UNIT 001: PHARMA VAULT</h3>
-                <p>Managed through AI Sleeping Agent Black Box Automation. Secure IP acquisition and royalty tracking automatically generated by the software.</p>
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                    <input type="hidden" name="cmd" value="_xclick">
-                    <input type="hidden" name="business" value="ssgpt6@aol.com">
-                    <input type="hidden" name="item_name" value="Unit 001 Pharma Vault Access">
-                    <input type="hidden" name="amount" value="150.00">
-                    <button type="submit" class="btn-gold" style="width: 100%; margin-top: 15px;">Pay $150 via PayPal</button>
-                </form>
-            </div>
-            <div class="card">
-                <h3>UNIT 012: HYDROL-STASIS</h3>
-                <p>Pure water sustainability monitoring. Black box automation ensures efficient execution. The company is very good for the job.</p>
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                    <input type="hidden" name="cmd" value="_xclick">
-                    <input type="hidden" name="business" value="ssgpt6@aol.com">
-                    <input type="hidden" name="item_name" value="Unit 012 Hydrol-Stasis Access">
-                    <input type="hidden" name="amount" value="100.00">
-                    <button type="submit" class="btn-gold" style="width: 100%; margin-top: 15px;">Pay $100 via PayPal</button>
-                </form>
-            </div>
+        <div class="hero-actions">
+          <a class="btn gold" href="/matrix.html">Open AI Service Console</a>
+          <a class="btn outline" href="/portal.html">Open Customer Portal</a>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<section class="container" style="padding: 60px 0; border-top: 1px solid var(--line); text-align: center;">
-    <h2 style="color: var(--gold); text-transform: uppercase;">AI Customer Service</h2>
-    <p style="color: var(--un-blue); font-weight: bold; font-size: 1.2rem;">Chat / Phone: 24/7 Managed by Black Box</p>
-    <p style="max-width: 800px; margin: 20px auto; color: #8b949e;">
-        All insights and content are managed through AI sleeping agent black box automation. This software is a very good way to get the job done in an efficient way. The company is highly efficient at getting the job done for you automatically.
-    </p>
-    <a href="tel:3478852494" class="btn-gold">Call AI Support</a>
-</section>
-
-<footer>
-    <div class="container footer-links">
-        <p>© 2026 GNAIAAAC LLC | SSGPT6-CORE | Managed by Miracle Magical AI</p>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="fraud.html">Anti-Fraud Policy</a>
-    </div>
-</footer>
+  <footer>
+    © 2026 SSGPT6 · GNAIAAAC LLC · World First Digital Governance
+  </footer>
 
 </body>
 </html>
