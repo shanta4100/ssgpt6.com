@@ -1,285 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQ | SSGPT6</title>
-  <meta name="description" content="Frequently asked questions for SSGPT6 and GNAIAAAC LLC." />
-  <style>
-    :root{
-      --bg:#060d18;
-      --panel:#0c1728;
-      --panel2:#10203a;
-      --text:#eef3fb;
-      --muted:#c8d3e3;
-      --gold:#c7a85a;
-      --line:rgba(255,255,255,0.08);
-      --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
-      --max:1100px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSGPT6 | GNAIAAAC LLC Sovereign AI</title>
+    <style>
+        :root {
+            --bg: #010409; --panel: #0d1117; --gold: #c7a85a; --un-blue: #009edb;
+            --rainbow: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+        }
+        body { margin: 0; font-family: 'Arial Black', sans-serif; background: var(--bg); color: #fff; text-align: center; overflow-x: hidden; }
+        
+        /* THE MASTER KEY (HANDICAP SIGN) */
+        .master-key-section { padding: 100px 0; border-bottom: 2px solid var(--gold); background: radial-gradient(circle, rgba(199,168,90,0.1) 0%, rgba(1,4,9,1) 70%); }
+        .handicap-key { 
+            font-size: 10rem; cursor: pointer; display: inline-block; 
+            transition: 0.5s; animation: pulse 2s infinite; color: var(--un-blue);
+        }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
+        .voice-label { color: var(--gold); font-size: 1.5rem; letter-spacing: 5px; margin-top: 20px; }
 
-    *{box-sizing:border-box}
+        /* EARNAI PROFESSIONAL BOARD (DAILY SURVIVAL) */
+        .earnai-board { padding: 60px 5%; background: var(--panel); }
+        .board-title { font-size: 3rem; background: var(--rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 40px; }
+        .earn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .earn-card { border: 2px solid var(--gold); padding: 30px; background: #000; position: relative; overflow: hidden; }
+        .earn-card:hover { border-color: #fff; }
+        .earn-card img { width: 100%; height: 150px; object-fit: cover; opacity: 0.6; margin-bottom: 15px; }
 
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.7;
-    }
+        /* DEEP CORE DOSSIERS (THE DREAM) */
+        .deep-core { padding: 80px 5%; }
+        .dossier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .dossier-card { border-left: 5px solid var(--gold); background: #080c12; padding: 40px; text-align: left; }
+        .dossier-card h3 { color: var(--gold); font-size: 1.8rem; margin: 0 0 15px; }
+        .status-light { display: inline-block; width: 12px; height: 12px; background: #00ffcc; border-radius: 50%; margin-right: 10px; }
 
-    a{
-      color:var(--gold);
-      text-decoration:none;
-    }
-
-    .container{
-      width:min(92%, var(--max));
-      margin:0 auto;
-    }
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:999;
-      background:rgba(6,13,24,0.96);
-      border-bottom:1px solid var(--line);
-      backdrop-filter:blur(10px);
-    }
-
-    .strip{
-      height:6px;
-      background:var(--rainbow);
-    }
-
-    .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-      padding:16px 0;
-      flex-wrap:wrap;
-    }
-
-    .logo{
-      font-size:24px;
-      font-weight:900;
-      color:var(--gold);
-    }
-
-    nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    nav a{
-      padding:10px 14px;
-      border-radius:6px;
-      font-weight:700;
-      font-size:14px;
-      color:#fff;
-      background:#1a3a5a;
-    }
-
-    .hero{
-      padding:54px 0 34px;
-      border-bottom:1px solid var(--line);
-      text-align:center;
-    }
-
-    .hero h1{
-      margin:0 0 10px;
-      font-size:clamp(2rem, 6vw, 3.8rem);
-      color:var(--gold);
-      font-weight:900;
-    }
-
-    .hero p{
-      margin:0 auto;
-      max-width:850px;
-      color:var(--muted);
-    }
-
-    .section{
-      padding:42px 0;
-      border-bottom:1px solid var(--line);
-    }
-
-    .faq-item{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:14px;
-      margin-bottom:14px;
-      overflow:hidden;
-    }
-
-    .faq-question{
-      width:100%;
-      text-align:left;
-      background:none;
-      border:none;
-      color:#fff;
-      font:inherit;
-      font-weight:800;
-      padding:18px 20px;
-      cursor:pointer;
-    }
-
-    .faq-answer{
-      display:none;
-      padding:0 20px 20px;
-      color:var(--muted);
-    }
-
-    .faq-item.active .faq-answer{
-      display:block;
-    }
-
-    .notice{
-      background:var(--panel2);
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:16px;
-      margin-top:20px;
-      color:var(--muted);
-    }
-
-    footer{
-      text-align:center;
-      padding:30px 20px 46px;
-      color:#a6b5c8;
-      font-size:14px;
-    }
-
-    footer a{color:var(--gold)}
-  </style>
+        /* SECURITY & FOOTER */
+        .security-repeat { background: #000; padding: 40px; color: #1a1a1a; font-size: 0.8rem; letter-spacing: 5px; line-height: 2; }
+    </style>
 </head>
 <body>
 
-  <header>
-    <div class="strip"></div>
-    <div class="container topbar">
-      <div class="logo">FAQ</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="contact.html">Contact</a>
-        <a href="support-center.html">Support</a>
-      </nav>
+<section class="master-key-section">
+    <img src="https://raw.githubusercontent.com/shanta4100/ssgpt6.com/main/public/logo.png" style="width:200px; margin-bottom:30px;">
+    <br>
+    <div class="handicap-key" onclick="startVoiceAutomation()">♿︎</div>
+    <div class="voice-label">VOICE RECOGNITION ACTIVE: COMMANDS ONLY</div>
+</section>
+
+<section class="earnai-board">
+    <h2 class="board-title">EarnAI Daily Revenue Board</h2>
+    <div class="earn-grid">
+        <div class="earn-card">
+            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=500&q=60" alt="Store Hub">
+            <h3>STORE HUB</h3>
+            <p style="color:var(--gold); font-weight:bold;">Global Affiliates Active</p>
+        </div>
+        <div class="earn-card">
+            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=60" alt="Video Gen">
+            <h3>VIDEO GENERATOR</h3>
+            <p style="color:var(--gold);">Automated Media Creation</p>
+        </div>
+        <div class="earn-card">
+            <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=500&q=60" alt="Podcast">
+            <h3>PODCAST/BLOG</h3>
+            <p style="color:var(--gold);">24/7 Content Stream</p>
+        </div>
     </div>
-  </header>
+</section>
 
-  <section class="hero">
-    <div class="container">
-      <h1>Frequently Asked Questions</h1>
-      <p>
-        Quick answers about SSGPT6 services, pricing, support, accessibility, and platform use.
-      </p>
+<section class="deep-core">
+    <h2 style="color:var(--gold); letter-spacing:5px;">DEEP CORE PRIVATE DOSSIERS</h2>
+    <div class="dossier-grid">
+        <div class="dossier-card">
+            <h3><span class="status-light"></span>Water Bankruptcy</h3>
+            <p>Global Pure Water Solution Utility Framework.</p>
+        </div>
+        <div class="dossier-card">
+            <h3><span class="status-light"></span>Zero Carbon AI</h3>
+            <p>Environmental Governance & Sustainability Logic.</p>
+        </div>
+        <div class="dossier-card">
+            <h3><span class="status-light"></span>Sleeping Agent</h3>
+            <p>Magical Miracle Black Box Possible Solution System.</p>
+        </div>
     </div>
-  </section>
+</section>
 
-  <section class="section">
-    <div class="container">
+<div class="security-repeat">
+    SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY 
+    SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY 
+</div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">What is SSGPT6?</button>
-        <div class="faq-answer">
-          SSGPT6 is a structured digital platform focused on services, projects, governance, accessibility-aware communication, and resilience-oriented system direction.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">What services do you offer?</button>
-        <div class="faq-answer">
-          Services include digital governance support, AI media direction, research support, communication systems, pricing pathways, project support, and structured consultation routes.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">How do I request a service?</button>
-        <div class="faq-answer">
-          Review the Services page, then use the Contact page to send your request with your project or service details.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">Where do I see pricing?</button>
-        <div class="faq-answer">
-          Open the Pricing page to review member plans, service packages, and general billing structure.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">How do I get support?</button>
-        <div class="faq-answer">
-          The best route is Support Center → Contact. This keeps support organized and easier to track.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">Do voice features work for everyone?</button>
-        <div class="faq-answer">
-          Voice and speech features depend on browser and device support. Where available, they help improve accessibility for seniors and disabled users.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">Can the platform submit forms automatically?</button>
-        <div class="faq-answer">
-          The platform can help prepare drafts and organize workflows, but important external submissions still require human review and confirmation.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">Do you guarantee refunds?</button>
-        <div class="faq-answer">
-          No. Refund requests are reviewed case by case under the Refund Policy.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">Where do I send business or partnership questions?</button>
-        <div class="faq-answer">
-          Use the Contact page and select the most relevant inquiry type, such as partnership, services, projects, or consultation.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">Where can I learn about the platform structure?</button>
-        <div class="faq-answer">
-          Visit the Governance page for platform structure, accountability, and system explanation.
-        </div>
-      </div>
-
-      <div class="notice">
-        Need more help? Go to <a href="support-center.html">Support Center</a> or send a message through <a href="contact.html">Contact</a>.
-      </div>
-
+<footer>
+    <div style="padding:40px; background:var(--rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:bold;">
+        GNAIAAAC LLC © 2026
     </div>
-  </section>
+</footer>
 
-  <footer>
-    <p>© 2026 GNAIAAAC LLC | SSGPT6 FAQ</p>
-    <p>
-      <a href="index.html">Home</a> |
-      <a href="services.html">Services</a> |
-      <a href="pricing.html">Pricing</a> |
-      <a href="contact.html">Contact</a> |
-      <a href="support-center.html">Support</a> |
-      <a href="privacy.html">Privacy</a> |
-      <a href="terms.html">Terms</a> |
-      <a href="refund-policy.html">Refund Policy</a>
-    </p>
-  </footer>
-
-  <script>
-    function toggleFaq(button){
-      const item = button.parentElement;
-      item.classList.toggle("active");
+<script>
+    function startVoiceAutomation() {
+        alert("Voice Recognition System Engaged. Listening for GNAIAAAC LLC Commands...");
+        // This triggers the communication and speech recognition backend
     }
-  </script>
+</script>
 
 </body>
 </html>
