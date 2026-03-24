@@ -3,146 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSGPT6 | UN Global Governance & 135 Matrix</title>
+    <title>SSGPT6 | Unified AI Workstation</title>
     <style>
         :root {
-            --bg: #060d18; --panel: #0c1728; --text: #e8edf5;
+            --bg: #040b14; --panel: #0d1d33; --text: #ecf1f8;
             --gold: #c7a85a; --un-blue: #009edb;
             --rainbow: linear-gradient(90deg, #009edb, #00ffcc, #ffeb3b, #ff5722, #e91e63);
-            --line: rgba(255,255,255,0.08);
+            --line: rgba(255,255,255,.08);
         }
-
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { margin: 0; font-family: 'Georgia', serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-
-        /* UN RAINBOW HEADER */
-        .un-strip { background: var(--rainbow); height: 6px; width: 100%; position: fixed; top: 0; z-index: 2000; }
-        header { position: sticky; top: 6px; z-index: 1000; background: rgba(6, 13, 24, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); padding: 15px 5%; }
-        
-        .topbar { display: flex; justify-content: space-between; align-items: center; }
-        .brand { display: flex; align-items: center; gap: 15px; }
-        .brand-mark { font-weight: 900; font-size: 1.5rem; color: #fff; letter-spacing: 2px; }
-        .brand-sub { font-size: 0.6rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; }
-
-        nav a { color: var(--text); margin-left: 20px; text-decoration: none; font-size: 0.85rem; font-family: Arial; transition: 0.3s; }
-        nav a:hover { color: var(--gold); }
-        .btn-secure { background: var(--un-blue); color: #fff; padding: 8px 20px; border-radius: 2px; font-weight: bold; }
-
-        /* HERO: GOVERNANCE */
-        .hero { padding: 140px 5% 100px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
-        .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 20px; }
-        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; margin: 0 0 25px; font-weight: 900; }
-        
-        .hero-side { background: var(--panel); border: 1px solid var(--gold); padding: 40px; position: relative; }
-        .status-dot { height: 10px; width: 10px; background: #00ffcc; border-radius: 50%; display: inline-block; margin-right: 10px; box-shadow: 0 0 10px #00ffcc; }
-
-        /* 135 MATRIX GRID */
-        .matrix-section { padding: 100px 5%; background: rgba(199, 168, 90, 0.02); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .card { background: var(--panel); border: 1px solid var(--line); padding: 35px; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .card:hover { border-color: var(--gold); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        .price-tag { color: var(--gold); font-weight: 900; margin-top: 25px; font-family: Arial; font-size: 1.2rem; }
-
-        /* RESTRICTED VAULT UI */
-        .vault-lock { position: relative; overflow: hidden; }
-        .vault-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(12, 23, 40, 0.95); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; padding: 20px; text-align: center; }
-        .card:hover .vault-overlay { opacity: 1; }
-
-        footer { padding: 80px 5%; text-align: center; border-top: 1px solid var(--gold); color: #8b949e; font-family: Arial; font-size: 0.8rem; }
+        body { margin: 0; font-family: 'Georgia', serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+        .un-strip { background: var(--rainbow); height: 5px; width: 100%; position: fixed; top: 0; z-index: 1000; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 100px 20px; }
+        .search-engine { text-align: center; margin-bottom: 80px; }
+        .search-bar { width: 100%; max-width: 700px; background: var(--panel); border: 2px solid var(--gold); border-radius: 50px; padding: 20px 30px; color: #fff; font-size: 1.2rem; outline: none; transition: 0.3s; }
+        .voice-hub { display: flex; flex-direction: column; align-items: center; margin-bottom: 60px; }
+        .radar { height: 80px; width: 80px; border-radius: 50%; border: 3px solid var(--un-blue); display: flex; align-items: center; justify-content: center; animation: pulse 2s infinite; cursor: pointer; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 158, 219, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(0, 158, 219, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 158, 219, 0); } }
+        .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .module-card { background: var(--panel); border: 1px solid var(--line); padding: 40px; text-align: center; }
+        .module-card h3 { color: var(--gold); margin-top: 0; letter-spacing: 2px; }
+        footer { text-align: center; padding: 50px; border-top: 1px solid var(--gold); font-size: 0.8rem; color: #888; margin-top: 100px; }
     </style>
 </head>
 <body>
-
-<div class="un-strip"></div>
-<header>
-    <div class="topbar">
-        <div class="brand">
-            <div>
-                <div class="brand-mark">SSGPT6</div>
-                <div class="brand-sub">UN Global Governance Hub</div>
+    <div class="un-strip"></div>
+    <div class="container">
+        <section class="search-engine">
+            <h1 style="font-size: 3rem; margin-bottom: 40px;">SSGPT6 <span style="color:var(--gold);">SEARCH</span></h1>
+            <input type="text" class="search-bar" placeholder="Command: 'Research 135 Matrix' or 'Automate Project 012'...">
+        </section>
+        <section class="voice-hub">
+            <div class="radar" onclick="alert('Hands-Free System Listening...')">
+                <svg style="width:30px; height:30px; fill:var(--un-blue);" viewBox="0 0 24 24"><path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" /></svg>
             </div>
-        </div>
-        <nav>
-            <a href="#matrix">135 Matrix</a>
-            <a href="#governance">Governance</a>
-            <a href="mailto:founder@ssgpt6.com">Contact</a>
-            <a href="#" class="btn-secure" onclick="alert('Access Restricted to .gov / .un Verification')">SECURE LOGIN</a>
-        </nav>
+            <p style="margin-top: 20px; color: var(--gold); font-weight: bold; font-family: Arial; font-size: 0.8rem;">VOICE CONTROL: ACTIVE</p>
+        </section>
+        <section class="module-grid">
+            <div class="module-card"><h3>CHATSSGPT6</h3></div>
+            <div class="module-card" style="border-top: 3px solid var(--gold);"><h3>AI ACADEMY</h3></div>
+            <div class="module-card"><h3>WORKSTATION</h3></div>
+        </section>
     </div>
-</header>
-
-<section class="hero">
-    <div>
-        <div class="eyebrow">Institutional Architecture 2026.0</div>
-        <h1>Pure Water & Zero-Carbon Energy Systems</h1>
-        <p style="font-size: 1.2rem; color: #aebed1; max-width: 600px;">
-            Deploying human-centered autonomous infrastructure for resource stability and global economic bailout protocols.
-        </p>
-        <div style="margin-top: 40px; display: flex; gap: 20px;">
-            <a href="#matrix" style="background:var(--gold); color:var(--bg); padding:18px 35px; text-decoration:none; font-weight:900; font-family:Arial; letter-spacing:1px;">EXPLORE MATRIX</a>
-            <a href="#" style="border: 1px solid var(--un-blue); color:var(--un-blue); padding:18px 35px; text-decoration:none; font-weight:900; font-family:Arial;">DOWNLOAD WHITE-PAPER</a>
-        </div>
-    </div>
-    <aside class="hero-side">
-        <h3 style="color:var(--gold); margin-top:0; letter-spacing: 2px;">LIVE SYSTEM MONITOR</h3>
-        <ul style="list-style:none; padding:0; font-size:0.9rem; color:#8b949e;">
-            <li style="margin-bottom:20px;"><span class="status-dot"></span> Water Bankruptcy Nodes: <strong style="color:#fff;">ACTIVE</strong></li>
-            <li style="margin-bottom:20px;"><span class="status-dot"></span> Zero-Carbon Efficiency: <strong style="color:#fff;">99.9%</strong></li>
-            <li style="margin-bottom:20px;"><span class="status-dot"></span> NASA-Analogue Sync: <strong style="color:#fff;">ENABLED</strong></li>
-            <li style="margin-bottom:0;"><span class="status-dot" style="background:var(--gold); box-shadow: 0 0 10px var(--gold);"></span> AI Sleeping Agent: <strong style="color:#fff;">MONITORING</strong></li>
-        </ul>
-    </aside>
-</section>
-
-<section class="matrix-section" id="matrix">
-    <div class="eyebrow">Active Sovereign Inventory</div>
-    <h2 style="font-size:3rem; margin-bottom:50px;">The 135-Project Matrix</h2>
-    <div class="grid">
-        <div class="card vault-lock">
-            <div style="font-size:0.75rem; color:var(--gold); font-weight: bold;">UNIT 001</div>
-            <h3>PHARMA VAULT</h3>
-            <p>Institutional acquisition portal for medical IP and $75M royalty streams.</p>
-            <div class="price-tag">$75,000,000.00</div>
-            <div class="vault-overlay">
-                <div style="color:var(--gold); font-weight: 900; font-size: 1.5rem;">LOCKED</div>
-                <p style="font-size: 0.8rem;">OFFICIAL ACCESS ONLY</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div style="font-size:0.75rem; color:var(--gold); font-weight: bold;">UNIT 012</div>
-            <h3>HYDROL-STASIS</h3>
-            <p>Real-time water debt monitoring for national-level bailout integration.</p>
-            <div class="price-tag">GOV ACCESS REQ.</div>
-        </div>
-
-        <div class="card">
-            <div style="font-size:0.75rem; color:var(--gold); font-weight: bold;">UNIT 045</div>
-            <h3>TESLA-RELAY</h3>
-            <p>Distributed zero-carbon energy mesh for institutional and government hubs.</p>
-            <div class="price-tag">PILOT READY</div>
-        </div>
-    </div>
-</section>
-
-<section style="padding: 100px 5%; text-align: center; background: #081221;">
-    <div class="eyebrow">Legal Reach</div>
-    <h2>Institutional Connectivity</h2>
-    <p style="max-width: 700px; margin: 20px auto; color: #8b949e;">
-        Automated call records, AI voicemail transcription, and multi-tier email routing for UN, NASA, and Global Sovereigns.
-    </p>
-    <a href="mailto:governance@ssgpt6.com" style="color: var(--gold); font-family: Arial; font-weight: bold; text-decoration: underline;">Open Legal Channel</a>
-</section>
-
-<footer>
-    <div style="margin-bottom: 30px; font-weight: bold; letter-spacing: 2px; color: #fff;">
-        GNAIAAAC LLC © 2026 | SSGPT6 CORE
-    </div>
-    <div style="max-width: 900px; margin: auto; opacity: 0.5; line-height: 2;">
-        <strong>TERMS OF SOVEREIGNTY:</strong> All systems, frameworks, and concepts including "Hydrol-Stasis" and "Universal Energy Harvesting" are proprietary intellectual property. Authorized replication or use without formal sovereign agreement is prohibited.
-    </div>
-</footer>
-
+    <footer>GNAIAAAC LLC © 2026 | SSGPT6 PROPRIETARY ENGINE</footer>
 </body>
 </html>
