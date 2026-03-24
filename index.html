@@ -3,226 +3,264 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SSGPT6 | Digital Governance Platform</title>
+<title>SSGPT6 | Water & Energy Resilience Platform</title>
 
 <style>
+:root{
+  --bg:#060d18;
+  --panel:#0c1728;
+  --text:#e8edf5;
+  --gold:#c7a85a;
+  --blue:#009edb;
+  --rainbow: linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
+}
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#020812;
-  color:#fff;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
+.container{width:90%;max-width:1200px;margin:auto}
 
-.top{
-  height:10px;
-  background:linear-gradient(90deg,cyan,green,yellow,orange,red,pink);
-}
-
-/* HEADER */
+/* HEADER /
 header{
+  background:#060d18;
+  position:sticky;
+  top:0;
+  z-index:999;
+  border-bottom:1px solid rgba(255,255,255,0.1)
+}
+.topbar{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px;
-  background:#061a2b;
+  padding:15px 0;
 }
-
 .logo{
-  display:flex;
-  align-items:center;
-}
-
-.logo img{
-  width:60px;
-  margin-right:10px;
-}
-
-nav a{
-  margin:5px;
-  padding:10px 15px;
-  border-radius:6px;
+  font-size:22px;
   font-weight:bold;
-  text-decoration:none;
-  color:white;
+  color:var(--gold);
 }
+nav a{
+  margin:0 8px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:bold;
+  font-size:12px;
+  padding:8px 12px;
+  border-radius:5px;
+}
+nav a:hover{background:var(--gold);color:#000}
 
-.blue{background:#1f4b6e;}
-.purple{background:#5b2c6f;}
-.green{background:#1d8348;}
-.gold{background:#c7a85a;color:#000;}
-
-/* HERO */
+/ HERO /
 .hero{
   text-align:center;
   padding:60px 20px;
 }
-
-.hero h1{
-  font-size:42px;
-  margin:0;
-}
-
-.hero p{
-  color:#4db8ff;
+.rainbow-text{
+  font-weight:bold;
+  background:var(--rainbow);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
   font-size:18px;
 }
-
-/* BUTTONS */
+.hero h1{
+  font-size:36px;
+  margin:20px 0;
+}
 .btn{
+  background:var(--gold);
+  color:#000;
+  padding:12px 25px;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+  text-decoration:none;
   display:inline-block;
+  margin-top:20px;
+}
+
+/ VIDEO /
+.video-section{
+  padding:40px 0;
+  text-align:center;
+}
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+}
+.video-grid a{
+  display:block;
+  background:#000;
+  padding:20px;
+  border:1px solid var(--blue);
+  color:#fff;
+  text-decoration:none;
+}
+
+/ SECTION /
+.section{
+  padding:60px 0;
+}
+.card{
+  background:var(--panel);
+  padding:25px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+/ VOICE /
+.voice-box{
+  text-align:center;
+}
+.voice-box button{
   margin:10px;
   padding:12px 20px;
-  border-radius:6px;
   font-weight:bold;
-  text-decoration:none;
+  cursor:pointer;
 }
 
-.btn-gold{
-  background:#c7a85a;
-  color:#000;
+/ CONTACT /
+input,textarea{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:none;
 }
-
-.btn-outline{
-  border:1px solid #c7a85a;
-  color:#c7a85a;
-}
-
-/* SECTION */
-.section{
-  padding:40px 20px;
-  text-align:center;
-}
-
-.card{
-  border:1px solid #333;
-  margin:15px;
-  padding:20px;
-}
-
-/* BIG LINK */
-.big{
-  background:#c7a85a;
-  color:#000;
-  padding:20px;
+button.submit{
+  background:var(--gold);
+  border:none;
+  padding:12px;
   font-weight:bold;
-  display:block;
-  margin:20px auto;
-  max-width:600px;
-  text-decoration:none;
 }
 
+/ FOOTER */
 footer{
   text-align:center;
-  padding:20px;
-  color:#888;
+  padding:40px;
+  border-top:1px solid var(--gold);
 }
 </style>
 </head>
 
 <body>
 
-<div class="top"></div>
-
 <header>
-  <div class="logo">
-    <img src="logo.png">
-    <div>
-      <b>SSGPT6</b><br>
-      <small>GNAIAAAC LLC</small>
-    </div>
-  </div>
-
-  <nav>
-    <a href="governance.html" class="blue">Governance</a>
-    <a href="projects.html" class="purple">135 Matrix</a>
-    <a href="portal.html" class="green">Portal</a>
-    <a href="voicehub.html" class="gold">AI Voice Hub</a>
-  </nav>
+<div class="container topbar">
+<div class="logo">SSGPT6</div>
+<nav>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#voice">Voice AI</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
 </header>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>World First Digital Governance</h1>
-
-  <p>
-  Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Energy
-  </p>
-
-  <a href="governance.html" class="btn btn-gold">
-    Open Digital Governance
-  </a>
-
-  <a href="projects.html" class="btn btn-outline">
-    View 135 Projects
-  </a>
-
-  <p style="margin-top:20px;color:#aaa;">
-  Voice + Typing Supported • Accessible for seniors & disabled users
-  </p>
+<section class="hero">
+<div class="container">
+<div class="rainbow-text">
+Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Energy
 </div>
-
-<!-- PROJECT ACCESS -->
-<div class="section">
-  <h2 style="color:#c7a85a;">LEARN EARN THROUGH 135 PROJECTS</h2>
-
-  <a href="projects.html" class="big">
-    OPEN PROJECT SYSTEM & SERVICES
-  </a>
+<h1>AI-Driven Water & Energy Resilience Platform</h1>
+<p>Accessible • Intelligent • Global Impact</p>
+<a href="#projects" class="btn">Open Digital Governance View 135 Projects</a>
 </div>
+</section>
 
-<!-- SERVICES -->
-<div class="section">
+<section class="video-section container">
+<h2>Project Visual Overview</h2>
+<div class="video-grid">
 
-  <h2 style="color:#c7a85a;">What Customers Get</h2>
+<a href="https://photos.app.goo.gl/6TxXRmgivorr6dpH6" target="_blank">
+▶ Watch Video 1
+</a>
 
-  <div class="card">
-    <h3>AI Governance System</h3>
-    <p>Structured decision system for digital business, UN-level governance, and automation.</p>
-  </div>
+<a href="https://photos.app.goo.gl/WJTbguhTGeTpWQtx6" target="_blank">
+▶ Watch Video 2
+</a>
 
-  <div class="card">
-    <h3>Water AI Solutions</h3>
-    <p>Pure water systems, climate solutions, and water bankruptcy recovery frameworks.</p>
-  </div>
-
-  <div class="card">
-    <h3>Automation Platform</h3>
-    <p>AI Sleeping Agent black box system delivering services automatically.</p>
-  </div>
+<a href="https://photos.app.goo.gl/EYpjsMMswSHjS9kv9" target="_blank">
+▶ Watch Video 3
+</a>
 
 </div>
+</section>
 
-<!-- VOICE HUB -->
-<div class="section">
+<section id="about" class="section container">
+<div class="card">
+<h2>About SSGPT6</h2>
+<p>
+SSGPT6 is a research-driven platform focused on improving water and energy systems through intelligent monitoring, automation, and data-driven decision support.
+</p>
+<p>
+The system is designed to assist governments, organizations, and communities in building more resilient and efficient infrastructure aligned with global sustainability goals.
+</p>
+</div>
+</section>
 
-  <h2 style="color:#c7a85a;">AI Communication System</h2>
+<section id="projects" class="section container">
+<div class="card">
+<h2>135 Project Ecosystem</h2>
+<p>
+Explore a structured ecosystem of projects focused on water intelligence, infrastructure optimization, and global resilience.
+</p>
+</div>
+</section>
 
-  <p>
-  No phone calls required. Customers communicate using AI Voice & text system.
-  </p>
+<section id="voice" class="section container">
+<div class="card voice-box">
+<h2>Voice & Accessibility Control</h2>
+<p>Voice + Typing Supported • Accessible for seniors & disabled users</p>
 
-  <a href="voicehub.html" class="btn btn-gold">
-    Open AI Voice Messages Hub
-  </a>
+<button onclick="startVoice()">🎤 Start Voice</button>
+<button onclick="stopVoice()">⏹ Stop</button>
+<button onclick="speakText()">🔊 Speak</button>
+
+<p id="voiceOutput"></p>
+</div>
+</section>
+
+<section id="contact" class="section container">
+<div class="card">
+<h2>Contact</h2>
+
+<form action="mailto:ssgpt6@aol.com" method="post" enctype="text/plain">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" placeholder="Your Message"></textarea>
+<button class="submit">Send Message</button>
+</form>
 
 </div>
-
-<!-- POLICY -->
-<div class="section">
-
-  <h2 style="color:#c7a85a;">Software & License Policy</h2>
-
-  <p>
-  Customers purchase access to digital services, AI systems, and structured workflows.<br><br>
-  Access is provided through the platform automatically.<br><br>
-  No physical product — digital service only.
-  </p>
-
-</div>
+</section>
 
 <footer>
-© 2026 SSGPT6 · GNAIAAAC LLC
+<p>© 2026 GNAIAAAC LLC | SSGPT6 Platform</p>
 </footer>
+
+<script>
+let recognition;
+
+function startVoice(){
+recognition = new(window.SpeechRecognition || window.webkitSpeechRecognition)();
+recognition.onresult = function(event){
+document.getElementById("voiceOutput").innerText = event.results[0][0].transcript;
+};
+recognition.start();
+}
+
+function stopVoice(){
+if(recognition) recognition.stop();
+}
+
+function speakText(){
+let text = document.getElementById("voiceOutput").innerText;
+let speech = new SpeechSynthesisUtterance(text);
+speechSynthesis.speak(speech);
+}
+</script>
 
 </body>
 </html>
