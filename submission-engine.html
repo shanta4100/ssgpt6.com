@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 Submission Engine</title>
+  <meta name="description" content="SSGPT6 submission engine for preparing, storing, and tracking institutional applications and outreach." />
+  <style>
+    :root{
+      --bg:#060d18;
+      --panel:#0c1728;
+      --panel2:#10203a;
+      --text:#eef3fb;
+      --muted:#c8d3e3;
+      --gold:#c7a85a;
+      --blue:#009edb;
+      --green:#0f7b4b;
+      --red:#8b1e3f;
+      --line:rgba(255,255,255,0.08);
+      --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
+      --max:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .container{width:min(94%, var(--max));margin:0 auto}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(6,13,24,0.96);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
+
+    .strip{
+      height:6px;
+      background:var(--rainbow);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:16px 0;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:900;
+      color:var(--gold);
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      padding:10px 14px;
+      border-radius:6px;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .nav-home{background:#1a3a5a}
+    .nav-about{background:#3a1a5a}
+    .nav-contact{background:#1a5a3a}
+    .nav-projects{background:var(--gold);color:#000}
+
+    .hero{
+      padding:54px 0 36px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero h1{
+      margin:0 0 10px;
+      font-size:clamp(2rem, 6vw, 4rem);
+      color:var(--gold);
+      font-weight:900;
+    }
+
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      max-width:900px;
+      font-size:1.05rem;
+    }
+
+    .hero-badge{
+      display:inline-block;
+      margin-bottom:14px;
+      padding:8px 12px;
+      border:1px solid rgba(199,168,90,0.35);
+      border-radius:999px;
+      color:var(--gold);
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+    }
+
+    .section{
+      padding:28px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:22px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:20px;
+    }
+
+    .card h2,.card h3{
+      margin:0 0 12px;
+      color:var(--gold);
+    }
+
+    .card p{
+      color:var(--muted);
+      margin:0 0 12px;
+    }
+
+    .field{
+      margin-bottom:14px;
+    }
+
+    .field label{
+      display:block;
+      font-weight:700;
+      margin-bottom:6px;
+      color:#fff;
+      font-size:14px;
+    }
+
+    input, select, textarea{
+      width:100%;
+      background:#08111e;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:10px;
+      padding:12px 14px;
+      font:inherit;
+    }
+
+    textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .btn-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+
+    button{
+      border:none;
+      border-radius:10px;
+      padding:12px 16px;
+      font-weight:800;
+      cursor:pointer;
+      font-size:14px;
+    }
+
+    .btn-gold{background:var(--gold);color:#000}
+    .btn-blue{background:var(--blue);color:#00131d}
+    .btn-dark{background:#162841;color:#fff;border:1px solid rgba(255,255,255,0.08)}
+    .btn-red{background:var(--red);color:#fff}
+    .btn-green{background:var(--green);color:#fff}
+
+    .status-box{
+      background:#000;
+      border:1px solid var(--blue);
+      border-radius:10px;
+      padding:14px;
+      min-height:56px;
+      color:#dbe7f6;
+      white-space:pre-wrap;
+    }
+
+    .targets{
+      display:grid;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .target-item{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:14px;
+    }
+
+    .target-item strong{
+      color:#fff;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:5px 9px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      margin-left:8px;
+    }
+
+    .draft{background:#3a1a5a;color:#fff}
+    .ready{background:#1f4b6e;color:#fff}
+    .sent{background:#1a5a3a;color:#fff}
+    .followup{background:#8a5a10;color:#fff}
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px;
+      font-size:14px;
+    }
+
+    th,td{
+      text-align:left;
+      padding:10px;
+      border-bottom:1px solid var(--line);
+      vertical-align:top;
+    }
+
+    th{
+      color:var(--gold);
+      font-size:13px;
+    }
+
+    .small{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .footer-links{
+      text-align:center;
+      padding:30px 16px 50px;
+      color:#9eb0c5;
+      font-size:14px;
+    }
+
+    .footer-links a{color:var(--gold)}
+
+    @media (max-width:900px){
+      .grid,.row{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="strip"></div>
+    <div class="container topbar">
+      <div class="logo">SSGPT6 Submission Engine</div>
+      <nav>
+        <a class="nav-home" href="index.html">Home</a>
+        <a class="nav-about" href="about.html">About</a>
+        <a class="nav-contact" href="contact.html">Contact</a>
+        <a class="nav-projects" href="projects.html">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Black Box Lite • Human-Confirmed Workflow</div>
+      <h1>Prepare, Track, and Send Applications</h1>
+      <p>
+        This page helps you generate submission drafts, save targets, track status,
+        and open email-ready outreach. It does not secretly submit anything by itself.
+        It prepares everything so you can review and send safely.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid">
+      <div class="card">
+        <h2>Submission Builder</h2>
+
+        <div class="row">
+          <div class="field">
+            <label for="projectTitle">Project Title</label>
+            <input id="projectTitle" value="SSGPT6 Water Intelligence & Resilience System" />
+          </div>
+          <div class="field">
+            <label for="senderName">Founder / Sender</label>
+            <input id="senderName" value="Arifur Rahman Shanta" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="senderOrg">Organization</label>
+            <input id="senderOrg" value="GNAIAAAC LLC" />
+          </div>
+          <div class="field">
+            <label for="senderEmail">Email</label>
+            <input id="senderEmail" value="ssgpt6@aol.com" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="targetName">Target Organization</label>
+            <select id="targetName">
+              <option value="UN Water">UN Water</option>
+              <option value="UNDP">UNDP</option>
+              <option value="UN Innovation Network">UN Innovation Network</option>
+              <option value="The Water Council">The Water Council</option>
+              <option value="Custom Target">Custom Target</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="customTarget">Custom Target Name</label>
+            <input id="customTarget" placeholder="Use only if Custom Target is selected" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="recipientEmail">Recipient Email</label>
+          <input id="recipientEmail" placeholder="Enter recipient email for one-tap mailto" />
+        </div>
+
+        <div class="field">
+          <label for="subjectLine">Subject</label>
+          <input id="subjectLine" value="Submission: Water Intelligence System for SDG 6 Collaboration" />
+        </div>
+
+        <div class="field">
+          <label for="focusArea">Focus Area</label>
+          <input id="focusArea" value="Water resilience, SDG 6, monitoring, efficiency, reporting, decision support" />
+        </div>
+
+        <div class="field">
+          <label for="notes">Extra Notes</label>
+          <textarea id="notes" placeholder="Optional notes for this specific application"></textarea>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-gold" onclick="generateSubmission()">Generate Draft</button>
+          <button class="btn-blue" onclick="openEmail()">Open Email</button>
+          <button class="btn-green" onclick="saveSubmission()">Save Record</button>
+          <button class="btn-dark" onclick="copyDraft()">Copy Draft</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>System Status</h2>
+        <div id="statusBox" class="status-box">Idle</div>
+
+        <div class="targets">
+          <div class="target-item">
+            <strong>UN Water</strong>
+            <span class="pill draft">draft-ready</span>
+            <p class="small">Best for global water coordination language and SDG framing.</p>
+          </div>
+
+          <div class="target-item">
+            <strong>UNDP</strong>
+            <span class="pill ready">partnership-ready</span>
+            <p class="small">Good for innovation, resilience, and development language.</p>
+          </div>
+
+          <div class="target-item">
+            <strong>UN Innovation Network</strong>
+            <span class="pill ready">innovation-ready</span>
+            <p class="small">Best for experimentation, systems, and pilot discussion.</p>
+          </div>
+
+          <div class="target-item">
+            <strong>The Water Council</strong>
+            <span class="pill followup">challenge-ready</span>
+            <p class="small">Strong for pilot-stage and AI-native water innovation framing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid">
+      <div class="card">
+        <h2>Generated Draft</h2>
+        <textarea id="output" style="min-height:360px;"></textarea>
+      </div>
+
+      <div class="card">
+        <h2>Application Tracker</h2>
+        <p>Saved records stay in this browser using local storage.</p>
+        <div class="btn-row">
+          <button class="btn-dark" onclick="loadSaved()">Refresh List</button>
+          <button class="btn-red" onclick="clearAll()">Delete All Records</button>
+        </div>
+        <div id="tableWrap"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>How This Works</h2>
+      <p>
+        This system helps you do the maximum safe automation available in a browser:
+      </p>
+      <ul>
+        <li>generate submission copy automatically</li>
+        <li>prepare subject lines and recipient routing</li>
+        <li>store records locally in the browser</li>
+        <li>track status such as draft, ready, sent, or follow-up</li>
+        <li>open your email app with the application prefilled</li>
+      </ul>
+      <p>
+        Real external submission still requires your review and confirmation.
+      </p>
+    </div>
+  </section>
+
+  <div class="footer-links">
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="about.html">About</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="terms.html">Terms</a>
+    </p>
+    <p>© 2026 GNAIAAAC LLC | SSGPT6 Submission Engine</p>
+  </div>
+
+  <script>
+    function getTargetName() {
+      const selected = document.getElementById("targetName").value;
+      if (selected === "Custom Target") {
+        const custom = document.getElementById("customTarget").value.trim();
+        return custom || "Custom Target";
+      }
+      return selected;
+    }
+
+    function setStatus(message) {
+      document.getElementById("statusBox").innerText = message;
+    }
+
+    function generateSubmission() {
+      const projectTitle = document.getElementById("projectTitle").value.trim();
+      const senderName = document.getElementById("senderName").value.trim();
+      const senderOrg = document.getElementById("senderOrg").value.trim();
+      const senderEmail = document.getElementById("senderEmail").value.trim();
+      const targetName = getTargetName();
+      const focusArea = document.getElementById("focusArea").value.trim();
+      const notes = document.getElementById("notes").value.trim();
+
+      const draft =
+`Dear ${targetName} Team,
+
+I am submitting the concept framework "${projectTitle}" for consideration in alignment with sustainable water and resilience priorities.
+
+This concept focuses on improving water system efficiency, resilience, and structured decision support through monitoring, analytics, and automation-assisted insights.
+
+Core focus areas:
+- ${focusArea}
+- operational visibility
+- early warning and reporting support
+- scalable pilot direction
+
+Purpose:
+The system is designed as a structured support framework that can help institutions and communities improve water-system understanding, reduce inefficiencies, and strengthen resilience planning.
+
+Collaboration interest:
+I would welcome the opportunity to explore collaboration, pilot programs, innovation pathways, or further discussion with the relevant team.
+
+Additional note:
+${notes || "No extra note added."}
+
+Sincerely,
+${senderName}
+${senderOrg}
+${senderEmail}
+Website: https://ssgpt6.com`;
+
+      document.getElementById("output").value = draft;
+      setStatus("Draft generated for " + targetName + ".");
+    }
+
+    function openEmail() {
+      const recipient = document.getElementById("recipientEmail").value.trim();
+      const subject = document.getElementById("subjectLine").value.trim();
+      const body = document.getElementById("output").value.trim();
+
+      if (!body) {
+        setStatus("Generate the draft first.");
+        return;
+      }
+
+      const mailto = `mailto:${encodeURIComponent(recipient)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+      setStatus("Email draft opened. Review and send manually.");
+    }
+
+    function copyDraft() {
+      const text = document.getElementById("output").value.trim();
+      if (!text) {
+        setStatus("Nothing to copy yet.");
+        return;
+      }
+
+      navigator.clipboard.writeText(text).then(() => {
+        setStatus("Draft copied to clipboard.");
+      }).catch(() => {
+        setStatus("Copy failed. Please copy manually.");
+      });
+    }
+
+    function getRecords() {
+      return JSON.parse(localStorage.getItem("ssgpt6_submissions") || "[]");
+    }
+
+    function saveRecords(records) {
+      localStorage.setItem("ssgpt6_submissions", JSON.stringify(records));
+    }
+
+    function saveSubmission() {
+      const output = document.getElementById("output").value.trim();
+      if (!output) {
+        setStatus("Generate a draft before saving.");
+        return;
+      }
+
+      const records = getRecords();
+      records.unshift({
+        id: Date.now(),
+        target: getTargetName(),
+        subject: document.getElementById("subjectLine").value.trim(),
+        recipient: document.getElementById("recipientEmail").value.trim(),
+        status: "draft",
+        createdAt: new Date().toLocaleString(),
+        body: output
+      });
+      saveRecords(records);
+      loadSaved();
+      setStatus("Submission record saved locally.");
+    }
+
+    function updateStatus(id, newStatus) {
+      const records = getRecords().map(item => {
+        if (item.id === id) item.status = newStatus;
+        return item;
+      });
+      saveRecords(records);
+      loadSaved();
+      setStatus("Status updated to " + newStatus + ".");
+    }
+
+    function deleteRecord(id) {
+      const records = getRecords().filter(item => item.id !== id);
+      saveRecords(records);
+      loadSaved();
+      setStatus("Record deleted.");
+    }
+
+    function clearAll() {
+      if (!confirm("Delete all saved submission records from this browser?")) return;
+      localStorage.removeItem("ssgpt6_submissions");
+      loadSaved();
+      setStatus("All local records deleted.");
+    }
+
+    function loadSaved() {
+      const records = getRecords();
+      const tableWrap = document.getElementById("tableWrap");
+
+      if (!records.length) {
+        tableWrap.innerHTML = `<p class="small">No saved records yet.</p>`;
+        return;
+      }
+
+      const rows = records.map(item => `
+        <tr>
+          <td>${item.createdAt}</td>
+          <td>${item.target}</td>
+          <td>${item.recipient || "-"}</td>
+          <td>${item.status}</td>
+          <td>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              <button class="btn-dark" onclick="fillDraft(${item.id})">Load</button>
+              <button class="btn-blue" onclick="updateStatus(${item.id}, 'ready')">Ready</button>
+              <button class="btn-green" onclick="updateStatus(${item.id}, 'sent')">Sent</button>
+              <button class="btn-gold" onclick="updateStatus(${item.id}, 'follow-up')">Follow-Up</button>
+              <button class="btn-red" onclick="deleteRecord(${item.id})">Delete</button>
+            </div>
+          </td>
+        </tr>
+      `).join("");
+
+      tableWrap.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Target</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      `;
+    }
+
+    function fillDraft(id) {
+      const record = getRecords().find(item => item.id === id);
+      if (!record) return;
+      document.getElementById("output").value = record.body;
+      document.getElementById("subjectLine").value = record.subject;
+      document.getElementById("recipientEmail").value = record.recipient;
+      setStatus("Saved draft loaded.");
+    }
+
+    loadSaved();
+  </script>
+</body>
+</html>
