@@ -1,129 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About | SSGPT6</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 | Water & Energy Resilience Platform</title>
+  <meta name="description" content="SSGPT6 research-driven platform for water systems, energy resilience, accessibility, and global infrastructure support." />
+  <style>
+    :root{
+      --bg:#060d18;
+      --panel:#0c1728;
+      --panel-2:#10203a;
+      --text:#e8edf5;
+      --muted:#c8d3e3;
+      --gold:#c7a85a;
+      --blue:#009edb;
+      --line:rgba(255,255,255,0.08);
+      --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
+      --max:1200px;
+    }
 
-<style>
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#060d18;
-color:#e8edf5;
-line-height:1.6;
-}
-.container{
-width:90%;
-max-width:1000px;
-margin:auto;
-padding:40px 0;
-}
-h1,h2{
-color:#c7a85a;
-}
-.section{
-margin-bottom:40px;
-}
-.card{
-background:#0c1728;
-padding:25px;
-border-radius:8px;
-border:1px solid rgba(255,255,255,0.1);
-}
-a{
-color:#009edb;
-text-decoration:none;
-}
-.btn{
-display:inline-block;
-margin-top:20px;
-background:#c7a85a;
-color:#000;
-padding:10px 20px;
-font-weight:bold;
-text-decoration:none;
-}
-</style>
+    *{box-sizing:border-box}
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(6,13,24,0.96);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:16px 0;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      font-size:22px;
+      font-weight:800;
+      color:#fff;
+      letter-spacing:.5px;
+    }
+
+    .rainbow-strip{
+      height:6px;
+      width:100%;
+      background:var(--rainbow);
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      padding:10px 15px;
+      border-radius:5px;
+      font-size:14px;
+      font-weight:700;
+      text-decoration:none;
+      display:inline-block;
+    }
+
+    .nav-about{background:#1a3a5a;color:#fff;}
+    .nav-projects{background:#3a1a5a;color:#fff;}
+    .nav-voice{background:#1a5a3a;color:#fff;}
+    .nav-contact{background:#c7a85a;color:#000;}
+
+    .hero{
+      padding:72px 0 50px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      font-size:18px;
+      font-weight:900;
+      background:var(--rainbow);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      margin-bottom:18px;
+      text-transform:uppercase;
+    }
+
+    .hero h1{
+      font-size:clamp(2.4rem, 7vw, 5rem);
+      line-height:1.08;
+      margin:0 0 18px;
+      color:#f2f6fb;
+      font-weight:900;
+      max-width:900px;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:clamp(1rem, 2.3vw, 1.35rem);
+      max-width:850px;
+      margin:0 0 28px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:10px;
+      font-weight:800;
+      text-decoration:none;
+      border:1px solid transparent;
+      transition:0.2s ease;
+      cursor:pointer;
+    }
+
+    .btn-gold{
+      background:var(--gold);
+      color:#000;
+    }
+
+    .btn-gold:hover{
+      opacity:.92;
+      transform:translateY(-1px);
+    }
+
+    .btn-outline{
+      border-color:rgba(255,255,255,0.15);
+      color:#fff;
+      background:transparent;
+    }
+
+    .btn-outline:hover{
+      border-color:var(--gold);
+      color:var(--gold);
+    }
+
+    .section{
+      padding:56px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section h2{
+      font-size:clamp(1.8rem, 4vw, 3rem);
+      margin:0 0 14px;
+      color:#f3f6fb;
+    }
+
+    .section-intro{
+      color:var(--muted);
+      max-width:900px;
+      margin-bottom:28px;
+      font-size:1.02rem;
+    }
+
+    .video-grid,
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:20px;
+    }
+
+    .video-card,
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+    }
+
+    .video-card h3,
+    .card h3{
+      margin:0 0 12px;
+      color:var(--gold);
+      font-size:1.2rem;
+    }
+
+    .video-card p,
+    .card p{
+      margin:0 0 16px;
+      color:var(--muted);
+    }
+
+    .about-box{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:28px;
+    }
+
+    .about-box p{
+      color:var(--muted);
+      font-size:1.05rem;
+      margin:0 0 18px;
+    }
+
+    .access-panel{
+      background:var(--panel-2);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:28px;
+      text-align:center;
+    }
+
+    .access-panel h2{
+      color:var(--gold);
+      margin-bottom:10px;
+    }
+
+    .access-panel p{
+      color:var(--muted);
+      margin:0 auto 20px;
+      max-width:800px;
+    }
+
+    .voice-controls{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      margin-top:20px;
+    }
+
+    .voice-controls button{
+      padding:14px 18px;
+      border:none;
+      border-radius:10px;
+      font-size:16px;
+      font-weight:800;
+      cursor:pointer;
+      background:var(--gold);
+      color:#000;
+    }
+
+    .voice-controls button.alt{
+      background:#17314a;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .voice-output{
+      margin-top:22px;
+      background:#000;
+      border:1px solid var(--blue);
+      border-radius:8px;
+      min-height:58px;
+      padding:16px;
+      text-align:left;
+      color:#dbe7f6;
+    }
+
+    .contact-box{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:28px;
+    }
+
+    .contact-box p{
+      color:var(--muted);
+      margin:0 0 18px;
+    }
+
+    .contact-box form{
+      display:grid;
+      gap:14px;
+    }
+
+    .contact-box input,
+    .contact-box textarea{
+      width:100%;
+      padding:14px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:#08111e;
+      color:#fff;
+      font:inherit;
+    }
+
+    .contact-box textarea{
+      min-height:140px;
+      resize:vertical;
+    }
+
+    .contact-box button{
+      width:fit-content;
+      padding:14px 22px;
+      border:none;
+      border-radius:10px;
+      background:var(--gold);
+      color:#000;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    footer{
+      text-align:center;
+      padding:34px 20px 50px;
+      color:#a6b5c8;
+      font-size:14px;
+    }
+
+    footer a{
+      color:var(--gold);
+    }
+
+    @media (max-width:700px){
+      .topbar{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .voice-controls{
+        flex-direction:column;
+      }
+
+      .voice-controls button{
+        width:100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <header>
+    <div class="rainbow-strip"></div>
+    <div class="container topbar">
+      <div class="logo">SSGPT6</div>
 
-<h1>About SSGPT6</h1>
+      <nav>
+        <a href="about.html" class="nav-about">About</a>
+        <a href="#projects" class="nav-projects">Projects</a>
+        <a href="#voice" class="nav-voice">Voice AI</a>
+        <a href="contact.html" class="nav-contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="section card">
-<h2>Overview</h2>
-<p>
-SSGPT6 is an AI-assisted platform focused on improving water systems, energy efficiency, and infrastructure resilience through intelligent monitoring and decision-support tools.
-</p>
-<p>
-The platform is designed to help organizations, governments, and communities better understand system performance, reduce inefficiencies, and support long-term sustainability goals.
-</p>
-</div>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">
+        Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Energy
+      </div>
 
-<div class="section card">
-<h2>Mission</h2>
-<p>
-To support the transition toward sustainable water and energy systems by providing intelligent tools that enhance operational awareness, reduce waste, and strengthen infrastructure resilience.
-</p>
-</div>
+      <h1>AI-Driven Water &amp; Energy Resilience Platform</h1>
 
-<div class="section card">
-<h2>Vision</h2>
-<p>
-A future where intelligent systems help ensure clean water access, efficient energy use, and resilient infrastructure for communities worldwide.
-</p>
-</div>
+      <p>
+        Accessible • Intelligent • Global Impact
+      </p>
 
-<div class="section card">
-<h2>What the Platform Does</h2>
-<ul>
-<li>Monitors water and energy systems</li>
-<li>Detects inefficiencies and risks</li>
-<li>Supports decision-making through data insights</li>
-<li>Improves reporting and transparency</li>
-<li>Enhances operational efficiency</li>
-</ul>
-</div>
+      <div class="hero-actions">
+        <a href="governance.html" class="btn btn-gold">Open Digital Governance</a>
+        <a href="projects.html" class="btn btn-outline">View 135 Projects</a>
+      </div>
+    </div>
+  </section>
 
-<div class="section card">
-<h2>Approach</h2>
-<p>
-SSGPT6 uses a layered approach combining local monitoring (Tiny AI), centralized analysis, and structured reporting to provide actionable insights while maintaining human oversight and governance.
-</p>
-</div>
+  <section class="section" id="videos">
+    <div class="container">
+      <h2>Project Visual Overview</h2>
+      <p class="section-intro">
+        Open the project media in a new tab.
+      </p>
 
-<div class="section card">
-<h2>Global Focus Areas</h2>
-<ul>
-<li>Water system efficiency and monitoring</li>
-<li>Infrastructure resilience</li>
-<li>Energy optimization</li>
-<li>Sustainability and environmental impact</li>
-<li>Accessible digital tools for all users</li>
-</ul>
-</div>
+      <div class="video-grid">
+        <div class="video-card">
+          <h3>Video 1</h3>
+          <p>Project visual reference.</p>
+          <a class="btn btn-gold" href="https://photos.app.goo.gl/6TxXRmgivorr6dpH6" target="_blank" rel="noopener noreferrer">▶ Open Video 1</a>
+        </div>
 
-<div class="section card">
-<h2>Accessibility Commitment</h2>
-<p>
-SSGPT6 is designed to be accessible for all users, including seniors and individuals with disabilities, with features such as voice interaction, simple navigation, and user-friendly interfaces.
-</p>
-</div>
+        <div class="video-card">
+          <h3>Video 2</h3>
+          <p>Project visual reference.</p>
+          <a class="btn btn-gold" href="https://photos.app.goo.gl/WJTbguhTGeTpWQtx6" target="_blank" rel="noopener noreferrer">▶ Open Video 2</a>
+        </div>
 
-<div class="section card">
-<h2>Founder</h2>
-<p>
-Arifur Rahman Shanta  
-Founder & CEO, GNAIAAAC LLC
-</p>
-</div>
+        <div class="video-card">
+          <h3>Video 3</h3>
+          <p>Project visual reference.</p>
+          <a class="btn btn-gold" href="https://photos.app.goo.gl/EYpjsMMswSHjS9kv9" target="_blank" rel="noopener noreferrer">▶ Open Video 3</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<a href="index.html" class="btn">← Back to Home</a>
+  <section class="section" id="about-preview">
+    <div class="container">
+      <h2>About SSGPT6</h2>
 
-</div>
+      <div class="about-box">
+        <p>
+          SSGPT6 is a research-driven platform focused on improving water and energy systems through intelligent monitoring, automation, and data-driven decision support.
+        </p>
+        <p>
+          The system is designed to assist governments, organizations, and communities in building more resilient and efficient infrastructure aligned with global sustainability goals.
+        </p>
+        <a href="about.html" class="btn btn-gold">Open About Page</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <h2>135 Project Ecosystem</h2>
+      <p class="section-intro">
+        Explore a structured ecosystem of projects focused on water intelligence, infrastructure optimization, resilience systems, and future-ready digital governance.
+      </p>
+
+      <div class="feature-grid">
+        <div class="card">
+          <h3>Water Systems</h3>
+          <p>Monitoring, sustainability, and resilience-focused project directions.</p>
+        </div>
+        <div class="card">
+          <h3>Energy Systems</h3>
+          <p>Optimization, efficiency, and future infrastructure support models.</p>
+        </div>
+        <div class="card">
+          <h3>Digital Governance</h3>
+          <p>Structured operational systems, reporting, and decision-support pathways.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:22px;">
+        <a href="projects.html" class="btn btn-gold">Open Projects Page</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="voice">
+    <div class="container">
+      <div class="access-panel">
+        <h2>♿ Accessibility Voice Control Panel</h2>
+        <p>
+          Voice + Typing Supported • Accessible for seniors &amp; disabled users
+        </p>
+
+        <div class="voice-controls">
+          <button onclick="startVoice()">♿ 🎤 Start Voice</button>
+          <button class="alt" onclick="stopVoice()">♿ ⏹ Stop</button>
+          <button onclick="speakText()">♿ 🔊 Speak Output</button>
+        </div>
+
+        <div class="voice-output" id="voiceOutput">
+          Ready for voice input.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+
+      <div class="contact-box">
+        <p>
+          Send a message for project inquiries, platform questions, or support.
+        </p>
+
+        <form action="mailto:ssgpt6@aol.com" method="post" enctype="text/plain">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Your Message"></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 GNAIAAAC LLC | SSGPT6 Platform</p>
+    <p>
+      <a href="about.html">About</a> |
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
+
+  <script>
+    let recognition;
+
+    function startVoice() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      if (!SpeechRecognition) {
+        document.getElementById("voiceOutput").innerText =
+          "Voice recognition is not supported in this browser.";
+        return;
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.onresult = function(event) {
+        document.getElementById("voiceOutput").innerText =
+          event.results[0][0].transcript;
+      };
+      recognition.onerror = function() {
+        document.getElementById("voiceOutput").innerText =
+          "Voice recognition could not complete. Please try again.";
+      };
+      recognition.start();
+    }
+
+    function stopVoice() {
+      if (recognition) {
+        recognition.stop();
+      }
+    }
+
+    function speakText() {
+      const text = document.getElementById("voiceOutput").innerText;
+      if (!("speechSynthesis" in window)) {
+        document.getElementById("voiceOutput").innerText =
+          "Speech output is not supported in this browser.";
+        return;
+      }
+      const speech = new SpeechSynthesisUtterance(text);
+      speechSynthesis.cancel();
+      speechSynthesis.speak(speech);
+    }
+  </script>
 
 </body>
 </html>
