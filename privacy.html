@@ -3,309 +3,206 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy | @ssgpt6</title>
-  <meta
-    name="description"
-    content="Privacy Policy for @ssgpt6 Global AI Governance Platform powered by GNAIAAAC LLC."
-  />
+  <title>Privacy Policy | SSGPT6</title>
+  <meta name="description" content="Privacy Policy for SSGPT6 and GNAIAAAC LLC." />
   <style>
-    :root {
-      --bg: #081120;
-      --bg-soft: #0d1b2f;
-      --panel: #12233d;
-      --text: #eef4ff;
-      --muted: #b8c6db;
-      --gold: #d9b34b;
-      --gold-dark: #b68d22;
-      --line: rgba(255,255,255,0.08);
-      --shadow: 0 16px 40px rgba(0,0,0,0.28);
-      --radius: 18px;
-      --max: 980px;
+    :root{
+      --bg:#060d18;
+      --panel:#0c1728;
+      --text:#e8edf5;
+      --muted:#c7d3e3;
+      --gold:#c7a85a;
+      --line:rgba(255,255,255,0.08);
+      --max:1000px;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #081120 0%, #0b1730 100%);
-      color: var(--text);
-      line-height: 1.7;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.7;
     }
-
-    a {
-      color: var(--gold);
-      text-decoration: none;
+    a{color:var(--gold);text-decoration:none}
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
+      padding:40px 0 70px;
     }
-
-    a:hover {
-      text-decoration: underline;
+    .topbar{
+      border-bottom:1px solid var(--line);
+      padding:18px 0;
+      margin-bottom:30px;
     }
-
-    .container {
-      width: min(100% - 32px, var(--max));
-      margin: 0 auto;
+    .brand{
+      font-size:28px;
+      font-weight:800;
+      color:var(--gold);
     }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(8, 17, 32, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
+    .nav{
+      margin-top:10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
     }
-
-    .nav-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 0;
+    .nav a{
+      padding:10px 14px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      color:#fff;
     }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:26px;
+      margin-bottom:22px;
     }
-
-    .logo-box {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, var(--gold), var(--gold-dark));
-      color: #111;
-      font-weight: 800;
-      box-shadow: var(--shadow);
+    h1{
+      margin:0 0 16px;
+      font-size:clamp(2rem, 5vw, 3.2rem);
+      color:var(--gold);
     }
-
-    .brand {
-      margin: 0;
-      font-size: 1.05rem;
+    h2{
+      margin:0 0 12px;
+      font-size:1.35rem;
+      color:var(--gold);
     }
-
-    .brand-sub {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 0.9rem;
+    p, li{
+      color:var(--muted);
+      margin:0 0 12px;
     }
-
-    .nav a {
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .page {
-      padding: 56px 0 80px;
-    }
-
-    .policy-card {
-      background: rgba(18, 35, 61, 0.9);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 32px;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(217, 179, 75, 0.12);
-      color: var(--gold);
-      border: 1px solid rgba(217, 179, 75, 0.25);
-      font-weight: 700;
-      font-size: 0.92rem;
-      margin-bottom: 16px;
-    }
-
-    h1, h2 {
-      line-height: 1.2;
-    }
-
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(2rem, 5vw, 2.8rem);
-    }
-
-    h2 {
-      margin-top: 28px;
-      margin-bottom: 10px;
-      font-size: 1.3rem;
-    }
-
-    p, li {
-      color: var(--muted);
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .top-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-
-    .btn {
-      display: inline-block;
-      border-radius: 12px;
-      padding: 12px 16px;
-      font-weight: 800;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: linear-gradient(145deg, var(--gold), var(--gold-dark));
-      color: #111;
-    }
-
-    .btn-secondary {
-      color: var(--text);
-      border-color: var(--line);
-      background: transparent;
-    }
-
-    .footer {
-      margin-top: 28px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 640px) {
-      .policy-card {
-        padding: 22px;
-      }
-
-      .nav-wrap {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    ul{padding-left:20px;margin:0}
+    footer{
+      text-align:center;
+      color:#9fb0c8;
+      border-top:1px solid var(--line);
+      padding:24px 0 10px;
+      margin-top:20px;
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <div class="logo-wrap">
-        <div class="logo-box">SS</div>
-        <div>
-          <h1 class="brand">@ssgpt6</h1>
-          <p class="brand-sub">Global AI Governance • Powered by GNAIAAAC LLC</p>
-        </div>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">SSGPT6</div>
+      <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms</a>
       </div>
-
-      <nav class="nav">
-        <a href="index.html">Back to Home</a>
-      </nav>
     </div>
-  </header>
 
-  <main class="page">
-    <div class="container">
-      <section class="policy-card">
-        <span class="badge">Privacy Policy</span>
-
-        <div class="top-links">
-          <a class="btn btn-secondary" href="index.html">← Home</a>
-          <a class="btn btn-primary" href="terms.html">View Terms</a>
-        </div>
-
-        <h1>Privacy Policy</h1>
-        <p><strong>Effective Date:</strong> March 21, 2026</p>
-
-        <p>
-          This Privacy Policy explains how @ssgpt6, powered by GNAIAAAC LLC,
-          collects, uses, and protects customer information when using this website
-          or requesting services through it.
-        </p>
-
-        <h2>1. Information We Collect</h2>
-        <p>We may collect the following information:</p>
-        <ul>
-          <li>Name and email address provided by the customer</li>
-          <li>Order details and service request information</li>
-          <li>Payment confirmation information shared by the customer</li>
-          <li>Messages sent through email or support communication</li>
-          <li>Basic website usage information provided by hosting tools</li>
-        </ul>
-
-        <h2>2. How We Use Information</h2>
-        <p>We use collected information to:</p>
-        <ul>
-          <li>Respond to inquiries and support requests</li>
-          <li>Process, review, and fulfill purchased services</li>
-          <li>Communicate about orders, updates, and delivery</li>
-          <li>Improve website clarity, service quality, and customer experience</li>
-          <li>Maintain business and transaction records when necessary</li>
-        </ul>
-
-        <h2>3. Payments</h2>
-        <p>
-          Payments may be processed through third-party providers such as PayPal or Stripe.
-          This website does not store full debit card or credit card details directly on the static site.
-          Customers should review the privacy and security policies of the payment provider they use.
-        </p>
-
-        <h2>4. Information Sharing</h2>
-        <p>
-          We do not sell customer personal information. Information may only be shared when reasonably necessary:
-        </p>
-        <ul>
-          <li>To process payments through third-party payment providers</li>
-          <li>To comply with legal obligations or lawful requests</li>
-          <li>To protect business operations, customer safety, or service integrity</li>
-        </ul>
-
-        <h2>5. Data Security</h2>
-        <p>
-          We take reasonable steps to protect customer information, but no internet system can guarantee
-          complete security. Customers should avoid sending unnecessary sensitive information by email.
-        </p>
-
-        <h2>6. Data Retention</h2>
-        <p>
-          We may retain customer communications, order records, and related business information
-          for recordkeeping, service follow-up, dispute handling, and lawful business purposes.
-        </p>
-
-        <h2>7. Customer Choices</h2>
-        <p>
-          Customers may contact us to ask questions about the information they submitted
-          or to request reasonable corrections to inaccurate contact information.
-        </p>
-
-        <h2>8. Third-Party Links</h2>
-        <p>
-          This website may contain links to third-party services, including payment providers and email links.
-          We are not responsible for the privacy practices of third-party websites.
-        </p>
-
-        <h2>9. Children’s Privacy</h2>
-        <p>
-          This website is not intended for children under 13, and services are not knowingly offered
-          to children without appropriate supervision or legal authorization where required.
-        </p>
-
-        <h2>10. Contact</h2>
-        <p>
-          For privacy-related questions, contact:
-          <a href="mailto:ssgpt6@aol.com">ssgpt6@aol.com</a>
-        </p>
-
-        <div class="footer">
-          © 2026 @ssgpt6 • Powered by GNAIAAAC LLC
-        </div>
-      </section>
+    <div class="card">
+      <h1>Privacy Policy</h1>
+      <p><strong>Effective Date:</strong> March 2026</p>
+      <p>
+        This Privacy Policy explains how SSGPT6 and GNAIAAAC LLC collect, use,
+        store, and protect information submitted through this website.
+      </p>
     </div>
-  </main>
+
+    <div class="card">
+      <h2>1. Information We Collect</h2>
+      <p>We may collect information you choose to provide, including:</p>
+      <ul>
+        <li>name</li>
+        <li>email address</li>
+        <li>phone number, if you choose to provide it</li>
+        <li>messages submitted through forms or contact pathways</li>
+        <li>basic technical data such as browser, device type, and page access logs</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>2. How We Use Information</h2>
+      <p>We may use submitted information to:</p>
+      <ul>
+        <li>respond to inquiries</li>
+        <li>provide service or project information</li>
+        <li>support billing or customer communication</li>
+        <li>improve website usability and accessibility</li>
+        <li>maintain records for support, security, and operations</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>3. Payment Providers</h2>
+      <p>
+        Payments, where available, may be processed by third-party payment
+        providers. We do not state that we store full payment card data on this
+        site. Payment processing is subject to the provider’s own policies and
+        security controls.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4. Phone and Voice Communications</h2>
+      <p>
+        If you choose to provide a phone number or use any voice-related website
+        feature, that information may be logged in the support workflow for
+        communication, follow-up, and service coordination purposes, subject to
+        user permission, platform readiness, and applicable privacy rules.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5. Data Sharing</h2>
+      <p>
+        We do not sell personal information submitted through this website.
+        Information may be shared only when reasonably necessary for support,
+        operations, payment handling, security, legal compliance, or service
+        delivery through trusted providers.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6. Data Storage and Security</h2>
+      <p>
+        We use reasonable efforts to protect submitted information. However, no
+        website or digital transmission can be guaranteed to be perfectly secure.
+        Users should avoid submitting highly sensitive information unless
+        specifically requested through a secure, approved process.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7. Cookies and Basic Technical Data</h2>
+      <p>
+        This website may use standard browser features or hosting-level logs to
+        understand website traffic, improve performance, and maintain security.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8. Third-Party Links</h2>
+      <p>
+        This website may contain links to third-party sites or services. We are
+        not responsible for the privacy practices of those third-party websites.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>9. Your Choices</h2>
+      <p>You may choose not to submit personal information through the website.</p>
+      <p>
+        For privacy-related questions or requests, contact:
+        <a href="mailto:ssgpt6@aol.com">ssgpt6@aol.com</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>10. Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. Updated versions
+        will be posted on this page with a revised effective date.
+      </p>
+    </div>
+
+    <footer>
+      © 2026 GNAIAAAC LLC | SSGPT6 Privacy Policy
+    </footer>
+  </div>
 </body>
 </html>
