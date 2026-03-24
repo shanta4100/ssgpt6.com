@@ -1,188 +1,492 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About SSGPT6</title>
-
+  <meta name="description" content="About SSGPT6 with YouTube video showcase, accessibility controls, and global resilience mission." />
   <style>
-    body {
+    :root{
+      --bg:#060d18;
+      --panel:#0c1728;
+      --panel2:#10203a;
+      --text:#eef3fb;
+      --muted:#c8d3e3;
+      --gold:#c7a85a;
+      --blue:#009edb;
+      --line:rgba(255,255,255,0.08);
+      --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
       margin:0;
       font-family:Arial, Helvetica, sans-serif;
-      background:#060d18;
-      color:white;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
     }
 
-    header {
-      background:#0c1728;
-      padding:15px;
-      text-align:center;
-    }
-
-    h1 {
-      color:gold;
-    }
-
-    .rainbow {
-      font-weight:bold;
-      background: linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      font-size:18px;
-    }
-
-    .container {
-      padding:30px;
-      max-width:1000px;
-      margin:auto;
-    }
-
-    .video-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:20px;
-      margin-top:30px;
-    }
-
-    iframe {
-      width:100%;
-      height:300px;
-      border-radius:10px;
-    }
-
-    .voice-box {
-      margin-top:40px;
-      text-align:center;
-    }
-
-    .voice-btn {
-      background:gold;
-      color:black;
-      padding:12px 20px;
-      margin:5px;
-      border:none;
-      border-radius:8px;
-      font-weight:bold;
-      cursor:pointer;
-    }
-
-    .voice-output {
-      margin-top:15px;
-      padding:15px;
-      background:black;
-      border:1px solid #009edb;
-      border-radius:8px;
-      min-height:50px;
-    }
-
-    footer {
-      text-align:center;
-      padding:20px;
-      border-top:1px solid gold;
-      margin-top:40px;
-    }
-
-    a {
-      color:gold;
+    a{
+      color:inherit;
       text-decoration:none;
     }
 
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
+    }
+
+    header{
+      background:#0c1728;
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:999;
+      backdrop-filter:blur(8px);
+    }
+
+    .strip{
+      height:6px;
+      background:var(--rainbow);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+      padding:16px 0;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:900;
+      color:var(--gold);
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      padding:10px 14px;
+      border-radius:6px;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .nav-home{background:#1a3a5a;color:#fff}
+    .nav-projects{background:#3a1a5a;color:#fff}
+    .nav-contact{background:#1a5a3a;color:#fff}
+    .nav-gov{background:var(--gold);color:#000}
+
+    .hero{
+      padding:56px 0 34px;
+      text-align:center;
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero h1{
+      margin:0 0 12px;
+      font-size:clamp(2.2rem, 6vw, 4.2rem);
+      color:var(--gold);
+      font-weight:900;
+    }
+
+    .rainbow{
+      font-weight:900;
+      background:var(--rainbow);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      font-size:clamp(1rem, 2.3vw, 1.35rem);
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .hero p{
+      margin:0 auto;
+      max-width:850px;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:22px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 20px;
+      border-radius:10px;
+      font-weight:800;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:0.2s ease;
+    }
+
+    .btn-gold{
+      background:var(--gold);
+      color:#000;
+    }
+
+    .btn-gold:hover{
+      opacity:.92;
+      transform:translateY(-1px);
+    }
+
+    .btn-outline{
+      background:transparent;
+      color:#fff;
+      border-color:rgba(255,255,255,0.15);
+    }
+
+    .btn-outline:hover{
+      color:var(--gold);
+      border-color:var(--gold);
+    }
+
+    .section{
+      padding:46px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section h2{
+      color:var(--gold);
+      margin:0 0 12px;
+      font-size:clamp(1.6rem, 4vw, 2.5rem);
+    }
+
+    .section p{
+      color:var(--muted);
+      margin:0 0 16px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:24px;
+    }
+
+    .video-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:20px;
+      margin-top:24px;
+    }
+
+    .video-card{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      padding:16px;
+    }
+
+    .video-card h3{
+      margin:0 0 8px;
+      color:var(--gold);
+      font-size:1.08rem;
+    }
+
+    .video-card p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:.95rem;
+      min-height:40px;
+    }
+
+    .video-wrap{
+      width:100%;
+      border-radius:10px;
+      overflow:hidden;
+      background:#000;
+      border:1px solid rgba(255,255,255,0.06);
+    }
+
+    .video-wrap iframe{
+      width:100%;
+      display:block;
+      border:0;
+      height:560px;
+    }
+
+    .video-wrap.landscape iframe{
+      height:315px;
+    }
+
+    .voice-box{
+      margin-top:10px;
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:24px;
+      text-align:center;
+    }
+
+    .voice-controls{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+
+    .voice-controls button{
+      background:var(--gold);
+      color:#000;
+      padding:14px 18px;
+      border:none;
+      border-radius:10px;
+      font-size:16px;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .voice-controls button.alt{
+      background:#17314a;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .voice-output{
+      margin-top:18px;
+      padding:16px;
+      background:#000;
+      border:1px solid var(--blue);
+      border-radius:8px;
+      min-height:58px;
+      text-align:left;
+      color:#dbe7f6;
+    }
+
+    footer{
+      text-align:center;
+      padding:28px 20px 46px;
+      color:#9fb0c8;
+      font-size:14px;
+    }
+
+    footer a{
+      color:var(--gold);
+    }
+
+    @media (max-width:700px){
+      .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .hero-actions,
+      .voice-controls{
+        flex-direction:column;
+      }
+
+      .btn,
+      .voice-controls button{
+        width:100%;
+      }
+
+      .video-wrap iframe{
+        height:420px;
+      }
+
+      .video-wrap.landscape iframe{
+        height:220px;
+      }
+    }
   </style>
 </head>
-
 <body>
 
-<header>
-  <h1>About SSGPT6</h1>
-  <div class="rainbow">
-    Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Energy
-  </div>
-</header>
-
-<div class="container">
-
-  <h2>🌍 Mission</h2>
-  <p>
-    SSGPT6 is a global AI-powered platform focused on water security, sustainability,
-    automation, and future infrastructure systems designed to support human wellbeing.
-  </p>
-
-  <h2>🎬 Video Showcase</h2>
-
-  <div class="video-grid">
-
-    <!-- VIDEO 1 -->
-    <iframe src="https://www.youtube.com/embed/kTnVihXppg0" allowfullscreen></iframe>
-
-    <!-- VIDEO 2 -->
-    <iframe src="https://www.youtube.com/embed/fYOYlTrtOlI" allowfullscreen></iframe>
-
-    <!-- VIDEO 3 -->
-    <iframe src="https://www.youtube.com/embed/U30D_Yv3IU8" allowfullscreen></iframe>
-
-    <!-- VIDEO 4 -->
-    <iframe src="https://www.youtube.com/embed/gk6gNgq-r2Y" allowfullscreen></iframe>
-
-  </div>
-
-  <!-- ACCESSIBILITY -->
-  <div class="voice-box">
-    <h2>♿ Accessibility Control</h2>
-
-    <button class="voice-btn" onclick="startVoice()">🎤 Start Voice</button>
-    <button class="voice-btn" onclick="stopVoice()">⏹ Stop</button>
-    <button class="voice-btn" onclick="speakText()">🔊 Speak</button>
-
-    <div class="voice-output" id="output">
-      Voice system ready...
+  <header>
+    <div class="strip"></div>
+    <div class="container topbar">
+      <div class="logo">About SSGPT6</div>
+      <nav>
+        <a class="nav-home" href="index.html">Home</a>
+        <a class="nav-projects" href="projects.html">Projects</a>
+        <a class="nav-contact" href="contact.html">Contact</a>
+        <a class="nav-gov" href="governance.html">Governance</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-</div>
+  <section class="hero">
+    <div class="container">
+      <h1>About SSGPT6</h1>
+      <div class="rainbow">Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Energy</div>
+      <p>
+        SSGPT6 is a structured digital platform focused on water resilience, infrastructure intelligence,
+        accessibility-aware communication, and future-ready governance systems.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="governance.html">Open Digital Governance</a>
+        <a class="btn btn-outline" href="projects.html">View 135 Projects</a>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <p>
-    <a href="index.html">Home</a> |
-    <a href="contact.html">Contact</a> |
-    <a href="privacy.html">Privacy</a> |
-    <a href="terms.html">Terms</a>
-  </p>
-</footer>
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <h2>Mission</h2>
+        <p>
+          SSGPT6 is a global AI-supported platform focused on water security, sustainability,
+          automation, and future infrastructure systems designed to support human wellbeing.
+        </p>
+        <p>
+          The platform is intended to help organizations, governments, and communities better understand
+          system performance, reduce inefficiencies, and support resilient planning.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<script>
-let recognition;
+  <section class="section">
+    <div class="container">
+      <h2>🎬 SSGPT6 Video Center</h2>
+      <p>
+        These videos play only when clicked. They do not autoplay and do not move forward by themselves.
+      </p>
 
-function startVoice(){
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      <div class="video-grid">
 
-  if(!SpeechRecognition){
-    document.getElementById("output").innerText = "Voice not supported on this device";
-    return;
-  }
+        <div class="video-card">
+          <h3>Video 1</h3>
+          <p>SSGPT6 YouTube Shorts presentation.</p>
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/kTnVihXppg0?rel=0&modestbranding=1&controls=1&autoplay=0&loop=0&playlist=kTnVihXppg0"
+              title="SSGPT6 Video 1"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
 
-  recognition = new SpeechRecognition();
-  recognition.lang = "en-US";
+        <div class="video-card">
+          <h3>Video 2</h3>
+          <p>SSGPT6 YouTube Shorts presentation.</p>
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/fYOYlTrtOlI?rel=0&modestbranding=1&controls=1&autoplay=0&loop=0&playlist=fYOYlTrtOlI"
+              title="SSGPT6 Video 2"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
 
-  recognition.onresult = function(event){
-    document.getElementById("output").innerText = event.results[0][0].transcript;
-  };
+        <div class="video-card">
+          <h3>Video 3</h3>
+          <p>SSGPT6 YouTube video presentation.</p>
+          <div class="video-wrap landscape">
+            <iframe
+              src="https://www.youtube.com/embed/U30D_Yv3IU8?rel=0&modestbranding=1&controls=1&autoplay=0&loop=0&playlist=U30D_Yv3IU8"
+              title="SSGPT6 Video 3"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
 
-  recognition.start();
-}
+        <div class="video-card">
+          <h3>Video 4</h3>
+          <p>SSGPT6 YouTube Shorts presentation.</p>
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/gk6gNgq-r2Y?rel=0&modestbranding=1&controls=1&autoplay=0&loop=0&playlist=gk6gNgq-r2Y"
+              title="SSGPT6 Video 4"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
 
-function stopVoice(){
-  if(recognition){
-    recognition.stop();
-  }
-}
+      </div>
+    </div>
+  </section>
 
-function speakText(){
-  const msg = new SpeechSynthesisUtterance(
-    "Welcome to SSGPT6 platform. Global water, energy, and AI automation solutions."
-  );
-  speechSynthesis.speak(msg);
-}
-</script>
+  <section class="section">
+    <div class="container">
+      <div class="voice-box">
+        <h2>♿ Accessibility Control</h2>
+        <p>Voice + Typing Supported • Accessible for seniors & disabled users</p>
+
+        <div class="voice-controls">
+          <button onclick="startVoice()">♿ 🎤 Start Voice</button>
+          <button class="alt" onclick="stopVoice()">♿ ⏹ Stop</button>
+          <button onclick="speakText()">♿ 🔊 Speak</button>
+        </div>
+
+        <div class="voice-output" id="output">
+          Voice system ready...
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="terms.html">Terms</a>
+    </p>
+  </footer>
+
+  <script>
+    let recognition;
+
+    function startVoice(){
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      if(!SpeechRecognition){
+        document.getElementById("output").innerText = "Voice not supported on this device";
+        return;
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.lang = "en-US";
+
+      recognition.onresult = function(event){
+        document.getElementById("output").innerText = event.results[0][0].transcript;
+      };
+
+      recognition.start();
+    }
+
+    function stopVoice(){
+      if(recognition){
+        recognition.stop();
+      }
+    }
+
+    function speakText(){
+      const msg = new SpeechSynthesisUtterance(
+        "Welcome to SSGPT6 platform. Global water, energy, and AI automation solutions."
+      );
+      speechSynthesis.cancel();
+      speechSynthesis.speak(msg);
+    }
+  </script>
 
 </body>
 </html>
