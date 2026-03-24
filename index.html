@@ -1,493 +1,819 @@
+Use this as your full index.html.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SSGPT6 | Global Pure Water & AI Governance</title>
-  <meta name="description" content="SSGPT6 platform for global pure water, water bankruptcy solutions, zero carbon energy, governance, services, and project systems." />
-  <link rel="icon" href="logo.png" />
-  <link rel="apple-touch-icon" href="logo.png" />
-
+  <title>SSGPT6 | SaaS Platform</title>
+  <meta
+    name="description"
+    content="SSGPT6 SaaS platform by GNAIAAAC LLC for private AI systems, automated service workflows, research, media, learning, travel, gameplay, and project environments."
+  />
+  <link rel="icon" href="public/logo.png" />
+  <link rel="apple-touch-icon" href="public/logo.png" />
   <style>
     :root{
-      --bg:#060d18;
-      --panel:#0c1728;
-      --panel2:#10203a;
-      --text:#eef3fb;
-      --muted:#c8d3e3;
-      --gold:#c7a85a;
-      --blue:#009edb;
-      --green:#1a5a3a;
+      --bg:#040b16;
+      --panel:#0b1730;
+      --panel2:#112247;
+      --panel3:#07111f;
+      --text:#eef4ff;
+      --muted:#bfd0f3;
+      --gold:#d4b15a;
       --line:rgba(255,255,255,0.08);
-      --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
+      --blue:#00a8ff;
+      --green:#56f7a7;
+      --purple:#9c6bff;
+      --pink:#ff4fd8;
+      --orange:#ffb347;
+      --rainbow:linear-gradient(90deg,#00b7ff,#00ffd5,#7dff65,#ffd84d,#ff914d,#ff4fa3,#9b6bff);
+      --shadow:0 12px 40px rgba(0,0,0,0.35);
+      --radius:20px;
+      --max:1280px;
     }
 
-    *{
-      box-sizing:border-box;
-    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
 
     body{
       margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:var(--bg);
+      font-family:Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(0,168,255,0.10), transparent 24%),
+        radial-gradient(circle at right, rgba(156,107,255,0.12), transparent 25%),
+        linear-gradient(180deg,#020712 0%, #061124 46%, #040b16 100%);
       color:var(--text);
       line-height:1.6;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+
+    .top-strip{
+      height:7px;
+      background:var(--rainbow);
+    }
+
+    .container{
+      width:min(94%, var(--max));
+      margin:0 auto;
     }
 
     header{
       position:sticky;
       top:0;
       z-index:999;
-      background:#060d18;
+      backdrop-filter:blur(14px);
+      background:rgba(4,11,22,0.88);
       border-bottom:1px solid var(--line);
-      backdrop-filter:blur(10px);
     }
 
-    .strip{
-      height:6px;
-      background:var(--rainbow);
-    }
-
-    .container{
-      width:92%;
-      max-width:1200px;
-      margin:auto;
-    }
-
-    .topnav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      padding:15px 0;
-      flex-wrap:wrap;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-    }
-
-    .brand img{
-      height:54px;
-      width:auto;
-      display:block;
-      border-radius:8px;
-      background:#fff;
-      object-fit:contain;
-    }
-
-    .brand-text{
-      display:flex;
-      flex-direction:column;
-      line-height:1.1;
-    }
-
-    .brand-text strong{
-      color:var(--gold);
-      font-size:24px;
-    }
-
-    .brand-text span{
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    nav{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    nav a{
-      padding:10px 14px;
-      border-radius:6px;
-      font-weight:bold;
-      color:white;
-      font-size:14px;
-    }
-
-    .nav-home{background:#1a3a5a}
-    .nav-about{background:#3a1a5a}
-    .nav-services{background:#21405f}
-    .nav-projects{background:#1a5a3a}
-    .nav-pricing{background:#8a5b15}
-    .nav-contact{background:#0b5a3a}
-    .nav-support{background:#004d40}
-    .nav-gov{background:var(--gold);color:black}
-
-    .hero{
-      text-align:center;
-      padding:64px 20px 56px;
-    }
-
-    .hero h1{
-      font-size:clamp(2.3rem, 6vw, 4rem);
-      margin:0 0 14px;
-      color:var(--gold);
-    }
-
-    .rainbow{
-      font-weight:bold;
-      font-size:clamp(1rem, 2.2vw, 1.35rem);
-      background:var(--rainbow);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      margin-bottom:16px;
-    }
-
-    .hero p{
-      margin:10px auto;
-      max-width:900px;
-      color:var(--muted);
-      font-size:1.05rem;
-    }
-
-    .hero-buttons{
-      margin-top:24px;
+    .header-inner{
+      padding:14px 0;
       display:flex;
       justify-content:center;
-      gap:14px;
-      flex-wrap:wrap;
+      align-items:center;
     }
 
-    .btn-main{
-      display:inline-block;
-      padding:14px 20px;
-      border-radius:10px;
-      background:var(--gold);
-      color:#000;
-      font-weight:bold;
+    .hero{
+      padding:44px 0 34px;
+      text-align:center;
+      border-bottom:1px solid var(--line);
     }
 
-    .btn-alt{
-      display:inline-block;
-      padding:14px 20px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.15);
-      color:#fff;
-      font-weight:bold;
-      background:transparent;
+    .hero-logo{
+      width:min(320px, 72vw);
+      margin:0 auto 22px;
+      border-radius:28px;
+      box-shadow:0 22px 60px rgba(0,0,0,0.42);
+      background:#000;
+      padding:8px;
     }
 
-    .section{
-      padding:50px 20px;
-      border-top:1px solid var(--line);
+    .brand-title{
+      margin:0;
+      font-size:clamp(2.1rem, 6vw, 4.2rem);
+      font-weight:900;
+      color:#ffffff;
+      text-transform:uppercase;
+      letter-spacing:0.8px;
     }
 
-    .section h2{
-      margin:0 0 20px;
-      font-size:clamp(1.6rem, 4vw, 2.5rem);
-      color:#fff;
+    .brand-company{
+      margin:10px 0 0;
+      font-size:clamp(1rem, 3.2vw, 1.8rem);
+      font-weight:900;
+      background:var(--rainbow);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-transform:uppercase;
+      letter-spacing:1px;
     }
 
-    .section-intro{
+    .hero-kicker{
+      margin:22px auto 14px;
+      max-width:980px;
+      font-size:clamp(1.05rem, 3.3vw, 1.45rem);
+      font-weight:900;
+      color:var(--gold);
+    }
+
+    .hero-subtitle{
+      margin:0 auto 18px;
+      max-width:980px;
       color:var(--muted);
-      max-width:900px;
-      margin-bottom:28px;
+      font-size:clamp(1rem, 3vw, 1.25rem);
+    }
+
+    .hero-note{
+      margin:0 auto 28px;
+      max-width:980px;
+      color:#d8e6ff;
+      font-size:1rem;
+    }
+
+    .access-bar{
+      margin:0 auto 30px;
+      max-width:1080px;
+      background:linear-gradient(180deg, rgba(17,34,71,0.95), rgba(11,23,48,0.95));
+      border:1px solid rgba(212,177,90,0.22);
+      border-radius:24px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .access-bar h2{
+      margin:0 0 8px;
+      font-size:clamp(1.4rem, 4vw, 2rem);
+      color:#fff;
+    }
+
+    .access-bar p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .voice-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      margin-bottom:18px;
+    }
+
+    .vbtn{
+      border:none;
+      border-radius:14px;
+      padding:14px 18px;
+      min-width:150px;
+      font-size:1rem;
+      font-weight:800;
+      cursor:pointer;
+      color:#04101f;
+      background:var(--gold);
+      box-shadow:0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    .vbtn.secondary{background:#e8efff}
+    .vbtn.blue{background:#8fd6ff}
+    .vbtn.green{background:#98f0c2}
+    .vbtn.black{background:#000;color:#fff;border:1px solid rgba(255,255,255,0.12)}
+
+    .voice-output{
+      background:#07111f;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      padding:16px;
+      text-align:left;
+      min-height:72px;
+      color:#f4f8ff;
+      font-size:1rem;
+    }
+
+    .nav-wrap{
+      padding:28px 0 10px;
+    }
+
+    .nav-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+      gap:14px;
+    }
+
+    .nav-btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:74px;
+      padding:14px;
+      border-radius:18px;
+      font-weight:900;
+      text-align:center;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:var(--shadow);
+      transition:transform 0.2s ease;
+      cursor:pointer;
+    }
+
+    .nav-btn:hover{transform:translateY(-2px)}
+    .c1{background:linear-gradient(135deg,#183b74,#254f9e)}
+    .c2{background:linear-gradient(135deg,#5d2d91,#8146c7)}
+    .c3{background:linear-gradient(135deg,#0e7f78,#16a59c)}
+    .c4{background:linear-gradient(135deg,#8f5d11,#d19a27)}
+    .c5{background:linear-gradient(135deg,#93325a,#cc4f8a)}
+    .c6{background:linear-gradient(135deg,#1b6d32,#36a558)}
+    .c7{background:linear-gradient(135deg,#8a2f2f,#cb5050)}
+    .c8{background:linear-gradient(135deg,#21406c,#00a8ff)}
+    .c9{background:linear-gradient(135deg,#000,#1a1a1a)}
+
+    section{
+      padding:34px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section-title{
+      margin:0 0 12px;
+      font-size:clamp(1.5rem, 4vw, 2.4rem);
+      color:#fff;
+      text-align:center;
+    }
+
+    .section-lead{
+      max-width:980px;
+      margin:0 auto 24px;
+      text-align:center;
+      color:var(--muted);
+      font-size:1rem;
     }
 
     .grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-      gap:20px;
+      grid-template-columns:repeat(auto-fit, minmax(270px, 1fr));
+      gap:18px;
     }
 
     .card{
-      background:var(--panel);
-      padding:20px;
-      border-radius:12px;
+      background:linear-gradient(180deg, rgba(13,24,48,0.96), rgba(9,18,37,0.96));
       border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
     }
 
     .card h3{
+      margin:0 0 12px;
       color:var(--gold);
-      margin-top:0;
+      font-size:1.22rem;
     }
 
     .card p{
+      margin:0 0 14px;
+      color:#dfe8fb;
+      font-size:0.98rem;
+    }
+
+    .small{
       color:var(--muted);
+      font-size:0.92rem;
+    }
+
+    .btn-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
     }
 
     .btn{
-      display:inline-block;
-      margin-top:10px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       padding:12px 16px;
-      border-radius:8px;
-      background:var(--gold);
-      color:black;
-      font-weight:bold;
-    }
-
-    .video-container{
-      position:relative;
-      padding-bottom:56.25%;
-      height:0;
-      overflow:hidden;
       border-radius:12px;
-      border:1px solid var(--line);
-      background:#000;
-    }
-
-    .video-container iframe{
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-    }
-
-    .voice{
+      font-weight:800;
       text-align:center;
-      padding:40px 20px;
-      background:var(--panel2);
-      border-top:1px solid var(--line);
-    }
-
-    .voice button{
-      margin:10px;
-      padding:12px 20px;
-      border:none;
-      border-radius:8px;
-      font-weight:bold;
+      color:#08101c;
       background:var(--gold);
-      color:#000;
+      min-height:48px;
+      border:none;
       cursor:pointer;
     }
 
-    #voiceOutput{
-      margin:20px auto 0;
-      max-width:900px;
+    .btn.outline{
+      background:transparent;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.15);
+    }
+
+    .btn.dark{
       background:#000;
-      padding:14px;
-      border-radius:10px;
-      border:1px solid var(--blue);
-      min-height:56px;
-      color:#dbe7f6;
-      text-align:left;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.12);
+    }
+
+    .status-bar{
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:14px;
+      background:#06101d;
+      border:1px solid rgba(255,255,255,0.08);
+      color:#dce8ff;
+      font-size:0.96rem;
+    }
+
+    .support-box{
+      max-width:980px;
+      margin:0 auto;
+      background:linear-gradient(180deg, rgba(13,24,48,0.96), rgba(9,18,37,0.96));
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .support-box h3{
+      margin:0 0 10px;
+      color:var(--gold);
+      font-size:1.5rem;
+      text-align:center;
+    }
+
+    .support-box p{
+      color:var(--muted);
+      text-align:center;
+      margin:0 0 20px;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+      gap:14px;
+      margin-bottom:14px;
+    }
+
+    input, select, textarea{
+      width:100%;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.10);
+      background:var(--panel3);
+      color:#fff;
+      font:inherit;
+    }
+
+    textarea{
+      min-height:130px;
+      resize:vertical;
     }
 
     footer{
+      padding:30px 0 44px;
       text-align:center;
-      padding:30px 20px 50px;
-      color:#aaa;
-      border-top:1px solid var(--line);
+      color:#c3d2ef;
+      font-size:0.94rem;
     }
 
-    footer p{
-      margin:10px 0;
-    }
+    footer a{color:var(--gold)}
 
-    footer a{
-      color:var(--gold);
-    }
-
-    @media (max-width: 768px){
-      .topnav{
-        align-items:flex-start;
-      }
-
-      .brand{
-        width:100%;
-      }
-
-      .brand img{
-        height:46px;
-      }
-
-      nav{
-        width:100%;
-      }
-
-      nav a{
-        font-size:13px;
-      }
+    @media (max-width:720px){
+      .vbtn{width:100%}
+      .voice-buttons{flex-direction:column}
     }
   </style>
 </head>
-
 <body>
+  <div class="top-strip"></div>
 
   <header>
-    <div class="strip"></div>
-    <div class="container topnav">
-
-      <div class="brand">
-        <img src="logo.png" alt="SSGPT6 Logo">
-        <div class="brand-text">
-          <strong>SSGPT6</strong>
-          <span>GNAIAAAC LLC</span>
-        </div>
-      </div>
-
-      <nav>
-        <a class="nav-home" href="index.html">Home</a>
-        <a class="nav-about" href="about.html">About</a>
-        <a class="nav-services" href="services.html">Services</a>
-        <a class="nav-projects" href="projects.html">Projects</a>
-        <a class="nav-pricing" href="pricing.html">Pricing</a>
-        <a class="nav-contact" href="contact.html">Contact</a>
-        <a class="nav-support" href="support-center.html">Support</a>
-        <a class="nav-gov" href="governance.html">Governance</a>
-      </nav>
-
+    <div class="container header-inner">
+      <strong style="font-size:1rem;color:#ffffff;letter-spacing:.6px;">SSGPT6 SaaS Platform</strong>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <h1>SSGPT6 Platform</h1>
-      <p class="rainbow">
-        Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Energy
-      </p>
-      <p>
-        AI-driven governance, service pathways, accessibility support, structured projects, and resilient infrastructure direction.
-      </p>
-      <div class="hero-buttons">
-        <a href="governance.html" class="btn-main">Open Digital Governance</a>
-        <a href="projects.html" class="btn-alt">View 135 Projects</a>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <img src="public/logo.png" alt="SSGPT6 Logo" class="hero-logo" />
+
+        <h1 class="brand-title">SSGPT6</h1>
+        <div class="brand-company">GNAIAAAC LLC</div>
+
+        <div class="hero-kicker">
+          AI SaaS Website • Automated Service Platform
+        </div>
+
+        <p class="hero-subtitle">
+          AI &amp; Tiny AI Sleeping Agent Magical Miracle Black Box Possible Solution System
+        </p>
+
+        <p class="hero-note">
+          Private-access service platform for automated workflows, research environments, SaaS interfaces, machine-learning support, deep-core neural management software, and restricted internal-use systems.
+        </p>
+
+        <div class="access-bar">
+          <h2>♿ Voice + Typing Support</h2>
+          <p>Accessible for seniors &amp; disabled users</p>
+
+          <div class="voice-buttons">
+            <button class="vbtn" onclick="startVoice()">🎤 Start</button>
+            <button class="vbtn secondary" onclick="stopVoice()">⏹ Stop</button>
+            <button class="vbtn blue" onclick="speakIntro()">🔊 Speak</button>
+            <button class="vbtn green" onclick="runSystem()">▶ Run</button>
+            <button class="vbtn secondary" onclick="pauseSystem()">⏸ Pause</button>
+            <button class="vbtn secondary" onclick="rewindSystem()">⏪ Rewind</button>
+            <button class="vbtn black" onclick="document.getElementById('support').scrollIntoView({behavior:'smooth'})">Support</button>
+          </div>
+
+          <div id="voiceOutput" class="voice-output">
+            Voice status: ready. Commands supported: start, stop, speak, run, pause, rewind, support, generate, chat, gameplay, travel, marketing, academy, research, projects.
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <div class="container">
-      <h2>Core System</h2>
-      <p class="section-intro">
-        SSGPT6 combines governance, service structure, project organization, accessibility-aware tools, and resilient systems thinking into one connected platform.
-      </p>
-
-      <div class="grid">
-
-        <div class="card">
-          <h3>🌍 Global Pure Water</h3>
-          <p>AI-driven water intelligence and sustainability systems.</p>
-          <a href="projects.html" class="btn">View Projects</a>
+    <section class="nav-wrap">
+      <div class="container">
+        <div class="nav-grid">
+          <button class="nav-btn c4" onclick="openSection('generate')">Generate</button>
+          <button class="nav-btn c2" onclick="openSection('chatssgpt6')">ChatSSGPT6</button>
+          <button class="nav-btn c1" onclick="openSection('gameplay')">Gameplay</button>
+          <button class="nav-btn c3" onclick="openSection('travel')">Travel &amp; Tourism</button>
+          <button class="nav-btn c5" onclick="openSection('marketing')">Marketing &amp; Advertising</button>
+          <button class="nav-btn c6" onclick="openSection('academy')">Learning Academy</button>
+          <button class="nav-btn c7" onclick="openSection('research')">Research</button>
+          <button class="nav-btn c8" onclick="openSection('projects')">More Projects</button>
+          <button class="nav-btn c9" onclick="openSection('support')">Support</button>
         </div>
-
-        <div class="card">
-          <h3>💧 Water Bankruptcy</h3>
-          <p>Economic and governance solutions for water crisis management.</p>
-          <a href="governance.html" class="btn">Open Governance</a>
-        </div>
-
-        <div class="card">
-          <h3>⚡ Zero Carbon Energy</h3>
-          <p>Clean energy systems powered by AI optimization.</p>
-          <a href="services.html" class="btn">View Services</a>
-        </div>
-
-        <div class="card">
-          <h3>🤖 AI Sleeping Agent</h3>
-          <p>Automated monitoring, recovery, and submission workflow support.</p>
-          <a href="submission-engine.html" class="btn">Activate</a>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <div class="container">
-      <h2>Video Overview</h2>
-      <p class="section-intro">
-        Watch featured platform videos directly from YouTube.
-      </p>
+    <section id="generate">
+      <div class="container">
+        <h2 class="section-title">Generate</h2>
+        <p class="section-lead">
+          SaaS control area for automated service generation, workflow activation, machine-learning routing, and internal project processing.
+        </p>
 
-      <div class="grid">
+        <div class="grid">
+          <div class="card">
+            <h3>Automated Service Generator</h3>
+            <p>
+              Generates structured service workflows for internal systems, SaaS modules, private tools, and controlled client-facing operations.
+            </p>
+            <div class="btn-row">
+              <button class="btn" onclick="setStatus('Automated Service Generator opened.')">Open Generator</button>
+              <button class="btn outline" onclick="setStatus('Service generation workflow prepared.')">Prepare Workflow</button>
+            </div>
+          </div>
 
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/kTnVihXppg0"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+          <div class="card">
+            <h3>Deep Core Neural Engine</h3>
+            <p>
+              Internal management layer for advanced logic routing, neural coordination, system orchestration, and private SaaS automation.
+            </p>
+            <div class="btn-row">
+              <button class="btn" onclick="setStatus('Deep Core Neural Engine opened.')">Open Engine</button>
+              <button class="btn outline" onclick="setStatus('Neural orchestration mode prepared.')">Initialize</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Machine Learning Algorithms</h3>
+            <p>
+              Controlled algorithm area for model-assisted task routing, prediction support, workflow classification, and restricted internal services.
+            </p>
+            <div class="btn-row">
+              <button class="btn" onclick="setStatus('Machine Learning Algorithms opened.')">Open ML</button>
+              <button class="btn outline" onclick="setStatus('Model workflow queued.')">Queue Job</button>
+            </div>
+          </div>
         </div>
 
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/fYOYlTrtOlI"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+        <div id="statusBar" class="status-bar">
+          System status: SaaS interface ready. No payment system is active on this page.
         </div>
-
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/U30D_Yv3IU8"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/gk6gNgq-r2Y"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="voice">
-    <h2>♿ Voice + Typing Support</h2>
-    <p>Accessible for seniors & disabled users</p>
+    <section id="chatssgpt6">
+      <div class="container">
+        <h2 class="section-title">ChatSSGPT6</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Private AI Chat Interface</h3>
+            <p>
+              Controlled conversational interface for internal workflows, restricted tools, support operations, and project coordination.
+            </p>
+            <div class="btn-row">
+              <button class="btn" onclick="setStatus('ChatSSGPT6 opened.')">Open Chat</button>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Restricted Service Access</h3>
+            <p>
+              Not all services are public. Access may be limited to approved internal operations, private tools, or designated service pathways.
+            </p>
+            <div class="btn-row">
+              <button class="btn dark" onclick="setStatus('Restricted access pathway displayed.')">Restricted Access</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <button onclick="startVoice()">🎤 Start</button>
-    <button onclick="stopVoice()">⏹ Stop</button>
-    <button onclick="speak()">🔊 Speak</button>
+    <section id="gameplay">
+      <div class="container">
+        <h2 class="section-title">Gameplay</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Interactive Gameplay Systems</h3>
+            <p>
+              Gameplay environments, simulations, interactive logic modules, and future playable SaaS experiences.
+            </p>
+            <div class="btn-row">
+              <button class="btn" onclick="setStatus('Gameplay section opened.')">Open Gameplay</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div id="voiceOutput">Ready for voice input.</div>
-  </section>
+    <section id="travel">
+      <div class="container">
+        <h2 class="section-title">Travel &amp; Tourism</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Travel Systems</h3>
+            <p>
+              Travel, tourism, route intelligence, future partner integrations, and destination support modules.
+            </p>
+            <div class="btn-row">
+              <button class="btn" onclick="setStatus('Travel & Tourism section opened.')">Open Travel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="marketing">
+      <div class="container">
+        <h2 class="section-title">Marketing &amp; Advertising</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Campaign &amp; Promotion Tools</h3>
+            <p>
+              SaaS-based campaign planning, marketing automation, ad support, promotion workflows, and service visibility systems.
+            </p>
+            <div class="btn-row">
+              <button class="btn" onclick="setStatus('Marketing & Advertising section opened.')">Open Marketing</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="academy">
+      <div class="container">
+        <h2 class="section-title">Learning Academy</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Learning Systems</h3>
+            <p>
+              Education delivery, skill-building modules, training support, guided learning, and accessible instructional systems.
+            </p>
+            <div class="btn-row">
+              <button class="btn" onclick="setStatus('Learning Academy section opened.')">Open Academy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <h2 class="section-title">Research</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Research Control Center</h3>
+            <p>
+              Research services, concept development, structured inquiry, technical review, and private project documentation.
+            </p>
+            <div class="btn-row">
+              <button class="btn" onclick="setStatus('Research section opened.')">Open Research</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">More Projects</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Automated Project Serving System</h3>
+            <p>
+              Internal project-serving architecture for automatically generated services, controlled modules, and restricted-use software systems.
+            </p>
+            <div class="btn-row">
+              <button class="btn" onclick="setStatus('Automated Project Serving System opened.')">Open</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>AI Sleeping Agent Black Box</h3>
+            <p>
+              Black-box operated monitoring, maintain-manage control flows, and service orchestration for approved platform functions.
+            </p>
+            <div class="btn-row">
+              <button class="btn" onclick="setStatus('AI Sleeping Agent Black Box opened.')">Open</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Private Services Layer</h3>
+            <p>
+              Service functions that are not part of the public domain and require internal controls, approval, or restricted operation.
+            </p>
+            <div class="btn-row">
+              <button class="btn dark" onclick="setStatus('Private Services Layer opened.')">Restricted</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="container">
+        <div class="support-box">
+          <h3>Support</h3>
+          <p>
+            Black support system only. No payment. No email provider. Local intake interface for SaaS support requests and internal routing.
+          </p>
+
+          <div class="form-grid">
+            <input id="supportName" type="text" placeholder="Your name" />
+            <select id="supportType">
+              <option value="">Select support type</option>
+              <option>SaaS Access</option>
+              <option>Service Activation</option>
+              <option>Research Request</option>
+              <option>Technical Issue</option>
+              <option>Private System Inquiry</option>
+            </select>
+          </div>
+
+          <textarea id="supportMessage" placeholder="Describe your support request"></textarea>
+
+          <div class="btn-row" style="justify-content:center;">
+            <button class="btn dark" onclick="submitSupport()">Submit Support Request</button>
+            <button class="btn outline" onclick="clearSupport()">Clear</button>
+          </div>
+
+          <div id="supportStatus" class="status-bar" style="margin-top:20px;">
+            Support status: waiting for request.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2026 GNAIAAAC LLC</p>
-    <p>
-      <a href="about.html">About</a> |
-      <a href="services.html">Services</a> |
-      <a href="contact.html">Contact</a> |
-      <a href="support-center.html">Support</a> |
-      <a href="privacy.html">Privacy</a> |
-      <a href="terms.html">Terms</a> |
-      <a href="refund-policy.html">Refund Policy</a> |
-      <a href="cookies-policy.html">Cookies</a> |
-      <a href="faq.html">FAQ</a>
-    </p>
+    <div class="container">
+      <p>© 2026 SSGPT6 • GNAIAAAC LLC</p>
+      <p>
+        <a href="#generate">Generate</a> |
+        <a href="#chatssgpt6">ChatSSGPT6</a> |
+        <a href="#research">Research</a> |
+        <a href="#support">Support</a>
+      </p>
+    </div>
   </footer>
 
   <script>
     let recognition;
 
-    function startVoice(){
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if(!SpeechRecognition){
-        alert("Voice not supported");
+    const output = document.getElementById("voiceOutput");
+    const statusBar = document.getElementById("statusBar");
+    const supportStatus = document.getElementById("supportStatus");
+
+    function setStatus(message){
+      statusBar.textContent = "System status: " + message;
+      output.textContent = "Voice status: " + message;
+    }
+
+    function openSection(id){
+      document.getElementById(id).scrollIntoView({behavior:"smooth"});
+      setStatus(id + " section opened.");
+    }
+
+    function speakText(text){
+      if (!("speechSynthesis" in window)) {
+        output.textContent = "Voice status: speech output is not supported on this browser.";
         return;
       }
+      window.speechSynthesis.cancel();
+      const msg = new SpeechSynthesisUtterance(text);
+      msg.rate = 1;
+      msg.pitch = 1;
+      msg.volume = 1;
+      window.speechSynthesis.speak(msg);
+      output.textContent = "Voice status: speaking.";
+    }
+
+    function speakIntro(){
+      speakText("Welcome to SSGPT6 by GNAIAAAC LLC. This is an accessible SaaS website with voice and typing support for seniors and disabled users.");
+    }
+
+    function startVoice(){
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition){
+        output.textContent = "Voice status: speech recognition is not supported on this browser.";
+        return;
+      }
+
       recognition = new SpeechRecognition();
       recognition.lang = "en-US";
-      recognition.onresult = function(e){
-        document.getElementById("voiceOutput").innerText = e.results[0][0].transcript;
+      recognition.continuous = true;
+      recognition.interimResults = false;
+
+      recognition.onstart = function(){
+        output.textContent = "Voice status: listening.";
       };
+
+      recognition.onresult = function(event){
+        const transcript = event.results[event.results.length - 1][0].transcript.toLowerCase().trim();
+        output.textContent = "Voice heard: " + transcript;
+        handleVoiceCommand(transcript);
+      };
+
+      recognition.onerror = function(event){
+        output.textContent = "Voice status: error - " + event.error;
+      };
+
       recognition.start();
     }
 
     function stopVoice(){
-      if(recognition) recognition.stop();
+      if (recognition) recognition.stop();
+      window.speechSynthesis.cancel();
+      output.textContent = "Voice status: stopped.";
     }
 
-    function speak(){
-      const msg = new SpeechSynthesisUtterance("Welcome to SSGPT6 platform");
-      speechSynthesis.cancel();
-      speechSynthesis.speak(msg);
+    function handleVoiceCommand(command){
+      if (command.includes("speak")) speakIntro();
+      if (command.includes("run")) runSystem();
+      if (command.includes("pause")) pauseSystem();
+      if (command.includes("rewind")) rewindSystem();
+      if (command.includes("support")) openSection("support");
+      if (command.includes("generate")) openSection("generate");
+      if (command.includes("chat")) openSection("chatssgpt6");
+      if (command.includes("gameplay")) openSection("gameplay");
+      if (command.includes("travel")) openSection("travel");
+      if (command.includes("marketing")) openSection("marketing");
+      if (command.includes("academy")) openSection("academy");
+      if (command.includes("research")) openSection("research");
+      if (command.includes("projects")) openSection("projects");
+      if (command.includes("stop")) stopVoice();
+    }
+
+    function runSystem(){
+      setStatus("Run command received. Automated SaaS service system interface active.");
+    }
+
+    function pauseSystem(){
+      setStatus("Pause command received.");
+    }
+
+    function rewindSystem(){
+      setStatus("Rewind command received.");
+    }
+
+    function submitSupport(){
+      const name = document.getElementById("supportName").value.trim();
+      const type = document.getElementById("supportType").value;
+      const message = document.getElementById("supportMessage").value.trim();
+
+      if(!name || !type || !message){
+        supportStatus.textContent = "Support status: please complete all support fields.";
+        return;
+      }
+
+      const ticket = "SSG-" + Math.floor(Math.random() * 900000 + 100000);
+      supportStatus.textContent = "Support status: request received locally. Ticket " + ticket + " created for " + type + ".";
+      setStatus("Support ticket " + ticket + " created.");
+    }
+
+    function clearSupport(){
+      document.getElementById("supportName").value = "";
+      document.getElementById("supportType").value = "";
+      document.getElementById("supportMessage").value = "";
+      supportStatus.textContent = "Support status: cleared.";
     }
   </script>
-
 </body>
 </html>
