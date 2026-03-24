@@ -1,133 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Services – @ssgpt6</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | SSGPT6</title>
+  <meta name="description" content="SSGPT6 services for digital governance, AI media, research support, accessibility-aware communication, and resilience-focused project pathways." />
+  <style>
+    :root{
+      --bg:#060d18;
+      --panel:#0c1728;
+      --panel2:#10203a;
+      --text:#eef3fb;
+      --muted:#c8d3e3;
+      --gold:#c7a85a;
+      --blue:#009edb;
+      --green:#1a5a3a;
+      --purple:#3a1a5a;
+      --line:rgba(255,255,255,0.08);
+      --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
+      --max:1200px;
+    }
 
-<style>
-body{
-  margin:0;
-  font-family:system-ui,sans-serif;
-  background:#05060a;
-  color:#f5f5f5;
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
 
-header{
-  padding:1rem 1.5rem;
-  border-bottom:1px solid #222;
-}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
 
-nav a{
-  color:#e5e7eb;
-  margin-right:1rem;
-  text-decoration:none;
-  font-size:.95rem;
-}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-nav a:hover{
-  color:gold;
-}
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
+    }
 
-main{
-  max-width:900px;
-  margin:2rem auto;
-  padding:0 1.5rem 3rem;
-}
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(6,13,24,0.96);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
 
-h1{
-  color:gold;
-}
+    .strip{
+      height:6px;
+      background:var(--rainbow);
+    }
 
-.card{
-  background:#0b0d16;
-  border:1px solid #111827;
-  border-radius:10px;
-  padding:1.5rem;
-  margin-bottom:1.5rem;
-}
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:16px 0;
+      flex-wrap:wrap;
+    }
 
-.btn{
-  display:inline-block;
-  padding:.7rem 1.4rem;
-  border-radius:999px;
-  background:gold;
-  color:black;
-  text-decoration:none;
-  font-weight:bold;
-}
+    .logo{
+      font-size:24px;
+      font-weight:900;
+      color:var(--gold);
+    }
 
-.btn:hover{
-  background:#e6c200;
-}
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
 
-.highlight{
-  color:#60a5fa;
-}
+    nav a{
+      padding:10px 14px;
+      border-radius:6px;
+      font-weight:700;
+      font-size:14px;
+    }
 
-</style>
+    .nav-home{background:#1a3a5a}
+    .nav-about{background:var(--purple)}
+    .nav-projects{background:var(--green)}
+    .nav-contact{background:var(--gold);color:#000}
+
+    .hero{
+      padding:58px 0 40px;
+      border-bottom:1px solid var(--line);
+      text-align:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:8px 12px;
+      border:1px solid rgba(199,168,90,0.28);
+      border-radius:999px;
+      color:var(--gold);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+      margin-bottom:14px;
+    }
+
+    .hero h1{
+      margin:0 0 12px;
+      font-size:clamp(2.1rem, 6vw, 4rem);
+      color:var(--gold);
+      font-weight:900;
+    }
+
+    .hero p{
+      margin:0 auto;
+      max-width:900px;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:22px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 20px;
+      border-radius:10px;
+      font-weight:800;
+      border:1px solid transparent;
+      cursor:pointer;
+      text-align:center;
+    }
+
+    .btn-gold{background:var(--gold);color:#000}
+    .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,0.14)}
+
+    .section{
+      padding:48px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section h2{
+      margin:0 0 10px;
+      font-size:clamp(1.7rem, 4vw, 2.6rem);
+      color:#fff;
+    }
+
+    .intro{
+      margin:0 0 26px;
+      max-width:920px;
+      color:var(--muted);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      color:var(--gold);
+      font-size:1.2rem;
+    }
+
+    .card p{
+      margin:0 0 14px;
+      color:var(--muted);
+    }
+
+    .card ul{
+      margin:0 0 16px;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    .card li{margin-bottom:7px}
+
+    .btn-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:auto;
+    }
+
+    .wide-box{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:24px;
+    }
+
+    .wide-box h3{
+      margin:0 0 10px;
+      color:var(--gold);
+      font-size:1.2rem;
+    }
+
+    .wide-box p,
+    .wide-box li{
+      color:var(--muted);
+    }
+
+    .wide-box ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .voice-panel{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:24px;
+      text-align:center;
+    }
+
+    .voice-panel h2{
+      color:var(--gold);
+    }
+
+    .voice-controls{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .voice-controls button{
+      padding:14px 18px;
+      border:none;
+      border-radius:10px;
+      font-size:16px;
+      font-weight:800;
+      cursor:pointer;
+      background:var(--gold);
+      color:#000;
+    }
+
+    .voice-controls button.alt{
+      background:#17314a;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .voice-output{
+      margin-top:18px;
+      background:#000;
+      border:1px solid var(--blue);
+      border-radius:8px;
+      min-height:58px;
+      padding:16px;
+      text-align:left;
+      color:#dbe7f6;
+    }
+
+    footer{
+      text-align:center;
+      padding:34px 20px 50px;
+      color:#a6b5c8;
+      font-size:14px;
+    }
+
+    footer a{color:var(--gold)}
+
+    @media (max-width:700px){
+      .topbar{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .hero-actions,
+      .voice-controls,
+      .btn-row{
+        flex-direction:column;
+      }
+
+      .btn,
+      .voice-controls button{
+        width:100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<nav>
-<a href="/">Home</a>
-<a href="/projects.html">Projects</a>
-<a href="/services.html">Services</a>
-<a href="/contact.html">Contact</a>
-<a href="/about.html">About</a>
-</nav>
-</header>
+  <header>
+    <div class="strip"></div>
+    <div class="container topbar">
+      <div class="logo">SSGPT6 Services</div>
+      <nav>
+        <a class="nav-home" href="index.html">Home</a>
+        <a class="nav-about" href="about.html">About</a>
+        <a class="nav-projects" href="projects.html">Projects</a>
+        <a class="nav-contact" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<main>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Structured Service Pathways</div>
+      <h1>Services</h1>
+      <p>
+        SSGPT6 offers structured service pathways across digital governance, AI media,
+        research support, communication systems, sustainability-focused direction,
+        and business-facing project assistance.
+      </p>
+      <div class="hero-actions">
+        <a href="pricing.html" class="btn btn-gold">View Pricing</a>
+        <a href="contact.html" class="btn btn-outline">Request Service</a>
+      </div>
+    </div>
+  </section>
 
-<h1>SSGPT6 Paid Services</h1>
+  <section class="section">
+    <div class="container">
+      <h2>Main Service Categories</h2>
+      <p class="intro">
+        These service descriptions keep the platform clear, professional, and easy
+        for customers to understand.
+      </p>
 
-<!-- SERVICE 1 -->
-<div class="card">
-  <h2>Website Fix & Upgrade</h2>
-  <p>Speed optimization, layout improvement, content cleanup, and basic SEO setup.</p>
-  <p><strong>Price:</strong> $49</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Digital Governance and Platform Services</h3>
+          <p>Structured support for platform organization, reporting logic, customer pathways, and governance-oriented content.</p>
+          <ul>
+            <li>governance page support</li>
+            <li>public information structure</li>
+            <li>system clarity and accountability direction</li>
+          </ul>
+          <div class="btn-row">
+            <a href="governance.html" class="btn btn-gold">Open Governance</a>
+            <a href="contact.html" class="btn btn-outline">Ask About This</a>
+          </div>
+        </div>
 
-  <a class="btn" href="https://www.paypal.me/ssgpt6/49" target="_blank">
-    Order Website Fix
-  </a>
-</div>
+        <div class="card">
+          <h3>AI Media and Automated Production</h3>
+          <p>Service direction for media systems, AI-supported presentation workflows, and content structure.</p>
+          <ul>
+            <li>video presentation structure</li>
+            <li>audio and voice workflow direction</li>
+            <li>automation-assisted content organization</li>
+          </ul>
+          <div class="btn-row">
+            <a href="about.html" class="btn btn-gold">View Media Direction</a>
+            <a href="contact.html" class="btn btn-outline">Ask About This</a>
+          </div>
+        </div>
 
-<!-- SERVICE 2 -->
-<div class="card">
-  <h2>AI Content Pack (10 pieces)</h2>
-  <p>Receive 10 high-quality, niche-specific AI-generated content pieces ready to publish or resell.</p>
-  <p><strong>Price:</strong> $79</p>
+        <div class="card">
+          <h3>Video Production and Publishing</h3>
+          <p>Support for website video integration, structured showcases, and future publishing pathways.</p>
+          <ul>
+            <li>video page setup</li>
+            <li>embed-ready layouts</li>
+            <li>presentation-focused publishing</li>
+          </ul>
+          <div class="btn-row">
+            <a href="about.html" class="btn btn-gold">Open Video Showcase</a>
+            <a href="contact.html" class="btn btn-outline">Ask About This</a>
+          </div>
+        </div>
 
-  <a class="btn" href="https://www.paypal.me/ssgpt6/79" target="_blank">
-    Order Content Pack
-  </a>
-</div>
+        <div class="card">
+          <h3>Podcast and Audio Publishing</h3>
+          <p>Framework direction for podcast pages, audio archives, voice systems, and future distribution pathways.</p>
+          <ul>
+            <li>podcast structure planning</li>
+            <li>voice archive support</li>
+            <li>audio publishing direction</li>
+          </ul>
+          <div class="btn-row">
+            <a href="contact.html" class="btn btn-gold">Request Audio Path</a>
+          </div>
+        </div>
 
-<!-- SERVICE 3 -->
-<div class="card">
-  <h2>Custom Project Activation</h2>
-  <p>Select any project from the SSGPT6 system and get guided implementation and setup.</p>
-  <p><strong>Starting at:</strong> $99</p>
+        <div class="card">
+          <h3>Blog and Newsletter Systems</h3>
+          <p>Support for structured updates, article publishing, newsletter planning, and readable content flows.</p>
+          <ul>
+            <li>blog page setup</li>
+            <li>newsletter archive direction</li>
+            <li>public communication structure</li>
+          </ul>
+          <div class="btn-row">
+            <a href="contact.html" class="btn btn-gold">Request Content Path</a>
+          </div>
+        </div>
 
-  <a class="btn" href="https://www.paypal.me/ssgpt6/99" target="_blank">
-    Order Custom Project
-  </a>
-</div>
+        <div class="card">
+          <h3>Webinar and Public Communication Services</h3>
+          <p>Support for topic-based outreach, webinar information pages, and presentation-oriented communication pathways.</p>
+          <ul>
+            <li>webinar information structure</li>
+            <li>public event support pages</li>
+            <li>consultation routing</li>
+          </ul>
+          <div class="btn-row">
+            <a href="contact.html" class="btn btn-gold">Request Consultation</a>
+          </div>
+        </div>
 
-<!-- TRUST / INFO -->
-<div class="card">
-  <h2>How It Works</h2>
+        <div class="card">
+          <h3>Research and Knowledge Services</h3>
+          <p>Support for concept pages, research summaries, technical framing, and structured explanatory materials.</p>
+          <ul>
+            <li>concept summaries</li>
+            <li>research-facing pages</li>
+            <li>clear explanatory structure</li>
+          </ul>
+          <div class="btn-row">
+            <a href="projects.html" class="btn btn-gold">View Project Areas</a>
+            <a href="contact.html" class="btn btn-outline">Ask About This</a>
+          </div>
+        </div>
 
-  <p>1. Choose your service and complete payment</p>
-  <p>2. Send your requirements to <span class="highlight">ssgpt6@aol.com</span></p>
-  <p>3. Delivery within 24–48 hours depending on service</p>
+        <div class="card">
+          <h3>Marketing and Advertising Services</h3>
+          <p>Structured presentation support for campaigns, landing pages, promotion pathways, and partner-ready communication.</p>
+          <ul>
+            <li>landing page direction</li>
+            <li>campaign structure</li>
+            <li>audience-facing messaging support</li>
+          </ul>
+          <div class="btn-row">
+            <a href="contact.html" class="btn btn-gold">Ask About Marketing</a>
+          </div>
+        </div>
 
-</div>
+        <div class="card">
+          <h3>Accessibility and Human Wellbeing Direction</h3>
+          <p>Support for clearer navigation, voice-friendly controls, and communication design that is easier for more people to use.</p>
+          <ul>
+            <li>voice-aware layouts</li>
+            <li>senior-friendly interface direction</li>
+            <li>accessible communication structure</li>
+          </ul>
+          <div class="btn-row">
+            <a href="about.html" class="btn btn-gold">View Accessibility</a>
+          </div>
+        </div>
 
-</main>
+        <div class="card">
+          <h3>Climate, Energy, and Water Research Direction</h3>
+          <p>Structured framing for water resilience, system efficiency, sustainability, and related future-ready project narratives.</p>
+          <ul>
+            <li>water system direction</li>
+            <li>energy resilience framing</li>
+            <li>climate-aligned concept support</li>
+          </ul>
+          <div class="btn-row">
+            <a href="projects.html" class="btn btn-gold">View Related Projects</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Business Support and Payment Services</h3>
+          <p>Guidance around customer communication, pricing structure, intake pathways, and support-oriented billing flows.</p>
+          <ul>
+            <li>pricing page setup</li>
+            <li>billing notice structure</li>
+            <li>membership path design</li>
+          </ul>
+          <div class="btn-row">
+            <a href="pricing.html" class="btn btn-gold">Open Pricing</a>
+            <a href="contact.html" class="btn btn-outline">Billing Help</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container wide-box">
+      <h3>How Customers Receive Services</h3>
+      <p>
+        The customer should be able to understand what the service is, why it
+        matters, how to request it, and what happens next.
+      </p>
+      <ul>
+        <li>Step 1: Review the service or project area</li>
+        <li>Step 2: Check pricing or request a consultation</li>
+        <li>Step 3: Submit a contact request</li>
+        <li>Step 4: Receive follow-up through the appropriate pathway</li>
+      </ul>
+      <p>
+        This keeps the platform structured and avoids confusion about what is live,
+        what is optional, and what still depends on future integration.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="voice">
+    <div class="container">
+      <div class="voice-panel">
+        <h2>♿ Accessibility Service Control</h2>
+        <p>
+          Voice + typing supported • accessible for seniors and disabled users
+        </p>
+
+        <div class="voice-controls">
+          <button onclick="startVoice()">♿ 🎤 Start Voice</button>
+          <button class="alt" onclick="stopVoice()">♿ ⏹ Stop</button>
+          <button onclick="speakServices()">♿ 🔊 Speak</button>
+        </div>
+
+        <div class="voice-output" id="voiceOutput">
+          Ready for services voice input.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 GNAIAAAC LLC | SSGPT6 Services</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="about.html">About</a> |
+      <a href="projects.html">Projects</a> |
+      <a href="governance.html">Governance</a> |
+      <a href="pricing.html">Pricing</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="terms.html">Terms</a>
+    </p>
+  </footer>
+
+  <script>
+    let recognition;
+
+    function startVoice() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      if (!SpeechRecognition) {
+        document.getElementById("voiceOutput").innerText =
+          "Voice recognition is not supported in this browser.";
+        return;
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.onresult = function(event) {
+        document.getElementById("voiceOutput").innerText =
+          event.results[0][0].transcript;
+      };
+      recognition.onerror = function() {
+        document.getElementById("voiceOutput").innerText =
+          "Voice recognition could not complete. Please try again.";
+      };
+      recognition.start();
+    }
+
+    function stopVoice() {
+      if (recognition) {
+        recognition.stop();
+      }
+    }
+
+    function speakServices() {
+      const text =
+        "Welcome to SSGPT6 services. This page includes digital governance, AI media, research support, accessibility direction, climate and water project pathways, and business support services.";
+      if (!("speechSynthesis" in window)) {
+        document.getElementById("voiceOutput").innerText =
+          "Speech output is not supported in this browser.";
+        return;
+      }
+      const speech = new SpeechSynthesisUtterance(text);
+      speechSynthesis.cancel();
+      speechSynthesis.speak(speech);
+    }
+  </script>
 
 </body>
 </html>
