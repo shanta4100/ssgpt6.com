@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 | Global Store Hub</title>
+  <meta name="description" content="SSGPT6 global store hub for product discovery, affiliate partner routing, and AI-supported deal pages." />
+  <link rel="icon" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <style>
+    :root{
+      --bg:#060d18;
+      --panel:#0c1728;
+      --panel2:#10203a;
+      --text:#eef3fb;
+      --muted:#c8d3e3;
+      --gold:#c7a85a;
+      --blue:#009edb;
+      --green:#1a5a3a;
+      --line:rgba(255,255,255,0.08);
+      --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
+      --max:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(6,13,24,0.95);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
+
+    .strip{
+      height:6px;
+      background:var(--rainbow);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:16px 0;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand img{
+      height:52px;
+      width:auto;
+      display:block;
+      border-radius:8px;
+      background:#fff;
+      object-fit:contain;
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
+
+    .brand-text strong{
+      color:var(--gold);
+      font-size:24px;
+    }
+
+    .brand-text span{
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.4px;
+    }
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    nav a{
+      padding:10px 14px;
+      border-radius:6px;
+      font-size:14px;
+      font-weight:700;
+      color:#fff;
+      background:#1a3a5a;
+    }
+
+    .hero{
+      text-align:center;
+      padding:64px 20px 56px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:16px;
+      padding:8px 12px;
+      border:1px solid rgba(199,168,90,0.28);
+      border-radius:999px;
+      color:var(--gold);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+    }
+
+    .hero h1{
+      margin:0 0 14px;
+      font-size:clamp(2.1rem, 6vw, 4rem);
+      color:var(--gold);
+      font-weight:900;
+    }
+
+    .hero p{
+      margin:0 auto;
+      max-width:860px;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+
+    .hero-buttons{
+      margin-top:24px;
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 20px;
+      border-radius:10px;
+      font-weight:800;
+      cursor:pointer;
+      text-align:center;
+      border:1px solid transparent;
+    }
+
+    .btn-gold{
+      background:var(--gold);
+      color:#000;
+    }
+
+    .btn-outline{
+      background:transparent;
+      color:#fff;
+      border-color:rgba(255,255,255,0.15);
+    }
+
+    .section{
+      padding:54px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section h2{
+      margin:0 0 14px;
+      font-size:clamp(1.7rem,4vw,2.6rem);
+      color:#fff;
+    }
+
+    .section-intro{
+      color:var(--muted);
+      max-width:900px;
+      margin-bottom:28px;
+    }
+
+    .featured{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:24px;
+      margin-bottom:24px;
+    }
+
+    .featured-top{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+    }
+
+    .tag{
+      display:inline-block;
+      margin-bottom:10px;
+      font-size:12px;
+      font-weight:800;
+      color:var(--blue);
+      text-transform:uppercase;
+      letter-spacing:.6px;
+    }
+
+    .featured h3{
+      margin:0 0 8px;
+      color:var(--gold);
+      font-size:1.4rem;
+    }
+
+    .featured p{
+      margin:0 0 12px;
+      color:var(--muted);
+    }
+
+    .deal-badge{
+      background:#0a1320;
+      border:1px solid rgba(199,168,90,0.18);
+      border-radius:12px;
+      padding:12px 14px;
+      min-width:180px;
+      text-align:center;
+    }
+
+    .deal-badge strong{
+      color:var(--gold);
+      display:block;
+      font-size:20px;
+      margin-top:4px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      color:var(--gold);
+      font-size:1.2rem;
+    }
+
+    .card p{
+      margin:0 0 14px;
+      color:var(--muted);
+    }
+
+    .card ul{
+      margin:0 0 16px;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    .card li{
+      margin-bottom:7px;
+    }
+
+    .btn-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:auto;
+    }
+
+    .btn-external{
+      width:100%;
+      background:transparent;
+      border:2px solid var(--gold);
+      color:var(--gold);
+      padding:13px 18px;
+      border-radius:10px;
+      font-weight:900;
+      text-transform:uppercase;
+      text-align:center;
+    }
+
+    .btn-external:hover{
+      background:var(--gold);
+      color:#000;
+    }
+
+    .info-box{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+      margin-top:20px;
+    }
+
+    .info-box h3{
+      margin:0 0 10px;
+      color:var(--gold);
+    }
+
+    .info-box p,
+    .info-box li{
+      color:var(--muted);
+    }
+
+    .info-box ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .status-box{
+      background:#000;
+      border:1px solid var(--blue);
+      border-radius:10px;
+      padding:14px;
+      margin-top:14px;
+      color:#dbe7f6;
+      min-height:50px;
+    }
+
+    .legal-notice{
+      background:#0a1320;
+      border:1px solid rgba(199,168,90,0.22);
+      border-radius:12px;
+      padding:18px;
+      color:#dbe6f5;
+    }
+
+    .legal-notice strong{
+      color:var(--gold);
+    }
+
+    .replace-box{
+      background:#111a29;
+      border:1px dashed rgba(199,168,90,0.35);
+      border-radius:12px;
+      padding:16px;
+      margin-top:16px;
+      color:#dbe6f5;
+      font-size:14px;
+    }
+
+    .replace-box code{
+      color:#ffd98d;
+      word-break:break-all;
+    }
+
+    footer{
+      text-align:center;
+      padding:32px 20px 46px;
+      color:#a6b5c8;
+      font-size:14px;
+    }
+
+    footer a{
+      color:var(--gold);
+    }
+
+    @media (max-width:700px){
+      .topbar{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .btn,
+      .btn-external{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="strip"></div>
+    <div class="container topbar">
+      <div class="brand">
+        <img src="logo.png" alt="SSGPT6 Logo" />
+        <div class="brand-text">
+          <strong>SSGPT6 Store Hub</strong>
+          <span>Global Deal Discovery</span>
+        </div>
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a href="support-center.html">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">AI Product Discovery • Affiliate Routing • Global Markets</div>
+      <h1>Global Store Hub</h1>
+      <p>
+        We help users discover product offers, marketplaces, and partner store links.
+        All payments, shipping, returns, fulfillment, and seller obligations are handled directly by the external provider or marketplace.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#featured-deal" class="btn btn-gold">View Featured Deal</a>
+        <a href="#markets" class="btn btn-outline">Browse Markets</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="featured-deal">
+    <div class="container">
+      <h2>Featured Store Routing</h2>
+      <p class="section-intro">
+        This page is built for a legal affiliate/referral model. Your company promotes discovery and routes users to external provider websites.
+      </p>
+
+      <div class="featured">
+        <div class="featured-top">
+          <div>
+            <span class="tag" id="featuredTag">Store Support</span>
+            <h3 id="featuredTitle">Global Product Deal Routing</h3>
+            <p id="featuredText">
+              Help users discover product offers, then continue to the external provider for payment and order fulfillment.
+            </p>
+          </div>
+
+          <div class="deal-badge">
+            Current Feature
+            <strong id="featuredNumber">1 / 5</strong>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <a id="featuredLink" href="contact.html" class="btn-external" target="_blank" rel="noopener noreferrer">
+            Continue to Partner Store
+          </a>
+        </div>
+
+        <div class="status-box" id="agentStatus">
+          AI Sleeping Agent status: Safe routing active. Replace placeholder links with approved affiliate partner URLs.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="markets">
+    <div class="container">
+      <h2>Global Market Categories</h2>
+      <p class="section-intro">
+        Structure your global affiliate pages by market and category. Replace placeholder links with your approved partner links when you receive them.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <span class="tag">USA / Canada</span>
+          <h3>Home Improvement & Hardware</h3>
+          <p>
+            Use this section for home improvement, hardware, tools, and renovation-oriented partner offers.
+          </p>
+          <ul>
+            <li>home improvement partner links</li>
+            <li>hardware and tools discovery</li>
+            <li>external checkout only</li>
+          </ul>
+          <div class="btn-row">
+            <a href="contact.html" class="btn-external" target="_blank" rel="noopener noreferrer">
+              View Partner Store
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Global Fashion</span>
+          <h3>Fashion & Lifestyle Deals</h3>
+          <p>
+            Use this section for AI fashion content, clothing discovery, beauty, and lifestyle-oriented store partners.
+          </p>
+          <ul>
+            <li>fashion discovery</li>
+            <li>beauty and style links</li>
+            <li>partner-managed payment and delivery</li>
+          </ul>
+          <div class="btn-row">
+            <a href="contact.html" class="btn-external" target="_blank" rel="noopener noreferrer">
+              Explore Fashion Deals
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Global Marketplace</span>
+          <h3>AliExpress / Marketplace Deals</h3>
+          <p>
+            Use this section for general product discovery across global consumer marketplaces.
+          </p>
+          <ul>
+            <li>tech, gadgets, and home items</li>
+            <li>marketplace discovery links</li>
+            <li>provider handles shipping and order records</li>
+          </ul>
+          <div class="btn-row">
+            <a href="contact.html" class="btn-external" target="_blank" rel="noopener noreferrer">
+              Browse Marketplace Deals
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Europe / Australia / Japan</span>
+          <h3>Regional Product Discovery</h3>
+          <p>
+            Use region-specific pages later for different partner programs and localized offers.
+          </p>
+          <ul>
+            <li>country or region pages</li>
+            <li>localized partner routing</li>
+            <li>compliance-friendly structure</li>
+          </ul>
+          <div class="btn-row">
+            <a href="contact.html" class="btn-external" target="_blank" rel="noopener noreferrer">
+              View Regional Deals
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Daily Use</span>
+          <h3>Groceries, Household, & Essentials</h3>
+          <p>
+            Use this section for daily essentials, household items, and grocery-related partner pages where available.
+          </p>
+          <ul>
+            <li>essential product discovery</li>
+            <li>household deal categories</li>
+            <li>external provider handles payment and delivery</li>
+          </ul>
+          <div class="btn-row">
+            <a href="contact.html" class="btn-external" target="_blank" rel="noopener noreferrer">
+              Explore Essentials
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h3>How This Store Hub Works</h3>
+        <ul>
+          <li>SSGPT6 helps users discover products, offers, and partner marketplaces.</li>
+          <li>Users click through to the external seller or marketplace site.</li>
+          <li>The external provider handles payment, order processing, shipping, returns, and seller responsibility.</li>
+          <li>If supported by the partner program, GNAIAAAC LLC may earn an affiliate commission.</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h3>Affiliate Disclosure</h3>
+        <p>
+          Some outbound links on this page may be affiliate links.
+          This means GNAIAAAC LLC may earn a commission if a qualifying purchase is completed through a partner link, at no additional cost to the customer.
+        </p>
+      </div>
+
+      <div class="replace-box">
+        Replace these later with your real affiliate links:
+        <br><br>
+        <code>href="contact.html"</code>
+        <br><br>
+        Example replacements:
+        <br>
+        <code>href="https://s.click.aliexpress.com/your-affiliate-link"</code>
+        <br>
+        <code>href="https://www.awin1.com/cread.php?awinmid=YOURID"</code>
+        <br>
+        <code>href="https://partner.example.com/your-id"</code>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="legal-notice">
+        <strong>Store & Product Notice:</strong>
+        SSGPT6 and GNAIAAAC LLC operate as a digital promotion, affiliate referral, and automation platform.
+        We help customers discover products, offers, and partner storefronts.
+        All payments, order processing, shipping, returns, fulfillment, and seller obligations are handled directly by the external third-party provider or marketplace.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 GNAIAAAC LLC | SSGPT6 Store Hub</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="services.html">Services</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="support-center.html">Support</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="terms.html">Terms</a>
+    </p>
+  </footer>
+
+  <script>
+    const featuredDeals = [
+      {
+        tag: "Store Support",
+        title: "Global Product Deal Routing",
+        text: "Help users discover product offers, then continue to the external provider for payment and order fulfillment.",
+        link: "contact.html",
+        button: "Continue to Partner Store"
+      },
+      {
+        tag: "Fashion",
+        title: "Fashion & Lifestyle Routing",
+        text: "Promote style, fashion, and lifestyle product pages with external checkout handled by the provider.",
+        link: "contact.html",
+        button: "Explore Fashion Deals"
+      },
+      {
+        tag: "Marketplace",
+        title: "Marketplace Product Discovery",
+        text: "Route users to external marketplace listings while the provider handles payment and shipping.",
+        link: "contact.html",
+        button: "Browse Marketplace Deals"
+      },
+      {
+        tag: "Home",
+        title: "Home Improvement Deal Pages",
+        text: "Feature tools, hardware, and home offers with external provider routing.",
+        link: "contact.html",
+        button: "View Partner Store"
+      },
+      {
+        tag: "Essentials",
+        title: "Daily Use Product Pages",
+        text: "Show essentials and household product categories with external partner checkout.",
+        link: "contact.html",
+        button: "Explore Essentials"
+      }
+    ];
+
+    let currentDeal = 0;
+
+    function rotateDeals() {
+      currentDeal = (currentDeal + 1) % featuredDeals.length;
+      const deal = featuredDeals[currentDeal];
+
+      document.getElementById("featuredTag").innerText = deal.tag;
+      document.getElementById("featuredTitle").innerText = deal.title;
+      document.getElementById("featuredText").innerText = deal.text;
+      document.getElementById("featuredLink").href = deal.link;
+      document.getElementById("featuredLink").innerText = deal.button;
+      document.getElementById("featuredNumber").innerText = (currentDeal + 1) + " / " + featuredDeals.length;
+      document.getElementById("agentStatus").innerText = "AI Sleeping Agent status: Safe affiliate routing active on " + deal.title + ".";
+    }
+
+    setInterval(rotateDeals, 10000);
+  </script>
+
+</body>
+</html>
