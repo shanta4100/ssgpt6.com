@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSGPT6 | Unified AI Workstation</title>
+    <style>
+        :root {
+            --bg: #040b14; --panel: #0d1d33; --text: #ecf1f8;
+            --gold: #c7a85a; --un-blue: #009edb;
+            --rainbow: linear-gradient(90deg, #009edb, #00ffcc, #ffeb3b, #ff5722, #e91e63);
+            --line: rgba(255,255,255,.08);
+        }
+        body { margin: 0; font-family: 'Georgia', serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+        .un-strip { background: var(--rainbow); height: 5px; width: 100%; position: fixed; top: 0; z-index: 1000; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 100px 20px; }
+        
+        /* SEARCH ENGINE INTERFACE */
+        .search-engine { text-align: center; margin-bottom: 80px; }
+        .search-bar { width: 100%; max-width: 700px; background: var(--panel); border: 2px solid var(--gold); border-radius: 50px; padding: 20px 30px; color: #fff; font-size: 1.2rem; outline: none; transition: 0.3s; }
+        .search-bar:focus { box-shadow: 0 0 20px rgba(199, 168, 90, 0.4); }
+        
+        /* VOICE COMMAND RADAR */
+        .voice-hub { display: flex; flex-direction: column; align-items: center; margin-bottom: 60px; }
+        .radar { height: 80px; width: 80px; border-radius: 50%; border: 3px solid var(--un-blue); display: flex; align-items: center; justify-content: center; animation: pulse 2s infinite; cursor: pointer; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 158, 219, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(0, 158, 219, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 158, 219, 0); } }
+
+        /* INTEGRATED MODULES */
+        .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .module-card { background: var(--panel); border: 1px solid var(--line); padding: 40px; text-align: center; transition: 0.3s; }
+        .module-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .module-card h3 { color: var(--gold); margin-top: 0; letter-spacing: 2px; }
+        .status { font-size: 0.7rem; color: #00ffcc; text-transform: uppercase; margin-bottom: 10px; display: block; }
+
+        footer { text-align: center; padding: 50px; border-top: 1px solid var(--gold); font-size: 0.8rem; color: #888; margin-top: 100px; }
+    </style>
+</head>
+<body>
+
+<div class="un-strip"></div>
+
+<div class="container">
+    <section class="search-engine">
+        <h1 style="font-size: 3rem; margin-bottom: 40px;">SSGPT6 <span style="color:var(--gold);">SEARCH</span></h1>
+        <input type="text" class="search-bar" placeholder="Command: 'Research 135 Matrix' or 'Automate Project 012'...">
+    </section>
+
+    <section class="voice-hub">
+        <div class="radar">
+            <svg style="width:30px; height:30px; fill:var(--un-blue);" viewBox="0 0 24 24"><path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" /></svg>
+        </div>
+        <p style="margin-top: 20px; color: var(--gold); font-weight: bold; font-family: Arial; font-size: 0.8rem;">VOICE CONTROL: ACTIVE & LEARNING</p>
+    </section>
+
+    <section class="module-grid">
+        <div class="module-card">
+            <span class="status">● Intelligence Live</span>
+            <h3>CHATSSGPT6</h3>
+            <p style="font-size: 0.9rem; opacity: 0.8;">Automated Traffic Funnels & D2D Deployment</p>
+        </div>
+        <div class="module-card" style="border-top: 3px solid var(--gold);">
+            <span class="status">● Syncing Skills</span>
+            <h3>AI ACADEMY</h3>
+            <p style="font-size: 0.9rem; opacity: 0.8;">Adaptive Learning & Institutional Certification</p>
+        </div>
+        <div class="module-card">
+            <span class="status">● Execution Ready</span>
+            <h3>WORKSTATION</h3>
+            <p style="font-size: 0.9rem; opacity: 0.8;">Hands-Free Task Automation & AI Sleeping Agent</p>
+        </div>
+    </section>
+</div>
+
+<footer>
+    GNAIAAAC LLC © 2026 | SSGPT6 PROPRIETARY ENGINE | UN CLIMATE ALIGNMENT SECURE
+</footer>
+
+<script>
+    // Placeholder for Voice Command Recognition Integration
+    const radar = document.querySelector('.radar');
+    radar.onclick = () => {
+        alert("Hands-Free Workstation Listening...");
+    };
+</script>
+
+</body>
+</html>
