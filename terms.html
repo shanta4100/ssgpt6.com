@@ -3,317 +3,212 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Use | @ssgpt6</title>
-  <meta
-    name="description"
-    content="Terms of Use for @ssgpt6 Global AI Governance Platform powered by GNAIAAAC LLC."
-  />
+  <title>Terms of Use | SSGPT6</title>
+  <meta name="description" content="Terms of Use for SSGPT6 and GNAIAAAC LLC." />
   <style>
-    :root {
-      --bg: #081120;
-      --bg-soft: #0d1b2f;
-      --panel: #12233d;
-      --text: #eef4ff;
-      --muted: #b8c6db;
-      --gold: #d9b34b;
-      --gold-dark: #b68d22;
-      --line: rgba(255,255,255,0.08);
-      --shadow: 0 16px 40px rgba(0,0,0,0.28);
-      --radius: 18px;
-      --max: 980px;
+    :root{
+      --bg:#060d18;
+      --panel:#0c1728;
+      --text:#e8edf5;
+      --muted:#c7d3e3;
+      --gold:#c7a85a;
+      --line:rgba(255,255,255,0.08);
+      --max:1000px;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #081120 0%, #0b1730 100%);
-      color: var(--text);
-      line-height: 1.7;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.7;
     }
-
-    a {
-      color: var(--gold);
-      text-decoration: none;
+    a{color:var(--gold);text-decoration:none}
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
+      padding:40px 0 70px;
     }
-
-    a:hover {
-      text-decoration: underline;
+    .topbar{
+      border-bottom:1px solid var(--line);
+      padding:18px 0;
+      margin-bottom:30px;
     }
-
-    .container {
-      width: min(100% - 32px, var(--max));
-      margin: 0 auto;
+    .brand{
+      font-size:28px;
+      font-weight:800;
+      color:var(--gold);
     }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(8, 17, 32, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
+    .nav{
+      margin-top:10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
     }
-
-    .nav-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 0;
+    .nav a{
+      padding:10px 14px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      color:#fff;
     }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:26px;
+      margin-bottom:22px;
     }
-
-    .logo-box {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, var(--gold), var(--gold-dark));
-      color: #111;
-      font-weight: 800;
-      box-shadow: var(--shadow);
+    h1{
+      margin:0 0 16px;
+      font-size:clamp(2rem, 5vw, 3.2rem);
+      color:var(--gold);
     }
-
-    .brand {
-      margin: 0;
-      font-size: 1.05rem;
+    h2{
+      margin:0 0 12px;
+      font-size:1.35rem;
+      color:var(--gold);
     }
-
-    .brand-sub {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 0.9rem;
+    p, li{
+      color:var(--muted);
+      margin:0 0 12px;
     }
-
-    .nav a {
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .page {
-      padding: 56px 0 80px;
-    }
-
-    .policy-card {
-      background: rgba(18, 35, 61, 0.9);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 32px;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(217, 179, 75, 0.12);
-      color: var(--gold);
-      border: 1px solid rgba(217, 179, 75, 0.25);
-      font-weight: 700;
-      font-size: 0.92rem;
-      margin-bottom: 16px;
-    }
-
-    h1, h2 {
-      line-height: 1.2;
-    }
-
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(2rem, 5vw, 2.8rem);
-    }
-
-    h2 {
-      margin-top: 28px;
-      margin-bottom: 10px;
-      font-size: 1.3rem;
-    }
-
-    p, li {
-      color: var(--muted);
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .top-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-
-    .btn {
-      display: inline-block;
-      border-radius: 12px;
-      padding: 12px 16px;
-      font-weight: 800;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: linear-gradient(145deg, var(--gold), var(--gold-dark));
-      color: #111;
-    }
-
-    .btn-secondary {
-      color: var(--text);
-      border-color: var(--line);
-      background: transparent;
-    }
-
-    .footer {
-      margin-top: 28px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 640px) {
-      .policy-card {
-        padding: 22px;
-      }
-
-      .nav-wrap {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    ul{padding-left:20px;margin:0}
+    footer{
+      text-align:center;
+      color:#9fb0c8;
+      border-top:1px solid var(--line);
+      padding:24px 0 10px;
+      margin-top:20px;
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <div class="logo-wrap">
-        <div class="logo-box">SS</div>
-        <div>
-          <h1 class="brand">@ssgpt6</h1>
-          <p class="brand-sub">Global AI Governance • Powered by GNAIAAAC LLC</p>
-        </div>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">SSGPT6</div>
+      <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
       </div>
-
-      <nav class="nav">
-        <a href="index.html">Back to Home</a>
-      </nav>
     </div>
-  </header>
 
-  <main class="page">
-    <div class="container">
-      <section class="policy-card">
-        <span class="badge">Terms of Use</span>
-
-        <div class="top-links">
-          <a class="btn btn-secondary" href="index.html">← Home</a>
-          <a class="btn btn-primary" href="privacy.html">View Privacy Policy</a>
-        </div>
-
-        <h1>Terms of Use</h1>
-        <p><strong>Effective Date:</strong> March 21, 2026</p>
-
-        <p>
-          These Terms of Use govern access to and use of the @ssgpt6 website and services,
-          operated by GNAIAAAC LLC. By using this website, you agree to these terms.
-        </p>
-
-        <h2>1. Website Purpose</h2>
-        <p>
-          This website presents business information, service packages, pricing, and contact options.
-          It is intended to help customers understand available services and submit requests.
-        </p>
-
-        <h2>2. Service Scope</h2>
-        <p>
-          Service descriptions on this website are general summaries. Actual deliverables,
-          timelines, and scope may depend on the package purchased and the customer’s submitted request details.
-        </p>
-
-        <h2>3. Payments</h2>
-        <p>
-          Payments may be processed using third-party platforms such as PayPal or Stripe.
-          Customers are responsible for reviewing package details before making payment.
-        </p>
-
-        <h2>4. Customer Responsibilities</h2>
-        <p>Customers agree to provide accurate information when placing an order, including:</p>
-        <ul>
-          <li>Correct name and contact details</li>
-          <li>Accurate package selection</li>
-          <li>Required project or service information</li>
-          <li>Proof of payment when requested</li>
-        </ul>
-
-        <h2>5. Fulfillment and Delivery</h2>
-        <p>
-          After payment, customers must send all required order details by email.
-          Delivery timelines may vary depending on workload, complexity, and package scope.
-        </p>
-
-        <h2>6. Refunds</h2>
-        <p>
-          Refund eligibility, if any, is determined by the business owner’s policy,
-          the stage of work completed, and the nature of the order. If you want strict refund rules,
-          you can later add your exact refund policy to this page.
-        </p>
-
-        <h2>7. No Guarantee of Business Outcome</h2>
-        <p>
-          While services are provided professionally and in good faith, this website and its services
-          do not guarantee specific financial, commercial, legal, or business outcomes.
-        </p>
-
-        <h2>8. Acceptable Use</h2>
-        <p>
-          Customers may not use this website for unlawful, abusive, fraudulent, or harmful purposes.
-          We reserve the right to refuse service where necessary to protect business integrity and lawful operation.
-        </p>
-
-        <h2>9. Intellectual Property</h2>
-        <p>
-          Website branding, layout, text, and original service materials created by @ssgpt6 or GNAIAAAC LLC
-          remain the property of their respective owner unless otherwise agreed in writing.
-        </p>
-
-        <h2>10. Third-Party Services</h2>
-        <p>
-          This website may link to third-party payment providers, email tools, or platforms.
-          We are not responsible for the policies, actions, or downtime of those third-party services.
-        </p>
-
-        <h2>11. Limitation of Liability</h2>
-        <p>
-          This website is provided on an as-available basis. GNAIAAAC LLC does not guarantee uninterrupted access,
-          error-free operation, or compatibility with every device or browser.
-        </p>
-
-        <h2>12. Changes to Terms</h2>
-        <p>
-          These Terms of Use may be updated from time to time. Continued use of the website after updates
-          means you accept the revised terms.
-        </p>
-
-        <h2>13. Contact</h2>
-        <p>
-          For questions about these terms, contact:
-          <a href="mailto:ssgpt6@aol.com">ssgpt6@aol.com</a>
-        </p>
-
-        <div class="footer">
-          © 2026 @ssgpt6 • Powered by GNAIAAAC LLC
-        </div>
-      </section>
+    <div class="card">
+      <h1>Terms of Use</h1>
+      <p><strong>Effective Date:</strong> March 2026</p>
+      <p>
+        These Terms of Use govern access to and use of the SSGPT6 website and
+        related materials provided by GNAIAAAC LLC.
+      </p>
     </div>
-  </main>
+
+    <div class="card">
+      <h2>1. Website Purpose</h2>
+      <p>
+        This website is provided for information, communication, project
+        visibility, service inquiry, and related commercial or research-facing
+        purposes. Some features may be informational, limited, future-ready, or
+        subject to provider support.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2. No Guaranteed Results</h2>
+      <p>
+        Content on this website is provided for general informational and
+        commercial purposes. We do not guarantee specific financial, legal,
+        regulatory, technical, environmental, or operational outcomes unless
+        explicitly stated in a signed agreement.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3. No Professional Advice</h2>
+      <p>
+        Website content does not constitute legal advice, tax advice, investment
+        advice, medical advice, engineering certification, or government
+        approval. Users should consult qualified professionals where needed.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4. Service Availability</h2>
+      <p>
+        Services, tools, payment methods, voice features, accessibility
+        functions, and other capabilities may vary depending on region, provider
+        availability, device support, platform readiness, and operational status.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5. Payments and Purchases</h2>
+      <p>
+        If payments are offered, they may be processed through third-party
+        payment providers. Purchases, subscriptions, billing intervals, and
+        refunds, where applicable, should be reviewed carefully before payment.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6. Acceptable Use</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>use the website for unlawful purposes</li>
+        <li>attempt unauthorized access to systems or data</li>
+        <li>misrepresent your identity or authority</li>
+        <li>abuse forms, payment systems, or communication tools</li>
+        <li>copy or misuse protected content in violation of law</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>7. Intellectual Property</h2>
+      <p>
+        Unless otherwise stated, website content, branding, layouts, graphics,
+        and original written materials are owned by or used by permission of
+        GNAIAAAC LLC. Unauthorized commercial use is not permitted without prior
+        written approval.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8. Third-Party Services and Links</h2>
+      <p>
+        This website may link to third-party services, media, payment providers,
+        or external platforms. We are not responsible for the content, policies,
+        or practices of those third-party services.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>9. Limitation of Liability</h2>
+      <p>
+        To the maximum extent permitted by applicable law, GNAIAAAC LLC is not
+        liable for indirect, incidental, or consequential losses arising from use
+        of the website, third-party services, or reliance on website content.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>10. Changes to Terms</h2>
+      <p>
+        We may update these Terms of Use from time to time. Updated versions will
+        be posted on this page with a revised effective date.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>11. Contact</h2>
+      <p>
+        For questions about these terms, contact:
+        <a href="mailto:ssgpt6@aol.com">ssgpt6@aol.com</a>
+      </p>
+    </div>
+
+    <footer>
+      © 2026 GNAIAAAC LLC | SSGPT6 Terms of Use
+    </footer>
+  </div>
 </body>
 </html>
