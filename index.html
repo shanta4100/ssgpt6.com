@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSGPT6 | UN Global Governance & 135 Matrix</title>
+    <title>SSGPT6 | Sovereign Digital Governance Hub</title>
     <style>
         :root {
             --bg: #060d18; --panel: #0c1728; --text: #e8edf5;
@@ -11,79 +11,108 @@
             --rainbow: linear-gradient(90deg, #009edb, #00ffcc, #ffeb3b, #ff5722, #e91e63);
             --line: rgba(255,255,255,0.08);
         }
-        body { margin: 0; font-family: 'Georgia', serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
-        .un-strip { background: var(--rainbow); height: 6px; width: 100%; position: fixed; top: 0; z-index: 2000; }
-        
-        header { position: sticky; top: 6px; z-index: 1000; background: rgba(6, 13, 24, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); padding: 15px 5%; }
-        .nav-hub { display: flex; justify-content: space-between; align-items: center; }
-        .brand { font-size: 1.5rem; font-weight: 900; color: #fff; letter-spacing: 2px; }
-        
-        .btn-official { background: var(--un-blue); color: white; padding: 8px 18px; text-decoration: none; font-size: 0.8rem; font-family: Arial; font-weight: bold; border-radius: 2px; }
-        
-        /* Restricted State */
-        .gold-locked { border: 2px solid var(--gold); position: relative; overflow: hidden; }
-        .gold-locked::after { content: "RESTRICTED: OFFICIAL ACCESS ONLY"; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(12, 23, 40, 0.9); display: flex; align-items: center; justify-content: center; color: var(--gold); font-weight: bold; font-size: 0.7rem; opacity: 0; transition: 0.3s; }
-        .gold-locked:hover::after { opacity: 1; }
 
-        .hero { padding: 100px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        .matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 50px 5%; }
-        .card { background: var(--panel); padding: 30px; border: 1px solid var(--line); }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Georgia', serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+        /* UN RAINBOW HEADER */
+        .un-strip { background: var(--rainbow); height: 6px; width: 100%; position: fixed; top: 0; z-index: 2000; }
+        header { position: sticky; top: 6px; z-index: 1000; background: rgba(6, 13, 24, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); padding: 15px 5%; }
         
-        footer { padding: 40px; text-align: center; border-top: 1px solid var(--gold); font-size: 0.7rem; color: #888; }
+        .topbar { display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 15px; }
+        .brand-mark { font-weight: 900; font-size: 1.5rem; color: #fff; letter-spacing: 2px; }
+        
+        nav a { color: var(--text); margin-left: 20px; text-decoration: none; font-size: 0.85rem; font-family: Arial; transition: 0.3s; }
+        nav a:hover { color: var(--gold); }
+        .btn-secure { background: var(--un-blue); color: #fff; padding: 8px 20px; border-radius: 2px; font-weight: bold; }
+
+        /* HERO: GOVERNANCE & INNOVATION */
+        .hero { padding: 120px 5% 80px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+        .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 20px; }
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin: 0 0 20px; font-weight: 900; }
+        
+        .hero-side { background: var(--panel); border: 1px solid var(--gold); padding: 30px; position: relative; }
+        .status-dot { height: 10px; width: 10px; background: #00ffcc; border-radius: 50%; display: inline-block; margin-right: 10px; box-shadow: 0 0 10px #00ffcc; }
+
+        /* 135 MATRIX PREVIEW */
+        .matrix-section { padding: 80px 5%; background: rgba(199, 168, 90, 0.02); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--panel); border: 1px solid var(--line); padding: 30px; transition: 0.3s; }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .price-tag { color: var(--gold); font-weight: 900; margin-top: 20px; font-family: Arial; font-size: 1.1rem; }
+
+        footer { padding: 60px 5%; text-align: center; border-top: 1px solid var(--gold); color: #8b949e; font-family: Arial; font-size: 0.75rem; }
     </style>
 </head>
 <body>
 
 <div class="un-strip"></div>
-
 <header>
-    <div class="nav-hub">
-        <div class="brand">SSGPT6 <span style="color:var(--gold); font-size: 0.7rem;">GNAIAAAC LLC</span></div>
+    <div class="topbar">
+        <div class="brand">
+            <div class="brand-mark">SSGPT6</div>
+            <div style="font-size: 0.6rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px;">UN Global Governance Hub</div>
+        </div>
         <nav>
-            <a href="#" class="btn-official">SECURE OFFICIAL LOGIN</a>
+            <a href="#matrix">135 Matrix</a>
+            <a href="#communications">Communications</a>
+            <a href="#" class="btn-secure">OFFICIAL LOGIN</a>
         </nav>
     </div>
 </header>
 
 <section class="hero">
     <div>
-        <div style="color:var(--gold); letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 10px;">PROTOCOL: [UN_OMNI_INTEGRATION]</div>
-        <h1 style="font-size: 3.5rem; line-height: 1; margin: 0;">Institutional AI & Global Water Governance</h1>
-        <p style="color: var(--un-blue); font-weight: bold;">Official Partner Pathway for UN & NASA Agencies</p>
+        <div class="eyebrow">Institutional Architecture</div>
+        <h1>Pure Water & Zero-Carbon Energy Systems</h1>
+        <p>Deploying autonomous AI infrastructure for global resource stability and national-level bailout protocols.</p>
+        <div style="margin-top: 30px;">
+            <a href="#" style="background:var(--gold); color:var(--bg); padding:15px 30px; text-decoration:none; font-weight:900; font-family:Arial;">EXPLORE INNOVATIONS</a>
+        </div>
     </div>
-    <div class="card gold-locked">
-        <h3 style="color:var(--gold);">[ENCRYPTED DOSSIER]</h3>
-        <p>Universal Energy Harvesting & Zero-Carbon Infrastructure 2026.0</p>
+    <aside class="hero-side">
+        <h3 style="color:var(--gold); margin-top:0;">LIVE SYSTEM STATUS</h3>
+        <ul style="list-style:none; padding:0; font-size:0.85rem; color:#8b949e;">
+            <li style="margin-bottom:15px;"><span class="status-dot"></span> Water Bankruptcy Nodes: ACTIVE</li>
+            <li style="margin-bottom:15px;"><span class="status-dot"></span> Zero-Carbon Efficiency: 99.9%</li>
+            <li style="margin-bottom:15px;"><span class="status-dot"></span> NASA-Analogue Sync: ENABLED</li>
+        </ul>
+    </aside>
+</section>
+
+<section class="matrix-section" id="matrix">
+    <div class="eyebrow">Project Inventory</div>
+    <h2 style="font-size:2.5rem; margin-bottom:40px;">The 135-Project Matrix</h2>
+    <div class="grid">
+        <div class="card" style="border-left: 4px solid var(--gold);">
+            <div style="font-size:0.7rem; color:var(--gold);">UNIT 001</div>
+            <h3>PHARMA VAULT</h3>
+            <p>Institutional acquisition portal for medical IP and royalty streams.</p>
+            <div class="price-tag">$75,000,000 ACQUISITION</div>
+        </div>
+        <div class="card">
+            <div style="font-size:0.7rem; color:var(--gold);">UNIT 012</div>
+            <h3>HYDROL-STASIS</h3>
+            <p>Real-time water debt monitoring and bailout integration.</p>
+            <div class="price-tag">INSTITUTIONAL ACCESS</div>
+        </div>
+        <div class="card">
+            <div style="font-size:0.7rem; color:var(--gold);">UNIT 045</div>
+            <h3>TESLA-RELAY</h3>
+            <p>Zero-carbon energy mesh for institutional and government hubs.</p>
+            <div class="price-tag">ENTERPRISE DEPLOYMENT</div>
+        </div>
     </div>
 </section>
 
-<div style="padding: 0 5%;">
-    <h2 style="border-bottom: 1px solid var(--gold); padding-bottom: 10px;">135-Project Matrix</h2>
-</div>
-
-<section class="matrix-grid">
-    <div class="card">
-        <div style="font-size: 0.7rem; color: var(--gold);">UNIT 001</div>
-        <h3>Pharma Vault</h3>
-        <p>Medical IP Acquisition Portal.</p>
-        <div style="font-weight: 900; margin-top: 15px;">$75,000,000.00</div>
+<footer id="communications">
+    <div style="margin-bottom: 20px;">
+        GNAIAAAC LLC © 2026 | SSGPT6 CORE | UN CLIMATE ALIGNMENT SECURE
     </div>
-    <div class="card">
-        <div style="font-size: 0.7rem; color: var(--gold);">UNIT 012</div>
-        <h3>Hydrol-Stasis</h3>
-        <p>Water Bankruptcy & Debt Monitoring.</p>
+    <div style="max-width: 800px; margin: auto; opacity: 0.6;">
+        TERMS OF SOVEREIGNTY: All systems, frameworks, and concepts are proprietary intellectual property of GNAIAAAC LLC. Access is strictly restricted to verified official personnel.
     </div>
-    <div class="card">
-        <div style="font-size: 0.7rem; color: var(--gold);">UNIT 045</div>
-        <h3>Tesla-Relay</h3>
-        <p>Institutional Energy Mesh Distribution.</p>
-    </div>
-</section>
-
-<footer>
-    SSGPT6 © 2026 GNAIAAAC LLC. <br>
-    TERMS OF SOVEREIGNTY: All systems and concepts are proprietary intellectual property. 
-    Restricted to authorized official personnel only.
 </footer>
 
 </body>
