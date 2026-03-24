@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SSGPT6 Contact</title>
-  <meta name="description" content="Contact SSGPT6 for services, projects, pricing, support, consultation, and customer communication." />
+  <title>Contact | SSGPT6</title>
+  <meta name="description" content="Contact SSGPT6 and GNAIAAAC LLC for project inquiries, services, pricing, governance, and support." />
   <style>
     :root{
-      --bg:#06111f;
-      --panel:#0d1d33;
-      --panel2:#122642;
+      --bg:#060d18;
+      --panel:#0c1728;
+      --panel2:#10203a;
       --text:#eef3fb;
-      --muted:#b7c5d8;
-      --gold:#d2ae59;
-      --gold-dark:#b89443;
+      --muted:#c8d3e3;
+      --gold:#c7a85a;
+      --blue:#009edb;
+      --green:#1a5a3a;
+      --purple:#3a1a5a;
       --line:rgba(255,255,255,0.08);
-      --blue:#1f4b6e;
-      --green:#1d8348;
-      --purple:#5b2c6f;
-      --max:1100px;
-      --radius:18px;
+      --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
+      --max:1200px;
     }
 
     *{box-sizing:border-box}
@@ -28,67 +27,48 @@
     body{
       margin:0;
       font-family:Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(210,174,89,0.12), transparent 22%),
-        linear-gradient(180deg,#03101c 0%, #06111f 50%, #09172a 100%);
+      background:var(--bg);
       color:var(--text);
       line-height:1.6;
     }
 
-    a{text-decoration:none;color:inherit}
-    img{display:block;max-width:100%}
-    .container{width:min(92%, var(--max));margin:0 auto}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-    .top-rainbow{
-      height:10px;
-      background:linear-gradient(90deg,#00d9ff,#00ffb3,#dfff4f,#ffbe3b,#ff6b57,#ff2e8e);
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
     }
 
     header{
       position:sticky;
       top:0;
-      z-index:1000;
-      background:rgba(6,17,31,0.94);
-      backdrop-filter:blur(10px);
+      z-index:999;
+      background:rgba(6,13,24,0.96);
       border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
     }
 
-    .header-inner{
-      padding:18px 0;
+    .strip{
+      height:6px;
+      background:var(--rainbow);
+    }
+
+    .topbar{
       display:flex;
       justify-content:space-between;
       align-items:center;
       gap:20px;
+      padding:16px 0;
       flex-wrap:wrap;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .brand img{
-      width:60px;
-      height:60px;
-      object-fit:contain;
-      background:#fff;
-      border-radius:6px;
-      box-shadow:0 0 24px rgba(210,174,89,0.25);
-    }
-
-    .brand h1{
-      margin:0;
-      font-size:1.7rem;
+    .logo{
+      font-size:24px;
+      font-weight:900;
       color:var(--gold);
-    }
-
-    .brand p{
-      margin:4px 0 0;
-      color:var(--muted);
-      font-size:.88rem;
-      letter-spacing:1px;
-      text-transform:uppercase;
     }
 
     nav{
@@ -99,158 +79,129 @@
 
     nav a{
       padding:10px 14px;
-      border-radius:10px;
-      font-weight:800;
-      font-size:.92rem;
-      border:1px solid rgba(255,255,255,0.05);
+      border-radius:6px;
+      font-weight:700;
+      font-size:14px;
     }
 
-    .nav-blue{background:var(--blue)}
-    .nav-purple{background:var(--purple)}
-    .nav-green{background:var(--green)}
-    .nav-gold{background:var(--gold);color:#111}
+    .nav-home{background:#1a3a5a}
+    .nav-about{background:var(--purple)}
+    .nav-services{background:#21405f}
+    .nav-projects{background:var(--green)}
+    .nav-pricing{background:#8a5b15}
+    .nav-gov{background:var(--gold);color:#000}
 
     .hero{
-      padding:70px 0 46px;
-      text-align:center;
+      padding:58px 0 40px;
       border-bottom:1px solid var(--line);
+      text-align:center;
     }
 
-    .hero h2{
-      margin:0;
-      font-size:clamp(2.3rem,7vw,4.4rem);
-      line-height:1.06;
+    .eyebrow{
+      display:inline-block;
+      padding:8px 12px;
+      border:1px solid rgba(199,168,90,0.28);
+      border-radius:999px;
+      color:var(--gold);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+      margin-bottom:14px;
+    }
+
+    .hero h1{
+      margin:0 0 12px;
+      font-size:clamp(2.1rem, 6vw, 4rem);
       color:var(--gold);
       font-weight:900;
     }
 
     .hero p{
+      margin:0 auto;
       max-width:900px;
-      margin:18px auto 0;
-      color:#57b7ff;
-      font-size:clamp(1rem,2.2vw,1.25rem);
-      font-weight:700;
+      color:var(--muted);
+      font-size:1.05rem;
     }
 
     .section{
-      padding:54px 0;
+      padding:48px 0;
       border-bottom:1px solid var(--line);
     }
 
-    .section-title{
-      text-align:center;
-      color:var(--gold);
-      font-size:clamp(1.5rem,3vw,2.4rem);
-      margin:0 0 14px;
-      font-weight:900;
+    .section h2{
+      margin:0 0 10px;
+      font-size:clamp(1.7rem, 4vw, 2.6rem);
+      color:#fff;
     }
 
-    .section-copy{
-      max-width:900px;
-      margin:0 auto 28px;
-      text-align:center;
+    .intro{
+      margin:0 0 26px;
+      max-width:920px;
       color:var(--muted);
     }
 
-    .grid-2{
+    .grid{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
+      grid-template-columns:1.1fr .9fr;
+      gap:22px;
     }
 
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      background:var(--panel);
       border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:24px;
-      box-shadow:0 12px 26px rgba(0,0,0,0.16);
+      border-radius:14px;
+      padding:22px;
     }
 
     .card h3{
-      margin:0 0 12px;
+      margin:0 0 10px;
       color:var(--gold);
-      font-size:1.25rem;
+      font-size:1.2rem;
     }
 
     .card p{
-      margin:0 0 12px;
-      color:#dce5f2;
-    }
-
-    .card ul{
-      margin:0;
-      padding-left:18px;
+      margin:0 0 14px;
       color:var(--muted);
-    }
-
-    .card li{margin-bottom:7px}
-
-    .form-wrap{
-      max-width:980px;
-      margin:0 auto;
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:28px;
-      box-shadow:0 12px 26px rgba(0,0,0,0.18);
-    }
-
-    .form-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-      margin-bottom:18px;
     }
 
     .field{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
+      margin-bottom:14px;
     }
 
-    .field.full{
-      grid-column:1 / -1;
-    }
-
-    label{
-      color:var(--muted);
-      font-size:.92rem;
+    .field label{
+      display:block;
+      margin-bottom:6px;
+      font-size:14px;
       font-weight:700;
+      color:#fff;
     }
 
     input, select, textarea{
       width:100%;
-      background:#07111d;
-      color:var(--text);
-      border:1px solid rgba(255,255,255,0.1);
+      background:#08111e;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.12);
       border-radius:10px;
-      padding:14px;
+      padding:13px 14px;
       font:inherit;
     }
 
     textarea{
-      min-height:140px;
+      min-height:150px;
       resize:vertical;
     }
 
-    .checkbox-row{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      margin:14px 0;
-      color:var(--muted);
-      font-size:.94rem;
-    }
-
-    .checkbox-row input{
-      width:auto;
-      margin-top:3px;
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
     }
 
     .btn-row{
       display:flex;
       flex-wrap:wrap;
-      gap:12px;
+      gap:10px;
       margin-top:10px;
     }
 
@@ -258,290 +209,364 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:14px 20px;
-      border-radius:12px;
+      padding:14px 18px;
+      border-radius:10px;
       font-weight:800;
-      text-align:center;
       border:1px solid transparent;
       cursor:pointer;
-      transition:.18s ease;
-      font-size:.95rem;
+      text-align:center;
     }
 
-    .btn-gold{
-      background:var(--gold);
-      color:#111;
+    .btn-gold{background:var(--gold);color:#000}
+    .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,0.14)}
+    .btn-blue{background:var(--blue);color:#00131d}
+
+    .info-grid{
+      display:grid;
+      gap:14px;
     }
 
-    .btn-gold:hover{background:var(--gold-dark)}
+    .info-box{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:16px;
+    }
 
-    .btn-outline{
-      border-color:rgba(210,174,89,0.42);
+    .info-box h4{
+      margin:0 0 8px;
       color:var(--gold);
-      background:transparent;
+      font-size:1rem;
     }
 
-    .btn-outline:hover{
-      background:rgba(210,174,89,0.08);
+    .info-box p, .info-box li{
+      margin:0 0 8px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .info-box ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .mail-box{
+      background:#08111e;
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:10px;
+      padding:14px;
+      color:#fff;
+      word-break:break-word;
+      font-weight:700;
     }
 
     .notice{
-      max-width:980px;
-      margin:20px auto 0;
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(210,174,89,0.2);
-      border-radius:14px;
-      padding:18px;
-      color:#dce5f2;
-    }
-
-    .notice h4{
-      margin:0 0 10px;
-      color:var(--gold);
-    }
-
-    .status-box{
-      display:none;
-      margin-top:18px;
-      padding:18px;
-      border:1px solid rgba(210,174,89,0.22);
+      background:#0a1320;
+      border:1px solid rgba(199,168,90,0.22);
       border-radius:12px;
-      background:rgba(255,255,255,0.03);
+      padding:16px;
+      color:#dbe6f5;
+      margin-top:16px;
     }
 
-    .status-box h4{
-      margin:0 0 8px;
+    .notice strong{
       color:var(--gold);
     }
 
-    .status-box p{
-      margin:0;
-      color:#dce5f2;
+    .voice-panel{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:24px;
+      text-align:center;
+    }
+
+    .voice-panel h2{
+      color:var(--gold);
+    }
+
+    .voice-controls{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .voice-controls button{
+      padding:14px 18px;
+      border:none;
+      border-radius:10px;
+      font-size:16px;
+      font-weight:800;
+      cursor:pointer;
+      background:var(--gold);
+      color:#000;
+    }
+
+    .voice-controls button.alt{
+      background:#17314a;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .voice-output{
+      margin-top:18px;
+      background:#000;
+      border:1px solid var(--blue);
+      border-radius:8px;
+      min-height:58px;
+      padding:16px;
+      text-align:left;
+      color:#dbe7f6;
     }
 
     footer{
       text-align:center;
-      padding:30px 20px 48px;
-      color:#8e9cb2;
-      font-size:.92rem;
+      padding:34px 20px 50px;
+      color:#a6b5c8;
+      font-size:14px;
     }
 
+    footer a{color:var(--gold)}
+
     @media (max-width:900px){
-      .grid-2,
-      .form-grid{
+      .grid, .row{
         grid-template-columns:1fr;
       }
     }
 
     @media (max-width:700px){
-      .header-inner{
-        flex-direction:column;
+      .topbar{
         align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .btn-row,
+      .voice-controls{
+        flex-direction:column;
+      }
+
+      .btn,
+      .voice-controls button{
+        width:100%;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="top-rainbow"></div>
-
-<header>
-  <div class="container header-inner">
-    <div class="brand">
-      <img src="logo.png" alt="SSGPT6 logo">
-      <div>
-        <h1>SSGPT6-CORE</h1>
-        <p>GNAIAAAC LLC</p>
-      </div>
+  <header>
+    <div class="strip"></div>
+    <div class="container topbar">
+      <div class="logo">SSGPT6 Contact</div>
+      <nav>
+        <a class="nav-home" href="index.html">Home</a>
+        <a class="nav-about" href="about.html">About</a>
+        <a class="nav-services" href="services.html">Services</a>
+        <a class="nav-projects" href="projects.html">Projects</a>
+        <a class="nav-pricing" href="pricing.html">Pricing</a>
+        <a class="nav-gov" href="governance.html">Governance</a>
+      </nav>
     </div>
+  </header>
 
-    <nav>
-      <a href="index.html" class="nav-blue">Home</a>
-      <a href="services.html" class="nav-purple">Services</a>
-      <a href="pricing.html" class="nav-green">Pricing</a>
-      <a href="support-center.html" class="nav-gold">Support</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container">
-    <h2>Contact SSGPT6</h2>
-    <p>
-      Use this page for project questions, pricing requests, consultations, customer support, and structured communication. Voice Hub can remain optional, but this page should be your main support path.
-    </p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Contact Pathways</h2>
-    <p class="section-copy">
-      Customers should always have a clear communication path even if Voice Hub is limited or unavailable.
-    </p>
-
-    <div class="grid-2">
-      <div class="card">
-        <h3>Best contact uses</h3>
-        <ul>
-          <li>Project questions</li>
-          <li>Pricing and billing requests</li>
-          <li>Service support inquiries</li>
-          <li>Consultation requests</li>
-          <li>Website and account communication</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Support note</h3>
-        <p>
-          Voice Hub may be available as an optional communication tool, but this contact page should remain the primary support route.
-        </p>
-        <div class="btn-row">
-          <a class="btn btn-outline" href="voicehub.html">Open Voice Hub</a>
-          <a class="btn btn-outline" href="support-center.html">Support Center</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Send a Request</h2>
-    <p class="section-copy">
-      This form creates a structured message that opens your email app and prepares the request in a cleaner format.
-    </p>
-
-    <div class="form-wrap">
-      <form id="contactForm">
-        <div class="form-grid">
-          <div class="field">
-            <label for="fullName">Full Name</label>
-            <input id="fullName" type="text" placeholder="Enter your full name" required>
-          </div>
-
-          <div class="field">
-            <label for="email">Email Address</label>
-            <input id="email" type="email" placeholder="Enter your email address" required>
-          </div>
-
-          <div class="field">
-            <label for="phone">Phone Number (optional)</label>
-            <input id="phone" type="text" placeholder="Enter your phone number if you want follow-up">
-          </div>
-
-          <div class="field">
-            <label for="topic">Topic</label>
-            <select id="topic" required>
-              <option value="">Select a topic</option>
-              <option value="General Inquiry">General Inquiry</option>
-              <option value="Project Question">Project Question</option>
-              <option value="Pricing Request">Pricing Request</option>
-              <option value="Service Support">Service Support</option>
-              <option value="Consultation Request">Consultation Request</option>
-              <option value="Billing Question">Billing Question</option>
-            </select>
-          </div>
-
-          <div class="field full">
-            <label for="message">Message</label>
-            <textarea id="message" placeholder="Describe what you need"></textarea>
-          </div>
-        </div>
-
-        <div class="checkbox-row">
-          <input id="permissionBox" type="checkbox" required>
-          <label for="permissionBox" style="margin:0;">
-            I authorize SSGPT6 to contact me regarding my request using the information I provide.
-          </label>
-        </div>
-
-        <div class="btn-row">
-          <button class="btn btn-gold" type="submit">Send Request</button>
-          <a class="btn btn-outline" href="voicehub.html">Voice Hub</a>
-        </div>
-      </form>
-
-      <div class="status-box" id="statusBox">
-        <h4>Request prepared</h4>
-        <p id="statusText"></p>
-      </div>
-    </div>
-
-    <div class="notice">
-      <h4>Phone and voice communication notice</h4>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Support • Services • Consultation</div>
+      <h1>Contact Us</h1>
       <p>
-        If you choose to provide a phone number, your contact information may be recorded in the customer support workflow for communication, follow-up, and service coordination purposes, subject to user permission, platform readiness, and applicable privacy rules.
+        Use this page for project inquiries, pricing questions, support requests,
+        collaboration outreach, consultation requests, and general communication.
       </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Safe Communication Notes</h2>
-    <div class="grid-2">
-      <div class="card">
-        <h3>Email templates this page supports</h3>
-        <ul>
-          <li>Contact form confirmation</li>
-          <li>Service inquiry confirmation</li>
-          <li>Pricing request confirmation</li>
-          <li>Support ticket acknowledgment</li>
-          <li>Consultation request acknowledgment</li>
-        </ul>
-      </div>
+  <section class="section">
+    <div class="container">
+      <h2>Main Contact Path</h2>
+      <p class="intro">
+        The contact page should remain the main support and inquiry route for the platform.
+      </p>
 
-      <div class="card">
-        <h3>Important limitation</h3>
-        <p>
-          True phone-record connection, live telephony routing, and automatic call logging need a backend system and telephony provider. This page is the safe website version now.
-        </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Send a Message</h3>
+
+          <form action="mailto:ssgpt6@aol.com" method="post" enctype="text/plain">
+            <div class="row">
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input id="name" name="name" type="text" placeholder="Your Name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="Your Email" required>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="field">
+                <label for="category">Inquiry Type</label>
+                <select id="category" name="category">
+                  <option>General Inquiry</option>
+                  <option>Services</option>
+                  <option>Projects</option>
+                  <option>Pricing / Billing</option>
+                  <option>Partnership</option>
+                  <option>Consultation Request</option>
+                  <option>Support</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="organization">Organization (Optional)</label>
+                <input id="organization" name="organization" type="text" placeholder="Company or Organization">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Write your message here"></textarea>
+            </div>
+
+            <div class="btn-row">
+              <button class="btn btn-gold" type="submit">Send Message</button>
+              <a href="submission-engine.html" class="btn btn-outline">Open Submission Engine</a>
+            </div>
+          </form>
+
+          <div class="notice">
+            <strong>Notice:</strong> This page is the main communication path.
+            Voice, live call, or other advanced systems should be presented as optional unless fully integrated.
+          </div>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>Email</h4>
+            <div class="mail-box">ssgpt6@aol.com</div>
+          </div>
+
+          <div class="info-box">
+            <h4>Best Use Cases</h4>
+            <ul>
+              <li>project questions</li>
+              <li>service requests</li>
+              <li>pricing and billing questions</li>
+              <li>collaboration outreach</li>
+              <li>support and follow-up</li>
+            </ul>
+          </div>
+
+          <div class="info-box">
+            <h4>What Happens Next</h4>
+            <p>1. You send a request.</p>
+            <p>2. The request is reviewed through the support workflow.</p>
+            <p>3. Follow-up depends on the category and platform readiness.</p>
+          </div>
+
+          <div class="info-box">
+            <h4>Optional Support Routes</h4>
+            <p>Use these pages if your question is more specific:</p>
+            <ul>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="governance.html">Governance</a></li>
+            </ul>
+          </div>
+
+          <div class="info-box">
+            <h4>Phone and Voice Note</h4>
+            <p>
+              Customer phone and voice communications may be logged in the support
+              workflow for communication, follow-up, and service coordination,
+              subject to user permission, platform readiness, and applicable privacy rules.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  © 2026 SSGPT6-CORE · GNAIAAAC LLC · Contact
-</footer>
+  <section class="section">
+    <div class="container voice-panel">
+      <h2>♿ Accessibility Contact Control</h2>
+      <p>
+        Voice + typing supported • accessible for seniors and disabled users
+      </p>
 
-<script>
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+      <div class="voice-controls">
+        <button onclick="startVoice()">♿ 🎤 Start Voice</button>
+        <button class="alt" onclick="stopVoice()">♿ ⏹ Stop</button>
+        <button onclick="speakContact()">♿ 🔊 Speak</button>
+      </div>
 
-    const fullName = document.getElementById("fullName").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const topic = document.getElementById("topic").value.trim();
-    const message = document.getElementById("message").value.trim();
+      <div class="voice-output" id="voiceOutput">
+        Ready for contact voice input.
+      </div>
+    </div>
+  </section>
 
-    const statusBox = document.getElementById("statusBox");
-    const statusText = document.getElementById("statusText");
+  <footer>
+    <p>© 2026 GNAIAAAC LLC | SSGPT6 Contact</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="about.html">About</a> |
+      <a href="services.html">Services</a> |
+      <a href="projects.html">Projects</a> |
+      <a href="governance.html">Governance</a> |
+      <a href="pricing.html">Pricing</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="terms.html">Terms</a> |
+      <a href="submission-engine.html">Submission Engine</a>
+    </p>
+  </footer>
 
-    statusBox.style.display = "block";
-    statusText.textContent =
-      `Your ${topic || "contact"} request has been prepared. A structured email draft will open next.`;
+  <script>
+    let recognition;
 
-    const subject = encodeURIComponent(`SSGPT6 Contact Request - ${topic || "General Inquiry"}`);
-    const body = encodeURIComponent(
-`Full Name: ${fullName}
-Email: ${email}
-Phone: ${phone}
-Topic: ${topic}
+    function startVoice() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-Message:
-${message}
+      if (!SpeechRecognition) {
+        document.getElementById("voiceOutput").innerText =
+          "Voice recognition is not supported in this browser.";
+        return;
+      }
 
-Communication permission confirmed: Yes`
-    );
+      recognition = new SpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.onresult = function(event) {
+        document.getElementById("voiceOutput").innerText =
+          event.results[0][0].transcript;
+      };
+      recognition.onerror = function() {
+        document.getElementById("voiceOutput").innerText =
+          "Voice recognition could not complete. Please try again.";
+      };
+      recognition.start();
+    }
 
-    setTimeout(() => {
-      window.location.href = `mailto:ssgpt6@aol.com?subject=${subject}&body=${body}`;
-    }, 700);
-  });
-</script>
+    function stopVoice() {
+      if (recognition) {
+        recognition.stop();
+      }
+    }
+
+    function speakContact() {
+      const text =
+        "Welcome to SSGPT6 contact. Use this page for support, services, pricing questions, project inquiries, partnerships, and consultation requests.";
+      if (!("speechSynthesis" in window)) {
+        document.getElementById("voiceOutput").innerText =
+          "Speech output is not supported in this browser.";
+        return;
+      }
+      const speech = new SpeechSynthesisUtterance(text);
+      speechSynthesis.cancel();
+      speechSynthesis.speak(speech);
+    }
+  </script>
 
 </body>
 </html>
