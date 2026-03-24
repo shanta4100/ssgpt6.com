@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SSGPT6 | Water & Energy Resilience Platform</title>
-  <meta name="description" content="SSGPT6 research-driven platform for water systems, energy resilience, accessibility, and global infrastructure support." />
+  <meta name="description" content="SSGPT6 research-driven platform for water systems, energy resilience, accessibility, governance, services, and global infrastructure support." />
   <style>
     :root{
       --bg:#060d18;
@@ -20,10 +20,7 @@
     }
 
     *{box-sizing:border-box}
-
-    html{
-      scroll-behavior:smooth;
-    }
+    html{scroll-behavior:smooth}
 
     body{
       margin:0;
@@ -52,6 +49,12 @@
       backdrop-filter:blur(10px);
     }
 
+    .rainbow-strip{
+      height:6px;
+      width:100%;
+      background:var(--rainbow);
+    }
+
     .topbar{
       display:flex;
       justify-content:space-between;
@@ -66,12 +69,6 @@
       font-weight:800;
       color:#fff;
       letter-spacing:.5px;
-    }
-
-    .rainbow-strip{
-      height:6px;
-      width:100%;
-      background:var(--rainbow);
     }
 
     nav{
@@ -90,8 +87,10 @@
     }
 
     .nav-about{background:#1a3a5a;color:#fff;}
+    .nav-services{background:#21405f;color:#fff;}
     .nav-projects{background:#3a1a5a;color:#fff;}
-    .nav-voice{background:#1a5a3a;color:#fff;}
+    .nav-governance{background:#1a5a3a;color:#fff;}
+    .nav-pricing{background:#8a5b15;color:#fff;}
     .nav-contact{background:#c7a85a;color:#000;}
 
     .hero{
@@ -183,30 +182,30 @@
       font-size:1.02rem;
     }
 
-    .video-grid,
-    .feature-grid{
+    .feature-grid,
+    .video-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
       gap:20px;
     }
 
-    .video-card,
-    .card{
+    .card,
+    .video-card{
       background:var(--panel);
       border:1px solid var(--line);
       border-radius:14px;
       padding:22px;
     }
 
-    .video-card h3,
-    .card h3{
-      margin:0 0 12px;
+    .card h3,
+    .video-card h3{
+      margin:0 0 10px;
       color:var(--gold);
       font-size:1.2rem;
     }
 
-    .video-card p,
-    .card p{
+    .card p,
+    .video-card p{
       margin:0 0 16px;
       color:var(--muted);
     }
@@ -222,6 +221,29 @@
       color:var(--muted);
       font-size:1.05rem;
       margin:0 0 18px;
+    }
+
+    .quick-links{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:18px;
+    }
+
+    .quick-link{
+      background:var(--panel-2);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:20px;
+    }
+
+    .quick-link h3{
+      color:var(--gold);
+      margin:0 0 10px;
+    }
+
+    .quick-link p{
+      color:var(--muted);
+      margin:0 0 14px;
     }
 
     .access-panel{
@@ -356,6 +378,10 @@
       .voice-controls button{
         width:100%;
       }
+
+      .contact-box button{
+        width:100%;
+      }
     }
   </style>
 </head>
@@ -368,8 +394,10 @@
 
       <nav>
         <a href="about.html" class="nav-about">About</a>
-        <a href="#projects" class="nav-projects">Projects</a>
-        <a href="#voice" class="nav-voice">Voice AI</a>
+        <a href="services.html" class="nav-services">Services</a>
+        <a href="projects.html" class="nav-projects">Projects</a>
+        <a href="governance.html" class="nav-governance">Governance</a>
+        <a href="pricing.html" class="nav-pricing">Pricing</a>
         <a href="contact.html" class="nav-contact">Contact</a>
       </nav>
     </div>
@@ -394,30 +422,48 @@
     </div>
   </section>
 
-  <section class="section" id="videos">
+  <section class="section" id="quick-links">
     <div class="container">
-      <h2>Project Visual Overview</h2>
+      <h2>Platform Navigation</h2>
       <p class="section-intro">
-        Open the project media in a new tab.
+        Use these pages to explore the full SSGPT6 structure.
       </p>
 
-      <div class="video-grid">
-        <div class="video-card">
-          <h3>Video 1</h3>
-          <p>Project visual reference.</p>
-          <a class="btn btn-gold" href="https://photos.app.goo.gl/6TxXRmgivorr6dpH6" target="_blank" rel="noopener noreferrer">▶ Open Video 1</a>
+      <div class="quick-links">
+        <div class="quick-link">
+          <h3>About</h3>
+          <p>Mission, direction, video showcase, and accessibility overview.</p>
+          <a href="about.html" class="btn btn-gold">Open About</a>
         </div>
 
-        <div class="video-card">
-          <h3>Video 2</h3>
-          <p>Project visual reference.</p>
-          <a class="btn btn-gold" href="https://photos.app.goo.gl/WJTbguhTGeTpWQtx6" target="_blank" rel="noopener noreferrer">▶ Open Video 2</a>
+        <div class="quick-link">
+          <h3>Services</h3>
+          <p>Review all public service categories and request pathways.</p>
+          <a href="services.html" class="btn btn-gold">Open Services</a>
         </div>
 
-        <div class="video-card">
-          <h3>Video 3</h3>
-          <p>Project visual reference.</p>
-          <a class="btn btn-gold" href="https://photos.app.goo.gl/EYpjsMMswSHjS9kv9" target="_blank" rel="noopener noreferrer">▶ Open Video 3</a>
+        <div class="quick-link">
+          <h3>Projects</h3>
+          <p>Explore the 135 project ecosystem and structured project categories.</p>
+          <a href="projects.html" class="btn btn-gold">Open Projects</a>
+        </div>
+
+        <div class="quick-link">
+          <h3>Governance</h3>
+          <p>See the structured oversight, accountability, and reporting model.</p>
+          <a href="governance.html" class="btn btn-gold">Open Governance</a>
+        </div>
+
+        <div class="quick-link">
+          <h3>Pricing</h3>
+          <p>Review memberships, service packages, and payment pathways.</p>
+          <a href="pricing.html" class="btn btn-gold">Open Pricing</a>
+        </div>
+
+        <div class="quick-link">
+          <h3>Submission Engine</h3>
+          <p>Prepare, save, and track outreach drafts and applications.</p>
+          <a href="submission-engine.html" class="btn btn-gold">Open Engine</a>
         </div>
       </div>
     </div>
@@ -450,19 +496,18 @@
         <div class="card">
           <h3>Water Systems</h3>
           <p>Monitoring, sustainability, and resilience-focused project directions.</p>
+          <a href="projects.html" class="btn btn-gold">View Projects</a>
         </div>
         <div class="card">
           <h3>Energy Systems</h3>
           <p>Optimization, efficiency, and future infrastructure support models.</p>
+          <a href="projects.html" class="btn btn-gold">View Projects</a>
         </div>
         <div class="card">
           <h3>Digital Governance</h3>
           <p>Structured operational systems, reporting, and decision-support pathways.</p>
+          <a href="governance.html" class="btn btn-gold">Open Governance</a>
         </div>
-      </div>
-
-      <div style="margin-top:22px;">
-        <a href="projects.html" class="btn btn-gold">Open Projects Page</a>
       </div>
     </div>
   </section>
@@ -511,7 +556,14 @@
     <p>© 2026 GNAIAAAC LLC | SSGPT6 Platform</p>
     <p>
       <a href="about.html">About</a> |
-      <a href="contact.html">Contact</a>
+      <a href="services.html">Services</a> |
+      <a href="projects.html">Projects</a> |
+      <a href="governance.html">Governance</a> |
+      <a href="pricing.html">Pricing</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="terms.html">Terms</a> |
+      <a href="submission-engine.html">Submission Engine</a>
     </p>
   </footer>
 
@@ -547,7 +599,7 @@
     }
 
     function speakText() {
-      const text = document.getElementById("voiceOutput").innerText;
+      const text = document.getElementById("voiceOutput").innerText || "Welcome to the SSGPT6 platform.";
       if (!("speechSynthesis" in window)) {
         document.getElementById("voiceOutput").innerText =
           "Speech output is not supported in this browser.";
