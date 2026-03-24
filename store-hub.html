@@ -1,103 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSGPT6 | Global Store Hub & Affiliate Discovery</title>
-    <style>
-        :root {
-            --bg: #010409; --panel: #0d1117; --gold: #c7a85a;
-            --rainbow: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
-        }
-        body { margin: 0; font-family: 'Arial Black', sans-serif; background: var(--bg); color: #fff; text-align: center; }
-        
-        /* HEADER & LOGO */
-        .store-header { padding: 40px 0; border-bottom: 2px solid var(--gold); background: #000; }
-        .logo-sm { width: 150px; margin-bottom: 10px; }
-        .store-title { font-size: 2.5rem; background: var(--rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 5px; }
-
-        /* REGION SELECTOR */
-        .region-bar { padding: 20px; background: #080c12; display: flex; justify-content: center; gap: 20px; border-bottom: 1px solid #1a1a1a; }
-        .region-tag { padding: 8px 20px; border: 1px solid var(--gold); color: var(--gold); border-radius: 20px; font-size: 0.8rem; cursor: pointer; }
-        .region-tag.active { background: var(--gold); color: #000; }
-
-        /* PRODUCT GRID */
-        .store-grid { padding: 60px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1400px; margin: auto; }
-        .product-card { background: var(--panel); border: 1px solid #30363d; border-radius: 8px; overflow: hidden; transition: 0.3s; text-align: left; }
-        .product-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .prod-img { width: 100%; height: 200px; background: #161b22; object-fit: cover; }
-        .prod-info { padding: 20px; }
-        .prod-company { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; }
-        .prod-name { font-size: 1.1rem; margin: 10px 0; min-height: 50px; }
-        .affiliate-btn { 
-            display: block; width: 100%; padding: 15px; background: var(--gold); color: #000; 
-            text-align: center; text-decoration: none; font-weight: bold; border-radius: 4px; 
-        }
-
-        /* LEGAL FOOTER */
-        .affiliate-disclosure { padding: 40px 10%; font-size: 0.8rem; color: #8b949e; line-height: 1.6; border-top: 1px solid #1a1a1a; }
-    </style>
-</head>
-<body>
-
-<header class="store-header">
-    <img src="https://raw.githubusercontent.com/shanta4100/ssgpt6.com/main/public/logo.png" class="logo-sm">
-    <div class="store-title">SSGPT6 STORE HUB</div>
-    <p style="color:var(--gold); letter-spacing:2px;">GLOBAL AFFILIATE DISCOVERY SYSTEM</p>
-</header>
-
-<div class="region-bar">
-    <div class="region-tag active">USA / CANADA</div>
-    <div class="region-tag">EUROPE</div>
-    <div class="region-tag">ASIA / JAPAN</div>
-    <div class="region-tag">GLOBAL (ALIEXPRESS)</div>
-</div>
-
 <section class="store-grid">
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1581781894506-7769318828f7?auto=format&fit=crop&w=500&q=60" class="prod-img">
+    
+    <div class="product-card" style="border-top: 3px solid #00ffcc;">
+        <img src="https://images.unsplash.com/photo-1509391366360-fe58f9671767?auto=format&fit=crop&w=500&q=60" class="prod-img">
         <div class="prod-info">
-            <span class="prod-company">Home Depot</span>
-            <h3 class="prod-name">Smart Home & Energy Saving Tools</h3>
-            <a href="https://www.homedepot.com" target="_blank" class="affiliate-btn">VIEW DEAL</a>
+            <span class="prod-company">Energy Components</span>
+            <h3 class="prod-name">Universal Harvesting Sensors & PV Modules</h3>
+            <p style="font-size:0.8rem; color:#8b949e;">Compatible with SSGPT6 Tiny AI nodes for grid-independent power.</p>
+            <a href="https://www.aliexpress.com" target="_blank" class="affiliate-btn" style="background:#00ffcc;">SOURCE HARDWARE</a>
+        </div>
+    </div>
+
+    <div class="product-card" style="border-top: 3px solid var(--gold);">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=60" class="prod-img">
+        <div class="prod-info">
+            <span class="prod-company">Starlink / Satellite</span>
+            <h3 class="prod-name">D2D Communication Kits</h3>
+            <p style="font-size:0.8rem; color:#8b949e;">High-speed data links for remote energy monitoring and AI control.</p>
+            <a href="https://www.homedepot.com" target="_blank" class="affiliate-btn">VIEW NETWORK TOOLS</a>
         </div>
     </div>
 
     <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=500&q=60" class="prod-img">
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=500&q=60" class="prod-img">
         <div class="prod-info">
-            <span class="prod-company">SHEIN Fashion AI</span>
-            <h3 class="prod-name">Trending Global Fashion Outfits</h3>
-            <a href="https://www.shein.com" target="_blank" class="affiliate-btn">SHOP COLLECTION</a>
+            <span class="prod-company">SHEIN Global</span>
+            <h3 class="prod-name">AI-Curated Fashion Collection</h3>
+            <p style="font-size:0.8rem; color:#8b949e;">Daily trends managed by the SSGPT6 Media Engine.</p>
+            <a href="https://www.shein.com" target="_blank" class="affiliate-btn">SHOP FASHION</a>
         </div>
     </div>
 
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=60" class="prod-img">
-        <div class="prod-info">
-            <span class="prod-company">AliExpress Global</span>
-            <h3 class="prod-name">Tech Gadgets & Tiny AI Hardware</h3>
-            <a href="https://www.aliexpress.com" target="_blank" class="affiliate-btn">GET AT SOURCE</a>
-        </div>
-    </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=60" class="prod-img">
-        <div class="prod-info">
-            <span class="prod-company">Lowe's Home Improvement</span>
-            <h3 class="prod-name">Infrastructure & Network Supplies</h3>
-            <a href="https://www.lowes.com" target="_blank" class="affiliate-btn">EXPLORE LOWE'S</a>
-        </div>
-    </div>
 </section>
-
-<section class="affiliate-disclosure">
-    <p><strong>Affiliate Disclosure:</strong> SSGPT6 is an independent discovery platform. We do not process payments or ship products. Some links on this page are affiliate links, meaning GNAIAAAC LLC may earn a commission if you make a purchase through these links at no extra cost to you. All transactions are handled by the third-party retailers.</p>
-</section>
-
-<footer style="padding:40px; color:#444; font-size:0.7rem;">
-    GNAIAAAC LLC © 2026 | SSGPT6 PROPRIETARY SYSTEM
-</footer>
-
-</body>
-</html>
