@@ -1,0 +1,18 @@
+<section class="card" style="border: 4px double #d4b15a; background: #000; padding: 30px;">
+    <h1 class="rainbow">SHANTA GENERATIONAL TRUST</h1>
+    <p>Sovereign Royalty Management & Successor Protection</p>
+    
+    <div class="grid" style="text-align: left; padding: 20px;">
+        <div>👤 Wife: Most Begum [PRIMARY]</div>
+        <div>🎓 Son: Adib Shanta [ACTIVE]</div>
+        <div>💍 Daughter: Afsana Oreen [SECURED]</div>
+        <div>💍 Daughter: Afsara Ahona [SECURED]</div>
+        <div>🇧🇩 Friend: MST Sonya Khatun [ACTIVE]</div>
+    </div>
+
+    <hr style="border: 1px solid #444;">
+    
+    <div style="color: #ffcc00; font-weight: bold;">
+        ⚠️ GHOST FRIEND REVERSION CLOCK: <span id="timer">372 DAYS REMAINING</span>
+    </div>
+</section>
