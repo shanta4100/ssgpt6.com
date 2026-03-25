@@ -1,16 +1,44 @@
-/* SSGPT6 SOVEREIGN IDENTITY GUARD v.2026 */
-(function() {
-    const deleteSupport = () => {
-        // Find any link or button that says "Support" or "24/7" and DESTROY it
-        const elements = document.querySelectorAll('a, button, div, span, p');
-        elements.forEach(el => {
-            if (el.textContent.includes("24/7") || el.textContent.includes("Support")) {
-                el.remove(); // Physically delete from the live website
-                console.log("SSGPT6: SENSITIVE SUPPORT ASSET DELETED.");
-            }
-        });
-    };
-    
-    window.onload = deleteSupport;
-    setInterval(deleteSupport, 1000); // Check every second to prevent "Ghost" reappearance
-})();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GNAIAAAC LLC | SSGPT6 SOVEREIGN ENGINE</title>
+    <style>
+        body { background: #040b14; color: #c7a85a; font-family: 'Segoe UI', sans-serif; text-align: center; padding-top: 15%; margin: 0; }
+        .secure-vault { border: 2px solid #1a2a3a; padding: 60px; display: inline-block; border-radius: 20px; background: #060f1d; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+        h1 { letter-spacing: 6px; font-weight: 300; margin-bottom: 5px; }
+        .status-glow { color: #00ff41; font-family: monospace; font-size: 14px; text-transform: uppercase; margin-top: 20px; }
+        .legal-footer { margin-top: 50px; color: #444; font-size: 11px; }
+    </style>
+    <script>
+        // SSGPT6 PRIVACY COMMAND: DELETE ALL SUPPORT & PERSONAL LINKS
+        window.onload = function() {
+            const purge = () => {
+                document.querySelectorAll('*').forEach(el => {
+                    if (el.textContent.includes("24/7") || el.textContent.includes("Support")) {
+                        el.remove();
+                    }
+                });
+                document.querySelectorAll('a[href*="tel"], a[href*="wa.me"], a[href*="mailto"], a[href*="photos.app.goo.gl"]').forEach(el => el.remove());
+            };
+            purge();
+            setInterval(purge, 500); // Constant background scrub
+        };
+    </script>
+</head>
+<body>
+    <div class="secure-vault">
+        <h1>SSGPT6</h1>
+        <p>GNAIAAAC LLC | GLOBAL INFRASTRUCTURE RECOVERY</p>
+        <div class="status-glow">
+            [ IDENTITY PROTECTION: ACTIVE ]<br>
+            [ PRIVATE CHANNELS: DELETED ]<br>
+            [ SOVEREIGN ENCRYPTED ]
+        </div>
+    </div>
+    <div class="legal-footer">
+        © 2026 GNAIAAAC LLC | ARCHITECT: ARIFUR SHANTA | $10M ACQUISITION SECURE
+    </div>
+</body>
+</html>
