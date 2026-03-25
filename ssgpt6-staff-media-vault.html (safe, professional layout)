@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SSGPT6 Staff Media Vault</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#050910;
+      color:#e5f7ff;
+    }
+    .container{width:min(96%,1100px);margin:40px auto;}
+    h1{color:#00ffcc;letter-spacing:3px;font-size:1.6rem;}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+    .card{
+      background:#0b1320;
+      border:1px solid rgba(0,255,204,0.25);
+      border-radius:12px;
+      padding:14px;
+    }
+    .card h3{margin:8px 0;font-size:1rem;color:#00ffcc;}
+    .meta{font-size:0.75rem;color:#9fb6c8;margin-bottom:6px;}
+    .tag{
+      display:inline-block;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid rgba(0,255,204,0.4);
+      font-size:0.7rem;
+      color:#00ffcc;
+      margin-top:6px;
+    }
+    .notice{
+      margin-top:24px;
+      font-size:0.8rem;
+      color:#9fb6c8;
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding-top:14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SSGPT6 STAFF MEDIA VAULT</h1>
+    <p class="meta">
+      Status: AUTHENTICATED · Owner: GNAIAAAC LLC (Institutional Use Only)
+    </p>
+
+    <h2 style="font-size:1.1rem;margin-top:24px;">Video Assets</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>energy-harvest-unit012.mp4</h3>
+        <div class="meta">Category: Energy Harvesting · Status: AUTHENTICATED</div>
+        <p>Technical demonstration of simulated multi-source energy extraction from thermal and vibration inputs.</p>
+        <span class="tag">ENGINEERING PROOF</span>
+      </div>
+
+      <div class="card">
+        <h3>water-governance-pilot.mp4</h3>
+        <div class="meta">Category: Water Governance · Status: AUTHENTICATED</div>
+        <p>Walkthrough of an AI-assisted municipal water-stress simulation for governance and planning.</p>
+        <span class="tag">GOVERNANCE MODEL</span>
+      </div>
+
+      <div class="card">
+        <h3>ssgpt6-voice-auth-demo.mp4</h3>
+        <div class="meta">Category: Access Control · Status: AUTHENTICATED</div>
+        <p>Demonstration of a voice-triggered interface authorizing secure document access.</p>
+        <span class="tag">ACCESS CONTROL</span>
+      </div>
+    </div>
+
+    <h2 style="font-size:1.1rem;margin-top:28px;">Photo Assets</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Infrastructure Asset 01</h3>
+        <div class="meta">Type: Water Purification · Status: AUTHENTICATED</div>
+        <p>High-resolution conceptual image of an industrial-scale water purification train (Unit 001).</p>
+        <span class="tag">INFRASTRUCTURE</span>
+      </div>
+
+      <div class="card">
+        <h3>Infrastructure Asset 02</h3>
+        <div class="meta">Type: Solar-Wind Mesh · Status: AUTHENTICATED</div>
+        <p>Wide-angle conceptual view of a solar-wind hybrid mesh installation (Unit 012).</p>
+        <span class="tag">ENERGY NETWORK</span>
+      </div>
+
+      <div class="card">
+        <h3>Architecture Asset 03</h3>
+        <div class="meta">Type: System Blueprint · Status: AUTHENTICATED</div>
+        <p>Blueprint-style visualization of the 135 Matrix showing how the AI Sleeping Agent connects every project.</p>
+        <span class="tag">SYSTEM ARCHITECTURE</span>
+      </div>
+    </div>
+
+    <div class="notice">
+      © 2026 GNAIAAAC LLC — All Rights Reserved. This media is proprietary to GNAIAAAC LLC and may not be reproduced,
+      distributed, or used for commercial or institutional purposes without written authorization.
+    </div>
+  </div>
+</body>
+</html>
