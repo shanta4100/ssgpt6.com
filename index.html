@@ -3,55 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GNAIAAAC LLC | SSGPT6 GLOBAL INFRASTRUCTURE</title>
+    <title>GNAIAAAC LLC | SSGPT6 SOVEREIGN ENGINE</title>
     <style>
-        :root { --gold: #c7a85a; --dark-bg: #040b14; --border: #1a2a3a; --glow: #00ff41; }
-        body { background: var(--dark-bg); color: #ecf1f8; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.6; }
+        :root { --gold: #c7a85a; --dark-bg: #040b14; --border: #1a2a3a; --glow: #00ff41; --error: #ff4141; }
+        body { background: var(--dark-bg); color: #ecf1f8; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.6; overflow-x: hidden; }
         header { padding: 40px 20px; text-align: center; border-bottom: 1px solid var(--border); }
-        .logo { font-size: 2rem; letter-spacing: 8px; color: var(--gold); margin: 0; font-weight: 300; }
+        .logo { font-size: 2rem; letter-spacing: 8px; color: var(--gold); margin: 0; font-weight: 300; cursor: pointer; }
         .container { max-width: 900px; margin: auto; padding: 20px; }
         .unit-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
-        .unit-card { border: 1px solid var(--border); padding: 30px; border-radius: 15px; background: #060f1d; transition: 0.3s; }
-        .unit-card:hover { border-color: var(--gold); }
+        .unit-card { border: 1px solid var(--border); padding: 30px; border-radius: 15px; background: #060f1d; transition: 0.3s; cursor: pointer; position: relative; }
+        .unit-card:hover { border-color: var(--gold); transform: translateY(-5px); }
         .unit-title { color: var(--gold); font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase; }
         .status-tag { display: inline-block; font-family: monospace; font-size: 11px; color: var(--glow); background: rgba(0, 255, 65, 0.1); padding: 5px 10px; border-radius: 5px; margin-top: 15px; }
+        
+        /* Modal Style */
+        #accessModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4,11,20,0.95); z-index: 1000; align-items: center; justify-content: center; }
+        .modal-content { background: #060f1d; padding: 40px; border: 1px solid var(--gold); border-radius: 15px; text-align: center; max-width: 400px; }
+        input { background: transparent; border: 1px solid var(--border); color: var(--gold); padding: 10px; width: 80%; margin: 20px 0; text-align: center; letter-spacing: 5px; }
+        button { background: var(--gold); border: none; padding: 10px 30px; color: #000; font-weight: bold; cursor: pointer; border-radius: 5px; }
+        
         footer { text-align: center; padding: 60px 20px; font-size: 12px; opacity: 0.5; letter-spacing: 2px; }
-        .matrix-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.05; pointer-events: none; }
     </style>
 </head>
 <body>
-    <div class="matrix-bg"></div>
     <header>
-        <p style="font-size: 12px; letter-spacing: 4px; margin-bottom: 10px;">GLOBAL NETWORK AI AUTOMATION ACADEMY</p>
-        <h1 class="logo">SSGPT6</h1>
+        <p style="font-size: 10px; letter-spacing: 4px; margin-bottom: 10px;">GLOBAL NETWORK AI AUTOMATION ACADEMY</p>
+        <h1 class="logo" onclick="location.reload()">SSGPT6</h1>
         <p style="color: var(--gold); font-size: 14px;">Architect: Arifur Shanta</p>
     </header>
 
     <div class="container">
         <div class="unit-grid">
-            <div class="unit-card">
+            <div class="unit-card" onclick="alert('Unit 001: Accessing Bangladesh/India Water Purification Data...')">
                 <div class="unit-title">Unit 001: Water Bankruptcy</div>
-                <p>Global water purification and scarcity resolution protocols. Deploying advanced filtration and desalination infrastructure.</p>
+                <p>Deploying advanced filtration and desalination infrastructure. Click to initialize scan.</p>
                 <div class="status-tag">[ MISSION ACTIVE ]</div>
             </div>
 
-            <div class="unit-card">
+            <div class="unit-card" onclick="alert('Unit 012: Satellite Coil Energy Grid Stabilizing...')">
                 <div class="unit-title">Unit 012: Sovereign Energy</div>
-                <p>Advanced inverter technology and satellite-coil energy distribution systems for global grid recovery.</p>
+                <p>Global grid recovery systems and high-efficiency inverter tech. Click for frequency report.</p>
                 <div class="status-tag">[ UNIT INITIALIZED ]</div>
             </div>
 
-            <div class="unit-card">
+            <div class="unit-card" onclick="openAcademy()">
                 <div class="unit-title">Automation Academy</div>
-                <p>Hands-on AI education and development portal. Training the next generation of infrastructure architects.</p>
-                <div class="status-tag">[ TRAINING ONLINE ]</div>
+                <p>Professional AI certification and development portal. Secure login required.</p>
+                <div class="status-tag">[ ENCRYPTED PORTAL ]</div>
             </div>
+        </div>
+    </div>
+
+    <div id="accessModal">
+        <div class="modal-content">
+            <h2 style="color:var(--gold); letter-spacing: 3px;">SECURITY GATE</h2>
+            <p style="font-size: 12px;">ENTER SOVEREIGN ACCESS KEY</p>
+            <input type="password" id="accessKey" placeholder="****">
+            <br>
+            <button onclick="checkKey()">AUTHORIZE</button>
+            <p id="errorMsg" style="color:var(--error); font-size:10px; margin-top:10px; display:none;">INVALID ARCHITECT KEY</p>
         </div>
     </div>
 
     <footer>
         <p>GNAIAAAC LLC © 2026 | THE 135 MATRIX</p>
-        <p style="font-size: 10px; margin-top: 10px;">SOVEREIGN PROTECTION ENABLED</p>
+        <p style="font-size: 10px; margin-top: 10px;">PROTECTION: ACTIVE</p>
     </footer>
+
+    <script>
+        function openAcademy() {
+            document.getElementById('accessModal').style.display = 'flex';
+        }
+        function checkKey() {
+            const key = document.getElementById('accessKey').value;
+            // The Key is your favorite number or name. Let's use '8888' for this demo.
+            if(key === '8888') {
+                alert('ACCESS GRANTED. Welcome Architect Shanta.');
+                window.location.href = "https://ssgpt6.com/academy"; // Or any subpage
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
