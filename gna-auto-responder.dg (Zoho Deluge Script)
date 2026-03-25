@@ -1,0 +1,28 @@
+// SSGPT6 LEGAL AUTOMATION SCRIPT
+// PURPOSE: AUTOMATED RECEIPT & IP PROTECTION
+
+void sendSovereignReceipt(string recipientEmail, string itemName) 
+{
+    // 1. DEFINE THE DEADLINE
+    ghostDeadline = "31-Mar-2027".toDate();
+    today = today;
+    
+    // 2. CONSTRUCT THE LEGAL SHIELD
+    legalFooter = "CONFIDENTIALITY NOTICE: IF RECEIVED BY MISTAKE, DELETE IMMEDIATELY. GNAIAAAC LLC | ARCHITECT: ARIFUR SHANTA. NO FRAUD. NO MONEY LAUNDERING.";
+    
+    // 3. COMPOSE THE MESSAGE
+    subject = "Official Record: GNAIAAAC LLC Transaction [" + itemName + "]";
+    message = "Thank you for supporting the SSGPT6 Global Project. \n\n" +
+              "This transaction is logged by the AI Sleeping Agent. Proceeds are routed to Municipal Utilities and local township bills. \n\n" +
+              "NOTICE TO ANONYMOUS COLLABORATORS: Identity must be verified by " + ghostDeadline + " for royalty eligibility. \n\n" +
+              "--- \n" + legalFooter;
+
+    // 4. DISPATCH THROUGH ZOHO SECURE GATEWAY
+    sendmail
+    [
+        from: "support@ssgpt6.com"
+        to: recipientEmail
+        subject: subject
+        message: message
+    ]
+}
