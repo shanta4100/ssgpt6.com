@@ -1,286 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SSGPT6 | Sovereign Architecture Engine</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 | Sovereign Architecture Engine</title>
 
-    <style>
-        :root {
-            --gold: #c7a85a;
-            --bg: #030712;
-            --panel: #0d1117;
-            --accent: #1f2937;
-            --glow: #22c55e;
-            --text-muted: #9ca3af;
-        }
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
-        body {
-            background: var(--bg);
-            color: #f3f4f6;
-            font-family: "Courier New", monospace;
-            margin: 0;
-        }
-
-        /* Glow Pulse */
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 4px var(--gold); }
-            50% { box-shadow: 0 0 14px var(--gold); }
-            100% { box-shadow: 0 0 4px var(--gold); }
-        }
-
-        /* Terminal typing */
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-
-        /* Security Bar */
-        .status-bar {
-            background: #000;
-            padding: 10px 20px;
-            border-bottom: 1px solid var(--accent);
-            display: flex;
-            justify-content: space-between;
-            font-size: 11px;
-            color: var(--gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--glow);
-            box-shadow: 0 0 8px var(--glow);
-            display: inline-block;
-            margin-right: 6px;
-        }
-
-        /* Navigation */
-        .nav {
-            background: rgba(3, 7, 18, 0.9);
-            border-bottom: 1px solid var(--accent);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-
-        .nav-inner {
-            max-width: 1100px;
-            margin: auto;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links a {
-            margin-left: 20px;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        /* Header */
-        header {
-            padding: 70px 20px 40px;
-            text-align: center;
-            background: radial-gradient(circle at top, #0d1117 0%, #030712 60%, #000 100%);
-        }
-
-        .logo {
-            font-size: 3.2rem;
-            letter-spacing: 16px;
-            text-transform: uppercase;
-        }
-
-        .subtitle {
-            color: var(--gold);
-            letter-spacing: 5px;
-            margin-top: 10px;
-        }
-
-        .slogan {
-            margin-top: 15px;
-            font-size: 12px;
-            letter-spacing: 3px;
-            color: var(--text-muted);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-
-        /* Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-
-        .module {
-            background: var(--panel);
-            border: 1px solid var(--accent);
-            padding: 30px;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-
-        .module:hover {
-            border-color: var(--gold);
-            transform: translateY(-6px);
-            animation: pulseGlow 1.8s infinite;
-        }
-
-        .unit-id {
-            font-size: 11px;
-            color: var(--gold);
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        /* Terminal */
-        .terminal {
-            background: #000;
-            border-left: 3px solid var(--gold);
-            padding: 12px;
-            margin-top: 20px;
-            font-size: 12px;
-            color: var(--glow);
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 2px solid var(--glow);
-            width: 0;
-            animation: typing 3s steps(40, end) forwards, blink 0.7s infinite;
-        }
-
-        /* Buttons */
-        .btn {
-            border: 1px solid var(--gold);
-            background: transparent;
-            color: var(--gold);
-            padding: 12px 20px;
-            width: 100%;
-            margin-top: 20px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: var(--gold);
-            color: #000;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid var(--accent);
-            font-size: 10px;
-            opacity: 0.6;
-            letter-spacing: 3px;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .logo { font-size: 2.4rem; letter-spacing: 10px; }
-            .nav-inner { flex-direction: column; gap: 10px; }
-        }
-    </style>
+  <meta name="description" content="SSGPT6 by GNAIAAAC LLC — Sovereign Architecture Engine for civilization-scale water, energy, and automation infrastructure." />
+  <meta name="robots" content="index,follow" />
 </head>
+<body class="body-bg">
 
-<body>
+  <!-- SECURITY BAR -->
+  <div class="status-bar">
+    <span><span class="status-dot"></span>ENCRYPTION: AES-256 ACTIVE</span>
+    <span>DOMAIN: SSGPT6.COM</span>
+    <span>NODE: GLOBAL CLOUD EDGE</span>
+  </div>
 
-    <!-- SECURITY BAR -->
-    <div class="status-bar">
-        <span><span class="status-dot"></span>ENCRYPTION: AES-256 ACTIVE</span>
-        <span>DOMAIN: SSGPT6.COM</span>
-        <span>NODE: GLOBAL CLOUD EDGE</span>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo.svg" alt="SSGPT6 Logo" class="nav-logo" />
+        <span>SSGPT6 / GNAIAAAC LLC</span>
+      </a>
+      <div class="nav-links">
+        <a href="#infrastructure">Infrastructure</a>
+        <a href="academy.html">Academy</a>
+        <a href="matrix.html">135 Matrix</a>
+        <a href="#access">Access</a>
+      </div>
     </div>
+  </nav>
 
-    <!-- NAV -->
-    <nav class="nav">
-        <div class="nav-inner">
-            <div class="nav-brand">SSGPT6 / GNAIAAAC LLC</div>
-            <div class="nav-links">
-                <a href="#infrastructure">Infrastructure</a>
-                <a href="#academy">Academy</a>
-                <a href="#matrix">135 Matrix</a>
-                <a href="#access">Access</a>
-            </div>
-        </div>
-    </nav>
+  <!-- HERO -->
+  <header class="hero">
+    <h1 class="logo">SSGPT6</h1>
+    <div class="subtitle">Sovereign Architecture Engine</div>
+    <div class="slogan">Tiny AI. Big Brain. Black Box.</div>
+    <p class="lead-architect">LEAD ARCHITECT: ARIFUR SHANTA</p>
 
-    <!-- HERO -->
-    <header>
-        <h1 class="logo">SSGPT6</h1>
-        <div class="subtitle">Sovereign Architecture Engine</div>
-        <div class="slogan">Tiny AI. Big Brain. Black Box.</div>
-        <p style="margin-top: 20px; opacity: 0.8;">LEAD ARCHITECT: ARIFUR SHANTA</p>
-    </header>
-
-    <!-- MAIN -->
-    <div class="container" id="infrastructure">
-
-        <div class="grid">
-
-            <!-- UNIT 001 -->
-            <div class="module">
-                <span class="unit-id">PROTOCOL // UNIT 001</span>
-                <h2>Water Bankruptcy</h2>
-                <p>Advanced purification and desalination infrastructure. Monitoring Bangladesh and India scarcity corridors.</p>
-                <div class="terminal">
-                    > SCANNING AQUA-DATA...  
-                    > STATUS: FLOW STABILIZED
-                </div>
-                <button class="btn">Initialize System</button>
-            </div>
-
-            <!-- UNIT 012 -->
-            <div class="module">
-                <span class="unit-id">PROTOCOL // UNIT 012</span>
-                <h2>Sovereign Energy</h2>
-                <p>High-efficiency inverter technology and satellite-coil energy distribution for global grid recovery.</p>
-                <div class="terminal">
-                    > FREQUENCY: 60.02HZ...  
-                    > LOAD: BALANCED
-                </div>
-                <button class="btn">Sync Grid</button>
-            </div>
-
-            <!-- ACADEMY -->
-            <div class="module" id="academy">
-                <span class="unit-id">PROTOCOL // ACADEMY</span>
-                <h2>Automation Academy</h2>
-                <p>Professional certification for the 135 Matrix technical stack. Accessing proprietary AI architecture.</p>
-                <div class="terminal">
-                    > ACCESS: RESTRICTED...  
-                    > KEY: REQUIRED
-                </div>
-                <button class="btn">Enter Portal</button>
-            </div>
-
-        </div>
+    <div class="hero-grid">
+      <div class="hero-panel">
+        <h3>Global Mandate</h3>
+        <p>GNAIAAAC LLC operates SSGPT6 as a civilization-scale digital infrastructure for water, energy, and automation resilience.</p>
+      </div>
+      <div class="hero-panel">
+        <h3>Operational Scope</h3>
+        <p>From scarcity corridors in Bangladesh and India to global grid recovery, SSGPT6 synchronizes physical and digital systems.</p>
+      </div>
+      <div class="hero-panel">
+        <h3>Control Surface</h3>
+        <p>This interface is the black-box console for the 135 Matrix — projects, protocols, and sovereign automation clusters.</p>
+      </div>
     </div>
+  </header>
 
-    <footer>
-        GNAIAAAC LLC © 2026 | SSGPT6 — TINY AI. BIG BRAIN. BLACK BOX.
-    </footer>
+  <!-- MAIN -->
+  <main class="container">
 
+    <!-- INFRASTRUCTURE -->
+    <section id="infrastructure">
+      <div class="section-label">Protocol Layer</div>
+      <h2 class="section-title">Global Infrastructure Units</h2>
+
+      <div class="grid">
+        <!-- UNIT 001 -->
+        <div class="module">
+          <span class="unit-id">PROTOCOL // UNIT 001</span>
+          <h2>Water Bankruptcy</h2>
+          <p>Advanced purification and desalination infrastructure. Monitoring Bangladesh and India scarcity corridors for systemic collapse prevention and flow stabilization.</p>
+          <div class="terminal" data-terminal-id="terminal-001">
+            &gt; SCANNING AQUA-DATA...<br />
+            &gt; STATUS: FLOW STABILIZED
+          </div>
+          <button class="btn" data-unit="001">Initialize System</button>
+        </div>
+
+        <!-- UNIT 012 -->
+        <div class="module">
+          <span class="unit-id">PROTOCOL // UNIT 012</span>
+          <h2>Sovereign Energy</h2>
+          <p>High-efficiency inverter technology and satellite-coil energy distribution for global grid recovery, redundancy, and sovereign micro-grid autonomy.</p>
+          <div class="terminal" data-terminal-id="terminal-012">
+            &gt; FREQUENCY: 60.02HZ...<br />
+            &gt; LOAD: BALANCED
+          </div>
+          <button class="btn" data-unit="012">Sync Grid</button>
+        </div>
+
+        <!-- ACADEMY PREVIEW -->
+        <div class="module" id="access">
+          <span class="unit-id">PROTOCOL // ACCESS</span>
+          <h2>Automation Academy Access</h2>
+          <p>Professional certification for the 135 Matrix technical stack. Access to proprietary AI architecture and sovereign automation governance.</p>
+          <div class="terminal" data-terminal-id="terminal-ACCESS">
+            &gt; ACCESS: RESTRICTED...<br />
+            &gt; KEY: REQUIRED
+          </div>
+          <a href="academy.html" class="btn btn-link">Enter Academy Portal</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MATRIX + CONTACT -->
+    <section id="matrix" class="section-spaced">
+      <div class="section-label">System Overview</div>
+      <h2 class="section-title">The 135 Matrix & Access Channels</h2>
+
+      <div class="two-column">
+        <div class="card">
+          <span class="badge">Matrix // 135 Projects</span>
+          <h3>135 Matrix: Civilization-Scale Stack</h3>
+          <p>The 135 Matrix is the full project lattice of SSGPT6 — spanning media, intelligence, governance, identity, commerce, infrastructure, security, social, education, research, automation, constitution, economy, territory, diplomacy, culture, and time.</p>
+          <p>Each project is a protocol-ready unit, designed for batch activation, sovereign deployment, and founder-grade operational control.</p>
+          <a href="matrix.html" class="btn-secondary">Open 135 Matrix Index</a>
+        </div>
+
+        <div class="card">
+          <span class="badge">Access // Control</span>
+          <h3>Founder & Institutional Access</h3>
+          <p>Direct access to SSGPT6, the 135 Matrix, and Automation Academy is restricted to verified sovereign, institutional, and regulatory partners.</p>
+          <ul class="contact-list">
+            <li><span class="contact-label">Operator:</span> GNAIAAAC LLC</li>
+            <li><span class="contact-label">Platform:</span> SSGPT6 — Sovereign Architecture Engine</li>
+            <li><span class="contact-label">Use Cases:</span> Water bankruptcy mitigation, grid recovery, automation governance, planetary resilience.</li>
+            <li><span class="contact-label">Access Request:</span> contact [at] ssgpt6.com</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>GNAIAAAC LLC © 2026 &nbsp;|&nbsp; SSGPT6 — TINY AI. BIG BRAIN. BLACK BOX.</div>
+    <div class="footer-meta">THE 135 MATRIX &nbsp;|&nbsp; SOVEREIGN DIGITAL INFRASTRUCTURE &nbsp;|&nbsp; ALL RIGHTS RESERVED</div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
