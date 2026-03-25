@@ -1,0 +1,62 @@
+<div style="background:#0b1320;border:1px solid rgba(0,255,204,0.25);border-radius:16px;padding:22px;font-family:Arial;color:#e5f7ff;max-width:1000px;margin:0 auto;">
+
+  <h2 style="text-align:center;color:#00ffcc;letter-spacing:3px;margin-top:0;">
+    GLOBAL MARKET DISPLAY BOARD
+  </h2>
+  <p style="text-align:center;color:#9fb6c8;font-size:0.85rem;margin-top:-8px;">
+    Illustrative sample values • Use licensed external providers for live data
+  </p>
+
+  <!-- Currency Section -->
+  <h3 style="color:#00ace6;margin-top:20px;">Currencies (Sample Values)</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+    <tr><th>Pair</th><th>Approx. Rate</th><th>Notes</th></tr>
+    <tr><td style="color:#00ffcc;">USD → EUR</td><td>0.92</td><td>Illustrative only</td></tr>
+    <tr><td style="color:#00ffcc;">USD → CAD</td><td>1.35</td><td>Illustrative only</td></tr>
+    <tr><td style="color:#00ffcc;">USD → JPY</td><td>110</td><td>Illustrative only</td></tr>
+    <tr><td style="color:#00ffcc;">USD → BDT</td><td>109</td><td>Illustrative only</td></tr>
+  </table>
+
+  <!-- Indices Section -->
+  <h3 style="color:#00ace6;margin-top:26px;">World Indices (Sample Values)</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+    <tr><th>Index</th><th>Approx. Level</th><th>Notes</th></tr>
+    <tr><td style="color:#00ffcc;">S&P 500</td><td>4,850</td><td>Illustrative only</td></tr>
+    <tr><td style="color:#00ffcc;">NASDAQ</td><td>15,200</td><td>Illustrative only</td></tr>
+    <tr><td style="color:#00ffcc;">DOW JONES</td><td>38,000</td><td>Illustrative only</td></tr>
+    <tr><td style="color:#00ffcc;">FTSE 100</td><td>7,600</td><td>Illustrative only</td></tr>
+  </table>
+
+  <!-- Crypto Section -->
+  <h3 style="color:#00ace6;margin-top:26px;">Crypto (Sample Values)</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+    <tr><th>Asset</th><th>Approx. Price</th><th>Notes</th></tr>
+    <tr><td style="color:#00ffcc;">Bitcoin (BTC)</td><td>$42,000</td><td>Illustrative only</td></tr>
+    <tr><td style="color:#00ffcc;">Ethereum (ETH)</td><td>$2,500</td><td>Illustrative only</td></tr>
+  </table>
+
+  <!-- Commodities Section -->
+  <h3 style="color:#00ace6;margin-top:26px;">Commodities (Sample Values)</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+    <tr><th>Commodity</th><th>Approx. Price</th><th>Notes</th></tr>
+    <tr><td style="color:#00ffcc;">Gold</td><td>$1,950 / oz</td><td>Illustrative only</td></tr>
+    <tr><td style="color:#00ffcc;">Oil (WTI)</td><td>$78 / barrel</td><td>Illustrative only</td></tr>
+  </table>
+
+  <!-- External Live Data Links -->
+  <div style="margin-top:22px;font-size:0.85rem;">
+    <strong style="color:#00ffcc;">Live Data (External Licensed Providers)</strong><br><br>
+    <a href="https://www.tradingview.com/markets/" target="_blank" style="color:#00ace6;margin-right:12px;">TradingView Markets</a>
+    <a href="https://finance.yahoo.com" target="_blank" style="color:#00ace6;margin-right:12px;">Yahoo Finance</a>
+    <a href="https://www.google.com/finance" target="_blank" style="color:#00ace6;margin-right:12px;">Google Finance</a>
+    <a href="https://www.investing.com" target="_blank" style="color:#00ace6;">Investing.com</a>
+  </div>
+
+  <!-- Legal Notice -->
+  <p style="margin-top:16px;font-size:0.75rem;color:#9fb6c8;">
+    SSGPT6 and GNAIAAAC LLC are not a financial institution, broker, or trading service. All values shown are
+    illustrative only and not real-time. For live data, use licensed external providers. No trading or financial
+    transactions occur on this website.
+  </p>
+
+</div>
