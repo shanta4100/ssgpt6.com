@@ -1,0 +1,4 @@
+player_id (FK)
+tier
+start_date
+end_date
