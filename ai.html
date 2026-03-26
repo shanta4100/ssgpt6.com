@@ -1,79 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSGPT6 | AI Sleeping Agent Command Center</title>
-    <style>
-        :root {
-            --bg: #030812; --panel: #0a1425; --gold: #c7a85a; --blue: #009edb;
-            --line: rgba(255,255,255,0.05);
-        }
-        body { margin: 0; font-family: 'Courier New', monospace; background: var(--bg); color: #fff; }
-        .container { width: min(90%, 1000px); margin: 0 auto; padding: 40px 0; }
-        
-        /* PULSING AI CORE */
-        .ai-core { width: 150px; height: 150px; background: radial-gradient(circle, var(--blue), transparent); 
-                   border-radius: 50%; margin: 0 auto 30px; animation: pulse 2s infinite; border: 2px solid var(--gold); }
-        @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); opacity: 0.8; } }
-
-        .status-box { background: var(--panel); border: 1px solid var(--gold); padding: 25px; border-radius: 5px; margin-bottom: 30px; }
-        .command-input { width: 100%; background: #000; border: 1px solid var(--blue); color: #00ff00; padding: 20px; font-size: 1.2rem; margin-bottom: 20px; }
-        
-        .btn-action { display: block; width: 100%; padding: 20px; background: var(--gold); color: #000; text-align: center; 
-                      text-decoration: none; font-weight: 900; text-transform: uppercase; margin-bottom: 15px; border: none; cursor: pointer; }
-
-        .comms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .comms-card { background: rgba(255,255,255,0.02); border: 1px solid var(--line); padding: 20px; text-align: center; }
-    </style>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 | AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: -apple-system, system-ui, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f7fb;
+      color: #111827;
+    }
+    header {
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      letter-spacing: 2px;
+    }
+    nav a {
+      margin-right: 12px;
+      color: #1d4ed8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-top: 25px;
+      font-size: 18px;
+    }
+    .ai-card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .ai-card h3 {
+      margin: 0 0 5px;
+      font-size: 16px;
+    }
+    .ai-card p {
+      margin: 0;
+      color: #4b5563;
+      font-size: 14px;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container">
-    <div class="ai-core"></div>
-    <h1 style="text-align:center; color:var(--gold);">TINY AI SLEEPING AGENT</h1>
-    <p style="text-align:center; color:var(--blue);">Omni-Automation & Problem Solving Center</p>
+  <header>
+    <h1>SSGPT6 PLAY</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="subscribe.html">Subscribe</a>
+      <a href="accessibility.html">Accessibility</a>
+      <a href="languages.html">Languages</a>
+      <a href="ai.html">AI</a>
+      <a href="automation.html">Automation</a>
+      <a href="family-mode.html">Family Mode</a>
+      <a href="project.html">Vault</a>
+    </nav>
+  </header>
 
-    <div class="status-box">
-        <div id="ai-status">● SYSTEM STATUS: SLEEPING AGENT ACTIVE</div>
-        <div id="ai-log" style="font-size: 0.8rem; color: #8b949e; margin-top: 10px;">Waiting for Client Voice Command...</div>
+  <main>
+    <p class="section-title">AI Features</p>
+
+    <div class="ai-card">
+      <h3>Smart Recommendations</h3>
+      <p>Personalized game suggestions based on your play style.</p>
     </div>
 
-    <button class="btn-action" onclick="startVoice()">🎤 CLICK TO SPEAK COMMAND</button>
-    <input type="text" class="command-input" placeholder="Or type your command here..." id="cmdLine">
-
-    <div class="comms-grid">
-        <div class="comms-card">
-            <h3>AI PHONE SERVICE</h3>
-            <p>Direct Support Line:</p>
-            <div style="font-size:1.5rem; color:var(--gold); margin:10px 0;">+1 (347) 885-2494</div>
-            <a href="tel:3478852494" class="btn-action" style="padding:10px;">Call AI Now</a>
-        </div>
-
-        <div class="comms-card">
-            <h3>INTERACTIVE EMAIL</h3>
-            <p>Managed by Black Box:</p>
-            <div style="font-size:1.1rem; color:var(--gold); margin:10px 0;">support@ssgpt6.com</div>
-            <a href="mailto:support@ssgpt6.com" class="btn-action" style="padding:10px;">Send Live Email</a>
-        </div>
+    <div class="ai-card">
+      <h3>Adaptive Difficulty</h3>
+      <p>Games adjust automatically to match your skill level.</p>
     </div>
 
-    <div style="margin-top:40px; border: 1px dashed #444; padding:20px; font-size:0.8rem; color:#8b949e;">
-        <strong>OPERATIONAL LOGIC:</strong> The Client is a Client. All voice commands, voicemail, and messages are processed 
-        by the Black Box. This software is the most efficient way to get the job done. 
-        Your personal number is shielded; the company uses the virtual phone service for all 135 projects.
+    <div class="ai-card">
+      <h3>Voice Assistance</h3>
+      <p>Hands‑free navigation and gameplay support.</p>
     </div>
-</div>
 
-<script>
-    function startVoice() {
-        document.getElementById('ai-log').innerText = "Listening for Voice Recognition...";
-        // In a live Replit environment, this would trigger the Web Speech API
-        setTimeout(() => {
-            document.getElementById('ai-log').innerText = "Command Recognized: Processing with Sleeping Agent...";
-        }, 2000);
-    }
-</script>
+    <div class="ai-card">
+      <h3>Learning Mode</h3>
+      <p>AI‑guided educational games for all ages.</p>
+    </div>
+  </main>
 
 </body>
 </html>
