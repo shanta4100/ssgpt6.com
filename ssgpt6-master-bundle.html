@@ -14,66 +14,36 @@
       --muted: #9ca3af;
       --border: #1f2933;
     }
-    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: system-ui, sans-serif;
       background: radial-gradient(circle at top, #111827 0, #02030a 55%);
       color: var(--text);
     }
-    a { color: var(--accent); text-decoration: none; }
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px 16px 64px;
+    .page { max-width: 1200px; margin: auto; padding: 32px 16px 64px; }
+    header, section { border-bottom: 1px solid var(--border); padding: 40px 0; }
+    h1, h2, h3 { text-transform: uppercase; letter-spacing: 0.16em; margin: 0 0 12px; }
+    h1 { font-size: clamp(32px, 4vw, 44px); }
+    h2 { font-size: 18px; margin-bottom: 16px; }
+    .tagline { color: var(--accent); font-size: 14px; margin-bottom: 16px; }
+    .muted { color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .grid { display: grid; gap: 20px; }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
     }
-    header {
-      padding: 24px 0 40px;
-      border-bottom: 1px solid var(--border);
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
+    .pill {
+      display: inline-block;
+      padding: 3px 8px;
       border-radius: 999px;
       border: 1px solid var(--accent-soft);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
-      gap: 32px;
-      align-items: center;
-      margin-top: 24px;
-    }
-    h1 {
-      font-size: clamp(32px, 4vw, 44px);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin: 0 0 12px;
-    }
-    .tagline {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
-    .hero-sub {
-      font-size: 14px;
-      color: var(--muted);
-      max-width: 520px;
-      line-height: 1.6;
-    }
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
+      color: var(--accent-soft);
+      font-size: 10px;
+      margin-top: 6px;
     }
     .btn {
       padding: 10px 20px;
@@ -81,306 +51,148 @@
       border: 1px solid var(--accent);
       background: transparent;
       color: var(--accent);
-      font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       cursor: pointer;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #000;
-      border-color: var(--accent);
-    }
-    .hero-panel {
-      background: linear-gradient(145deg, #070b16, #020617);
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      padding: 20px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.6);
-    }
-    .hero-panel-title {
       font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 12px;
     }
-    .hero-matrix {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      font-size: 11px;
-    }
-    .chip {
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      padding: 6px 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #050814;
-    }
-    .chip span:last-child {
-      color: var(--accent-soft);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-    section {
-      padding: 40px 0 16px;
-      border-bottom: 1px solid var(--border);
-    }
-    h2 {
-      font-size: 18px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin: 0 0 16px;
-    }
-    .section-sub {
-      font-size: 13px;
-      color: var(--muted);
-      max-width: 640px;
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
-    .card {
-      background: var(--panel);
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      padding: 16px 16px 18px;
-    }
-    .card h3 {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin: 0 0 8px;
-    }
-    .card p {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.6;
-      margin: 0 0 8px;
-    }
-    .pill {
-      display: inline-block;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid var(--accent-soft);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent-soft);
-      margin-top: 4px;
-    }
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
-      gap: 24px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 12px;
-      color: var(--muted);
-    }
-    ul li {
-      margin-bottom: 6px;
-    }
-    ul li::before {
-      content: "• ";
-      color: var(--accent);
-    }
-    footer {
-      padding-top: 32px;
-      font-size: 11px;
-      color: var(--muted);
-      text-align: center;
-    }
-    @media (max-width: 800px) {
-      .hero-grid { grid-template-columns: minmax(0, 1fr); }
-      .two-col { grid-template-columns: minmax(0, 1fr); }
-    }
+    .btn-primary { background: var(--accent); color: #000; }
+    footer { text-align: center; padding-top: 32px; font-size: 11px; color: var(--muted); }
   </style>
 </head>
+
 <body>
   <div class="page">
+
+    <!-- HERO -->
     <header>
-      <div class="badge">
-        <span>SSGPT6 MASTER BUNDLE</span>
-        <span>GNAIAAAC LLC</span>
-      </div>
-      <div class="hero-grid">
-        <div>
-          <h1>SSGPT6 MASTER BUNDLE</h1>
-          <div class="tagline">Tiny AI. Big Brain. Black Box.</div>
-          <p class="hero-sub">
-            NOVA OMNISCIENCE SUPERNOVA // Unified cosmic architecture for games, education, research,
-            and creator ecosystems. One sovereign platform, 135 modules, infinite safe worlds.
-          </p>
-          <div class="hero-ctas">
-            <button class="btn btn-primary">View Platform Map</button>
-            <button class="btn">Join as Founder</button>
-            <button class="btn">Join as Student</button>
-          </div>
-        </div>
-        <div class="hero-panel">
-          <div class="hero-panel-title">135 MATRIX // LIVE SYSTEM SNAPSHOT</div>
-          <div class="hero-matrix">
-            <div class="chip">
-              <span>Core Orchestrator</span>
-              <span>ONLINE</span>
-            </div>
-            <div class="chip">
-              <span>Module Mesh (135)</span>
-              <span>ACTIVE</span>
-            </div>
-            <div class="chip">
-              <span>Security Vault</span>
-              <span>LOCKED</span>
-            </div>
-            <div class="chip">
-              <span>Automation Layer</span>
-              <span>ASSIST</span>
-            </div>
-            <div class="chip">
-              <span>Education Cloud</span>
-              <span>LIVE</span>
-            </div>
-            <div class="chip">
-              <span>Creator Ecosystem</span>
-              <span>GROWING</span>
-            </div>
-          </div>
-        </div>
+      <h1>SSGPT6 MASTER BUNDLE</h1>
+      <div class="tagline">Tiny AI. Big Brain. Black Box.</div>
+      <p class="muted">
+        Unified architecture for games, education, research, and creator ecosystems.
+        One sovereign platform, 135 modules, infinite safe worlds.
+      </p>
+      <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <button class="btn btn-primary">View Platform Map</button>
+        <button class="btn">Join as Founder</button>
+        <button class="btn">Join as Student</button>
       </div>
     </header>
 
-    <section id="bundle">
+    <!-- BUNDLE CONTENT -->
+    <section>
       <h2>What’s inside the master bundle</h2>
-      <p class="section-sub">
-        The SSGPT6 Master Bundle unifies your platform, engines, education cloud, creator tools,
-        governance, and ethics into a single, deployable operating system for digital civilizations.
-      </p>
-      <div class="grid-3">
+      <div class="grid grid-3">
         <div class="card">
           <h3>Platform & Engines</h3>
-          <p>SSGPT6‑OS, Orchestrator, Module Mesh (135), Multi‑Realm Engine, AI Companion Framework, Engine SDK.</p>
+          <p class="muted">SSGPT6‑OS, Orchestrator, Module Mesh (135), Multi‑Realm Engine, AI Companion Framework, Engine SDK.</p>
           <span class="pill">Core Stack</span>
         </div>
         <div class="card">
           <h3>Education & Research</h3>
-          <p>Education Cloud, University Alliance, Research Lab, Global Certification, Scholarship Network.</p>
+          <p class="muted">Education Cloud, University Alliance, Research Lab, Global Certification, Scholarship Network.</p>
           <span class="pill">Learning Network</span>
         </div>
         <div class="card">
           <h3>Creators & Community</h3>
-          <p>Creator Tools, Non‑monetary Creator Economy, Community Hub, World Expo, Accelerator Programs.</p>
+          <p class="muted">Creator Tools, Non‑monetary Creator Economy, Community Hub, World Expo, Accelerator Programs.</p>
           <span class="pill">Ecosystem</span>
         </div>
       </div>
     </section>
 
-    <section id="audiences">
+    <!-- AUDIENCES -->
+    <section>
       <h2>Built for founders, students, studios & universities</h2>
-      <div class="two-col">
+      <div class="grid grid-2">
         <div>
           <h3>Founders & Studios</h3>
-          <ul>
-            <li>Launch ethical, family‑safe games and experiences on a unified stack.</li>
-            <li>Use the Engine SDK and Multi‑Engine Integration Layer with Unity, Unreal, Godot.</li>
-            <li>Host challenges, scholarships, and accelerator cohorts.</li>
-          </ul>
+          <p class="muted">
+            Launch ethical, family‑safe experiences.  
+            Integrate with Unity, Unreal, Godot.  
+            Host challenges, scholarships, and accelerators.
+          </p>
         </div>
         <div>
           <h3>Universities & Students</h3>
-          <ul>
-            <li>Run full courses on game design, AI, ethics, and interactive storytelling.</li>
-            <li>Give students real tools, real engines, and real portfolio‑grade projects.</li>
-            <li>Connect to the Global Scholarship Network and Certification Program.</li>
-          </ul>
+          <p class="muted">
+            Run full courses on game design, AI, ethics, storytelling.  
+            Build real portfolio projects.  
+            Access global scholarships and certifications.
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="architecture">
-      <h2>Unified cosmic architecture</h2>
-      <p class="section-sub">
-        From Tiny AI Sleeping Agent (Automation Layer) to the Security Vault and Education Cloud,
-        every layer is modular, observable, and governed by the SSGPT6 Ethical AI Charter.
-      </p>
-      <div class="grid-3">
+    <!-- ARCHITECTURE -->
+    <section>
+      <h2>Unified architecture</h2>
+      <div class="grid grid-3">
         <div class="card">
           <h3>Orchestrator</h3>
-          <p>Routes requests, manages health, coordinates modules, and enforces permissions across the 135 Matrix.</p>
+          <p class="muted">Routes requests, manages health, coordinates modules, enforces permissions.</p>
         </div>
         <div class="card">
           <h3>Security Vault</h3>
-          <p>Encrypts data, manages keys, stores logs and backups, and anchors your reputation shield.</p>
+          <p class="muted">Encrypts data, manages keys, stores logs and backups.</p>
         </div>
         <div class="card">
           <h3>Automation Layer</h3>
-          <p>Runs safe background tasks, prepares prototypes, and assists—not replaces—human decision‑making.</p>
+          <p class="muted">Runs safe background tasks and prepares prototypes for human review.</p>
         </div>
       </div>
     </section>
 
-    <section id="ethics">
+    <!-- ETHICS -->
+    <section>
       <h2>Ethics, governance & trust</h2>
-      <div class="two-col">
+      <div class="grid grid-2">
         <div>
           <h3>Ethical AI Charter</h3>
-          <ul>
-            <li>No gambling, no dark patterns, no exploitative loops.</li>
-            <li>Family‑safe by design, accessibility as a first‑class requirement.</li>
-            <li>Transparent, documented behavior for all AI companions and automation.</li>
-          </ul>
+          <p class="muted">
+            No gambling. No dark patterns.  
+            Family‑safe by design.  
+            Transparent, documented AI behavior.
+          </p>
         </div>
         <div>
           <h3>Governance Framework</h3>
-          <ul>
-            <li>Founder‑led decisions with advisory input from education and industry.</li>
-            <li>Public roadmap, change logs, and incident review processes.</li>
-            <li>Clear pathways for partners, creators, and universities to propose modules.</li>
-          </ul>
+          <p class="muted">
+            Founder‑led decisions.  
+            Advisory input from education & industry.  
+            Public roadmap and change logs.
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="join">
-      <h2>Join the ssgpt6 master network</h2>
-      <p class="section-sub">
-        Whether you are a founder, studio, university, student, or independent creator, the SSGPT6 Master Bundle
-        gives you a single, sovereign platform to build, learn, and launch.
-      </p>
-      <div class="grid-3">
+    <!-- JOIN -->
+    <section>
+      <h2>Join the SSGPT6 master network</h2>
+      <div class="grid grid-3">
         <div class="card">
           <h3>Founders & Studios</h3>
-          <p>Request access to the full Master Bundle, SDK, and governance brief.</p>
-          <p class="pill">Partner Path</p>
+          <p class="muted">Request access to the full Master Bundle, SDK, and governance brief.</p>
+          <span class="pill">Partner Path</span>
         </div>
         <div class="card">
           <h3>Universities</h3>
-          <p>Onboard to Education Cloud, Alliance Program, and Certification tracks.</p>
-          <p class="pill">Education Path</p>
+          <p class="muted">Onboard to Education Cloud, Alliance Program, and Certification tracks.</p>
+          <span class="pill">Education Path</span>
         </div>
         <div class="card">
           <h3>Students & Creators</h3>
-          <p>Join the Community Hub, Creator Tools, and Accelerator cohorts.</p>
-          <p class="pill">Creator Path</p>
+          <p class="muted">Join the Community Hub, Creator Tools, and Accelerator cohorts.</p>
+          <span class="pill">Creator Path</span>
         </div>
       </div>
     </section>
 
     <footer>
-      FOUNDER: ARIFUR SHANTA · GNAIAAAC LLC · SSGPT6 MASTER BUNDLE<br />
-      Tiny AI. Big Brain. Black Box. · NOVA OMNISCIENCE SUPERNOVA · 135 MATRIX PROTOCOL
+      FOUNDER: ARIFUR SHANTA · GNAIAAAC LLC · SSGPT6 MASTER BUNDLE  
+      <br />Tiny AI. Big Brain. Black Box. · 135 MODULE PROTOCOL
     </footer>
+
   </div>
 </body>
 </html>
