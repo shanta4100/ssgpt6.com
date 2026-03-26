@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 PLAY · Membership Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>SSGPT6 PLAY · Membership</h1>
+      <div class="tagline">Start your free 10‑minute session.</div>
+    </header>
+
+    <div class="section">
+      <h2>Free Play Access</h2>
+      <div class="panel">
+        <p class="muted">
+          Enter your email to unlock a 10‑minute free play session on SSGPT6 PLAY.
+        </p>
+        <form class="form-row" action="free-play.html" method="get">
+          <input type="email" name="email" placeholder="Email address" required />
+          <label class="notice">
+            <input type="checkbox" required />
+            I agree to receive non‑commercial updates, educational content, and platform information from SSGPT6.
+          </label>
+          <div class="notice">
+            By entering your email, you agree to receive updates from SSGPT6. You may unsubscribe at any time.
+            Your email will not be sold, shared, or used for advertising outside SSGPT6.
+          </div>
+          <button type="submit" class="btn">Start Free Play (10 Minutes)</button>
+        </form>
+        <div class="notice">
+          Free play access is limited to 10 minutes per user. Continued access requires a membership subscription.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
