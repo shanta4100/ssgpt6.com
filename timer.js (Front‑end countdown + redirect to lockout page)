@@ -1,0 +1,25 @@
+const DURATION_SECONDS = 10 * 60; // 10 minutes
+let remaining = DURATION_SECONDS;
+
+const display = document.getElementById('timer-display');
+
+function formatTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+}
+
+function tick() {
+  if (!display) return;
+  display.textContent = formatTime(remaining);
+  if (remaining <= 0) {
+    window.location.href = 'free-play-lockout.html';
+    return;
+  }
+  remaining -= 1;
+  setTimeout(tick, 1000);
+}
+
+if (display) {
+  tick();
+}
