@@ -1,188 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | SSGPT6-CORE</title>
-
-<style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#06111f;
-  color:#eef3fb;
-}
-.container{
-  width:92%;
-  max-width:1100px;
-  margin:auto;
-  padding:40px 0;
-}
-header{
-  background:#0d1d33;
-  padding:20px 0;
-  border-bottom:1px solid rgba(255,255,255,0.08);
-}
-header h1{
-  margin:0;
-  text-align:center;
-  color:#d2ae59;
-  font-size:2rem;
-}
-section{
-  margin-top:40px;
-}
-.card{
-  background:#0c1728;
-  padding:24px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,0.08);
-  margin-bottom:30px;
-}
-h2{
-  color:#d2ae59;
-  margin-top:0;
-}
-label{
-  display:block;
-  margin-top:14px;
-  font-weight:bold;
-}
-input,textarea,select{
-  width:100%;
-  padding:12px;
-  margin-top:6px;
-  border:none;
-  border-radius:10px;
-  background:#122642;
-  color:#fff;
-}
-button{
-  margin-top:20px;
-  padding:14px 22px;
-  border:none;
-  border-radius:10px;
-  background:#d2ae59;
-  color:#111;
-  font-weight:bold;
-  cursor:pointer;
-}
-.notice{
-  margin-top:20px;
-  font-size:.9rem;
-  color:#b7c5d8;
-}
-footer{
-  text-align:center;
-  padding:30px;
-  color:#8e9cb2;
-  margin-top:40px;
-}
-</style>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 | Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: -apple-system, system-ui, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f7fb;
+      color: #111827;
+    }
+    header {
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      letter-spacing: 2px;
+    }
+    nav a {
+      margin-right: 12px;
+      color: #1d4ed8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-top: 25px;
+      font-size: 18px;
+    }
+    .contact-card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .contact-card h3 {
+      margin: 0 0 5px;
+      font-size: 16px;
+    }
+    .contact-card p {
+      margin: 0;
+      color: #4b5563;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Contact SSGPT6-CORE</h1>
-</header>
+  <header>
+    <h1>SSGPT6 PLAY</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="subscribe.html">Subscribe</a>
+      <a href="accessibility.html">Accessibility</a>
+      <a href="languages.html">Languages</a>
+      <a href="ai.html">AI</a>
+      <a href="automation.html">Automation</a>
+      <a href="family-mode.html">Family Mode</a>
+      <a href="project.html">Vault</a>
+    </nav>
+  </header>
 
-<div class="container">
+  <main>
+    <p class="section-title">Contact Us</p>
 
-<section class="card">
-  <h2>Send a Message</h2>
-  <p>Use this form to contact support, request services, ask questions, or request a consultation.</p>
+    <div class="contact-card">
+      <h3>Email</h3>
+      <p>support@ssgpt6.com</p>
+    </div>
 
-  <label>Your Name</label>
-  <input id="name" placeholder="Full name">
+    <div class="contact-card">
+      <h3>Business Inquiries</h3>
+      <p>partners@ssgpt6.com</p>
+    </div>
 
-  <label>Email Address</label>
-  <input id="email" placeholder="you@example.com">
+    <div class="contact-card">
+      <h3>Address</h3>
+      <p>GNAIAAAC LLC — Global Operations</p>
+    </div>
 
-  <label>Phone Number (optional)</label>
-  <input id="phone" placeholder="(Optional)">
-
-  <label>Request Type</label>
-  <select id="type">
-    <option>General Question</option>
-    <option>Service Request</option>
-    <option>Billing Question</option>
-    <option>Technical Support</option>
-    <option>Consultation Request</option>
-  </select>
-
-  <label>Your Message</label>
-  <textarea id="message" rows="6" placeholder="Write your message here..."></textarea>
-
-  <label>
-    <input type="checkbox" id="consent">
-    I authorize SSGPT6 to contact me regarding my request.
-  </label>
-
-  <button onclick="submitForm()">Submit</button>
-
-  <p id="status"></p>
-
-  <div class="notice">
-    Your message will be recorded in the SSGPT6 Communications Hub for review and follow-up.  
-    Response time may vary depending on request type and platform readiness.
-  </div>
-</section>
-
-<section class="card">
-  <h2>Support & Communication</h2>
-  <p>After submitting your message:</p>
-  <ul>
-    <li>Your request is logged in the Communications Hub</li>
-    <li>You receive an auto‑reply email (Zoho)</li>
-    <li>The AI Sleeping Agent organizes your request</li>
-    <li>Support or sales will follow up when available</li>
-  </ul>
-</section>
-
-<section class="card">
-  <h2>Billing & Payment Questions</h2>
-  <p>For billing, membership, or payment issues:</p>
-  <a href="pricing.html"><button>Go to Pricing</button></a>
-</section>
-
-</div>
-
-<footer>
-© 2026 SSGPT6-CORE · GNAIAAAC LLC · Contact & Support
-</footer>
-
-<script>
-function submitForm(){
-  let name=document.getElementById("name").value;
-  let email=document.getElementById("email").value;
-  let phone=document.getElementById("phone").value;
-  let type=document.getElementById("type").value;
-  let msg=document.getElementById("message").value;
-  let consent=document.getElementById("consent").checked;
-
-  if(!name || !email || !msg){
-    document.getElementById("status").innerText="Please fill all required fields.";
-    return;
-  }
-  if(!consent){
-    document.getElementById("status").innerText="Please authorize contact permission.";
-    return;
-  }
-
-  let record={
-    name:name,
-    email:email,
-    phone:phone,
-    type:type,
-    message:msg,
-    time:new Date().toLocaleString()
-  };
-
-  console.log("Saved:",record);
-  document.getElementById("status").innerText="Your message has been received.";
-}
-</script>
+    <div class="contact-card">
+      <h3>Support Hours</h3>
+      <p>24/7 Global Assistance</p>
+    </div>
+  </main>
 
 </body>
 </html>
