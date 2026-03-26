@@ -1,0 +1,58 @@
+# career_climber_cli.py
+
+from career_climber_model import PlayerState, Tier
+from career_climber_logic import (
+    apply_rest,
+    apply_study,
+    apply_work,
+    apply_legacy_action,
+    advance_day,
+)
+from career_climber_progression import check_tier_up
+
+
+def describe(state: PlayerState):
+    s = state.stats
+    print("\n---")
+    print(f"Day: {state.day}")
+    print(f"Tier: {state.tier.name.title()}")
+    print(f"Energy: {s.energy}/{s.max_energy}")
+    print(f"Study XP: {s.study_xp} | Career XP: {s.career_xp} | Legacy XP: {s.legacy_xp}")
+    print(f"Reputation: {s.reputation} | Skill Points: {s.skill_points}")
+    print("Recent log:")
+    for entry in state.log[-3:]:
+        print(" -", entry)
+
+
+def main():
+    name = input("Enter your character name: ").strip() or "Player"
+    state = PlayerState(name=name)
+    state.log.append(f"{name} begins their journey as a Student.")
+
+    print("\nWelcome to S&S Career Climber (Non-gambling Life Simulator).")
+    print("Actions: rest, study, work, legacy, next, quit.\n")
+
+    while True:
+        describe(state)
+        action = input("\nWhat would you like to do? ").strip().lower()
+
+        if action == "rest":
+            apply_rest(state)
+        elif action == "study":
+            apply_study(state)
+        elif action == "work":
+            apply_work(state)
+        elif action == "legacy":
+            apply_legacy_action(state)
+        elif action == "next":
+            advance_day(state)
+            check_tier_up(state)
+        elif action in ("quit", "exit"):
+            print("\nSession ended. Your life path is saved in your memory.")
+            break
+        else:
+            state.log.append(f"You consider '{action}', but stay focused on your path.")
+
+
+if __name__ == "__main__":
+    main()
