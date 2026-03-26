@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 PLAY · Session Ended</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Free Session Complete</h1>
+      <div class="tagline">Your 10‑minute free play has ended.</div>
+    </header>
+
+    <div class="section">
+      <h2>Continue with Membership</h2>
+      <div class="panel center">
+        <p class="muted">
+          To keep playing and unlock the full SSGPT6 experience, please complete your membership.
+        </p>
+        <p class="muted">
+          Membership unlocks:
+          <br />• Unlimited access
+          <br />• Family Mode
+          <br />• Accessibility Engine
+          <br />• AI Companion
+          <br />• Global Events
+          <br />• Creator Tools
+        </p>
+        <a href="subscription.html" class="btn">Complete Membership</a>
+        <div class="notice">
+          Free play access is limited to 10 minutes per user. Continued access requires a membership subscription.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
