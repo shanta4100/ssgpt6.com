@@ -1,0 +1,28 @@
+# SSGPT6 – UI Foundation
+
+This repo contains the **front-end only** foundation for the SSGPT6 platform:
+
+- Membership funnel (free play → lockout → subscription)
+- Admin suite (dashboard, analytics, logs, content, AI tools)
+- Central control hubs (multi-page + single-page)
+- All logic is **UI-only**. No real payments, no real auth, no external APIs.
+
+## Structure
+
+- `index-membership.html` – Email capture + free play entry
+- `free-play.html` – 10-minute free session (timer)
+- `free-play-lockout.html` – Session ended → membership prompt
+- `subscription.html` – Membership completion UI
+- `admin-*.html` – Admin tools (dashboard, analytics, logs, content, AI tools)
+- `ssgpt6-*.html` – Central control hubs
+- `central-activation-hub.html` – One-click module activation (UI log only)
+- `styles.css` – Shared styling
+
+## Safety
+
+- No real payments
+- No real authentication
+- No account access
+- All “activation” is visual only
+
+Backend, payments, and auth must be implemented separately with proper security and legal review.
