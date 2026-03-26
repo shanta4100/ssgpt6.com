@@ -1,0 +1,152 @@
+# games/career_climber/career_climber.py
+
+import random
+from framework.base_game import BaseGame
+from framework.base_event import BaseEvent
+from framework.base_state import BaseState
+
+TIERS = ["student", "professional", "tycoon"]
+
+class CareerClimberState(BaseState):
+    def __init__(self):
+        super().__init__()
+        self.tier_index = 0
+        self.energy = 50          # daily cap can be managed outside
+        self.milestones = 0
+        self.legacy_vault = 0
+        self.free_turns = 0
+        self.log = ["You begin as a broke university student."]
+
+    @property
+    def tier(self) -> str:
+        return TIERS[self.tier_index]
+
+    def advance_tier_if_ready(self):
+        # Simple placeholder thresholds
+        if self.tier_index == 0 and self.milestones >= 500:
+            self.tier_index = 1
+            self.log.append("You graduate and enter the professional world.")
+        elif self.tier_index == 1 and self.milestones >= 2000:
+            self.tier_index = 2
+            self.log.append("You rise into the tycoon tier, building your empire.")
+
+class CareerTurnEvent(BaseEvent):
+    def __init__(self, tier: str):
+        super().__init__("Career Turn")
+        self.tier = tier
+        self.milestone_gain = 0
+        self.trigger_career_choice = False
+        self.trigger_legacy_moment = False
+        self.momentum_multiplier = 1
+
+    def apply(self, state: CareerClimberState):
+        # Energy / free turn handling
+        if state.free_turns > 0:
+            state.free_turns -= 1
+        else:
+            if state.energy <= 0:
+                state.log.append("You are out of Energy for today. Come back later.")
+                state.alive = False
+                return
+            state.energy -= 1
+
+        # Base milestone gain by tier
+        base = {
+            "student": random.randint(5, 15),
+            "professional": random.randint(15, 40),
+            "tycoon": random.randint(40, 100),
+        }[self.tier]
+
+        # Random chance for momentum boost
+        if random.random() < 0.15:
+            self.momentum_multiplier = 5
+            state.log.append("Momentum Boost! Your next achievements are amplified.")
+
+        # Random chance for career choice event
+        if random.random() < 0.10:
+            self.trigger_career_choice = True
+
+        # Random chance for legacy moment (very rare)
+        if random.random() < 0.01:
+            self.trigger_legacy_moment = True
+
+        # Apply milestones
+        self.milestone_gain = base * self.momentum_multiplier
+        state.milestones += self.milestone_gain
+
+        # Legacy vault: 1% of gain
+        vault_add = int(self.milestone_gain * 0.01)
+        state.legacy_vault += vault_add
+
+        state.log.append(
+            f"You progress in your {self.tier} life. "
+            f"+{self.milestone_gain} Milestones (Vault +{vault_add})."
+        )
+
+        # Handle special events
+        if self.trigger_career_choice:
+            self._apply_career_choice(state)
+
+        if self.trigger_legacy_moment:
+            self._apply_legacy_moment(state)
+
+        # Check tier progression
+        state.advance_tier_if_ready()
+
+    def _apply_career_choice(self, state: CareerClimberState):
+        outcome = random.choice(["rejection", "hired", "signing_bonus"])
+        if outcome == "rejection":
+            state.log.append("Career Choice: Rejection letter. You learn and move on.")
+            state.milestones += 20
+        elif outcome == "hired":
+            state.log.append("Career Choice: Hired! You gain 10 free turns.")
+            state.free_turns += 10
+        else:
+            state.log.append(
+                "Career Choice: Signing Bonus! A major milestone in your story."
+            )
+            state.milestones += 300
+
+    def _apply_legacy_moment(self, state: CareerClimberState):
+        gained = state.legacy_vault
+        state.milestones += gained
+        state.log.append(
+            f"Legacy Moment! Your lifetime work crystallizes. "
+            f"Legacy Vault releases {gained} Milestones."
+        )
+        state.legacy_vault = 0
+
+class CareerClimberGame(BaseGame):
+    def __init__(self):
+        super().__init__("S&S Career Climber", game_id="career_climber")
+        self.state = CareerClimberState()
+
+    def on_start(self):
+        print(f"\n=== {self.name} ===")
+        print("Progress from Student to Tycoon using Energy, not money.")
+        print("No gambling. No betting. Only life milestones.\n")
+
+    def generate_event(self) -> BaseEvent:
+        return CareerTurnEvent(self.state.tier)
+
+    def on_end(self):
+        print("\n--- SESSION END ---")
+        print(f"Tier: {self.state.tier}")
+        print(f"Total Milestones: {self.state.milestones}")
+        print("Recent log:")
+        for entry in self.state.log[-5:]:
+            print(" -", entry)
+        print()
+
+if __name__ == "__main__":
+    from framework.progression import ProgressionManager
+    from framework.save_system import SaveSystem
+    from framework.codex import UniverseCodex
+
+    prog = ProgressionManager()
+    save = SaveSystem()
+    codex = UniverseCodex()
+
+    game = CareerClimberGame()
+    game.run(progression=prog, save_system=save, codex=codex)
+    codex.show()
