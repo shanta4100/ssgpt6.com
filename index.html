@@ -1,103 +1,1730 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>SSGPT6 PLAY</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    body {
-      font-family: -apple-system, system-ui, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #f5f7fb;
-      color: #111827;
-    }
-    header {
-      margin-bottom: 20px;
-    }
-    h1 {
-      margin: 0 0 10px;
-      font-size: 24px;
-      letter-spacing: 2px;
-    }
-    nav a {
-      margin-right: 12px;
-      color: #1d4ed8;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .tagline {
-      font-weight: bold;
-      margin-top: 20px;
-      margin-bottom: 5px;
-    }
-    .subtagline {
-      color: #4b5563;
-      font-size: 14px;
-    }
-    #vault-container {
-      margin-top: 30px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 | Tiny AI. Big Brain. Black Box.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --card: #0f172a;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.12);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --danger: #f97373;
+      --success: #4ade80;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, system-ui, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to right, rgba(15,23,42,0.96), rgba(15,23,42,0.88));
+      border-bottom: 1px solid rgba(148,163,184,0.18);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #38bdf8 0, #0ea5e9 25%, #020617 70%);
+      box-shadow: 0 0 25px rgba(56,189,248,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,0.9);
+      box-shadow: inset 0 0 18px rgba(15,23,42,0.9);
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .brand-title {
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+      max-width: 70%;
+    }
+    .nav-group {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .nav-btn {
+      border: 1px solid transparent;
+      background: transparent;
+      color: #cbd5f5;
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      transition: all 0.16s ease-out;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-btn span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(148,163,184,0.7);
+    }
+    .nav-btn:hover {
+      opacity: 1;
+      border-color: rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
+    }
+    .nav-btn.active {
+      border-color: var(--accent);
+      background: rgba(15,23,42,0.95);
+      color: #e0f2fe;
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.35);
+    }
+    .nav-btn.active span.dot {
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(56,189,248,0.9);
+    }
+    main {
+      flex: 1;
+      padding: 18px;
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto 30px auto;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+      gap: 18px;
+    }
+    @media (max-width: 900px) {
+      nav {
+        max-width: 100%;
+      }
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    .panel {
+      background: radial-gradient(circle at top left, #111827 0, #020617 55%);
+      border-radius: 18px;
+      border: 1px solid rgba(148,163,184,0.25);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.12), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .panel-title {
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+    .panel-tag {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.9);
+    }
+    .panel-body {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-title {
+      font-size: 26px;
+      line-height: 1.2;
+      margin: 4px 0 6px 0;
+      color: #f9fafb;
+    }
+    .hero-sub {
+      font-size: 13px;
+      color: #9ca3af;
+      max-width: 420px;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.9);
+    }
+    .badge-accent {
+      border-color: rgba(56,189,248,0.9);
+      background: rgba(15,23,42,0.96);
+      color: #e0f2fe;
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.4);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .btn {
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 7px 14px;
+      font-size: 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.16s ease-out;
+    }
+    .btn-primary {
+      background: linear-gradient(to right, #38bdf8, #0ea5e9);
+      color: #0b1120;
+      box-shadow: 0 12px 30px rgba(56,189,248,0.55);
+    }
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+    .btn-ghost {
+      background: transparent;
+      border-color: rgba(148,163,184,0.5);
+      color: #e5e7eb;
+    }
+    .btn-ghost:hover {
+      background: rgba(15,23,42,0.9);
+    }
+    .btn-outline {
+      background: rgba(15,23,42,0.9);
+      border-color: rgba(56,189,248,0.7);
+      color: #e0f2fe;
+    }
+    .btn-outline:hover {
+      background: rgba(15,23,42,1);
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .pill {
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: #cbd5f5;
+      background: rgba(15,23,42,0.9);
+    }
+    .pill-soft {
+      background: rgba(15,23,42,0.7);
+      border-style: dashed;
+    }
+    .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    .status-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 10px rgba(74,222,128,0.9);
+    }
+    .status-dot-warn {
+      background: #facc15;
+      box-shadow: 0 0 10px rgba(250,204,21,0.9);
+    }
+    .status-dot-danger {
+      background: var(--danger);
+      box-shadow: 0 0 10px rgba(248,113,113,0.9);
+    }
+    .side-panel {
+      background: radial-gradient(circle at top right, #111827 0, #020617 55%);
+      border-radius: 18px;
+      border: 1px solid rgba(148,163,184,0.25);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 14px 12px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .side-panel::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 100% 0, rgba(56,189,248,0.16), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    .side-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      position: relative;
+      z-index: 1;
+    }
+    .side-title {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+    .side-tag {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.9);
+    }
+    .side-body {
+      position: relative;
+      z-index: 1;
+      font-size: 12px;
+      color: #cbd5f5;
+    }
+    .side-section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9ca3af;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+    .side-card {
+      background: rgba(15,23,42,0.9);
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,0.35);
+      padding: 8px 9px;
+      margin-top: 6px;
+    }
+    .side-card-title {
+      font-size: 12px;
+      color: #e5e7eb;
+      margin-bottom: 2px;
+    }
+    .side-card-sub {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    .side-metric-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    .side-metric-pill {
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+    }
+    .side-metric-pill-strong {
+      border-color: rgba(56,189,248,0.8);
+      color: #e0f2fe;
+    }
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .card {
+      background: rgba(15,23,42,0.96);
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,0.35);
+      padding: 10px 11px;
+      font-size: 12px;
+      color: #cbd5f5;
+    }
+    .card-title {
+      font-size: 12px;
+      color: #e5e7eb;
+      margin-bottom: 3px;
+    }
+    .card-sub {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    .card-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .card-tag {
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.35);
+      color: #cbd5f5;
+      background: rgba(15,23,42,0.9);
+    }
+    .card-tag-accent {
+      border-color: rgba(56,189,248,0.8);
+      color: #e0f2fe;
+    }
+    .section-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+    .section-chip {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: #cbd5f5;
+      background: rgba(15,23,42,0.9);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.14s ease-out;
+    }
+    .section-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(148,163,184,0.8);
+    }
+    .section-chip.active {
+      border-color: rgba(56,189,248,0.9);
+      color: #e0f2fe;
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.4);
+    }
+    .section-chip.active .section-chip-dot {
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(56,189,248,0.9);
+    }
+    .section {
+      display: none;
+      margin-top: 14px;
+    }
+    .section.active {
+      display: block;
+    }
+    .section-heading {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+    .section-lead {
+      font-size: 13px;
+      color: #e5e7eb;
+      margin-bottom: 8px;
+    }
+    .section-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 800px) {
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    .list {
+      font-size: 12px;
+      color: #cbd5f5;
+      padding-left: 16px;
+      margin: 6px 0 0 0;
+    }
+    .list li {
+      margin-bottom: 3px;
+    }
+    .footer {
+      font-size: 11px;
+      color: #6b7280;
+      text-align: center;
+      padding: 10px 0 16px 0;
+      border-top: 1px solid rgba(31,41,55,0.9);
+      background: radial-gradient(circle at bottom, #020617 0, #000 65%);
+    }
+    .footer span {
+      color: #9ca3af;
+    }
+    .footer-strong {
+      color: #e5e7eb;
+    }
+    .footer-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.9);
+      margin-left: 6px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #cbd5f5;
+    }
+    .footer-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(56,189,248,0.9);
+    }
+  </style>
 </head>
+
 <body>
-  <header>
-    <h1>SSGPT6 PLAY</h1>
-    <nav>
-      <a href="games.html">Games</a>
-      <a href="subscribe.html">Subscribe</a>
-      <a href="accessibility.html">Accessibility</a>
-      <a href="languages.html">Languages</a>
-      <a href="ai.html">AI</a>
-      <a href="automation.html">Automation</a>
-      <a href="family-mode.html">Family Mode</a>
-      <!-- A: Public link to vault -->
-      <a href="project.html">Vault</a>
-    </nav>
-  </header>
 
-  <main>
-    <p class="tagline">Welcome to the Global Family Game Hub</p>
-    <p class="subtagline">Safe, fun, accessible games for everyone.</p>
+  <header>
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-text">
+        <div class="brand-title">SSGPT6</div>
+        <div class="brand-sub">Tiny AI. Big Brain. Black Box.</div>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-group">
+        <button class="nav-btn active" data-section="home">
+          <span class="dot"></span> Home
+        </button>
+        <button class="nav-btn" data-section="play">
+          <span class="dot"></span> Play
+        </button>
+        <button class="nav-btn" data-section="vault">
+          <span class="dot"></span> Vault
+        </button>
+        <button class="nav-btn" data-section="sovereign">
+          <span class="dot"></span> Sovereign
+        </button>
+      </div>
+      <div class="nav-group">
+        <button class="nav-btn" data-section="legal">
+          <span class="dot"></span> Legal
+        </button>
+        <button class="nav-btn" data-section="support">
+          <span class="dot"></span> Support
+        </button>
+        <button class="nav-btn" data-section="institutional">
+          <span class="dot"></span> Institutional
+        </button>
+      </div>
+    </nav>
+  </header>
 
-    <!-- C: Dynamic vault loader target -->
-    <div id="vault-container"></div>
-  </main>
+  <main>
+    <div class="layout">
 
-  <!-- C: Load project.html inside the homepage -->
-  <script>
-    fetch("project.html")
-      .then(function (response) {
-        return response.text();
-      })
-      .then(function (html) {
-        document.getElementById("vault-container").innerHTML = html;
-      })
-      .catch(function (error) {
-        console.error("Error loading project.html:", error);
-      });
-  </script>
+      <!-- LEFT: MAIN PANEL -->
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-title">Sovereign Play Interface</div>
+          <div class="panel-tag">Central Combo View</div>
+        </div>
+        <div class="panel-body">
 
-  <!-- D: Hidden admin access (5 taps bottom-right opens vault) -->
-  <script>
-    let taps = 0;
-    document.addEventListener("click", function (e) {
-      const w = window.innerWidth;
-      const h = window.innerHeight;
+          <h1 class="hero-title">Family‑safe sovereign play, in one black box.</h1>
+          <p class="hero-sub">
+            SSGPT6 unifies games, governance, identity, and institutional‑grade safety into a single, sovereign interface.
+            One screen. One brain. Zero chaos.
+          </p>
 
-      // bottom-right 20% zone
-      if (e.clientX > w * 0.8 && e.clientY > h * 0.8) {
-        taps++;
-        if (taps >= 5) {
-          window.location.href = "project.html";
-        }
-      } else {
-        taps = 0;
-      }
-    });
-  </script>
+          <div class="hero-badges">
+            <div class="badge badge-accent">Tiny AI</div>
+            <div class="badge">Big Brain</div>
+            <div class="badge">Black Box</div>
+            <div class="badge">Family‑Safe</div>
+            <div class="badge">Institution‑Ready</div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-section="play">
+              Enter Play
+            </button>
+            <button class="btn btn-outline" data-section="vault">
+              Open Vault
+            </button>
+            <button class="btn btn-ghost" data-section="sovereign">
+              View Sovereign Map
+            </button>
+          </div>
+
+          <div class="pill-row">
+            <div class="pill">No login required</div>
+            <div class="pill">No ads</div>
+            <div class="pill pill-soft">No tracking beyond core function</div>
+            <div class="pill">Family Mode</div>
+            <div class="pill">Accessibility‑first</div>
+          </div>
+
+          <div class="status-row">
+            <div class="status-item">
+              <span class="status-dot"></span>
+              Live: Core Play Cluster
+            </div>
+            <div class="status-item">
+              <span class="status-dot-warn"></span>
+              Vault: Projects in review
+            </div>
+            <div class="status-item">
+              <span class="status-dot-danger"></span>
+              Backend AI: Not exposed to public
+            </div>
+          </div>
+
+          <!-- SECTION SWITCHER -->
+          <div class="section-switcher">
+            <div class="section-chip active" data-subsection="home-overview">
+              <span class="section-chip-dot"></span> Overview
+            </div>
+            <div class="section-chip" data-subsection="home-about">
+              <span class="section-chip-dot"></span> About
+            </div>
+            <div class="section-chip" data-subsection="home-accessibility">
+              <span class="section-chip-dot"></span> Accessibility
+            </div>
+            <div class="section-chip" data-subsection="home-languages">
+              <span class="section-chip-dot"></span> Languages
+            </div>
+            <div class="section-chip" data-subsection="home-updates">
+              <span class="section-chip-dot"></span> Updates
+            </div>
+          </div>
+
+          <!-- HOME: OVERVIEW -->
+          <div class="section active" id="home-overview">
+            <div class="section-heading">Home · Overview</div>
+            <div class="section-lead">
+              SSGPT6 PLAY is a browser‑native, family‑safe playground powered by a sovereign AI brain.
+            </div>
+            <div class="section-note">
+              No downloads, no accounts required for core play, and no exposure of internal AI systems.
+            </div>
+
+            <div class="section-grid">
+              <div class="card">
+                <div class="card-title">Instant Play</div>
+                <div class="card-sub">Launch games directly from the browser with no setup.</div>
+                <div class="card-tag-row">
+                  <span class="card-tag card-tag-accent">No friction</span>
+                  <span class="card-tag">Low bandwidth</span>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-title">Family‑Safe Defaults</div>
+                <div class="card-sub">Content, language, and pacing tuned for all ages.</div>
+                <div class="card-tag-row">
+                  <span class="card-tag">Kid‑friendly</span>
+                  <span class="card-tag">Guardian‑approved</span>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-title">Sovereign Control</div>
+                <div class="card-sub">GNAIAAAC LLC owns and governs the full stack.</div>
+                <div class="card-tag-row">
+                  <span class="card-tag">No third‑party ads</span>
+                  <span class="card-tag">No data resale</span>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-title">Institution‑Ready</div>
+                <div class="card-sub">Designed for schools, libraries, and agencies.</div>
+                <div class="card-tag-row">
+                  <span class="card-tag">Policy‑aligned</span>
+                  <span class="card-tag">Audit‑friendly</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- HOME: ABOUT -->
+          <div class="section" id="home-about">
+            <div class="section-heading">Home · About</div>
+            <div class="two-col">
+              <div>
+                <div class="section-lead">
+                  SSGPT6 is a civilization‑scale digital platform wrapped in a tiny, safe, playful surface.
+                </div>
+                <div class="section-note">
+                  The PLAY layer is the visible tip of a much deeper sovereign stack: media, intelligence,
+                  governance, identity, economy, and more.
+                </div>
+                <ul class="list">
+                  <li>Built for families, learners, and institutions.</li>
+                  <li>Designed to be legible to regulators and engineers.</li>
+                  <li>Architected for long‑term stewardship and acquisition.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="card">
+                  <div class="card-title">Mission</div>
+                  <div class="card-sub">
+                    Provide safe, accessible, global entertainment and learning powered by sovereign AI, not extractive platforms.
+                  </div>
+                </div>
+                <div class="card" style="margin-top:8px;">
+                  <div class="card-title">Values</div>
+                  <div class="card-sub">
+                    Safety, accessibility, transparency, global inclusion, and long‑horizon responsibility.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- HOME: ACCESSIBILITY -->
+          <div class="section" id="home-accessibility">
+            <div class="section-heading">Home · Accessibility</div>
+            <div class="two-col">
+              <div>
+                <div class="section-lead">
+                  Accessibility is not a feature; it is a requirement.
+                </div>
+                <div class="section-note">
+                  The interface is designed to be usable with screen readers, keyboard navigation, and high‑contrast modes.
+                </div>
+                <ul class="list">
+                  <li>Semantic HTML structure for assistive technologies.</li>
+                  <li>High‑contrast color palette and scalable text.</li>
+                  <li>Minimal motion and no flashing content by default.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="card">
+                  <div class="card-title">Accessibility Highlights</div>
+                  <div class="card-sub">
+                    Screen reader labels, focus states, and reduced cognitive load across navigation and play.
+                  </div>
+                  <div class="card-tag-row">
+                    <span class="card-tag">WCAG‑aligned</span>
+                    <span class="card-tag">Keyboard‑first</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- HOME: LANGUAGES -->
+          <div class="section" id="home-languages">
+            <div class="section-heading">Home · Languages</div>
+            <div class="section-lead">
+              SSGPT6 is designed to be multilingual, with a core interface that can be localized without breaking structure.
+            </div>
+            <div class="section-note">
+              Language support is layered: interface labels, content text, and AI‑assisted explanations can all be localized.
+            </div>
+            <div class="section-grid">
+              <div class="card">
+                <div class="card-title">Interface Strings</div>
+                <div class="card-sub">Navigation, buttons, and labels can be translated centrally.</div>
+              </div>
+              <div class="card">
+                <div class="card-title">Content Blocks</div>
+                <div class="card-sub">Game descriptions and help text can be swapped per language.</div>
+              </div>
+              <div class="card">
+                <div class="card-title">AI‑Assisted Support</div>
+                <div class="card-sub">Explanations and guidance can be generated in the user’s language.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- HOME: UPDATES -->
+          <div class="section" id="home-updates">
+            <div class="section-heading">Home · Updates</div>
+            <div class="section-lead">
+              Recent changes to the PLAY surface and sovereign stack.
+            </div>
+            <div class="section-grid">
+              <div class="card">
+                <div class="card-title">New Games</div>
+                <div class="card-sub">Additional family‑friendly games added to the PLAY cluster.</div>
+              </div>
+              <div class="card">
+                <div class="card-title">Performance</div>
+                <div class="card-sub">Improved loading times and smoother animations on low‑power devices.</div>
+              </div>
+              <div class="card">
+                <div class="card-title">Accessibility</div>
+                <div class="card-sub">Refined focus states and screen reader hints.</div>
+              </div>
+              <div class="card">
+                <div class="card-title">Governance Map</div>
+                <div class="card-sub">Sovereign cluster overview refined for institutional review.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- RIGHT: SIDE PANEL -->
+      <aside class="side-panel">
+        <div class="side-header">
+          <div class="side-title">Now Viewing</div>
+          <div class="side-tag" id="side-context-label">Home · Overview</div>
+        </div>
+        <div class="side-body" id="side-context-body">
+          <div class="side-section-title">Context</div>
+          <div class="side-card">
+            <div class="side-card-title">Central Combo Mode</div>
+            <div class="side-card-sub">
+              All major pages are represented as sections inside a single sovereign interface. Navigation switches context without leaving the file.
+            </div>
+          </div>
+
+          <div class="side-section-title">Status</div>
+          <div class="side-card">
+            <div class="side-card-title">Public Surface</div>
+            <div class="side-card-sub">
+              PLAY, Vault, Sovereign, Legal, Support, and Institutional views are all available from this master file.
+            </div>
+            <div class="side-metric-row">
+              <span class="side-metric-pill side-metric-pill-strong">Live: Frontend</span>
+              <span class="side-metric-pill">Backend: External</span>
+            </div>
+          </div>
+
+          <div class="side-section-title">Shortcuts</div>
+          <div class="side-card">
+            <div class="side-card-title">Quick Jump</div>
+            <div class="side-card-sub">
+              Use the top navigation to switch clusters:
+            </div>
+            <ul class="list">
+              <li>Home — public overview</li>
+              <li>Play — games, family mode, automation</li>
+              <li>Vault — project index and search</li>
+              <li>Sovereign — governance, identity, clusters</li>
+              <li>Legal — privacy, terms, legal notices</li>
+              <li>Support — help, FAQ, contact</li>
+              <li>Institutional — partners, press, careers, compliance</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- CLUSTER SECTIONS BELOW MAIN LAYOUT -->
+
+    <!-- PLAY CLUSTER -->
+    <section class="panel" id="cluster-play" style="margin-top:18px; display:none;">
+      <div class="panel-header">
+        <div class="panel-title">Play Cluster</div>
+        <div class="panel-tag">Games · Family Mode · Automation</div>
+      </div>
+      <div class="panel-body">
+        <div class="section-heading">Play · Overview</div>
+        <div class="section-lead">
+          The PLAY cluster is the family‑safe entertainment layer of SSGPT6, with games, challenges, and adaptive difficulty.
+        </div>
+        <div class="section-switcher">
+          <div class="section-chip active" data-subsection="play-games">
+            <span class="section-chip-dot"></span> Games
+          </div>
+          <div class="section-chip" data-subsection="play-subscribe">
+            <span class="section-chip-dot"></span> Subscribe
+          </div>
+          <div class="section-chip" data-subsection="play-family">
+            <span class="section-chip-dot"></span> Family Mode
+          </div>
+          <div class="section-chip" data-subsection="play-automation">
+            <span class="section-chip-dot"></span> Automation
+          </div>
+          <div class="section-chip" data-subsection="play-ai">
+            <span class="section-chip-dot"></span> AI Surface
+          </div>
+        </div>
+
+        <!-- PLAY: GAMES -->
+        <div class="section active" id="play-games">
+          <div class="section-note">
+            Games are designed to be short, replayable, and safe for all ages.
+          </div>
+          <div class="section-grid">
+            <div class="card">
+              <div class="card-title">Puzzle Trails</div>
+              <div class="card-sub">Logic puzzles with gentle difficulty ramping.</div>
+              <div class="card-tag-row">
+                <span class="card-tag">Cognitive</span>
+                <span class="card-tag">Solo</span>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">Word Sparks</div>
+              <div class="card-sub">Vocabulary and language mini‑games.</div>
+              <div class="card-tag-row">
+                <span class="card-tag">Language</span>
+                <span class="card-tag">Family</span>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">Number Flow</div>
+              <div class="card-sub">Gentle math challenges with visual feedback.</div>
+              <div class="card-tag-row">
+                <span class="card-tag">Math</span>
+                <span class="card-tag">Adaptive</span>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">Calm Quests</div>
+              <div class="card-sub">Low‑pressure exploration and pattern games.</div>
+              <div class="card-tag-row">
+                <span class="card-tag">Relaxed</span>
+                <span class="card-tag">No timers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLAY: SUBSCRIBE -->
+        <div class="section" id="play-subscribe">
+          <div class="two-col">
+            <div>
+              <div class="section-heading">Play · Subscribe</div>
+              <div class="section-lead">
+                The subscription layer unlocks extended play, profiles, and deeper analytics — without ads or tracking.
+              </div>
+              <ul class="list">
+                <li>Unlimited play sessions.</li>
+                <li>Profile‑based progress tracking.</li>
+                <li>Family dashboard for guardians.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="card">
+                <div class="card-title">Subscription Principles</div>
+                <div class="card-sub">
+                  No loot boxes, no dark patterns, no surprise charges. Clear value, clear limits, clear cancellation.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLAY: FAMILY MODE -->
+        <div class="section" id="play-family">
+          <div class="section-heading">Play · Family Mode</div>
+          <div class="section-lead">
+            Family Mode wraps the entire PLAY cluster in age‑appropriate defaults and guardian controls.
+          </div>
+          <div class="section-grid">
+            <div class="card">
+              <div class="card-title">Safe Content Filter</div>
+              <div class="card-sub">All games and text are screened for family‑friendly use.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Time Limits</div>
+              <div class="card-sub">Optional daily play caps to balance screen time.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Kid Profiles</div>
+              <div class="card-sub">Separate profiles with age‑appropriate settings.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Activity Reports</div>
+              <div class="card-sub">Weekly summaries of gameplay and learning progress.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLAY: AUTOMATION -->
+        <div class="section" id="play-automation">
+          <div class="section-heading">Play · Automation</div>
+          <div class="section-lead">
+            Automation keeps PLAY smooth: saving progress, rotating challenges, and adjusting difficulty.
+          </div>
+          <div class="section-grid">
+            <div class="card">
+              <div class="card-title">Auto‑Save</div>
+              <div class="card-sub">Progress is saved in real time.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Daily Challenges</div>
+              <div class="card-sub">New tasks appear every 24 hours.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Smart Notifications</div>
+              <div class="card-sub">Gentle reminders for breaks and rewards.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Auto‑Difficulty</div>
+              <div class="card-sub">Difficulty adjusts based on performance.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLAY: AI SURFACE -->
+        <div class="section" id="play-ai">
+          <div class="section-heading">Play · AI Surface</div>
+          <div class="section-lead">
+            The AI layer is present but not exposed as a raw chatbot. It shapes difficulty, pacing, and hints.
+          </div>
+          <div class="section-note">
+            No open‑ended prompts, no unsafe outputs. AI is constrained to game logic and supportive guidance.
+          </div>
+          <div class="section-grid">
+            <div class="card">
+              <div class="card-title">Adaptive Hints</div>
+              <div class="card-sub">Hints appear only when needed, not to rush or pressure.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Pattern Sensing</div>
+              <div class="card-sub">The system notices when a player is stuck and softens the path.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Guardrails</div>
+              <div class="card-sub">AI never leaves the game context or exposes internal reasoning.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VAULT CLUSTER -->
+    <section class="panel" id="cluster-vault" style="margin-top:18px; display:none;">
+      <div class="panel-header">
+        <div class="panel-title">Vault Cluster</div>
+        <div class="panel-tag">Projects · Index · Search</div>
+      </div>
+      <div class="panel-body">
+        <div class="section-heading">Vault · Overview</div>
+        <div class="section-lead">
+          The Vault is the structured index of SSGPT6 projects — each one a discrete, auditable asset.
+        </div>
+        <div class="section-switcher">
+          <div class="section-chip active" data-subsection="vault-index">
+            <span class="section-chip-dot"></span> Index
+          </div>
+          <div class="section-chip" data-subsection="vault-categories">
+            <span class="section-chip-dot"></span> Categories
+          </div>
+          <div class="section-chip" data-subsection="vault-search">
+            <span class="section-chip-dot"></span> Search (Conceptual)
+          </div>
+        </div>
+
+        <!-- VAULT: INDEX -->
+        <div class="section active" id="vault-index">
+          <div class="section-note">
+            Each project is a unit of work with a clear description, category, and potential institutional value.
+          </div>
+          <div class="section-grid">
+            <div class="card">
+              <div class="card-title">Project 001</div>
+              <div class="card-sub">Core PLAY interface and navigation system.</div>
+              <div class="card-tag-row">
+                <span class="card-tag card-tag-accent">Deployed</span>
+                <span class="card-tag">Frontend</span>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">Project 002</div>
+              <div class="card-sub">Accessibility and multilingual scaffolding.</div>
+              <div class="card-tag-row">
+                <span class="card-tag">Compliance</span>
+                <span class="card-tag">UX</span>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">Project 003</div>
+              <div class="card-sub">Sovereign cluster mapping and documentation.</div>
+              <div class="card-tag-row">
+                <span class="card-tag">Architecture</span>
+                <span class="card-tag">Governance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VAULT: CATEGORIES -->
+        <div class="section" id="vault-categories">
+          <div class="section-heading">Vault · Categories</div>
+          <div class="section-grid">
+            <div class="card">
+              <div class="card-title">PLAY Layer</div>
+              <div class="card-sub">Games, UI, and family‑facing experiences.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Sovereign Layer</div>
+              <div class="card-sub">Governance, identity, and constitutional assets.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Infrastructure Layer</div>
+              <div class="card-sub">Hosting, security, and performance architecture.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Institutional Layer</div>
+              <div class="card-sub">Compliance, acquisition, and partnership assets.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VAULT: SEARCH (CONCEPTUAL) -->
+        <div class="section" id="vault-search">
+          <div class="section-heading">Vault · Search (Conceptual)</div>
+          <div class="section-lead">
+            In a future backend‑connected version, this view would allow searching projects by tag, status, or cluster.
+          </div>
+          <div class="card" style="margin-top:8px;">
+            <div class="card-title">Frontend‑Only Note</div>
+            <div class="card-sub">
+              On GitHub Pages, search would be simulated via static JSON or pre‑rendered lists. No live database is required.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SOVEREIGN CLUSTER -->
+    <section class="panel" id="cluster-sovereign" style="margin-top:18px; display:none;">
+      <div class="panel-header">
+        <div class="panel-title">Sovereign Cluster</div>
+        <div class="panel-tag">Governance · Identity · Clusters</div>
+      </div>
+      <div class="panel-body">
+        <div class="section-heading">Sovereign · Overview</div>
+        <div class="section-lead">
+          Beneath PLAY sits the sovereign architecture: governance, constitution, identity, economy, and thematic clusters.
+        </div>
+        <div class="section-switcher">
+          <div class="section-chip active" data-subsection="sovereign-governance">
+            <span class="section-chip-dot"></span> Governance
+          </div>
+          <div class="section-chip" data-subsection="sovereign-constitution">
+            <span class="section-chip-dot"></span> Constitution
+          </div>
+          <div class="section-chip" data-subsection="sovereign-identity">
+            <span class="section-chip-dot"></span> Identity
+          </div>
+          <div class="section-chip" data-subsection="sovereign-clusters">
+            <span class="section-chip-dot"></span> Clusters
+          </div>
+          <div class="section-chip" data-subsection="sovereign-economy">
+            <span class="section-chip-dot"></span> Economy
+          </div>
+        </div>
+
+        <!-- SOVEREIGN: GOVERNANCE -->
+        <div class="section active" id="sovereign-governance">
+          <div class="two-col">
+            <div>
+              <div class="section-heading">Sovereign · Governance</div>
+              <div class="section-lead">
+                Governance defines who can change what, under which conditions, and with which obligations.
+              </div>
+              <ul class="list">
+                <li>Founder‑led, with clear succession paths.</li>
+                <li>Documented decision‑making and change logs.</li>
+                <li>Separation between public surface and internal control.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="card">
+                <div class="card-title">Governance Principles</div>
+                <div class="card-sub">
+                  Stability, clarity, and auditability — so institutions can trust the platform’s continuity.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOVEREIGN: CONSTITUTION -->
+        <div class="section" id="sovereign-constitution">
+          <div class="section-heading">Sovereign · Constitution</div>
+          <div class="section-lead">
+            The constitution encodes the platform’s purpose, constraints, and non‑negotiable commitments.
+          </div>
+          <div class="section-grid">
+            <div class="card">
+              <div class="card-title">Purpose</div>
+              <div class="card-sub">Serve families, learners, and institutions with safe, ethical AI‑mediated experiences.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Constraints</div>
+              <div class="card-sub">No exploitative monetization, no unsafe AI exposure, no data resale.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Commitments</div>
+              <div class="card-sub">Long‑term stewardship, transparency, and alignment with global safety norms.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOVEREIGN: IDENTITY -->
+        <div class="section" id="sovereign-identity">
+          <div class="section-heading">Sovereign · Identity</div>
+          <div class="section-lead">
+            Identity is treated as a protected asset, not a product.
+          </div>
+          <div class="section-grid">
+            <div class="card">
+              <div class="card-title">Minimal Profiles</div>
+              <div class="card-sub">Only essential fields are stored, with clear deletion paths.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Separation of Concerns</div>
+              <div class="card-sub">Play identity is separate from institutional or admin identity.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">No Shadow Profiles</div>
+              <div class="card-sub">No hidden tracking or inferred identity graphs.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOVEREIGN: CLUSTERS -->
+        <div class="section" id="sovereign-clusters">
+          <div class="section-heading">Sovereign · Clusters</div>
+          <div class="section-lead">
+            SSGPT6 is organized into thematic clusters: media, intelligence, governance, identity, commerce, infrastructure, security, social, education, research, diplomacy, culture, territory, and time.
+          </div>
+          <div class="section-grid">
+            <div class="card">
+              <div class="card-title">Media</div>
+              <div class="card-sub">Content, storytelling, and public‑facing narratives.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Intelligence</div>
+              <div class="card-sub">AI reasoning, pattern detection, and internal tools.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Infrastructure</div>
+              <div class="card-sub">Hosting, performance, and reliability.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Education & Research</div>
+              <div class="card-sub">Learning modules and knowledge experiments.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOVEREIGN: ECONOMY -->
+        <div class="section" id="sovereign-economy">
+          <div class="section-heading">Sovereign · Economy</div>
+          <div class="section-lead">
+            The economic layer is designed for sustainability, not extraction.
+          </div>
+          <div class="section-grid">
+            <div class="card">
+              <div class="card-title">Revenue</div>
+              <div class="card-sub">Subscriptions, institutional licenses, and aligned partnerships.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Costs</div>
+              <div class="card-sub">Infrastructure, maintenance, and stewardship.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Guardrails</div>
+              <div class="card-sub">No gambling mechanics, no manipulative pricing, no surprise fees.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LEGAL CLUSTER -->
+    <section class="panel" id="cluster-legal" style="margin-top:18px; display:none;">
+      <div class="panel-header">
+        <div class="panel-title">Legal Cluster</div>
+        <div class="panel-tag">Privacy · Terms · Legal Notices</div>
+      </div>
+      <div class="panel-body">
+        <div class="section-switcher">
+          <div class="section-chip active" data-subsection="legal-privacy">
+            <span class="section-chip-dot"></span> Privacy
+          </div>
+          <div class="section-chip" data-subsection="legal-terms">
+            <span class="section-chip-dot"></span> Terms
+          </div>
+          <div class="section-chip" data-subsection="legal-legal">
+            <span class="section-chip-dot"></span> Legal Info
+          </div>
+        </div>
+
+        <!-- LEGAL: PRIVACY -->
+        <div class="section active" id="legal-privacy">
+          <div class="section-heading">Legal · Privacy</div>
+          <div class="section-lead">
+            Only essential information is collected to operate core features, and users retain control.
+          </div>
+          <ul class="list">
+            <li>Minimal data collection.</li>
+            <li>Local processing where possible.</li>
+            <li>Encrypted storage for sensitive information.</li>
+            <li>Clear options to reset or delete profiles.</li>
+          </ul>
+        </div>
+
+        <!-- LEGAL: TERMS -->
+        <div class="section" id="legal-terms">
+          <div class="section-heading">Legal · Terms</div>
+          <div class="section-lead">
+            SSGPT6 is provided for personal, family‑friendly entertainment and learning.
+          </div>
+          <ul class="list">
+            <li>Users agree to follow rules and respect others.</li>
+            <li>Content ownership remains with GNAIAAAC LLC unless otherwise stated.</li>
+            <li>Service availability may vary and features may change.</li>
+          </ul>
+        </div>
+
+        <!-- LEGAL: LEGAL INFO -->
+        <div class="section" id="legal-legal">
+          <div class="section-heading">Legal · Legal Information</div>
+          <div class="section-lead">
+            SSGPT6 and all related assets are owned and operated by GNAIAAAC LLC.
+          </div>
+          <ul class="list">
+            <li>Platform content is protected under applicable copyright and digital rights laws.</li>
+            <li>Users must avoid misuse or unauthorized access.</li>
+            <li>Liability is limited in cases of misuse or external compromise.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SUPPORT CLUSTER -->
+    <section class="panel" id="cluster-support" style="margin-top:18px; display:none;">
+      <div class="panel-header">
+        <div class="panel-title">Support Cluster</div>
+        <div class="panel-tag">Help · FAQ · Contact</div>
+      </div>
+      <div class="panel-body">
+        <div class="section-switcher">
+          <div class="section-chip active" data-subsection="support-help">
+            <span class="section-chip-dot"></span> Help
+          </div>
+          <div class="section-chip" data-subsection="support-faq">
+            <span class="section-chip-dot"></span> FAQ
+          </div>
+          <div class="section-chip" data-subsection="support-contact">
+            <span class="section-chip-dot"></span> Contact
+          </div>
+        </div>
+
+        <!-- SUPPORT: HELP -->
+        <div class="section active" id="support-help">
+          <div class="section-heading">Support · Help</div>
+          <div class="section-lead">
+            Guidance for getting started, troubleshooting, and managing accounts.
+          </div>
+          <ul class="list">
+            <li>How to navigate the PLAY interface.</li>
+            <li>What to do if a game does not load.</li>
+            <li>How to adjust Family Mode settings.</li>
+          </ul>
+        </div>
+
+        <!-- SUPPORT: FAQ -->
+        <div class="section" id="support-faq">
+          <div class="section-heading">Support · FAQ</div>
+          <div class="section-grid">
+            <div class="card">
+              <div class="card-title">Is SSGPT6 free?</div>
+              <div class="card-sub">Yes, with an optional subscription layer.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Do I need an account?</div>
+              <div class="card-sub">No account is required for basic features.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Is my data safe?</div>
+              <div class="card-sub">Data is protected with modern encryption and privacy controls.</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Can kids use SSGPT6?</div>
+              <div class="card-sub">Yes, Family Mode provides age‑appropriate settings.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUPPORT: CONTACT -->
+        <div class="section" id="support-contact">
+          <div class="section-heading">Support · Contact</div>
+          <div class="section-lead">
+            Contact channels for users, partners, and institutions.
+          </div>
+          <ul class="list">
+            <li>Email (support): support@ssgpt6.com</li>
+            <li>Email (partners): partners@ssgpt6.com</li>
+            <li>Entity: GNAIAAAC LLC — Global Operations</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INSTITUTIONAL CLUSTER -->
+    <section class="panel" id="cluster-institutional" style="margin-top:18px; display:none;">
+      <div class="panel-header">
+        <div class="panel-title">Institutional Cluster</div>
+        <div class="panel-tag">Partners · Press · Careers · Compliance</div>
+      </div>
+      <div class="panel-body">
+        <div class="section-switcher">
+          <div class="section-chip active" data-subsection="inst-partners">
+            <span class="section-chip-dot"></span> Partners
+          </div>
+          <div class="section-chip" data-subsection="inst-press">
+            <span class="section-chip-dot"></span> Press
+          </div>
+          <div class="section-chip" data-subsection="inst-careers">
+            <span class="section-chip-dot"></span> Careers
+          </div>
+          <div class="section-chip" data-subsection="inst-compliance">
+            <span class="section-chip-dot"></span> Compliance
+          </div>
+        </div>
+
+        <!-- INSTITUTIONAL: PARTNERS -->
+        <div class="section active" id="inst-partners">
+          <div class="section-heading">Institutional · Partners</div>
+          <div class="section-lead">
+            SSGPT6 is designed to integrate with schools, libraries, agencies, and aligned organizations.
+          </div>
+          <ul class="list">
+            <li>Clear licensing models.</li>
+            <li>Audit‑friendly documentation.</li>
+            <li>Configurable deployment patterns.</li>
+          </ul>
+        </div>
+
+        <!-- INSTITUTIONAL: PRESS -->
+        <div class="section" id="inst-press">
+          <div class="section-heading">Institutional · Press</div>
+          <div class="section-lead">
+            High‑level narrative and facts for media and public briefings.
+          </div>
+          <ul class="list">
+            <li>SSGPT6: Tiny AI. Big Brain. Black Box.</li>
+            <li>Family‑safe, institution‑ready digital playground.</li>
+            <li>Owned and operated by GNAIAAAC LLC.</li>
+          </ul>
+        </div>
+
+        <!-- INSTITUTIONAL: CAREERS -->
+        <div class="section" id="inst-careers">
+          <div class="section-heading">Institutional · Careers</div>
+          <div class="section-lead">
+            Future‑facing roles focused on stewardship, not just growth.
+          </div>
+          <ul class="list">
+            <li>Education partnerships and curriculum design.</li>
+            <li>Accessibility and inclusion specialists.</li>
+            <li>Governance and compliance engineers.</li>
+          </ul>
+        </div>
+
+        <!-- INSTITUTIONAL: COMPLIANCE -->
+        <div class="section" id="inst-compliance">
+          <div class="section-heading">Institutional · Compliance</div>
+          <div class="section-lead">
+            The platform is structured to be legible to regulators and auditors.
+          </div>
+          <ul class="list">
+            <li>Clear separation of data, logic, and presentation.</li>
+            <li>Documented legal and privacy positions.</li>
+            <li>Configurable deployment for different jurisdictions.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span class="footer-strong">SSGPT6</span> · <span>GNAIAAAC LLC</span>
+    <span class="footer-pill">
+      <span class="footer-dot"></span> Tiny AI · Big Brain · Black Box
+    </span>
+  </footer>
+
+  <script>
+    (function() {
+      const navButtons = document.querySelectorAll('.nav-btn');
+      const clusterPlay = document.getElementById('cluster-play');
+      const clusterVault = document.getElementById('cluster-vault');
+      const clusterSovereign = document.getElementById('cluster-sovereign');
+      const clusterLegal = document.getElementById('cluster-legal');
+      const clusterSupport = document.getElementById('cluster-support');
+      const clusterInstitutional = document.getElementById('cluster-institutional');
+      const clusters = [clusterPlay, clusterVault, clusterSovereign, clusterLegal, clusterSupport, clusterInstitutional];
+
+      const sideLabel = document.getElementById('side-context-label');
+      const sideBody = document.getElementById('side-context-body');
+
+      function setSideContext(label, bodyHtml) {
+        if (sideLabel) sideLabel.textContent = label;
+        if (sideBody) sideBody.innerHTML = bodyHtml;
+      }
+
+      function hideAllClusters() {
+        clusters.forEach(c => { if (c) c.style.display = 'none'; });
+      }
+
+      function setActiveNav(section) {
+        navButtons.forEach(btn => {
+          if (btn.dataset.section === section) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+      }
+
+      navButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const section = btn.dataset.section;
+          setActiveNav(section);
+          hideAllClusters();
+
+          if (section === 'home') {
+            setSideContext('Home · Overview', `
+              <div class="side-section-title">Context</div>
+              <div class="side-card">
+                <div class="side-card-title">Central Combo Mode</div>
+                <div class="side-card-sub">
+                  You are viewing the unified SSGPT6 interface. Use the navigation to switch clusters without leaving this file.
+                </div>
+              </div>
+              <div class="side-section-title">Status</div>
+              <div class="side-card">
+                <div class="side-card-title">Public Surface</div>
+                <div class="side-card-sub">
+                  PLAY, Vault, Sovereign, Legal, Support, and Institutional views are all reachable from here.
+                </div>
+                <div class="side-metric-row">
+                  <span class="side-metric-pill side-metric-pill-strong">Live: Frontend</span>
+                  <span class="side-metric-pill">Backend: External</span>
+                </div>
+              </div>
+            `);
+          }
+
+          if (section === 'play') {
+            if (clusterPlay) clusterPlay.style.display = 'block';
+            setSideContext('Play · Overview', `
+              <div class="side-section-title">Context</div>
+              <div class="side-card">
+                <div class="side-card-title">Play Cluster</div>
+                <div class="side-card-sub">
+                  Games, Family Mode, Automation, and AI‑shaped difficulty live here. All family‑safe by design.
+                </div>
+              </div>
+            `);
+          }
+
+          if (section === 'vault') {
+            if (clusterVault) clusterVault.style.display = 'block';
+            setSideContext('Vault · Overview', `
+              <div class="side-section-title">Context</div>
+              <div class="side-card">
+                <div class="side-card-title">Vault Cluster</div>
+                <div class="side-card-sub">
+                  Structured index of SSGPT6 projects, each treated as a discrete, auditable asset.
+                </div>
+              </div>
+            `);
+          }
+
+          if (section === 'sovereign') {
+            if (clusterSovereign) clusterSovereign.style.display = 'block';
+            setSideContext('Sovereign · Overview', `
+              <div class="side-section-title">Context</div>
+              <div class="side-card">
+                <div class="side-card-title">Sovereign Cluster</div>
+                <div class="side-card-sub">
+                  Governance, constitution, identity, clusters, and economy — the deeper architecture beneath PLAY.
+                </div>
+              </div>
+            `);
+          }
+
+          if (section === 'legal') {
+            if (clusterLegal) clusterLegal.style.display = 'block';
+            setSideContext('Legal · Overview', `
+              <div class="side-section-title">Context</div>
+              <div class="side-card">
+                <div class="side-card-title">Legal Cluster</div>
+                <div class="side-card-sub">
+                  Privacy, terms, and legal information are centralized here for clarity and auditability.
+                </div>
+              </div>
+            `);
+          }
+
+          if (section === 'support') {
+            if (clusterSupport) clusterSupport.style.display = 'block';
+            setSideContext('Support · Overview', `
+              <div class="side-section-title">Context</div>
+              <div class="side-card">
+                <div class="side-card-title">Support Cluster</div>
+                <div class="side-card-sub">
+                  Help, FAQ, and contact channels for users and guardians.
+                </div>
+              </div>
+            `);
+          }
+
+          if (section === 'institutional') {
+            if (clusterInstitutional) clusterInstitutional.style.display = 'block';
+            setSideContext('Institutional · Overview', `
+              <div class="side-section-title">Context</div>
+              <div class="side-card">
+                <div class="side-card-title">Institutional Cluster</div>
+                <div class="side-card-sub">
+                  Partners, press, careers, and compliance views for organizations and agencies.
+                </div>
+              </div>
+            `);
+          }
+
+          if (section === 'home') {
+            // nothing extra; home content is already visible in main panel
+          }
+        });
+      });
+
+      // Subsection chips
+      const allChips = document.querySelectorAll('.section-chip');
+      const allSections = document.querySelectorAll('.section');
+
+      function activateSubsection(id) {
+        allChips.forEach(chip => {
+          if (chip.dataset.subsection === id) {
+            chip.classList.add('active');
+          } else {
+            chip.classList.remove('active');
+          }
+        });
+        allSections.forEach(sec => {
+          if (sec.id === id) {
+            sec.classList.add('active');
+          } else if (sec.dataset.lock !== 'true') {
+            sec.classList.remove('active');
+          }
+        });
+      }
+
+      allChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const id = chip.dataset.subsection;
+          activateSubsection(id);
+        });
+      });
+
+      // Buttons in hero that jump to clusters
+      document.querySelectorAll('.btn[data-section]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = btn.dataset.section;
+          const navBtn = document.querySelector('.nav-btn[data-section="' + target + '"]');
+          if (navBtn) navBtn.click();
+        });
+      });
+
+      // Initial state
+      hideAllClusters();
+      setActiveNav('home');
+    })();
+  </script>
+
 </body>
 </html>
+
+
+
