@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 PLAY · Free Session</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="timer.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Free Play Session</h1>
+      <div class="tagline">You have 10 minutes of free access.</div>
+    </header>
+
+    <div class="section">
+      <h2>Session Status</h2>
+      <div class="panel center">
+        <p class="muted">Remaining time:</p>
+        <h2 id="timer-display">10:00</h2>
+        <p class="notice">
+          When your time is up, you will be redirected to complete your membership.
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Play Area (Placeholder)</h2>
+      <div class="panel">
+        <p class="muted">
+          This is where your SSGPT6 PLAY content, games, or experiences will appear.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
