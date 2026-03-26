@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 · Developer Mode Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .dev-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .dev-card {
+      background: #050814;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 13px;
+    }
+    .dev-card h3 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .dev-card p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .dev-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    #dev-log {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: pre-line;
+    }
+    .dev-input-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .dev-input-row input {
+      flex: 1;
+      min-width: 180px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <h1>SSGPT6 · Developer Mode Panel</h1>
+      <div class="tagline">Safe sandbox for testing modules (UI only).</div>
+    </header>
+
+    <div class="section">
+      <h2>Module Sandbox</h2>
+      <div class="panel dev-grid" id="dev-module-container">
+        <!-- Populated by developer-router.js -->
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Manual Module Trigger</h2>
+      <div class="panel">
+        <p class="small">
+          Use this to simulate activation of any module by ID.  
+          This does not call any backend or external system.
+        </p>
+        <div class="dev-input-row">
+          <input type="text" id="dev-module-id" placeholder="Enter module ID (e.g., admin_dashboard)" />
+          <button class="btn" id="dev-trigger-btn">Trigger</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="dev-log" class="panel small"></div>
+  </div>
+
+  <script src="developer-router.js"></script>
+</body>
+</html>
