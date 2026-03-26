@@ -1,0 +1,8 @@
+<div class="section">
+  <h2>Admin Modules</h2>
+  <div id="admin-module-container" class="grid"></div>
+</div>
+
+<div id="admin-log" class="panel small" style="margin-top:20px;"></div>
+
+<script src="admin-router.js"></script>
