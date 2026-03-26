@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 Admin Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .error { color: #ff6b6b; margin-top: 10px; font-size: 13px; }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <h1>Admin Access</h1>
+      <div class="tagline">Authorized personnel only.</div>
+    </header>
+
+    <div class="section">
+      <h2>Login</h2>
+      <div class="panel">
+        <form id="adminForm" class="form-row">
+          <input type="text" id="username" placeholder="Admin Username" required />
+          <input type="password" id="password" placeholder="Admin Password" required />
+          <button type="submit" class="btn">Login</button>
+        </form>
+        <div id="error" class="error"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // CHANGE THESE ANYTIME YOU WANT
+    const ADMIN_USER = "admin";
+    const ADMIN_PASS = "ssgpt6free";
+
+    document.getElementById("adminForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+
+      if (user === ADMIN_USER && pass === ADMIN_PASS) {
+        // Redirect to unlimited play version
+        window.location.href = "free-play-unlimited.html";
+      } else {
+        document.getElementById("error").textContent = "Invalid admin credentials.";
+      }
+    });
+  </script>
+</body>
+</html>
