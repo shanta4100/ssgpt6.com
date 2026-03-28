@@ -1,41 +1,98 @@
 {
-  "version": "1.0.0",
-  "updated": "2026-03-28T00:00:00Z",
+  "routing": {
+    "latencyThresholdMs": 2000,
+    "errorRateThreshold": 0.3
+  },
+
   "oceans": {
-    "ssgpt6.com": {
-      "primary": true,
+    "core": {
+      "region": "US-EAST",
       "rivers": {
         "app": {
-          "health": "https://app.ssgpt6.com/health",
-          "active": "https://app.ssgpt6.com",
-          "backup": "https://app.ssgpt6.online"
+          "active": "https://core.ssgpt6.com",
+          "health": "https://core.ssgpt6.com/health",
+          "backup": [
+            "https://northatlantic.ssgpt6.net",
+            "https://pacificocean.ssgpt6.net"
+          ],
+          "core": true
         }
       }
     },
-    "ssgpt6.online": {
-      "primary": false,
+
+    "northatlantic": {
+      "region": "US-WEST",
       "rivers": {
         "app": {
-          "health": "https://app.ssgpt6.online/health",
-          "active": "https://app.ssgpt6.online",
-          "backup": null
+          "active": "https://northatlantic.ssgpt6.net",
+          "health": "https://northatlantic.ssgpt6.net/health",
+          "backup": [
+            "https://core.ssgpt6.com",
+            "https://pacificocean.ssgpt6.net"
+          ],
+          "core": false
         }
       }
     },
-    "vitalsciencegrid.com": {
-      "primary": false,
+
+    "pacificocean": {
+      "region": "ASIA-PACIFIC",
       "rivers": {
         "app": {
-          "health": "https://app.vitalsciencegrid.com/health",
-          "active": "https://app.vitalsciencegrid.com",
-          "backup": null
+          "active": "https://pacificocean.ssgpt6.net",
+          "health": "https://pacificocean.ssgpt6.net/health",
+          "backup": [
+            "https://northatlantic.ssgpt6.net",
+            "https://indianocean.ssgpt6.net"
+          ],
+          "core": false
+        }
+      }
+    },
+
+    "indianocean": {
+      "region": "ASIA-SOUTH",
+      "rivers": {
+        "app": {
+          "active": "https://indianocean.ssgpt6.net",
+          "health": "https://indianocean.ssgpt6.net/health",
+          "backup": [
+            "https://pacificocean.ssgpt6.net",
+            "https://arctic.ssgpt6.net"
+          ],
+          "core": false
+        }
+      }
+    },
+
+    "arctic": {
+      "region": "EU-NORTH",
+      "rivers": {
+        "app": {
+          "active": "https://arctic.ssgpt6.net",
+          "health": "https://arctic.ssgpt6.net/health",
+          "backup": [
+            "https://indianocean.ssgpt6.net",
+            "https://antarctic.ssgpt6.net"
+          ],
+          "core": false
+        }
+      }
+    },
+
+    "antarctic": {
+      "region": "GLOBAL-SOUTH",
+      "rivers": {
+        "app": {
+          "active": "https://antarctic.ssgpt6.net",
+          "health": "https://antarctic.ssgpt6.net/health",
+          "backup": [
+            "https://arctic.ssgpt6.net",
+            "https://core.ssgpt6.com"
+          ],
+          "core": false
         }
       }
     }
-  },
-  "routing": {
-    "servicePriority": ["ssgpt6.com", "ssgpt6.online"],
-    "latencyThresholdMs": 2000,
-    "downRetrySeconds": 60
   }
 }
