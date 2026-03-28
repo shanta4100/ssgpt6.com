@@ -241,11 +241,6 @@ function computeGlobalMetrics(healthResults) {
   };
 }
 
-// Reward is higher when:
-// - latency is low
-// - error is low
-// - uptime is high
-// - predictive issues are low
 function rewardForMode(mode, metrics) {
   const { avgLatency, avgErrorRate, upRatio, predictiveRatio } = metrics;
 
@@ -255,25 +250,19 @@ function rewardForMode(mode, metrics) {
 
   let reward = 0;
 
-  // Base reward: uptime
   reward += upRatio * 5;
 
-  // Latency contribution
-  const latencyScore = Math.max(0, 3 - avgLatency / 1000); // 0–3
-  const errorScore = Math.max(0, 2 - (avgErrorRate || 0) * 5); // 0–2
-  const predictiveScore = Math.max(0, 2 - (predictiveRatio || 0) * 5); // 0–2
+  const latencyScore = Math.max(0, 3 - avgLatency / 1000);
+  const errorScore = Math.max(0, 2 - (avgErrorRate || 0) * 5);
+  const predictiveScore = Math.max(0, 2 - (predictiveRatio || 0) * 5);
 
   if (mode === 'A') {
-    // Performance-first
     reward += latencyScore * 2 + errorScore * 1.5 + predictiveScore * 1;
   } else if (mode === 'B') {
-    // Stability-first
     reward += upRatio * 3 + predictiveScore * 2 + errorScore * 1;
   } else if (mode === 'C') {
-    // Balanced
     reward += latencyScore * 1.5 + errorScore * 1.5 + upRatio * 2;
   } else if (mode === 'D') {
-    // Custom: emphasize historical stability (approx via predictiveRatio)
     reward += upRatio * 2 + predictiveScore * 2 + latencyScore * 1;
   }
 
@@ -294,7 +283,7 @@ function chooseModeAuto(metrics) {
   return best.mode;
 }
 
-// ===== 8. ROUTER v4 (MODE-AWARE) =====
+// ===== 8. ROUTER v4 =====
 
 function isRiverDisabled(config, ocean, river) {
   const o = config.oceans[ocean];
@@ -324,7 +313,6 @@ function runRouter(config, healthResults, mode) {
     let score = 0;
 
     if (mode === 'A') {
-      // Performance-first
       if (h.status === 'UP') score += 4;
       if (!h.predictiveDegradation) score += 1;
       if (h.latencyMs !== null) {
@@ -332,12 +320,10 @@ function runRouter(config, healthResults, mode) {
       }
       score -= (h.errorRate || 0) * 4;
     } else if (mode === 'B') {
-      // Stability-first
       if (h.status === 'UP') score += 5;
       if (!h.predictiveDegradation) score += 2;
       score -= (h.errorRate || 0) * 2;
     } else if (mode === 'C') {
-      // Balanced
       if (h.status === 'UP') score += 4;
       if (!h.predictiveDegradation) score += 1;
       if (h.latencyMs !== null) {
@@ -345,7 +331,6 @@ function runRouter(config, healthResults, mode) {
       }
       score -= (h.errorRate || 0) * 3;
     } else if (mode === 'D') {
-      // Custom: prefer historically stable oceans (approx via predictive flag)
       if (h.status === 'UP') score += 4;
       if (!h.predictiveDegradation) score += 2;
       score -= (h.errorRate || 0) * 2;
@@ -379,7 +364,7 @@ function runRouter(config, healthResults, mode) {
   return routingState;
 }
 
-// ===== 9. HEALER v4 (MODE-AWARE AGGRESSIVENESS) =====
+// ===== 9. HEALER v4 =====
 
 function runHealer(healthResults, mode) {
   console.log(`[HealerV4] Evaluating heal actions (mode=${mode})`);
@@ -388,18 +373,14 @@ function runHealer(healthResults, mode) {
 
   let filterFn;
   if (mode === 'A') {
-    // Aggressive: heal DOWN + predictive
     filterFn = (h) => h.status === 'DOWN' || h.predictiveDegradation;
   } else if (mode === 'B') {
-    // Conservative: heal only DOWN
     filterFn = (h) => h.status === 'DOWN';
   } else if (mode === 'C') {
-    // Balanced: heal DOWN + strong predictive
     filterFn = (h) =>
       h.status === 'DOWN' ||
       (h.predictiveDegradation && (h.errorRate || 0) > 0.2);
   } else {
-    // Custom: similar to balanced
     filterFn = (h) =>
       h.status === 'DOWN' ||
       (h.predictiveDegradation && (h.errorRate || 0) > 0.15);
@@ -426,7 +407,7 @@ function runHealer(healthResults, mode) {
   writeJson(CONFIG.healQueueFile, queue);
 }
 
-// ===== 10. CONFIG REWRITER v4 (SAFE OPTIMIZATION) =====
+// ===== 10. CONFIG REWRITER v4 =====
 
 function runConfigRewriter(config, healthResults, mode) {
   console.log(`[ConfigV4] Evaluating config evolution (mode=${mode})`);
