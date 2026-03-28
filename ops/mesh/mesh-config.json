@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-03-28T00:00:00Z",
+  "oceans": {
+    "ssgpt6.com": {
+      "primary": true,
+      "rivers": {
+        "app": {
+          "health": "https://app.ssgpt6.com/health",
+          "active": "https://app.ssgpt6.com",
+          "backup": "https://app.ssgpt6.online"
+        }
+      }
+    },
+    "ssgpt6.online": {
+      "primary": false,
+      "rivers": {
+        "app": {
+          "health": "https://app.ssgpt6.online/health",
+          "active": "https://app.ssgpt6.online",
+          "backup": null
+        }
+      }
+    },
+    "vitalsciencegrid.com": {
+      "primary": false,
+      "rivers": {
+        "app": {
+          "health": "https://app.vitalsciencegrid.com/health",
+          "active": "https://app.vitalsciencegrid.com",
+          "backup": null
+        }
+      }
+    }
+  },
+  "routing": {
+    "servicePriority": ["ssgpt6.com", "ssgpt6.online"],
+    "latencyThresholdMs": 2000,
+    "downRetrySeconds": 60
+  }
+}
