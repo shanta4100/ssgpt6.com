@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS6-Connect | GNAIAAAC LLC Hub</title>
+    <style>
+        :root { --citadel-blue: #0a192f; --gna-silver: #ccd6f6; --accent-cyan: #64ffda; }
+        body { background: var(--citadel-blue); color: var(--gna-silver); font-family: sans-serif; margin: 0; display: flex; height: 100vh; }
+        
+        /* Sidebar for 135 Projects */
+        nav { width: 260px; border-right: 1px solid #233554; padding: 20px; overflow-y: auto; }
+        .project-node { padding: 10px; border-radius: 4px; margin-bottom: 5px; cursor: pointer; font-size: 0.9rem; }
+        .project-node:hover { background: #112240; color: var(--accent-cyan); }
+        
+        /* Main Communication Hub */
+        main { flex-grow: 1; display: flex; flex-direction: column; padding: 20px; }
+        header { border-bottom: 1px solid #233554; padding-bottom: 10px; margin-bottom: 20px; }
+        .chat-box { flex-grow: 1; background: #112240; border-radius: 8px; padding: 20px; margin-bottom: 20px; overflow-y: auto; }
+        .input-area { display: flex; gap: 10px; }
+        input { flex-grow: 1; padding: 15px; border-radius: 5px; border: none; background: #233554; color: white; }
+        button { padding: 15px 30px; background: var(--accent-cyan); color: var(--citadel-blue); border: none; border-radius: 5px; font-weight: bold; }
+        
+        footer { font-size: 0.7rem; color: #8892b0; text-align: center; }
+    </style>
+</head>
+<body>
+    <nav>
+        <h3>GNAI Project Matrix</h3>
+        <div class="project-node">001: Water Bankruptcy</div>
+        <div class="project-node">002: Zero-Carbon Grid</div>
+        <div class="project-node">003: Satellite Logistics</div>
+        <div class="project-node">135: SS6 Marketplace</div>
+    </nav>
+    <main>
+        <header>
+            <h1>SS6-Connect</h1>
+            <small>Official Communication Hub | GNAIAAAC LLC</small>
+        </header>
+        <div class="chat-box" id="hub-display">
+            <p><strong>[Sleeping Agent]:</strong> SS6-Connect Secure Line Established. Ready to manage GNAI initiatives.</p>
+        </div>
+        <div class="input-area">
+            <input type="text" placeholder="Send a command to the GNAI Network...">
+            <button>CONNECT</button>
+        </div>
+        <footer>
+            SS6-Connect is an independent platform by GNAIAAAC LLC. 
+            <a href="/terms" style="color:var(--accent-cyan)">Terms</a> | 
+            <a href="/privacy" style="color:var(--accent-cyan)">Privacy</a>
+        </footer>
+    </main>
+</body>
+</html>
