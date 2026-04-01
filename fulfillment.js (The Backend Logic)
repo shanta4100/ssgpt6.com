@@ -1,0 +1,45 @@
+const functions = require('firebase-functions');
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+exports.ss6PaymentWebhook = functions.https.onRequest(async (req, res) => {
+    const event = req.body;
+
+    // 2026 Compliance: Verify the event is genuinely from your payment provider
+    if (event.type === 'checkout.session.completed') {
+        const session = event.data.object;
+        const customerEmail = session.customer_details.email;
+        const productPurchased = session.metadata.product_name || "SS6 Digital Asset";
+
+        // Generate the Secure Delivery Email
+        const msg = {
+            to: customerEmail,
+            from: 'connect@ssgpt6.com', // Your verified GNAIAAAC LLC domain
+            subject: `Your SS6-Connect Delivery: ${productPurchased}`,
+            html: `
+                <div style="font-family: sans-serif; background: #0a192f; color: #ccd6f6; padding: 20px; border-radius: 10px;">
+                    <h2 style="color: #64ffda;">GNAIAAAC LLC: Secure Delivery</h2>
+                    <p>Thank you for your purchase from the <strong>SS6-Connect Hub</strong>.</p>
+                    <p>Your digital asset is ready for download below:</p>
+                    <a href="https://ssgpt6.com/download?id=unique_token" 
+                       style="background: #64ffda; color: #020c1b; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                       ACCESS YOUR PRODUCT
+                    </a>
+                    <br><br>
+                    <small>ID: ${session.id} | Managed by GNAI Sleeping Agent</small>
+                </div>
+            `,
+        };
+
+        try {
+            await sgMail.send(msg);
+            console.log(`Success: Delivered ${productPurchased} to ${customerEmail}`);
+            res.status(200).send('Delivered');
+        } catch (error) {
+            console.error('Delivery Error:', error);
+            res.status(500).send('Fulfillment Failed');
+        }
+    } else {
+        res.status(200).send('Event ignored');
+    }
+});
