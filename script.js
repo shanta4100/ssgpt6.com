@@ -1,16 +1,19 @@
-// SS6-Connect Secure Checkout System
-function openSecureCheckout(productId) {
-    console.log("Initializing Secure Bridge for Product: " + productId);
+const projectData = {
+    "001": { name: "Water Bankruptcy", context: "Expert in global water scarcity and GWERI protocols." },
+    "002": { name: "Zero-Carbon Grid", context: "Specialist in renewable energy and carbon credits." },
+    "003": { name: "Satellite Coils", context: "Engineer for orbital power and Starlink integration." }
+};
+
+let currentProject = "001";
+
+function switchProject(id) {
+    currentProject = id;
+    const project = projectData[id];
+    document.querySelector('.header-info h1').innerText = `SS6: ${project.name}`;
     
-    // 2026 Compliance: Notify user of secure handoff
-    const hubDisplay = document.getElementById('chatDisplay');
+    // Notify the 'Sleeping Agent' of the new context
     const msg = document.createElement('div');
     msg.className = 'message system';
-    msg.innerHTML = `<p><strong>[SECURITY]:</strong> Opening encrypted GNAI Payment Bridge for ${productId}. All data is tokenized.</p>`;
-    hubDisplay.appendChild(msg);
-
-    // This would trigger your Stripe/PayPal/SSLCommerz Modal
-    // Example: Stripe.redirectToCheckout({ lineItems: [{ price: productId, quantity: 1 }] });
-    
-    alert("Redirecting to GNAIAAAC LLC Secure Payment Gateway...");
+    msg.innerHTML = `<p><strong>[SYSTEM]:</strong> Context switched to ${project.name}. Specialist Agent synchronized.</p>`;
+    document.getElementById('chatDisplay').appendChild(msg);
 }
