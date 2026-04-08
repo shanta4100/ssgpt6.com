@@ -1,0 +1,7 @@
+- name: Enable Long Paths
+  run: git config --global core.longpaths true
+
+- name: Checkout
+  uses: actions/checkout@v4
+  with:
+    submodules: recursive
