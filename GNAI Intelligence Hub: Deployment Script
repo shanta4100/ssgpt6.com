@@ -1,0 +1,40 @@
+import requests
+import json
+
+def fetch_gnaiaaac_intelligence():
+    API_KEY = "96bc9d3cc53f49abb2d8ebfd87b886e1"
+    
+    # Targeted query for Purre-GWERI and AI Infrastructure
+    query = (
+        '(atmospheric AND "water harvesting") OR '
+        '("water purification" AND nanotechnology) OR '
+        '("autonomous AI" AND infrastructure)'
+    )
+    
+    url = "https://newsapi.org/v2/everything"
+    params = {
+        "q": query,
+        "sortBy": "relevance",
+        "language": "en",
+        "apiKey": API_KEY
+    }
+
+    try:
+        response = requests.get(url, params=params)
+        data = response.json()
+        
+        if data["status"] == "ok":
+            print(f"Successfully retrieved {data['totalResults']} intelligence nodes.")
+            # Logic to pass this to your Cloudflare or GitHub repository goes here
+            return data["articles"]
+        else:
+            print(f"Error: {data.get('message', 'Unknown error')}")
+            
+    except Exception as e:
+        print(f"Connection Failed: {e}")
+
+if __name__ == "__main__":
+    intelligence_feed = fetch_gnaiaaac_intelligence()
+    # Example: print the first headline found
+    if intelligence_feed:
+        print(f"Top Priority: {intelligence_feed[0]['title']}")
