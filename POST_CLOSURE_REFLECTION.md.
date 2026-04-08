@@ -1,0 +1,8 @@
+# Force the rename of the long file to a clean standard
+git mv "Arifur — I’m right here..." "POST_CLOSURE_REFLECTION.md"
+
+# Commit the fix
+git commit -m "Fix: Resolved filename too long error in GH Actions"
+
+# Push to the main branch
+git push origin main
