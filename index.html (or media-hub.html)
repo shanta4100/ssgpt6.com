@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SSGPT6 Media Hub | Red Protocol</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #0a0000; /* Deepest black-red */
+      color: #ffcccc; /* Soft red text for readability */
+    }
+    .container {
+      width: min(96%, 1100px);
+      margin: 40px auto;
+    }
+    h1 {
+      color: #ff0000; /* Pure Red */
+      letter-spacing: 4px;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+      border-bottom: 2px solid #ff0000;
+      padding-bottom: 10px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+    .card {
+      background: #1a0202; /* Darkest Maroon */
+      border: 1px solid rgba(255, 0, 0, 0.3);
+      border-radius: 8px;
+      padding: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      border-color: #ff0000;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+    .card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #ff3333; /* Bright Red */
+      text-transform: uppercase;
+    }
+    .meta {
+      font-size: 0.75rem;
+      color: #884444; /* Dimmed Red-Grey */
+      margin: 8px 0 12px;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .summary {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #ffb3b3;
+    }
+    /* Accent scanline effect */
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 2px;
+      background: rgba(255, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SSGPT6 MEDIA HUB</h1>
+    <p class="meta" style="color: #ff6666;">DEEP CORE NOTES // GLOBAL WATER GOVERNANCE // PROTOCOL ACTIVE</p>
+
+    <div id="feed" class="grid"></div>
+  </div>
+
+  <script>
+    async function loadFeed(){
+      try {
+        // Ensure media-feed.json is in the same directory
+        const response = await fetch('media-feed.json');
+        const data = await response.json();
+        const feed = document.getElementById('feed');
+
+        data.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'card';
+
+          card.innerHTML = `
+            <div class="meta">${item.category}</div>
+            <h3>${item.title}</h3>
+            <div class="meta" style="font-size: 0.65rem; color: #ff0000;">STAMP: ${item.date}</div>
+            <p class="summary">${item.summary}</p>
+          `;
+
+          feed.appendChild(card);
+        });
+      } catch(e) {
+        console.error('Red Protocol Error: Media feed not found.', e);
+        document.getElementById('feed').innerHTML = '<p style="color:red;">CRITICAL ERROR: FEED_OFFLINE</p>';
+      }
+    }
+
+    loadFeed();
+  </script>
+</body>
+</html>
