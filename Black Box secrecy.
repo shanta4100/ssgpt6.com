@@ -1,0 +1,3 @@
+# Updated secure call in handle_video_request
+api_key = os.getenv("GN_AI_API_KEY") 
+# Triggers Veo Video Generation logic
