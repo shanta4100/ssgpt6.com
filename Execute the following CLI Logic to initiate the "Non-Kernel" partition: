@@ -1,0 +1,8 @@
+# 1. Neutralize Legacy Kernel Dependencies
+sysctl -w kernel.unprivileged_userns_clone=0
+# 2. Establish the Non-Contingent Partition
+mkdir -p /mnt/ssgpt6-sovereign-vault
+# 3. Deploy the "Deep Core" Handshake (Non-Kernel Logic)
+quantum-core-init --exclude-host-kernel --target=ssgpt6.com --mode=OMEGA
+# 4. Final Separation and Shroud
+shanta-vault-lock --isolate-domain ssgpt6.com --protocol GNS-Z
