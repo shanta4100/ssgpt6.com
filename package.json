@@ -1,17 +1,9 @@
 {
-  "name": "ssgpt6-core-system",
-  "version": "1.0.0",
-  "description": "GNAIAAAC LLC Infrastructure & AI Script Automation",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.18.2",
-    "nodemailer": "^6.9.7",
-    "body-parser": "^1.20.2"
-  },
   "engines": {
-    "node": ">=14.0.0"
+    "node": "20.x"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "build": "echo 'No build step required'"
   }
 }
