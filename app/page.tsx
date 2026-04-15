@@ -1,76 +1,202 @@
-// app/page.tsx
-import Image from 'next/image';
+import Link from "next/link";
 
-export default function Home() {
+function Section({
+  id,
+  title,
+  children,
+}: {
+  id?: string;
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
-    <main style={{
-      display: "flex",
-      flexDirection: "column",
-      minHeight: "100vh",
-      backgroundColor: "#05070a",
-      color: "#ffffff",
-      fontFamily: "sans-serif",
-      padding: "24px",
-      alignItems: "center"
-    }}>
-      {/* Header Section - Prevents Overlap */}
-      <header style={{ textAlign: "center", marginBottom: "40px", marginTop: "20px" }}>
-        <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", margin: "0" }}>SSGPT6 Core</h1>
-        <p style={{ color: "#8892b0", fontSize: "1.1rem" }}>Autonomous Digital Governance</p>
+    <section id={id} className="section">
+      <div className="container">
+        <h2 className="sectionTitle">{title}</h2>
+        <div className="sectionBody">{children}</div>
+      </div>
+    </section>
+  );
+}
+
+function ActionButton({
+  href,
+  label,
+  variant = "primary",
+}: {
+  href: string;
+  label: string;
+  variant?: "primary" | "secondary";
+}) {
+  return (
+    <Link href={href} className={`button ${variant === "secondary" ? "buttonSecondary" : ""}`}>
+      {label}
+    </Link>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <main className="pageShell">
+      <header className="hero">
+        <div className="container heroInner">
+          <div className="eyebrow">GNAIAAAC LLC</div>
+          <h1 className="heroTitle">
+            SSGPT6
+            <span className="heroSubtitle">
+              AI Infrastructure for Workforce Automation and Scalable Digital Systems
+            </span>
+          </h1>
+
+          <p className="heroText">
+            Transforming AI concepts into real-world, deployable systems for government,
+            enterprise, and pilot-ready digital operations.
+          </p>
+
+          <div className="heroActions">
+            <ActionButton href="/portal" label="View Platform" />
+            <ActionButton href="/demo" label="Request Demo" variant="secondary" />
+          </div>
+
+          <div className="heroMeta">
+            <div className="metaCard">
+              <span className="metaLabel">UEI</span>
+              <span className="metaValue">SAM-0d0c3ef5-b8c2-45b2-9f43-b6b7f954115f</span>
+            </div>
+            <div className="metaCard">
+              <span className="metaLabel">DUNS</span>
+              <span className="metaValue">Pending · Case No. DFC-532645</span>
+            </div>
+          </div>
+        </div>
       </header>
 
-      {/* Controlled Image Container */}
-      <div style={{
-        position: "relative",
-        width: "100%",
-        maxWidth: "400px",
-        aspectRatio: "16/9",
-        borderRadius: "12px",
-        overflow: "hidden",
-        border: "1px solid #1d283a",
-        marginBottom: "40px"
-      }}>
-        {/* Replace with your actual asset path */}
-        <div style={{ 
-          width: "100%", 
-          height: "100%", 
-          background: "linear-gradient(45deg, #1e293b, #0f172a)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }}>
-          <span style={{ color: "#38bdf8" }}>System Visual Active</span>
+      <Section id="founder" title="Founder & Chief Architect">
+        <div className="twoCol">
+          <div className="card">
+            <h3 className="cardTitle">Arifur Shanta</h3>
+            <p>
+              Founder of GNAIAAAC LLC and architect of the SSGPT6 platform, focused on
+              building AI-driven systems for automation, analytics, and scalable
+              infrastructure.
+            </p>
+            <p>
+              Specializing in AI-powered workforce systems, cloud-based SaaS platforms,
+              automation workflows, and data intelligence for real-world deployment.
+            </p>
+          </div>
+
+          <div className="card">
+            <h3 className="cardTitle">Professional Focus</h3>
+            <ul className="list">
+              <li>AI-powered workforce systems</li>
+              <li>Cloud-based SaaS platforms</li>
+              <li>Automation and data intelligence</li>
+              <li>Pilot-ready public-sector and enterprise solutions</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </Section>
 
-      {/* Navigation Grid - Mobile First */}
-      <nav style={{
-        display: "grid",
-        gridTemplateColumns: "1fr",
-        gap: "16px",
-        width: "100%",
-        maxWidth: "400px"
-      }}>
-        <a href="/dashboard" style={navButtonStyle}>Access Dashboard</a>
-        <a href="/tradehub" style={navButtonStyle}>TradeHub Hub</a>
-        <a href="/settings" style={navButtonStyle}>System Settings</a>
-      </nav>
+      <Section id="platform" title="The SSGPT6 Platform">
+        <div className="grid">
+          <div className="card">
+            <h3 className="cardTitle">Workforce Automation</h3>
+            <p>Resume analysis, candidate evaluation, onboarding workflows, and task routing.</p>
+          </div>
 
-      <footer style={{ marginTop: "auto", padding: "20px", opacity: 0.5, fontSize: "0.8rem" }}>
-        GNAIAAAC LLC © 2026
+          <div className="card">
+            <h3 className="cardTitle">Analytics</h3>
+            <p>Reporting dashboards, workforce insights, and operational visibility.</p>
+          </div>
+
+          <div className="card">
+            <h3 className="cardTitle">Secure SaaS</h3>
+            <p>MFA-ready access, role controls, and scalable cloud deployment architecture.</p>
+          </div>
+
+          <div className="card">
+            <h3 className="cardTitle">Pilot Deployment</h3>
+            <p>Structured for controlled rollout, evaluation, and future scaling.</p>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="demo" title="Live Demo">
+        <div className="card featureCard">
+          <div>
+            <h3 className="cardTitle">AI Workforce Intake & Screening Demo</h3>
+            <p>
+              Explore a working example of AI-assisted HR automation:
+            </p>
+            <ul className="list">
+              <li>Upload a resume</li>
+              <li>Analyze candidate fit</li>
+              <li>View ranked results</li>
+            </ul>
+          </div>
+          <div className="featureActions">
+            <ActionButton href="/demo" label="Launch Demo" />
+          </div>
+        </div>
+      </Section>
+
+      <Section id="applications" title="Government & Enterprise Applications">
+        <div className="twoCol">
+          <div className="card">
+            <h3 className="cardTitle">Government Use</h3>
+            <p>
+              HR automation, workforce analytics, digital modernization, and secure
+              process improvement.
+            </p>
+          </div>
+          <div className="card">
+            <h3 className="cardTitle">Enterprise Use</h3>
+            <p>
+              Internal operations, talent systems, reporting pipelines, and workflow
+              automation across teams.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="capability" title="Capability Statement">
+        <div className="card featureCard">
+          <div>
+            <h3 className="cardTitle">Official Capability Overview</h3>
+            <p>
+              Download or review the organization’s capability statement for government,
+              pilot, and partner discussions.
+            </p>
+          </div>
+          <div className="featureActions">
+            <ActionButton href="/capability-statement" label="View Capability Statement" />
+          </div>
+        </div>
+      </Section>
+
+      <Section id="cta" title="Partner With Us">
+        <div className="card centerCard">
+          <p className="lead">
+            We are actively seeking pilot programs, government collaboration, and enterprise
+            partnerships.
+          </p>
+          <div className="heroActions">
+            <ActionButton href="/demo" label="Request Pilot Program" />
+            <ActionButton href="/contact" label="Contact GNAIAAAC LLC" variant="secondary" />
+          </div>
+        </div>
+      </Section>
+
+      <footer className="footer">
+        <div className="container footerInner">
+          <div className="footerBrand">SSGPT6 Platform</div>
+          <p className="footerText">
+            GNAIAAAC LLC · UEI: SAM-0d0c3ef5-b8c2-45b2-9f43-b6b7f954115f · DUNS:
+            Pending (Case No. DFC-532645)
+          </p>
+        </div>
       </footer>
     </main>
   );
 }
-
-const navButtonStyle = {
-  padding: "16px",
-  backgroundColor: "#111827",
-  border: "1px solid #1f2937",
-  borderRadius: "8px",
-  color: "#f3f4f6",
-  textDecoration: "none",
-  textAlign: "center" as const,
-  fontWeight: "500",
-  transition: "background 0.2s"
-};
