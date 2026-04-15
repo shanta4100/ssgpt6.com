@@ -1,0 +1,9 @@
+LIVE SYSTEM ACCESS
+
+Primary Demo:  
+https://your-project-name.vercel.app
+
+Custom Domain:  
+https://demo.ssgpt6.com (pending DNS propagation)
+
+The SSGPT6 system is deployed in a controlled evaluation environment for pilot-stage review and demonstration. Full production configuration will be activated upon completion of domain resolution and deployment validation.
