@@ -4,16 +4,13 @@ export default function Home() {
       <h1>SSGPT6 Automation Platform</h1>
       <p>Status: Live Demo Environment</p>
 
-      <h2>System Overview</h2>
+      <h2>Available Routes</h2>
       <ul>
-        <li>AI-powered workflow automation</li>
-        <li>Explainable decision support</li>
-        <li>Secure portal architecture</li>
-        <li>Government-ready deployment model</li>
+        <li><a href="/demo">Go to Demo</a></li>
       </ul>
 
       <p>
-        The system is running in a controlled evaluation environment for pilot-stage review.
+        System is deployed for federal pilot evaluation.
       </p>
     </main>
   );
