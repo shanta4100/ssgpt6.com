@@ -1,15 +1,42 @@
-# Book Release Repository
+# GNAIAAAC LLC — AI Learning Ecosystem & Sleeping Agent Framework
 
-This repository contains the final release materials for the new book.  
-All review cycles are complete, and the manuscript is fully approved for publication.
+Welcome to the official documentation repository for the GNAIAAAC AI Learning Ecosystem.
 
-The book is scheduled for release next week.  
-It will be available for download on the Kindle Store, the Kindle website, the Kindle app, and all Kindle devices.
+This repository contains:
+- AI Learning Path (Stages 1–6)
+- Sleeping Agent Black Box Framework
+- Governance & Safety Charters
+- Deployment Blueprints
+- Curriculum Maps
+- Licensing & Compliance Documents
+- Community Hub Manuals
+- Technical Specifications
 
-Included in this repository:
-- Final Book Release Announcement
-- Publication confirmation text
-- Supporting release documentation
+## Purpose
+GNAIAAAC LLC provides a human‑centered, ethical, globally deployable AI learning and automation platform.  
+We are a **technology vendor**, not a school.  
+Organizations purchasing our license must obtain their own accreditation from their education department.
 
-This repository marks the conclusion of the review and preparation process.  
-The book is complete, approved, and ready for distribution.
+## Core Principles
+- Human decides  
+- AI assists  
+- System improves  
+- Society benefits  
+
+## Key Components
+- AI Learning Path  
+- Sleeping Agent Architecture  
+- Teacher Certification Framework  
+- National AI Literacy Standard  
+- Workforce Transformation Plan  
+- Community Hub Deployment Model  
+
+## Legal Notice
+All materials in this repository are © 2026 GNAIAAAC LLC.  
+This documentation is conceptual and technical.  
+It does not imply governmental authority, accreditation, or regulatory jurisdiction.
+
+## Contact
+Founder & Principal Architect: **Arifur Rahman Shanta**  
+Email: [your email]  
+Website: [your website]
