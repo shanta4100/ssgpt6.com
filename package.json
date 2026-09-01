@@ -1,9 +1,26 @@
 {
+  "name": "ss6connect-oneos",
+  "version": "1.0.0",
+  "description": "SS6CONNECT OneOS™ - Learning Platform for GNAIAAAC Quantum AI Automation University",
+  "author": "GNAIAAAC LLC",
+  "license": "MIT",
   "engines": {
     "node": "20.x"
   },
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "path": "^0.12.7",
+    "compression": "^1.7.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
   "scripts": {
     "start": "node index.js",
-    "build": "echo 'No build step required'"
+    "dev": "nodemon index.js",
+    "build": "echo 'Static content ready for deployment'"
   }
 }
