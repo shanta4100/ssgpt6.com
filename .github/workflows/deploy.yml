@@ -15,12 +15,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: 20
           cache: npm
@@ -31,7 +29,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Verify build
+      - name: Verify required site files
+        shell: bash
         run: |
-          echo "Build completed successfully"
-          ls -la
+          test -s index.html
+          test -s package.json
