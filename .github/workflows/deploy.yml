@@ -11,10 +11,13 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -27,3 +30,8 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Verify build
+        run: |
+          echo "Build completed successfully"
+          ls -la
