@@ -1,0 +1,8 @@
+player_id (FK)
+tier
+day
+energy
+milestones
+legacy_vault
+free_turns
+updated_at

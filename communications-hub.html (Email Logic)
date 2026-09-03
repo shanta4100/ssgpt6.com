@@ -1,0 +1,12 @@
+/* SSGPT6 LEGAL FOOTER INJECTION */
+function wrapMessage(userMsg) {
+    const legalShield = "\n\n--- LEGAL NOTICE ---\nIF RECEIVED BY MISTAKE: Please delete and notify support@ssgpt6.com. Unauthorized use is prohibited.";
+    return userMsg + legalShield;
+}
+
+function sendSecureEmail() {
+    let rawMsg = document.getElementById("message").value;
+    let secureMsg = wrapMessage(rawMsg);
+    log("Email Shield Applied. Dispatching to Stakeholders...");
+    // AI Sleeping Agent sends secureMsg to Mailchimp/NASA/UN
+}

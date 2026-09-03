@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 GLOBAL EVENTS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #02030a;
+      --panel: #070b16;
+      --accent: #f2c94c;
+      --accent-soft: #9b51e0;
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+      --border: #1f2933;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #02030a 55%);
+      color: var(--text);
+    }
+    .page { max-width: 1200px; margin: auto; padding: 24px 16px 64px; }
+    header { padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    h1 { text-transform: uppercase; letter-spacing: 0.16em; font-size: 22px; margin: 0 0 8px; }
+    .tagline { font-size: 13px; color: var(--muted); }
+
+    .section { margin-top: 32px; }
+    .section h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .event-card {
+      background: #050814;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .event-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    .muted { font-size: 12px; color: var(--muted); }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .tag-accent {
+      border-color: var(--accent-soft);
+      color: var(--accent-soft);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header>
+      <h1>Global Events</h1>
+      <div class="tagline">Weekly challenges, seasonal festivals, and global learning moments.</div>
+    </header>
+
+    <!-- WEEKLY CHALLENGES -->
+    <div class="section">
+      <h2>Weekly Challenges</h2>
+      <div class="panel">
+        <div class="event-card">
+          <div class="event-title">Puzzle Week · Calm Focus</div>
+          <div class="muted">Complete 3 Calm Puzzle sessions to earn the Focus Badge.</div>
+          <div class="tag">Family Safe</div>
+        </div>
+        <div class="event-card">
+          <div class="event-title">Word Builder Sprint</div>
+          <div class="muted">Learn 10 new words this week with Word Builder.</div>
+          <div class="tag">Learning</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEASONAL EVENTS -->
+    <div class="section">
+      <h2>Seasonal Events</h2>
+      <div class="panel">
+        <div class="event-card">
+          <div class="event-title">Spring Story Festival</div>
+          <div class="muted">Create a short story using Story Tiles and share it in the Creator Hub.</div>
+          <div class="tag-accent">Creativity</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REALM FESTIVALS -->
+    <div class="section">
+      <h2>Realm Festivals</h2>
+      <div class="panel">
+        <div class="event-card">
+          <div class="event-title">Origin Realm · Calm Day</div>
+          <div class="muted">A gentle day of puzzles, focus, and quiet creativity.</div>
+          <div class="tag-accent">Realm Event</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CREATOR SPOTLIGHTS -->
+    <div class="section">
+      <h2>Creator Spotlights</h2>
+      <div class="panel">
+        <div class="event-card">
+          <div class="event-title">Featured Creator: Mira</div>
+          <div class="muted">Creator of “Shape Garden” and “Color Bloom.”</div>
+          <div class="tag">Community</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UNIVERSITY COMPETITIONS -->
+    <div class="section">
+      <h2>University Competitions</h2>
+      <div class="panel">
+        <div class="event-card">
+          <div class="event-title">Global Learning Jam</div>
+          <div class="muted">Universities collaborate to build accessible mini‑games.</div>
+          <div class="tag">Education</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAMILY MODE EVENTS -->
+    <div class="section">
+      <h2>Family Mode Events</h2>
+      <div class="panel">
+        <div class="event-card">
+          <div class="event-title">Family Creativity Night</div>
+          <div class="muted">Families create stories together using Story Tiles.</div>
+          <div class="tag">Family Mode</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

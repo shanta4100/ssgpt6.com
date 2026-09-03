@@ -1,0 +1,18 @@
+{
+  "modules": [
+    { "id": "membership_portal", "name": "Membership Portal" },
+    { "id": "free_play", "name": "Free Play (Timed)" },
+    { "id": "free_play_unlimited", "name": "Admin Unlimited Play" },
+    { "id": "subscription", "name": "Subscription Page" },
+
+    { "id": "admin_dashboard", "name": "Admin Dashboard" },
+    { "id": "admin_analytics", "name": "Analytics Dashboard" },
+    { "id": "admin_logs", "name": "Audit Logs" },
+    { "id": "admin_content", "name": "Content Manager" },
+    { "id": "admin_ai_tools", "name": "AI Tools Panel" },
+
+    { "id": "governance", "name": "Governance & Ethics" },
+    { "id": "events_layer", "name": "Events Layer" },
+    { "id": "onboarding_portal", "name": "Onboarding Portal" }
+  ]
+}

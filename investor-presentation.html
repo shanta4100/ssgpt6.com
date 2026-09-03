@@ -1,0 +1,30 @@
+<section class="pitch-deck" style="background:#000; color:#fff; padding:100px 50px; text-align:center;">
+    <div id="slide-container" style="border:1px solid var(--gold); min-height:400px; padding:40px; display:flex; flex-direction:column; justify-content:center;">
+        <h2 id="slide-title" style="color:var(--gold); font-size:2.5rem; letter-spacing:5px;">THE SSGPT6 NEXUS</h2>
+        <p id="slide-text" style="font-size:1.2rem; opacity:0.8; max-width:700px; margin:20px auto;">
+            Scaling decentralized energy and water governance through Sovereign Automation.
+        </p>
+    </div>
+    <div style="margin-top:30px;">
+        <button onclick="prevSlide()" style="background:none; color:var(--gold); border:1px solid var(--gold); padding:10px 20px; cursor:pointer;">PREV</button>
+        <button onclick="nextSlide()" style="background:var(--gold); color:#000; border:none; padding:10px 20px; cursor:pointer; font-weight:bold;">NEXT</button>
+    </div>
+</section>
+
+<script>
+    const slides = [
+        {title: "STASIS FAILURE", text: "Centralized grids are vulnerable. We provide a decentralized fail-safe for energy and water."},
+        {title: "TINY AI EDGE", text: "Our T1 nodes process logic locally, reducing energy waste and preventing network latency."},
+        {title: "D2D SATELLITE", text: "Global resilience via Starlink. GNAIAAAC LLC keeps the data moving when the world goes dark."},
+        {title: "THE SLEEPING AGENT", text: "Autonomous governance. Real-time auditing. Sovereign control."}
+    ];
+    let current = 0;
+    function nextSlide() {
+        current = (current + 1) % slides.length;
+        updateSlide();
+    }
+    function updateSlide() {
+        document.getElementById('slide-title').innerText = slides[current].title;
+        document.getElementById('slide-text').innerText = slides[current].text;
+    }
+</script>

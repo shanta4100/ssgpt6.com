@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 Kids Cosmology Zone</title>
+  <style>
+    :root{
+      --bg:#050b18;
+      --panel:#0f1d33;
+      --panel2:#152848;
+      --panel3:#1d3560;
+      --text:#eef4ff;
+      --muted:#b9c7dd;
+      --gold:#f4c542;
+      --blue:#6ec1ff;
+      --green:#75d27a;
+      --pink:#ff8fb1;
+      --purple:#b99cff;
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#050b18 0%, #0b1830 100%);
+      color:var(--text);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(5,11,24,.96);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 20px;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      font-size:1.1rem;
+      font-weight:700;
+      color:var(--gold);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:var(--text);
+      text-decoration:none;
+      font-size:.95rem;
+    }
+
+    .nav-links a:hover{color:var(--gold)}
+
+    .wrap{
+      max-width:1200px;
+      margin:auto;
+      padding:24px 20px 60px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:20px;
+      margin-top:10px;
+    }
+
+    .card,.tile,.space-panel{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:0 14px 40px rgba(0,0,0,.24);
+      padding:22px;
+    }
+
+    .space-panel{
+      background:var(--panel3);
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(2rem,4vw,3rem);
+      color:var(--gold);
+      line-height:1.08;
+    }
+
+    .section{
+      margin-top:28px;
+    }
+
+    .section h2{
+      color:var(--gold);
+      margin:0 0 12px;
+      font-size:1.8rem;
+    }
+
+    .muted{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(244,197,66,.12);
+      border:1px solid rgba(244,197,66,.28);
+      color:var(--gold);
+      font-weight:700;
+      font-size:.88rem;
+      margin-bottom:14px;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:13px 18px;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(145deg,var(--gold),#ddb031);
+      color:#111;
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .tile h3,.card h3,.space-panel h3{
+      margin-top:0;
+      margin-bottom:8px;
+    }
+
+    .tile p,.card p,.tile li,.card li,.space-panel p,.space-panel li{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .emoji{
+      font-size:1.8rem;
+      display:block;
+      margin-bottom:10px;
+    }
+
+    .list{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .mini{
+      background:var(--panel2);
+      border-radius:14px;
+      padding:16px;
+      text-align:center;
+    }
+
+    .mini-title{
+      color:var(--muted);
+      font-size:.9rem;
+      margin-bottom:6px;
+    }
+
+    .mini-value{
+      font-size:1.3rem;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .flow{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .flow li{
+      background:var(--panel2);
+      border-radius:12px;
+      padding:12px 14px;
+      margin-bottom:10px;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+      margin-right:8px;
+      margin-bottom:8px;
+    }
+
+    .pill-blue{background:rgba(110,193,255,.14); color:var(--blue);}
+    .pill-green{background:rgba(117,210,122,.14); color:var(--green);}
+    .pill-pink{background:rgba(255,143,177,.14); color:var(--pink);}
+    .pill-purple{background:rgba(185,156,255,.14); color:var(--purple);}
+
+    .zone-box{
+      background:var(--panel2);
+      border-radius:16px;
+      padding:18px;
+      margin-top:12px;
+    }
+
+    .notice{
+      background:rgba(117,210,122,.08);
+      border:1px solid rgba(117,210,122,.2);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .safety{
+      background:rgba(255,143,177,.08);
+      border:1px solid rgba(255,143,177,.2);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .footer{
+      margin-top:40px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      text-align:center;
+    }
+
+    @media (max-width:980px){
+      .hero,.grid-4,.grid-3,.grid-2,.mini-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="brand">SSGPT6 Kids Cosmology Zone</div>
+      <nav class="nav-links">
+        <a href="kids-platform.html">Home</a>
+        <a href="kids-dashboard.html">Dashboard</a>
+        <a href="kids-library.html">Library</a>
+        <a href="#zone">Cosmology Zone</a>
+        <a href="#missions">Missions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div class="card">
+        <span class="badge">Space • Stars • Planets • Curiosity • AI Support</span>
+        <h1>Cosmology Zone for Kids Who Want to Explore the Universe</h1>
+        <p class="muted">
+          The SSGPT6 Kids Cosmology Zone is a child-friendly learning world focused on
+          planets, stars, galaxies, space travel, light, gravity, and the structure of the universe.
+        </p>
+        <p class="muted">
+          Kids learn through avatar-guided lessons, interactive missions, reading support,
+          visual discovery, voice help, and AI Sleeping Agent automation when they get stuck.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#zone">Enter Space Zone</a>
+          <a class="btn btn-secondary" href="#missions">Start Space Mission</a>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini">
+            <div class="mini-title">Today’s Theme</div>
+            <div class="mini-value">Solar System</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Mission Mode</div>
+            <div class="mini-value">Explorer</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Voice Help</div>
+            <div class="mini-value">Ready</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">AI Guide</div>
+            <div class="mini-value">Active</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-panel">
+        <h2 style="margin-top:0;color:var(--gold);font-size:1.5rem;">What Kids Discover Here</h2>
+
+        <span class="pill pill-blue">Planets</span>
+        <span class="pill pill-green">Stars</span>
+        <span class="pill pill-pink">Galaxies</span>
+        <span class="pill pill-purple">Space Travel</span>
+
+        <ul class="flow" style="margin-top:14px;">
+          <li>🪐 Learn about planets and moons</li>
+          <li>⭐ Discover how stars shine</li>
+          <li>🌌 Explore galaxies and the universe</li>
+          <li>🚀 Imagine missions into space with guided adventure learning</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="zone">
+      <h2>Cosmology Learning Topics</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <span class="emoji">🪐</span>
+          <h3>Planets</h3>
+          <p>Learn planet names, sizes, surfaces, and what makes each world different.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">⭐</span>
+          <h3>Stars</h3>
+          <p>Discover how stars form, shine, change, and help us understand the sky.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🌌</span>
+          <h3>Galaxies</h3>
+          <p>Explore giant star systems, the Milky Way, and the huge scale of space.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🚀</span>
+          <h3>Space Missions</h3>
+          <p>Learn how people explore space with rockets, stations, rovers, and telescopes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="missions">
+      <h2>Space Missions for Kids</h2>
+      <div class="grid-3">
+        <div class="zone-box">
+          <h3 style="margin-top:0;">Mission: Build a Solar System</h3>
+          <p class="muted">Arrange planets in order and learn where each one belongs.</p>
+        </div>
+        <div class="zone-box">
+          <h3 style="margin-top:0;">Mission: Light from a Star</h3>
+          <p class="muted">Learn how sunlight travels and why day and night happen.</p>
+        </div>
+        <div class="zone-box">
+          <h3 style="margin-top:0;">Mission: Journey Through the Milky Way</h3>
+          <p class="muted">Follow a guided space path through stars, dust, and galaxies.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Curriculum + Extra Exploration</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>School-Aligned Learning</h3>
+          <ul class="list">
+            <li>the sky and the Sun</li>
+            <li>Earth, Moon, and planets</li>
+            <li>day and night</li>
+            <li>seasons and light</li>
+            <li>basic gravity ideas</li>
+            <li>space technology and exploration</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Extra Cosmology Adventures</h3>
+          <ul class="list">
+            <li>galaxy discovery stories</li>
+            <li>cartoon rocket adventures</li>
+            <li>star map puzzles</li>
+            <li>astronaut teamwork missions</li>
+            <li>advanced challenge mode</li>
+            <li>creative universe drawing tasks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Avatar Guide + Voice Help</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Ask Questions</h3>
+          <p>Kids can ask: “What is a galaxy?”, “Which planet is biggest?”, or “Explain gravity”.</p>
+        </div>
+        <div class="tile">
+          <h3>Voice Commands</h3>
+          <p>Use commands like “Repeat”, “Read aloud”, “Show next planet”, and “Help me”.</p>
+        </div>
+        <div class="tile">
+          <h3>Avatar Explanations</h3>
+          <p>The avatar uses simpler words, visual storytelling, and calm guided steps.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Creative Activities</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <span class="emoji">🎨</span>
+          <h3>Draw a Planet</h3>
+          <p>Create your own planet with rings, moons, colors, and weather.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🗺️</span>
+          <h3>Star Map Puzzle</h3>
+          <p>Connect stars and patterns to learn how maps of the sky work.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">📖</span>
+          <h3>Space Reading</h3>
+          <p>Read child-friendly stories about astronauts, telescopes, and planets.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🧩</span>
+          <h3>Universe Logic Game</h3>
+          <p>Solve matching, ordering, and pattern puzzles based on space objects.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Support for Different Kinds of Kids</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <h3>Beginner Learners</h3>
+          <p>Shorter explanations, fewer facts at once, and easy missions.</p>
+        </div>
+        <div class="tile">
+          <h3>Kids Who Need More Help</h3>
+          <p>More hints, more repetition, read-aloud support, and smaller steps.</p>
+        </div>
+        <div class="tile">
+          <h3>Standard Learners</h3>
+          <p>Balanced story-based lessons with missions and knowledge checks.</p>
+        </div>
+        <div class="tile">
+          <h3>Advanced Learners</h3>
+          <p>Harder comparisons, bigger questions, and deeper space exploration tasks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>AI Sleeping Agent Automatic Support</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>What the AI does automatically</h3>
+          <ul class="list">
+            <li>detects when a child is stuck</li>
+            <li>offers hints and easier wording</li>
+            <li>switches to read-aloud mode</li>
+            <li>suggests the next best mission</li>
+            <li>saves progress and topic interests</li>
+            <li>creates teacher and parent summaries</li>
+          </ul>
+
+          <div class="notice" style="margin-top:16px;">
+            This keeps routine learning support active so children can stay curious and continue exploring.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Safety and support limits</h3>
+          <ul class="list">
+            <li>no hidden recording</li>
+            <li>no raw audio storage</li>
+            <li>no biometric voiceprints</li>
+            <li>no unsafe autonomous decisions</li>
+            <li>major safety, health, or account concerns still go to adults</li>
+          </ul>
+
+          <div class="safety" style="margin-top:16px;">
+            The AI helper supports learning and curiosity, not adult responsibility for safety.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      SSGPT6 Kids Cosmology Zone • Space Learning + Exploration + AI Support • Powered by GNAIAAAC LLC
+    </div>
+
+  </main>
+</body>
+</html>

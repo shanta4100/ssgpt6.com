@@ -1,0 +1,8 @@
+function activate(moduleName) {
+  const log = document.getElementById('log');
+  const time = new Date().toLocaleTimeString();
+  log.textContent += `[${time}] Activated: ${moduleName}\n`;
+
+  // Optional: future-safe hook
+  // triggerBackendModule(moduleName);
+}

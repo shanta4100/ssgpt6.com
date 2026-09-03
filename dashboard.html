@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SSGPT6 Dashboard</title>
+<style>
+body{
+  background:#060d18;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+}
+h1{color:#c7a85a;}
+.box{
+  border:1px solid #333;
+  margin:20px;
+  padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Founder Dashboard</h1>
+
+<div class="box">
+<h2>Users</h2>
+<button onclick="loadUsers()">Load Users</button>
+<div id="data"></div>
+</div>
+
+<script>
+function loadUsers(){
+fetch("http://localhost:3000/users")
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("data").innerHTML =
+JSON.stringify(data);
+});
+}
+</script>
+
+</body>
+</html>

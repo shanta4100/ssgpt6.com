@@ -1,0 +1,47 @@
+# career_climber_logic.py
+
+from career_climber_model import PlayerState, Tier
+
+
+def apply_rest(state: PlayerState):
+    s = state.stats
+    before = s.energy
+    s.energy = min(s.max_energy, s.energy + 3)
+    state.log.append(f"Rested. Energy {before} → {s.energy}.")
+
+
+def apply_study(state: PlayerState):
+    s = state.stats
+    if s.energy <= 0:
+        state.log.append("Too tired to study. Try resting.")
+        return
+    s.energy -= 1
+    s.study_xp += 5
+    state.log.append("You studied and gained Study XP +5.")
+
+
+def apply_work(state: PlayerState):
+    s = state.stats
+    if s.energy <= 0:
+        state.log.append("Too tired to work. Try resting.")
+        return
+    s.energy -= 2
+    s.career_xp += 7
+    s.reputation += 1
+    state.log.append("You worked on a project. Career XP +7, Reputation +1.")
+
+
+def apply_legacy_action(state: PlayerState):
+    s = state.stats
+    if s.energy <= 0:
+        state.log.append("Too tired to focus on legacy. Try resting.")
+        return
+    s.energy -= 2
+    s.legacy_xp += 10
+    s.reputation += 2
+    state.log.append("You invested in your legacy. Legacy XP +10, Reputation +2.")
+
+
+def advance_day(state: PlayerState):
+    state.day += 1
+    state.log.append(f"Day {state.day} begins.")

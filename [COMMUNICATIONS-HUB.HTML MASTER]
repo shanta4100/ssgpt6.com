@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSGPT6 | COMMUNICATIONS HUB</title>
+    <style>
+        :root { --gold: #c7a85a; --bg: #030712; --glass: rgba(255, 255, 255, 0.05); }
+        body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+        
+        /* THE ORB: VOICE-ONLY INTAKE */
+        .orb {
+            width: 250px; height: 250px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+            box-shadow: 0 0 50px var(--gold);
+            animation: pulse 3s infinite ease-in-out;
+            cursor: pointer; position: relative;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 80px var(--gold); }
+        }
+
+        .status-text { margin-top: 30px; letter-spacing: 5px; color: var(--gold); font-size: 0.8rem; text-transform: uppercase; }
+        
+        /* INTAKE FORM (HIDDEN UNTIL ORB TRIGGER) */
+        .intake-panel {
+            background: var(--glass); padding: 40px; border-radius: 20px;
+            backdrop-filter: blur(10px); border: 1px solid rgba(199, 168, 90, 0.2);
+            width: 400px; margin-top: 20px; display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="orb" onclick="toggleIntake()"></div>
+    <div class="status-text" id="status">Listening: AI Sleeping Agent Active</div>
+
+    <div class="intake-panel" id="intake">
+        <h3 style="color:var(--gold); margin-top:0;">Stakeholder Intake</h3>
+        <p style="font-size: 0.7rem; color: #888;">UN / NASA / INVESTMENT MINISTRY AUTHORIZATION</p>
+        <input type="text" placeholder="Entity ID" style="width:100%; background:transparent; border:1px solid #444; color:#fff; padding:10px; margin-bottom:10px;">
+        <textarea placeholder="Briefing / Voice Transcription" style="width:100%; background:transparent; border:1px solid #444; color:#fff; padding:10px; height:80px;"></textarea>
+        <button style="width:100%; background:var(--gold); border:none; padding:10px; font-weight:bold; cursor:pointer;">SUBMIT TO VAULT</button>
+    </div>
+
+    <script>
+        function toggleIntake() {
+            const panel = document.getElementById('intake');
+            panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+            document.getElementById('status').innerText = "Processing Sovereign Request...";
+        }
+    </script>
+</body>
+</html>

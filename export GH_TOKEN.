@@ -1,0 +1,11 @@
+run: |
+  # Determine which token to use
+  TOKEN="${PERSONAL_ACCESS_TOKEN:-$FALLBACK_GITHUB_TOKEN}"
+
+  # Use the token directly for the command
+  if ! remaining=$(GH_TOKEN="$TOKEN" run_with_retry gh api /rate_limit --jq '.resources.core.remaining'); then
+    echo "Failed to check GitHub API rate limit" >&2
+    exit 1
+  fi
+  
+  echo "Remaining API calls: $remaining"

@@ -1,0 +1,44 @@
+ROOT_OCEAN_PURE_WATER/
+│
+├── README.md
+│
+├── MASTER_FILES/
+│   ├── A_INSTITUTIONAL_MASTER.md
+│   ├── B_CINEMATIC_MASTER.md
+│   ├── AB_COMBINED_MASTER.md
+│   ├── B_VARIANT_1.md
+│   ├── B_VARIANT_2.md
+│   ├── B_VARIANT_3.md
+│   ├── A_RETURN_MASTER.md
+│   ├── B_RETURN_MASTER.md
+│   └── AB_RETURN_MASTER.md
+│
+├── UNIVERSAL_SUBMISSION/
+│   ├── UNIVERSAL_SUBMISSION_INDEX.md
+│   ├── ROOT_OCEAN_PROJECT_BRIEF.md
+│   ├── PURE_WATER_PROBLEM_STATEMENT.md
+│   ├── GLOBAL_HEALTH_AND_SAFETY_NOTE.md
+│   ├── IMPLEMENTATION_READINESS_SUMMARY.md
+│   ├── CONTACT_AND_DISCLAIMER_BLOCK.md
+│   └── HUMAN_RIGHTS_AND_DIGITAL_GOVERNANCE_NOTE.md
+│
+├── INSTITUTION_PACKS/
+│   ├── UN_TEMPLATE.md
+│   ├── WHO_TEMPLATE.md
+│   └── UNICEF_TEMPLATE.md
+│
+├── ENGINEERING_MODELS/
+│   ├── FLOOD_DROUGHT_RESILIENCE.md
+│   ├── SOVEREIGN_PIPE_V2_CONCEPT.md
+│   ├── ATMOSPHERIC_MOISTURE_LOGIC.md
+│   ├── DEEP_AQUIFER_CONCEPTUAL_MODEL.md
+│   └── HYDROSTATIC_HYDRODYNAMIC_MODELS.md
+│
+├── INSTALLATION_GUIDES/
+│   ├── SOVEREIGN_CARTRIDGE_DROP_IN.md
+│   └── PERMANENT_PIPE_V2_INSTALLATION.md
+│
+└── VITAL_SCIENCE_GRID/
+    ├── DAILY_HEALTHY_GRID_OVERVIEW.md
+    ├── TECHNICAL_ARCHITECTURE.md
+    └── COMMUNITY_HEALTH_MODEL.md

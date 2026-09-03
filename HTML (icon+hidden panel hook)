@@ -1,0 +1,9 @@
+<!-- Accessible Handicap Trigger -->
+<button id="access-trigger" aria-label="Accessibility Control" class="access-btn">
+  ♿︎
+</button>
+
+<div id="voice-panel" class="voice-panel" aria-hidden="true">
+  <p>Voice Command Mode Ready.</p>
+  <p>Say: "Open Projects", "Open Store", or "Open Support".</p>
+</div>

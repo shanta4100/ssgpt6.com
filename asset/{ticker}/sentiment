@@ -1,0 +1,10 @@
+{
+  "ticker": "NVDA",
+  "buzz_index": 88,
+  "sentiment_score": 0.72,
+  "sources": {
+    "reddit": 0.75,
+    "twitter": 0.68,
+    "stocktwits": 0.80
+  }
+}

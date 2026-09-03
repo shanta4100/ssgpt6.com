@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 | Global Travel Intelligence & Deals</title>
+  <meta name="description" content="SSGPT6 travel intelligence hub for airport navigation guidance, travel deal discovery, and affiliate partner links." />
+  <link rel="icon" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <style>
+    :root{
+      --bg:#060d18;
+      --panel:#0c1728;
+      --panel2:#10203a;
+      --text:#eef3fb;
+      --muted:#c8d3e3;
+      --gold:#c7a85a;
+      --blue:#009edb;
+      --line:rgba(255,255,255,0.08);
+      --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
+      --max:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(6,13,24,0.95);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
+
+    .strip{
+      height:6px;
+      background:var(--rainbow);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:16px 0;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand img{
+      height:52px;
+      width:auto;
+      display:block;
+      border-radius:8px;
+      background:#fff;
+      object-fit:contain;
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
+
+    .brand-text strong{
+      color:var(--gold);
+      font-size:24px;
+    }
+
+    .brand-text span{
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.4px;
+    }
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    nav a{
+      padding:10px 14px;
+      border-radius:6px;
+      font-size:14px;
+      font-weight:700;
+      color:#fff;
+      background:#1a3a5a;
+    }
+
+    .hero{
+      text-align:center;
+      padding:64px 20px 56px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:16px;
+      padding:8px 12px;
+      border:1px solid rgba(199,168,90,0.28);
+      border-radius:999px;
+      color:var(--gold);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+    }
+
+    .hero h1{
+      margin:0 0 14px;
+      font-size:clamp(2.1rem, 6vw, 4rem);
+      color:var(--gold);
+      font-weight:900;
+    }
+
+    .hero p{
+      margin:0 auto;
+      max-width:860px;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+
+    .hero-buttons{
+      margin-top:24px;
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 20px;
+      border-radius:10px;
+      font-weight:800;
+      cursor:pointer;
+      text-align:center;
+      border:1px solid transparent;
+    }
+
+    .btn-gold{
+      background:var(--gold);
+      color:#000;
+    }
+
+    .btn-outline{
+      background:transparent;
+      color:#fff;
+      border-color:rgba(255,255,255,0.15);
+    }
+
+    .section{
+      padding:54px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section h2{
+      margin:0 0 14px;
+      font-size:clamp(1.7rem,4vw,2.6rem);
+      color:#fff;
+    }
+
+    .section-intro{
+      color:var(--muted);
+      max-width:900px;
+      margin-bottom:28px;
+    }
+
+    .featured{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:24px;
+      margin-bottom:24px;
+    }
+
+    .featured-top{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+    }
+
+    .tag{
+      display:inline-block;
+      margin-bottom:10px;
+      font-size:12px;
+      font-weight:800;
+      color:var(--blue);
+      text-transform:uppercase;
+      letter-spacing:.6px;
+    }
+
+    .featured h3{
+      margin:0 0 8px;
+      color:var(--gold);
+      font-size:1.4rem;
+    }
+
+    .featured p{
+      margin:0 0 12px;
+      color:var(--muted);
+    }
+
+    .deal-badge{
+      background:#0a1320;
+      border:1px solid rgba(199,168,90,0.18);
+      border-radius:12px;
+      padding:12px 14px;
+      min-width:180px;
+      text-align:center;
+    }
+
+    .deal-badge strong{
+      color:var(--gold);
+      display:block;
+      font-size:20px;
+      margin-top:4px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      color:var(--gold);
+      font-size:1.2rem;
+    }
+
+    .card p{
+      margin:0 0 14px;
+      color:var(--muted);
+    }
+
+    .card ul{
+      margin:0 0 16px;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    .card li{
+      margin-bottom:7px;
+    }
+
+    .btn-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:auto;
+    }
+
+    .btn-external{
+      width:100%;
+      background:transparent;
+      border:2px solid var(--gold);
+      color:var(--gold);
+      padding:13px 18px;
+      border-radius:10px;
+      font-weight:900;
+      text-transform:uppercase;
+      text-align:center;
+    }
+
+    .btn-external:hover{
+      background:var(--gold);
+      color:#000;
+    }
+
+    .info-box{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+      margin-top:20px;
+    }
+
+    .info-box h3{
+      margin:0 0 10px;
+      color:var(--gold);
+    }
+
+    .info-box p,
+    .info-box li{
+      color:var(--muted);
+    }
+
+    .info-box ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .status-box{
+      background:#000;
+      border:1px solid var(--blue);
+      border-radius:10px;
+      padding:14px;
+      margin-top:14px;
+      color:#dbe7f6;
+      min-height:50px;
+    }
+
+    .legal-notice{
+      background:#0a1320;
+      border:1px solid rgba(199,168,90,0.22);
+      border-radius:12px;
+      padding:18px;
+      color:#dbe6f5;
+    }
+
+    .legal-notice strong{
+      color:var(--gold);
+    }
+
+    .replace-box{
+      background:#111a29;
+      border:1px dashed rgba(199,168,90,0.35);
+      border-radius:12px;
+      padding:16px;
+      margin-top:16px;
+      color:#dbe6f5;
+      font-size:14px;
+    }
+
+    .replace-box code{
+      color:#ffd98d;
+      word-break:break-all;
+    }
+
+    footer{
+      text-align:center;
+      padding:32px 20px 46px;
+      color:#a6b5c8;
+      font-size:14px;
+    }
+
+    footer a{
+      color:var(--gold);
+    }
+
+    @media (max-width:700px){
+      .topbar{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .btn,
+      .btn-external{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="strip"></div>
+    <div class="container topbar">
+      <div class="brand">
+        <img src="logo.png" alt="SSGPT6 Logo" />
+        <div class="brand-text">
+          <strong>SSGPT6 Travel</strong>
+          <span>Global Travel Intelligence</span>
+        </div>
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a href="support-center.html">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Travel Deal Discovery • Affiliate Referral Model</div>
+      <h1>Airport Navigation & Travel Intelligence</h1>
+      <p>
+        We help users discover travel-related deals, airport guidance, and partner offers.
+        All bookings, payments, ticket confirmations, reservations, e-tickets, cancellations, and refunds are handled directly by the external provider.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#featured-deal" class="btn btn-gold">View Featured Deal</a>
+        <a href="contact.html" class="btn btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="featured-deal">
+    <div class="container">
+      <h2>Featured Travel Deal Routing</h2>
+      <p class="section-intro">
+        This is the safe affiliate model. Your site helps users find the deal, then sends them to the external licensed provider to complete the transaction.
+      </p>
+
+      <div class="featured">
+        <div class="featured-top">
+          <div>
+            <span class="tag" id="featuredTag">Travel Support</span>
+            <h3 id="featuredTitle">Partner Deal Discovery</h3>
+            <p id="featuredText">
+              Use this page to route users to external provider websites for booking and payment.
+            </p>
+          </div>
+
+          <div class="deal-badge">
+            Current Feature
+            <strong id="featuredNumber">1 / 3</strong>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <a id="featuredLink" href="contact.html" class="btn-external" target="_blank" rel="noopener noreferrer">
+            Continue to Licensed Provider
+          </a>
+        </div>
+
+        <div class="status-box" id="agentStatus">
+          AI Sleeping Agent status: Safe routing active. Replace placeholder links with approved affiliate partner URLs.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="deal-grid">
+    <div class="container">
+      <h2>Travel Deal Categories</h2>
+      <p class="section-intro">
+        These categories show how your affiliate referral structure works. Replace the placeholder links with your real affiliate URLs when available.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <span class="tag">Airport Navigation</span>
+          <h3>VIP Airport Navigation Tools</h3>
+          <p>
+            Help users discover airport support tools, terminal guidance, and partner travel options.
+          </p>
+          <ul>
+            <li>airport orientation support</li>
+            <li>external provider routing</li>
+            <li>no booking handled on this site</li>
+          </ul>
+          <div class="btn-row">
+            <a href="contact.html" class="btn-external" target="_blank" rel="noopener noreferrer">
+              View Deal on Partner Site
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Flight Deals</span>
+          <h3>Global Flight Offers</h3>
+          <p>
+            Show partner flight offers and direct users to complete booking on the airline or licensed provider website.
+          </p>
+          <ul>
+            <li>external booking only</li>
+            <li>provider-managed payment</li>
+            <li>partner site confirmation and e-ticketing</li>
+          </ul>
+          <div class="btn-row">
+            <a href="contact.html" class="btn-external" target="_blank" rel="noopener noreferrer">
+              Book on Partner Website
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Hotels</span>
+          <h3>Hotel & Stay Search</h3>
+          <p>
+            Provide hotel and stay deal discovery, then send users directly to the external provider platform.
+          </p>
+          <ul>
+            <li>stay comparison support</li>
+            <li>provider-managed reservations</li>
+            <li>refunds and changes handled externally</li>
+          </ul>
+          <div class="btn-row">
+            <a href="contact.html" class="btn-external" target="_blank" rel="noopener noreferrer">
+              Continue to Licensed Provider
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h3>How This Works</h3>
+        <ul>
+          <li>We help users find travel-related offers and useful travel links.</li>
+          <li>Users click through to an external licensed provider.</li>
+          <li>The provider handles booking, payment, ticketing, confirmations, cancellations, and refunds.</li>
+          <li>If supported by the partner program, GNAIAAAC LLC may earn an affiliate commission.</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h3>Affiliate Disclosure</h3>
+        <p>
+          Some outbound links on this page may be affiliate links.
+          This means GNAIAAAC LLC may earn a commission from the partner provider if a user completes a qualifying purchase, at no additional cost to the user.
+        </p>
+      </div>
+
+      <div class="replace-box">
+        Replace these later with your real affiliate links:
+        <br><br>
+        <code>href="contact.html"</code>
+        <br><br>
+        Example:
+        <br>
+        <code>href="https://www.expedia.com/affiliate/YOUR-ID"</code>
+        <br>
+        <code>href="https://www.booking.com/index.html?aid=YOUR-ID"</code>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="legal-notice">
+        <strong>Important Travel Notice:</strong>
+        GNAIAAAC LLC and SSGPT6 are not a travel agency, booking agent, airline, hotel operator, insurer, or transportation provider.
+        We operate as a travel information and affiliate referral platform.
+        When a user clicks a partner link, they leave this website and continue on the third-party provider’s platform.
+        All payments, bookings, ticketing, reservation confirmations, e-tickets, travel terms, cancellations, refunds, and travel liabilities are handled solely by that external provider.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 GNAIAAAC LLC | SSGPT6 Travel Intelligence</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="services.html">Services</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="support-center.html">Support</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="terms.html">Terms</a>
+    </p>
+  </footer>
+
+  <script>
+    const featuredDeals = [
+      {
+        tag: "Travel Support",
+        title: "Partner Deal Discovery",
+        text: "Use this page to route users to external provider websites for booking and payment.",
+        link: "contact.html",
+        button: "Continue to Licensed Provider"
+      },
+      {
+        tag: "Flight Offers",
+        title: "Flight Deal Routing",
+        text: "Send users to the external provider to complete booking and ticket confirmation.",
+        link: "contact.html",
+        button: "Book on Partner Website"
+      },
+      {
+        tag: "Hotel Search",
+        title: "Hotel & Stay Routing",
+        text: "Direct users to the provider platform for reservation and payment handling.",
+        link: "contact.html",
+        button: "View Deal on Partner Site"
+      }
+    ];
+
+    let currentDeal = 0;
+
+    function rotateDeals() {
+      currentDeal = (currentDeal + 1) % featuredDeals.length;
+      const deal = featuredDeals[currentDeal];
+
+      document.getElementById("featuredTag").innerText = deal.tag;
+      document.getElementById("featuredTitle").innerText = deal.title;
+      document.getElementById("featuredText").innerText = deal.text;
+      document.getElementById("featuredLink").href = deal.link;
+      document.getElementById("featuredLink").innerText = deal.button;
+      document.getElementById("featuredNumber").innerText = (currentDeal + 1) + " / " + featuredDeals.length;
+      document.getElementById("agentStatus").innerText = "AI Sleeping Agent status: Safe affiliate routing active on " + deal.title + ".";
+    }
+
+    setInterval(rotateDeals, 10000);
+  </script>
+
+</body>
+</html>

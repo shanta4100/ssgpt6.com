@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 Kids Avatar Helper</title>
+  <style>
+    :root{
+      --bg:#07111f;
+      --panel:#0f1d33;
+      --panel2:#142743;
+      --panel3:#1a3154;
+      --text:#eef4ff;
+      --muted:#b9c7dd;
+      --gold:#f4c542;
+      --blue:#6ec1ff;
+      --green:#75d27a;
+      --pink:#ff8fb1;
+      --purple:#b99cff;
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#07111f 0%, #0c1930 100%);
+      color:var(--text);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(7,17,31,.95);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 20px;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      font-size:1.1rem;
+      font-weight:700;
+      color:var(--gold);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:var(--text);
+      text-decoration:none;
+      font-size:.95rem;
+    }
+
+    .nav-links a:hover{
+      color:var(--gold);
+    }
+
+    .wrap{
+      max-width:1200px;
+      margin:auto;
+      padding:24px 20px 60px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:20px;
+      margin-top:10px;
+    }
+
+    .card,.tile,.helper-panel{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:0 14px 40px rgba(0,0,0,.22);
+      padding:22px;
+    }
+
+    .helper-panel{
+      background:var(--panel3);
+    }
+
+    .hero h1{
+      margin:0 0 10px;
+      font-size:clamp(2rem,4vw,3rem);
+      color:var(--gold);
+    }
+
+    .muted{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(244,197,66,.12);
+      border:1px solid rgba(244,197,66,.28);
+      color:var(--gold);
+      font-weight:700;
+      font-size:.88rem;
+      margin-bottom:14px;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:13px 18px;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(145deg,var(--gold),#ddb031);
+      color:#111;
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .section{
+      margin-top:28px;
+    }
+
+    .section h2{
+      color:var(--gold);
+      margin:0 0 12px;
+      font-size:1.8rem;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .tile h3,.card h3,.helper-panel h3{
+      margin-top:0;
+      margin-bottom:8px;
+    }
+
+    .tile p,.card p,.card li,.helper-panel p,.helper-panel li,.tile li{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .emoji{
+      font-size:1.8rem;
+      display:block;
+      margin-bottom:10px;
+    }
+
+    .list{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .mini{
+      background:var(--panel2);
+      border-radius:14px;
+      padding:16px;
+      text-align:center;
+    }
+
+    .mini-title{
+      color:var(--muted);
+      font-size:.9rem;
+      margin-bottom:6px;
+    }
+
+    .mini-value{
+      font-size:1.35rem;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .pill{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+      margin-right:8px;
+      margin-bottom:8px;
+    }
+
+    .pill-blue{background:rgba(110,193,255,.14); color:var(--blue);}
+    .pill-green{background:rgba(117,210,122,.14); color:var(--green);}
+    .pill-pink{background:rgba(255,143,177,.14); color:var(--pink);}
+    .pill-purple{background:rgba(185,156,255,.14); color:var(--purple);}
+
+    .flow{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .flow li{
+      background:var(--panel2);
+      border-radius:12px;
+      padding:12px 14px;
+      margin-bottom:10px;
+    }
+
+    .footer{
+      margin-top:40px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      text-align:center;
+    }
+
+    @media (max-width:980px){
+      .hero,.grid-4,.grid-3,.grid-2,.mini-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="brand">SSGPT6 Kids Avatar Helper</div>
+      <nav class="nav-links">
+        <a href="kids-platform.html">Home</a>
+        <a href="kids-dashboard.html">Dashboard</a>
+        <a href="kids-library.html">Library</a>
+        <a href="kids-science-lab.html">Science Lab</a>
+        <a href="#curriculum">Curriculum</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div class="card">
+        <span class="badge">Avatar Teaching • School Curriculum • Extra Learning Support</span>
+        <h1>AI Avatar Helper for All Kinds of Kids</h1>
+        <p class="muted">
+          The SSGPT6 Kids Avatar Helper is designed to support children during learning with
+          school-based curriculum guidance, extra practice, resource-based learning, and
+          friendly AI help when they get stuck.
+        </p>
+        <p class="muted">
+          It supports different kinds of learners:
+          beginners, struggling learners, average learners, advanced learners,
+          readers, visual learners, and kids who need extra step-by-step support.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#curriculum">Open Curriculum Support</a>
+          <a class="btn btn-secondary" href="#modes">See Learning Modes</a>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini">
+            <div class="mini-title">Support Mode</div>
+            <div class="mini-value">Always Ready</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Learning Paths</div>
+            <div class="mini-value">Adaptive</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Curriculum</div>
+            <div class="mini-value">School + Extra</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="helper-panel">
+        <h2 style="margin-top:0;color:var(--gold);font-size:1.5rem;">What the Avatar Helper Does</h2>
+
+        <span class="pill pill-blue">Read-Aloud Help</span>
+        <span class="pill pill-green">Step-by-Step Help</span>
+        <span class="pill pill-pink">Extra Practice</span>
+        <span class="pill pill-purple">Curriculum Match</span>
+
+        <ul class="flow" style="margin-top:14px;">
+          <li>🤖 Explains lessons in smaller steps</li>
+          <li>📚 Matches support to school learning goals</li>
+          <li>🎮 Opens game-based practice when needed</li>
+          <li>🧠 Gives extra resources for kids who need more help or more challenge</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="curriculum">
+      <h2>School Curriculum + Extra Learning Curriculum</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>School Educational Curriculum Support</h3>
+          <p>The avatar helper supports school-style learning in:</p>
+          <ul class="list">
+            <li>reading and comprehension</li>
+            <li>math and logic</li>
+            <li>science and experiments</li>
+            <li>history and timelines</li>
+            <li>basic computer science</li>
+            <li>communication and teamwork</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Extra Learning & Resource-Based Curriculum</h3>
+          <p>Kids can also go beyond school with:</p>
+          <ul class="list">
+            <li>extra practice sessions</li>
+            <li>challenge mode for advanced learners</li>
+            <li>avatar resource recommendations</li>
+            <li>story-based science and math missions</li>
+            <li>AI basics and coding basics</li>
+            <li>space and cosmology discovery modules</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="modes">
+      <h2>Learning Modes for Different Kinds of Kids</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <span class="emoji">🌱</span>
+          <h3>Beginner Mode</h3>
+          <p>Simple language, slow pacing, easy steps, and lots of encouragement.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🪜</span>
+          <h3>Step-by-Step Mode</h3>
+          <p>For kids who get stuck easily and need one small step at a time.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🚀</span>
+          <h3>Challenge Mode</h3>
+          <p>For advanced learners who want harder questions and extra missions.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🎧</span>
+          <h3>Read-Aloud Mode</h3>
+          <p>For kids who learn better by listening and repeating with avatar help.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Curriculum Subjects</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Science, Physics, Chemistry</h3>
+          <p>Experiments, matter, motion, energy, simple reactions, nature, and discovery.</p>
+        </div>
+        <div class="tile">
+          <h3>Math, Logic, Problem Solving</h3>
+          <p>Counting, arithmetic, shapes, patterns, puzzles, and reasoning skills.</p>
+        </div>
+        <div class="tile">
+          <h3>History & Communication</h3>
+          <p>Stories from the past, timelines, speaking, listening, and teamwork practice.</p>
+        </div>
+        <div class="tile">
+          <h3>Cosmology & Space</h3>
+          <p>Stars, planets, galaxies, missions, and child-friendly universe learning.</p>
+        </div>
+        <div class="tile">
+          <h3>AI Basics & Machine Learning</h3>
+          <p>Patterns, prediction, examples, and how AI can help people safely.</p>
+        </div>
+        <div class="tile">
+          <h3>Coding & Computer Science</h3>
+          <p>Logic, sequences, loops, conditions, and beginner coding ideas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How the Avatar Helps When Kids Get Stuck</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Lesson Support</h3>
+          <p>The avatar explains the same lesson in easier words and smaller steps.</p>
+        </div>
+        <div class="tile">
+          <h3>Practice Support</h3>
+          <p>The avatar opens an extra mini-game, quiz, or example to practice the same concept.</p>
+        </div>
+        <div class="tile">
+          <h3>Encouragement Support</h3>
+          <p>The avatar gives kind feedback and keeps the child moving without frustration.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Extra Learning Resources</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <span class="emoji">📖</span>
+          <h3>Extra Reading</h3>
+          <p>Topic-based books and short reads matched to the current lesson.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🧪</span>
+          <h3>Mini Labs</h3>
+          <p>Short science and discovery labs for extra understanding.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🎮</span>
+          <h3>Practice Games</h3>
+          <p>Curriculum-linked games for reinforcement and review.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">📝</span>
+          <h3>Review Sheets</h3>
+          <p>Simple summaries, revision prompts, and practice checkpoints.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Curriculum Game System</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>School-Based Curriculum Games</h3>
+          <ul class="list">
+            <li>math puzzle quests</li>
+            <li>science mission games</li>
+            <li>history story challenges</li>
+            <li>reading comprehension adventures</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Extra Learning Games</h3>
+          <ul class="list">
+            <li>space exploration games</li>
+            <li>AI pattern games</li>
+            <li>coding logic games</li>
+            <li>team communication games</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Support for All Kinds of Kids</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Kids Who Need More Help</h3>
+          <p>Gets slower pace, simpler examples, more read-aloud, and more repetition.</p>
+        </div>
+        <div class="tile">
+          <h3>Kids Doing Fine</h3>
+          <p>Gets standard learning flow with normal lessons, games, and support.</p>
+        </div>
+        <div class="tile">
+          <h3>Kids Ready for More</h3>
+          <p>Gets challenge tasks, extra missions, advanced reading, and deeper exploration.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>AI Sleeping Agent Automation</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Automatic Functions</h3>
+          <ul class="list">
+            <li>detect repeated mistakes</li>
+            <li>offer help automatically</li>
+            <li>suggest extra lessons</li>
+            <li>open related resources</li>
+            <li>save progress</li>
+            <li>generate parent and teacher summaries</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Important Rule</h3>
+          <p>
+            The avatar helper is designed to reduce routine interruptions during learning,
+            but it should not replace adult support for anything involving emotional distress,
+            health, safety, account issues, or major decisions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Parent & Teacher Benefits</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Parent Relief</h3>
+          <p>Kids get more independent learning support for normal study problems.</p>
+        </div>
+        <div class="tile">
+          <h3>Teacher Alignment</h3>
+          <p>The curriculum stays connected to school subjects and classroom learning goals.</p>
+        </div>
+        <div class="tile">
+          <h3>Better Progress Tracking</h3>
+          <p>Adults see clear summaries instead of needing to guide every small learning step.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      SSGPT6 Kids Avatar Helper • School Curriculum + Extra Learning Support • Powered by GNAIAAAC LLC
+    </div>
+
+  </main>
+</body>
+</html>

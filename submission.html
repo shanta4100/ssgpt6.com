@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSGPT6 Submission Engine</title>
+
+<style>
+body {
+  margin:0;
+  font-family:Arial;
+  background:#060d18;
+  color:white;
+}
+
+.container {
+  padding:30px;
+  max-width:900px;
+  margin:auto;
+}
+
+h1 {
+  color:gold;
+  text-align:center;
+}
+
+.box {
+  background:#0c1728;
+  padding:20px;
+  margin-top:20px;
+  border-radius:10px;
+}
+
+button {
+  background:gold;
+  color:black;
+  padding:12px;
+  border:none;
+  margin-top:10px;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
+  width:100%;
+}
+
+textarea {
+  width:100%;
+  height:150px;
+  margin-top:10px;
+}
+
+.status {
+  margin-top:15px;
+  padding:10px;
+  background:black;
+  border:1px solid #009edb;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🤖 SSGPT6 Submission Engine</h1>
+
+<div class="box">
+<h3>📄 UN Submission Generator</h3>
+
+<button onclick="generateSubmission()">Generate Submission</button>
+
+<textarea id="output"></textarea>
+
+</div>
+
+<div class="box">
+<h3>📧 Send Email (1 Tap)</h3>
+
+<button onclick="sendEmail()">Open Email</button>
+
+</div>
+
+<div class="box">
+<h3>📊 Status</h3>
+
+<div class="status" id="status">Idle</div>
+
+</div>
+
+</div>
+
+<script>
+
+function generateSubmission(){
+  document.getElementById("output").value =
+`SSGPT6 Water Intelligence System
+
+Mission:
+Improve global water efficiency and sustainability using AI-supported monitoring and data insights.
+
+SDG Alignment:
+SDG 6 - Clean Water
+SDG 13 - Climate Action
+
+Founder:
+Arifur Shanta
+GNAIAAAC LLC
+
+Website:
+https://ssgpt6.com
+`;
+
+  document.getElementById("status").innerText = "Submission Generated";
+}
+
+function sendEmail(){
+
+  let subject = "UN Submission - Water Intelligence System";
+  let body = document.getElementById("output").value;
+
+  window.location.href =
+  `mailto:ssgpt6@aol.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  document.getElementById("status").innerText = "Email Ready to Send";
+}
+
+</script>
+
+</body>
+</html>

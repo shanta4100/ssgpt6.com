@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 · Central Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .nav button {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #050814;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+    }
+    .nav button.active {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+    .section-view { display: none; }
+    .section-view.active { display: block; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: #050814;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .card p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .btn-activate {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #000;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+    }
+    #log {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: pre-line;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <h1>SSGPT6 · Central Activation Hub</h1>
+      <div class="tagline">One page. One command. All modules. (UI only)</div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <div class="nav">
+      <button data-target="membership" class="active">Membership</button>
+      <button data-target="play">PLAY</button>
+      <button data-target="admin">Admin</button>
+      <button data-target="analytics">Analytics</button>
+      <button data-target="logs">Logs</button>
+      <button data-target="content">Content</button>
+      <button data-target="ai">AI Tools</button>
+      <button data-target="governance">Governance</button>
+    </div>
+
+    <!-- MEMBERSHIP -->
+    <div id="membership" class="section-view active">
+      <div class="panel">
+        <h2>Membership Portal</h2>
+        <p class="small">Email capture + free 10‑minute access (UI only).</p>
+        <button class="btn-activate" onclick="activate('Membership Portal')">Activate</button>
+      </div>
+    </div>
+
+    <!-- PLAY -->
+    <div id="play" class="section-view">
+      <div class="panel">
+        <h2>PLAY System</h2>
+        <p class="small">Games, learning modules, free play engine.</p>
+        <button class="btn-activate" onclick="activate('PLAY System')">Activate</button>
+      </div>
+    </div>
+
+    <!-- ADMIN -->
+    <div id="admin" class="section-view">
+      <div class="panel grid">
+        <div class="card">
+          <h3>Admin Dashboard</h3>
+          <p>System overview, user tools, AI support.</p>
+          <button class="btn-activate" onclick="activate('Admin Dashboard')">Activate</button>
+        </div>
+        <div class="card">
+          <h3>User OTP Tool</h3>
+          <p>4‑digit code generator (UI only).</p>
+          <button class="btn-activate" onclick="activate('OTP Tool')">Activate</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS -->
+    <div id="analytics" class="section-view">
+      <div class="panel">
+        <h2>Analytics</h2>
+        <p class="small">Charts and metrics (placeholder).</p>
+        <button class="btn-activate" onclick="activate('Analytics Dashboard')">Activate</button>
+      </div>
+    </div>
+
+    <!-- LOGS -->
+    <div id="logs" class="section-view">
+      <div class="panel">
+        <h2>Audit Logs</h2>
+        <p class="small">Recent actions (placeholder).</p>
+        <button class="btn-activate" onclick="activate('Audit Logs')">Activate</button>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div id="content" class="section-view">
+      <div class="panel">
+        <h2>Content Manager</h2>
+        <p class="small">Manage PLAY modules, events, pages.</p>
+        <button class="btn-activate" onclick="activate('Content Manager')">Activate</button>
+      </div>
+    </div>
+
+    <!-- AI TOOLS -->
+    <div id="ai" class="section-view">
+      <div class="panel">
+        <h2>AI Support Tools</h2>
+        <p class="small">Assistive AI utilities (UI only).</p>
+        <button class="btn-activate" onclick="activate('AI Tools Panel')">Activate</button>
+      </div>
+    </div>
+
+    <!-- GOVERNANCE -->
+    <div id="governance" class="section-view">
+      <div class="panel">
+        <h2>Governance & Ethics</h2>
+        <p class="small">Charters, frameworks, compliance.</p>
+        <button class="btn-activate" onclick="activate('Governance & Ethics')">Activate</button>
+      </div>
+    </div>
+
+    <!-- LOG OUTPUT -->
+    <div id="log" class="panel"></div>
+
+  </div>
+
+  <script>
+    // Navigation
+    const navButtons = document.querySelectorAll('.nav button');
+    const sections = document.querySelectorAll('.section-view');
+
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        navButtons.forEach(b => b.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.target).classList.add('active');
+      });
+    });
+
+    // Activation log
+    function activate(name) {
+      const log = document.getElementById('log');
+      const time = new Date().toLocaleTimeString();
+      log.textContent += `[${time}] Activated: ${name}\n`;
+    }
+  </script>
+
+</body>
+</html>

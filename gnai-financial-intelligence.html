@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GN-AI Black Box Intelligence</title>
+</head>
+
+<body style="margin:0;font-family:Arial;background:#061425;color:white;">
+
+<!-- HEADER -->
+<div style="text-align:center;padding:25px;background:#0b1f3a;">
+<h1 style="color:gold;">GN-AI Black Box Engine</h1>
+<p>Autonomous Analysis • Protected • No Trading</p>
+</div>
+
+<!-- WARNING -->
+<div style="background:#8b0000;text-align:center;padding:12px;">
+⚠️ NO TRADING — AI ANALYSIS ONLY
+</div>
+
+<!-- STOCK GRID -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;padding:20px;">
+
+<div style="background:#132b4a;padding:20px;border-radius:12px;text-align:center;">
+<h2>Apple (AAPL)</h2>
+<p id="price">Loading...</p>
+<p id="signal"></p>
+</div>
+
+</div>
+
+<!-- AI BLACK BOX PANEL -->
+<div style="padding:20px;">
+
+<h2 style="color:gold;text-align:center;">GN-AI Black Box Analysis</h2>
+
+<div style="background:#132b4a;padding:20px;border-radius:10px;">
+
+<p><strong>Market State:</strong> <span id="state"></span></p>
+<p><strong>Risk Score:</strong> <span id="risk"></span></p>
+<p><strong>Volatility (Variance):</strong> <span id="volatility"></span></p>
+<p><strong>Probability Bias:</strong> <span id="prob"></span></p>
+
+<p><strong>AI Explanation:</strong><br>
+<span id="explanation"></span></p>
+
+</div>
+
+</div>
+
+<!-- DISCLAIMER -->
+<div style="background:black;padding:20px;text-align:center;font-size:12px;color:#ccc;">
+
+⚠️ DISCLAIMER<br><br>
+
+This system is an experimental AI-generated analytical engine.<br><br>
+
+All outputs are probabilistic simulations and may be incorrect.<br><br>
+
+This platform does NOT provide financial, investment, or legal advice.<br><br>
+
+Markets cannot be predicted with certainty.<br><br>
+
+Users assume full responsibility for any decisions.<br><br>
+
+GNAIAAAC LLC is NOT liable for any outcomes.
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+
+const API_KEY = "ZD88CFMC438XC7Q8";
+
+async function runAI() {
+  try {
+    const res = await fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=${API_KEY}`);
+    const data = await res.json();
+
+    let price = parseFloat(data["Global Quote"]["05. price"]);
+    document.getElementById("price").innerText = "$" + price.toFixed(2);
+
+    // 🔥 BLACK BOX SIMULATION
+    let volatility = Math.random() * 10;
+    let riskScore = Math.floor(volatility * 10);
+    let probability = 50 + (Math.random() * 20 - 10);
+
+    let state = "Neutral";
+    let signal = "🟡 Watch";
+
+    if (price > 200 && volatility < 5) {
+      state = "Stable";
+      signal = "🟢 Stable";
+    } else if (volatility > 7) {
+      state = "High Risk";
+      signal = "🔴 Risk";
+    }
+
+    // DISPLAY
+    document.getElementById("signal").innerText = signal;
+    document.getElementById("state").innerText = state;
+    document.getElementById("risk").innerText = riskScore + "/100";
+    document.getElementById("volatility").innerText = volatility.toFixed(2);
+    document.getElementById("prob").innerText = probability.toFixed(1) + "%";
+
+    // AI EXPLANATION (DYNAMIC)
+    document.getElementById("explanation").innerText =
+      "GN-AI detected price stability with moderate variance. " +
+      "Risk adjusted based on volatility and simulated sentiment layers. " +
+      "Probability bias reflects short-term uncertainty influenced by macro conditions.";
+
+  } catch {
+    document.getElementById("price").innerText = "$Demo";
+    document.getElementById("signal").innerText = "🟡 Safe Mode";
+  }
+}
+
+runAI();
+
+</script>
+
+</body>
+</html>

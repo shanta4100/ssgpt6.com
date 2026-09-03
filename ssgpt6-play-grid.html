@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 PLAY | Game Grid</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #02030a;
+      --panel: #070b16;
+      --accent: #f2c94c;
+      --accent-soft: #9b51e0;
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+      --border: #1f2933;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #02030a 55%);
+      color: var(--text);
+    }
+    .page { max-width: 1200px; margin: auto; padding: 24px 16px 64px; }
+    header { padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    h1 { text-transform: uppercase; letter-spacing: 0.16em; font-size: 22px; margin: 0 0 8px; }
+    .tagline { font-size: 13px; color: var(--muted); }
+    .mode-bar {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .mode-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+    .mode-pill span { text-transform: uppercase; letter-spacing: 0.12em; }
+    .grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--panel);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 10px 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .thumb {
+      background: #020617;
+      border-radius: 8px;
+      height: 90px;
+      border: 1px solid #111827;
+    }
+    .title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .meta {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+    .tag {
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .tag-accent { border-color: var(--accent-soft); color: var(--accent-soft); }
+    .realm {
+      font-size: 10px;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .section-label {
+      margin-top: 32px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+    .section-label span { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>SSGPT6 PLAY · GAME GRID</h1>
+      <div class="tagline">Safe, fun, accessible games for everyone.</div>
+      <div class="mode-bar">
+        <div class="mode-pill"><span>A · Minimal</span></div>
+        <div class="mode-pill"><span>B · Standard</span></div>
+        <div class="mode-pill"><span>C · Premium</span></div>
+        <div class="mode-pill"><span>D · Full Cosmic</span></div>
+      </div>
+    </header>
+
+    <!-- A · MINIMAL: 6 simple tiles, no extra metadata -->
+    <div class="section-label"><span>A</span> · Minimal game grid</div>
+    <div class="grid">
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Calm Puzzle</div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Color Match</div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Word Builder</div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Memory Path</div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Story Tiles</div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Shape Garden</div>
+      </div>
+    </div>
+
+    <!-- B · STANDARD: add age, category, simple tags -->
+    <div class="section-label"><span>B</span> · Standard grid with age & category</div>
+    <div class="grid">
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Calm Puzzle</div>
+        <div class="meta">Age 6+ · Puzzle · Single Player</div>
+        <div class="tag-row">
+          <div class="tag">Focus</div>
+          <div class="tag">No Ads</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Word Builder</div>
+        <div class="meta">Age 8+ · Language · Solo/Co‑op</div>
+        <div class="tag-row">
+          <div class="tag">Vocabulary</div>
+          <div class="tag">Family Safe</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Memory Path</div>
+        <div class="meta">Age 7+ · Memory · Single Player</div>
+        <div class="tag-row">
+          <div class="tag">Cognitive</div>
+          <div class="tag">Short Sessions</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C · PREMIUM: add learning tags, accessibility badges -->
+    <div class="section-label"><span>C</span> · Premium grid with learning & accessibility</div>
+    <div class="grid">
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Story Tiles</div>
+        <div class="meta">Age 9+ · Narrative · Solo/Guided</div>
+        <div class="tag-row">
+          <div class="tag tag-accent">Reading</div>
+          <div class="tag">Creative Thinking</div>
+          <div class="tag">Family Safe</div>
+          <div class="tag">Screen Reader Friendly</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Shape Garden</div>
+        <div class="meta">Age 5+ · Early Learning · Single Player</div>
+        <div class="tag-row">
+          <div class="tag tag-accent">Early Math</div>
+          <div class="tag">Color‑blind Friendly</div>
+          <div class="tag">Short Sessions</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Calm Puzzle</div>
+        <div class="meta">Age 6+ · Puzzle · Single Player</div>
+        <div class="tag-row">
+          <div class="tag tag-accent">Focus</div>
+          <div class="tag">No Timers</div>
+          <div class="tag">Low Motion</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D · FULL COSMIC: add realm, highlight, “learning value” -->
+    <div class="section-label"><span>D</span> · Full cosmic grid with realms & highlights</div>
+    <div class="grid">
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Calm Puzzle · ORIGIN</div>
+        <div class="realm">Realm: Origin · Start Here</div>
+        <div class="meta">Age 6+ · Puzzle · Single Player</div>
+        <div class="tag-row">
+          <div class="tag tag-accent">Learning: Focus & Patience</div>
+          <div class="tag">Family Safe</div>
+          <div class="tag">Accessibility Ready</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Word Builder · LANGUAGE</div>
+        <div class="realm">Realm: Language · Words & Worlds</div>
+        <div class="meta">Age 8+ · Language · Solo/Co‑op</div>
+        <div class="tag-row">
+          <div class="tag tag-accent">Learning: Vocabulary</div>
+          <div class="tag">Reading Support</div>
+          <div class="tag">Family Safe</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="title">Memory Path · MEMORY</div>
+        <div class="realm">Realm: Memory · Gentle Challenge</div>
+        <div class="meta">Age 7+ · Memory · Single Player</div>
+        <div class="tag-row">
+          <div class="tag tag-accent">Learning: Recall</div>
+          <div class="tag">Short Sessions</div>
+          <div class="tag">Low Motion</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

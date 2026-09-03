@@ -1,0 +1,8 @@
+{
+  "indices": [...],
+  "fx": [...],
+  "crypto": [...],
+  "commodities": [...],
+  "gnai_bias": "bullish | neutral | bearish",
+  "risk_level": "low | medium | high"
+}

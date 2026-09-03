@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EarnAI Payments</title>
+</head>
+
+<body style="margin:0;font-family:Arial;background:#0b1a2f;color:white;text-align:center;">
+
+<h1 style="color:gold;">EarnAI Payment Plans</h1>
+<p>Secure Stripe Checkout • Scan or Click</p>
+
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:30px;padding:40px;">
+
+<!-- BASIC -->
+<div style="background:#132b4a;padding:20px;border-radius:10px;width:260px;">
+  <h3 style="color:gold;">Basic</h3>
+  <h2>$50</h2>
+
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://buy.stripe.com/aFaeVc2Qr5rk5wafk557W0s">
+
+  <br><br>
+  <a href="https://buy.stripe.com/aFaeVc2Qr5rk5wafk557W0s"
+     style="background:gold;color:black;padding:10px 20px;text-decoration:none;border-radius:8px;">
+     Pay Now
+  </a>
+</div>
+
+<!-- STANDARD -->
+<div style="background:#132b4a;padding:20px;border-radius:10px;width:260px;border:2px solid gold;">
+  <h3 style="color:gold;">Standard ⭐</h3>
+  <h2>$100</h2>
+
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://buy.stripe.com/4gM4gycr11b44s68VH57W0t">
+
+  <br><br>
+  <a href="https://buy.stripe.com/4gM4gycr11b44s68VH57W0t"
+     style="background:gold;color:black;padding:10px 20px;text-decoration:none;border-radius:8px;">
+     Pay Now
+  </a>
+</div>
+
+<!-- PRO -->
+<div style="background:#132b4a;padding:20px;border-radius:10px;width:260px;border:2px solid #00ffd5;">
+  <h3 style="color:#00ffd5;">Pro 🚀</h3>
+  <h2>$150</h2>
+
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://buy.stripe.com/14A9AScr11b4e2G9ZL57W0u">
+
+  <br><br>
+  <a href="https://buy.stripe.com/14A9AScr11b4e2G9ZL57W0u"
+     style="background:#00ffd5;color:black;padding:10px 20px;text-decoration:none;border-radius:8px;">
+     Go Pro
+  </a>
+</div>
+
+</div>
+
+</body>
+</html>

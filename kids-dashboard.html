@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 Kids Dashboard</title>
+  <style>
+    :root{
+      --bg:#07111f;
+      --panel:#0f1d33;
+      --panel2:#142743;
+      --text:#eef4ff;
+      --muted:#b9c7dd;
+      --gold:#f4c542;
+      --blue:#6ec1ff;
+      --green:#75d27a;
+      --pink:#ff8fb1;
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#07111f 0%, #0c1930 100%);
+      color:var(--text);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(7,17,31,.95);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 20px;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      font-size:1.1rem;
+      font-weight:700;
+      color:var(--gold);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:var(--text);
+      text-decoration:none;
+      font-size:.95rem;
+    }
+
+    .nav-links a:hover{
+      color:var(--gold);
+    }
+
+    .wrap{
+      max-width:1200px;
+      margin:auto;
+      padding:24px 20px 60px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:20px;
+      margin-top:10px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:0 14px 40px rgba(0,0,0,.22);
+      padding:22px;
+    }
+
+    .hero h1{
+      margin:0 0 10px;
+      font-size:clamp(2rem,4vw,3rem);
+      color:var(--gold);
+    }
+
+    .muted{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(244,197,66,.12);
+      border:1px solid rgba(244,197,66,.28);
+      color:var(--gold);
+      font-weight:700;
+      font-size:.88rem;
+      margin-bottom:14px;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:13px 18px;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(145deg,var(--gold),#ddb031);
+      color:#111;
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .quick-stats{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .stat{
+      background:var(--panel2);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .stat-title{
+      color:var(--muted);
+      font-size:.9rem;
+      margin-bottom:6px;
+    }
+
+    .stat-value{
+      font-size:1.5rem;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .section{
+      margin-top:28px;
+    }
+
+    .section h2{
+      color:var(--gold);
+      margin:0 0 12px;
+      font-size:1.8rem;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .tile{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:20px;
+      box-shadow:0 14px 40px rgba(0,0,0,.18);
+    }
+
+    .tile h3{
+      margin-top:0;
+      margin-bottom:8px;
+    }
+
+    .tile p, .tile li{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .emoji{
+      font-size:1.8rem;
+      display:block;
+      margin-bottom:10px;
+    }
+
+    .progress{
+      margin-top:12px;
+      background:#0a1528;
+      border-radius:999px;
+      overflow:hidden;
+      height:12px;
+    }
+
+    .progress-bar{
+      height:12px;
+      border-radius:999px;
+    }
+
+    .bar-reading{width:75%; background:var(--gold);}
+    .bar-math{width:60%; background:var(--blue);}
+    .bar-science{width:68%; background:var(--green);}
+    .bar-history{width:52%; background:var(--pink);}
+
+    .mission-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .mission-list li{
+      background:var(--panel2);
+      border-radius:12px;
+      padding:12px 14px;
+      margin-bottom:10px;
+    }
+
+    .footer{
+      margin-top:40px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      text-align:center;
+    }
+
+    @media (max-width:980px){
+      .hero,.grid-4,.grid-3,.grid-2{
+        grid-template-columns:1fr;
+      }
+      .quick-stats{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="brand">SSGPT6 Kids Dashboard</div>
+      <nav class="nav-links">
+        <a href="kids-platform.html">Home</a>
+        <a href="#missions">Missions</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#progress">Progress</a>
+        <a href="#parents">Parents</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div class="card">
+        <span class="badge">Welcome back, Explorer!</span>
+        <h1>Today’s Learning Adventure</h1>
+        <p class="muted">
+          Continue your 15-minute reading, join a science mission, practice math puzzles,
+          or ask your avatar teacher for help. Your progress is saved automatically.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#">Start Reading</a>
+          <a class="btn btn-secondary" href="#">Open Avatar Helper</a>
+        </div>
+
+        <div class="quick-stats">
+          <div class="stat">
+            <div class="stat-title">Reading Streak</div>
+            <div class="stat-value">8 Days</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Today’s Goal</div>
+            <div class="stat-value">15 Min</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Missions Completed</div>
+            <div class="stat-value">24</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Team Points</div>
+            <div class="stat-value">320</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-top:0;color:var(--gold);font-size:1.5rem;">Avatar Guidance</h2>
+        <p class="muted">
+          “Hi! Today I recommend a short library reading session, then a science lab mission
+          about planets, and finally a team challenge.”
+        </p>
+
+        <ul class="mission-list">
+          <li>📚 Read: “Stars and Space” — 15 minutes</li>
+          <li>🔬 Science Mission: Build a mini solar system</li>
+          <li>🧮 Math Challenge: Pattern puzzle level 3</li>
+          <li>🤝 Team Task: Join a group quiz</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="missions">
+      <h2>Quick Missions</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <span class="emoji">📚</span>
+          <h3>Reading Mission</h3>
+          <p>Complete today’s 15-minute guided reading with avatar support.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🔬</span>
+          <h3>Science Mission</h3>
+          <p>Explore a fun experiment about energy, ecosystems, or planets.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🧮</span>
+          <h3>Math Mission</h3>
+          <p>Solve puzzles, patterns, and logic challenges to grow your score.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🤝</span>
+          <h3>Team Mission</h3>
+          <p>Work with friends or classmates to complete a shared challenge.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="subjects">
+      <h2>Subject Zones</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Science & Physics</h3>
+          <p>Experiments, motion, light, sound, energy, and discovery-based learning.</p>
+        </div>
+        <div class="tile">
+          <h3>Math & Logic</h3>
+          <p>Patterns, arithmetic, geometry, reasoning, and problem solving.</p>
+        </div>
+        <div class="tile">
+          <h3>History & Stories</h3>
+          <p>Timelines, civilizations, famous people, and story-based world exploration.</p>
+        </div>
+        <div class="tile">
+          <h3>Space & Cosmology</h3>
+          <p>Planets, stars, galaxies, and missions into the universe.</p>
+        </div>
+        <div class="tile">
+          <h3>AI & Coding Basics</h3>
+          <p>Simple computer thinking, patterns, loops, and beginner-friendly coding.</p>
+        </div>
+        <div class="tile">
+          <h3>Communication & Teamwork</h3>
+          <p>Listening, speaking, sharing ideas, and solving problems together.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="progress">
+      <h2>Progress Tracker</h2>
+      <div class="grid-2">
+        <div class="tile">
+          <h3>Reading Progress</h3>
+          <p class="muted">Level 4 Reader</p>
+          <div class="progress"><div class="progress-bar bar-reading"></div></div>
+
+          <h3 style="margin-top:20px;">Math Progress</h3>
+          <p class="muted">Pattern Explorer</p>
+          <div class="progress"><div class="progress-bar bar-math"></div></div>
+
+          <h3 style="margin-top:20px;">Science Progress</h3>
+          <p class="muted">Young Researcher</p>
+          <div class="progress"><div class="progress-bar bar-science"></div></div>
+
+          <h3 style="margin-top:20px;">History Progress</h3>
+          <p class="muted">Story Traveler</p>
+          <div class="progress"><div class="progress-bar bar-history"></div></div>
+        </div>
+
+        <div class="tile">
+          <h3>AI Learning Summary</h3>
+          <p>
+            Focus Score: <strong>0.81</strong><br>
+            Engagement Score: <strong>0.77</strong><br>
+            Growth Score: <strong>0.69</strong><br>
+            Voice Command Success: <strong>92%</strong>
+          </p>
+          <p class="muted">
+            The AI Sleeping Agent recommends continuing reading practice,
+            one more science mission, and a teamwork quiz this week.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="parents">
+      <h2>Parent & Teacher View</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Parent Dashboard</h3>
+          <p>View reading summaries, favorite subjects, session completion, and weekly reports.</p>
+        </div>
+        <div class="tile">
+          <h3>Teacher Dashboard</h3>
+          <p>Track class activity, assignments, teamwork, and subject performance.</p>
+        </div>
+        <div class="tile">
+          <h3>Research Dashboard</h3>
+          <p>Use anonymized patterns to improve lessons while protecting child privacy.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      SSGPT6 Kids Dashboard • Powered by GNAIAAAC LLC
+    </div>
+
+  </main>
+</body>
+</html>

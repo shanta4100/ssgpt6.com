@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 · Admin Control Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .stat { font-size: 26px; margin: 4px 0; }
+    .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); }
+    .small { font-size: 12px; color: var(--muted); }
+    .code-box { font-family: monospace; font-size: 20px; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); display: inline-block; margin-top: 8px; }
+    .section-title { margin-top: 40px; }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <h1>Admin Control Center</h1>
+      <div class="tagline">System‑wide administrative access (UI only).</div>
+    </header>
+
+    <!-- SYSTEM OVERVIEW -->
+    <div class="section">
+      <h2>System Overview</h2>
+      <div class="panel">
+        <div class="grid">
+          <div>
+            <div class="label">Total Projects</div>
+            <div class="stat">135</div>
+            <div class="small">PLAY, Family, Accessibility, AI, Events, Governance…</div>
+          </div>
+          <div>
+            <div class="label">Active Users</div>
+            <div class="stat">—</div>
+            <div class="small">Backend integration required.</div>
+          </div>
+          <div>
+            <div class="label">Free Play Sessions</div>
+            <div class="stat">—</div>
+            <div class="small">Analytics placeholder.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT MANAGEMENT -->
+    <div class="section">
+      <h2>Project Management</h2>
+      <div class="panel">
+        <p class="small">UI for managing SSGPT6 modules. Backend required for real actions.</p>
+        <div class="grid">
+          <div class="panel small">PLAY System<br>• Status: Active</div>
+          <div class="panel small">Family Mode<br>• Status: Active</div>
+          <div class="panel small">Accessibility Engine<br>• Status: Active</div>
+          <div class="panel small">AI Companion<br>• Status: Active</div>
+          <div class="panel small">Events Layer<br>• Status: Active</div>
+          <div class="panel small">Onboarding<br>• Status: Active</div>
+          <div class="panel small">Governance<br>• Status: Active</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- USER ACCESS / OTP MOCK -->
+    <div class="section">
+      <h2>User Account Tools</h2>
+      <div class="panel">
+        <p class="small">This is a mock interface. No real account access or OTP delivery occurs.</p>
+
+        <form id="otpForm" class="form-row" onsubmit="return false;">
+          <input type="email" id="otpEmail" placeholder="User email" required />
+          <button class="btn" id="otpBtn">Generate 4‑Digit Code</button>
+        </form>
+
+        <div id="otpOutput" class="small" style="margin-top:10px;">
+          Generated code (mock only):
+          <div id="otpCode" class="code-box">----</div>
+        </div>
+
+        <div class="notice">
+          Real authentication must be implemented with secure backend + user consent.
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN PASSWORD SETUP -->
+    <div class="section">
+      <h2>Admin Password Setup</h2>
+      <div class="panel">
+        <p class="small">UI for setting a one‑time admin password (front‑end only).</p>
+
+        <form id="adminPassForm" class="form-row" onsubmit="return false;">
+          <input type="text" id="newAdminUser" placeholder="New admin username" required />
+          <input type="password" id="newAdminPass" placeholder="New admin password" required />
+          <button class="btn" id="saveAdminBtn">Save Admin Credentials</button>
+        </form>
+
+        <div id="adminSaveMsg" class="small"></div>
+      </div>
+    </div>
+
+    <!-- AI SUPPORT AGENT (SAFE, ASSISTIVE ONLY) -->
+    <div class="section">
+      <h2>AI Support Agent (Assistive Only)</h2>
+      <div class="panel">
+        <p class="small">
+          This “AI Sleeping Agent” provides suggestions only.  
+          It does not access accounts, systems, or private data.
+        </p>
+
+        <form id="aiForm" class="form-row" onsubmit="return false;">
+          <textarea id="aiPrompt" rows="4" placeholder="Describe an issue for AI analysis…"></textarea>
+          <button class="btn" id="aiBtn">Generate Suggestions</button>
+        </form>
+
+        <div id="aiOutput" class="panel small" style="margin-top:12px;">
+          AI suggestions will appear here.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // OTP MOCK
+    document.getElementById('otpBtn').addEventListener('click', () => {
+      const email = document.getElementById('otpEmail').value.trim();
+      if (!email) return;
+      const code = Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('otpCode').textContent = code;
+    });
+
+    // ADMIN PASSWORD MOCK
+    document.getElementById('saveAdminBtn').addEventListener('click', () => {
+      const user = document.getElementById('newAdminUser').value.trim();
+      const pass = document.getElementById('newAdminPass').value.trim();
+      if (!user || !pass) return;
+      document.getElementById('adminSaveMsg').textContent =
+        "Admin credentials saved (UI only, not stored).";
+    });
+
+    // AI SUPPORT MOCK
+    document.getElementById('aiBtn').addEventListener('click', () => {
+      const prompt = document.getElementById('aiPrompt').value.trim();
+      const out = document.getElementById('aiOutput');
+      if (!prompt) {
+        out.innerHTML = "<p>Please enter an issue to analyze.</p>";
+        return;
+      }
+      out.innerHTML = `
+        <strong>AI Suggestions:</strong><br><br>
+        • Review the user’s membership status in your backend.<br>
+        • Check free‑play timer logic for this account.<br>
+        • Verify subscription state and lockout triggers.<br>
+        • Communicate clearly with the user about any changes.<br>
+        • Document actions for compliance and auditing.<br><br>
+        <em>This is a mock AI response. No real system access occurs.</em>
+      `;
+    });
+  </script>
+
+</body>
+</html>

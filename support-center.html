@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support Center | SSGPT6</title>
+  <meta name="description" content="SSGPT6 support center for help, billing, pricing questions, project support, accessibility help, and customer guidance." />
+  <style>
+    :root{
+      --bg:#060d18;
+      --panel:#0c1728;
+      --panel2:#10203a;
+      --text:#eef3fb;
+      --muted:#c8d3e3;
+      --gold:#c7a85a;
+      --blue:#009edb;
+      --green:#1a5a3a;
+      --purple:#3a1a5a;
+      --line:rgba(255,255,255,0.08);
+      --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
+      --max:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(6,13,24,0.96);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
+
+    .strip{
+      height:6px;
+      background:var(--rainbow);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:16px 0;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:900;
+      color:var(--gold);
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      padding:10px 14px;
+      border-radius:6px;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .nav-home{background:#1a3a5a}
+    .nav-services{background:#21405f}
+    .nav-pricing{background:#8a5b15}
+    .nav-contact{background:#1a5a3a}
+    .nav-gov{background:var(--gold);color:#000}
+
+    .hero{
+      padding:58px 0 40px;
+      border-bottom:1px solid var(--line);
+      text-align:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:8px 12px;
+      border:1px solid rgba(199,168,90,0.28);
+      border-radius:999px;
+      color:var(--gold);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+      margin-bottom:14px;
+    }
+
+    .hero h1{
+      margin:0 0 12px;
+      font-size:clamp(2.1rem, 6vw, 4rem);
+      color:var(--gold);
+      font-weight:900;
+    }
+
+    .hero p{
+      margin:0 auto;
+      max-width:900px;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:22px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 18px;
+      border-radius:10px;
+      font-weight:800;
+      border:1px solid transparent;
+      cursor:pointer;
+      text-align:center;
+    }
+
+    .btn-gold{background:var(--gold);color:#000}
+    .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,0.14)}
+
+    .section{
+      padding:48px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section h2{
+      margin:0 0 10px;
+      font-size:clamp(1.7rem, 4vw, 2.6rem);
+      color:#fff;
+    }
+
+    .intro{
+      margin:0 0 26px;
+      max-width:920px;
+      color:var(--muted);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:20px;
+    }
+
+    .faq-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:22px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      color:var(--gold);
+      font-size:1.18rem;
+    }
+
+    .card p,
+    .card li{
+      margin:0 0 10px;
+      color:var(--muted);
+    }
+
+    .card ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .help-box{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:18px;
+    }
+
+    .help-box h4{
+      margin:0 0 8px;
+      color:var(--gold);
+      font-size:1rem;
+    }
+
+    .help-box p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .faq-item{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:12px;
+      margin-bottom:

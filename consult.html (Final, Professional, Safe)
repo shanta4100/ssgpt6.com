@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SSGPT6 Consultation & Discovery Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root{
+      --bg:#050910;
+      --panel:#0b1320;
+      --border:rgba(0,255,204,0.25);
+      --accent:#00ffcc;
+      --accent2:#00ace6;
+      --text:#e5f7ff;
+      --muted:#9fb6c8;
+    }
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    .container{
+      width:min(96%,1100px);
+      margin:40px auto 60px;
+    }
+    h1{
+      text-align:center;
+      letter-spacing:4px;
+      font-size:1.7rem;
+      color:var(--accent);
+      margin:0 0 6px;
+    }
+    .subtitle{
+      text-align:center;
+      font-size:0.85rem;
+      color:var(--muted);
+      margin-bottom:26px;
+    }
+    .panel{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin-bottom:26px;
+    }
+    .ref-box{
+      background:#050f18;
+      border:1px solid rgba(0,255,204,0.35);
+      padding:12px;
+      border-radius:10px;
+      margin-top:10px;
+      font-size:0.85rem;
+      color:var(--accent);
+      word-break:break-all;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+    .card{
+      background:var(--panel);
+      border-radius:14px;
+      border:1px solid var(--border);
+      padding:16px;
+      min-height:200px;
+      display:flex;
+      flex-direction:column;
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size:1.1rem;
+      color:var(--accent2);
+    }
+    .card p{
+      margin:0 0 10px;
+      font-size:0.85rem;
+      color:#d8e7f3;
+      line-height:1.4;
+    }
+    .btn{
+      margin-top:auto;
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--accent2);
+      color:#021015;
+      text-decoration:none;
+      font-size:0.8rem;
+      text-align:center;
+    }
+    .legal{
+      margin-top:26px;
+      font-size:0.75rem;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding-top:12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CONSULTATION & DISCOVERY PORTAL</h1>
+    <p class="subtitle">REFERRAL INTAKE · AI DISCOVERY · GLOBAL ACCESS</p>
+
+    <div class="panel">
+      <h2 style="margin:0;font-size:1.2rem;color:var(--accent2);letter-spacing:2px;">
+        Referral Detected
+      </h2>
+      <p style="margin-top:6px;font-size:0.85rem;">
+        A referral link brought you here. This helps us understand which partner or liaison
+        introduced you to the SSGPT6 ecosystem.
+      </p>
+
+      <div id="refBox" class="ref-box">No referral ID detected.</div>
+    </div>
+
+    <h2 style="font-size:1.05rem;letter-spacing:2px;color:var(--accent2);margin-top:30px;">
+      Explore SSGPT6 Services
+    </h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>AI Fashion Show</h3>
+        <p>Explore AI-generated runway videos, avatar drops, and “Shop the Look” fashion picks.</p>
+        <a href="fashion-ai-hub.html" class="btn">Open Fashion Hub</a>
+      </div>
+
+      <div class="card">
+        <h3>Global Store Hub</h3>
+        <p>Discover curated deals across USA, Canada, Europe, and Global markets.</p>
+        <a href="store-hub.html" class="btn">Open Store Hub</a>
+      </div>
+
+      <div class="card">
+        <h3>Travel & Tourism Hub</h3>
+        <p>Find global travel deals, hotel offers, and tourism tools through affiliate partners.</p>
+        <a href="travel-hub-affiliate.html" class="btn">Open Travel Hub</a>
+      </div>
+
+      <div class="card">
+        <h3>Media Hub</h3>
+        <p>Read daily updates, editorial posts, and Deep Core notes from the SSGPT6 ecosystem.</p>
+        <a href="media-hub.html" class="btn">Open Media Hub</a>
+      </div>
+    </div>
+
+    <div class="legal">
+      <p>
+        SSGPT6 and GNAIAAAC LLC operate as a digital information, media, and affiliate referral platform.
+        Referral IDs are used only to understand traffic sources and do not represent financial guarantees,
+        employment offers, or contractual relationships.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get('ref');
+    const refBox = document.getElementById('refBox');
+
+    if(ref){
+      refBox.textContent = ref;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 Kids Coding Lab</title>
+  <style>
+    :root{
+      --bg:#07111f;
+      --panel:#0f1d33;
+      --panel2:#142743;
+      --panel3:#1a3154;
+      --text:#eef4ff;
+      --muted:#b9c7dd;
+      --gold:#f4c542;
+      --blue:#6ec1ff;
+      --green:#75d27a;
+      --pink:#ff8fb1;
+      --purple:#b99cff;
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#07111f 0%, #0c1930 100%);
+      color:var(--text);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(7,17,31,.95);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 20px;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      font-size:1.1rem;
+      font-weight:700;
+      color:var(--gold);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:var(--text);
+      text-decoration:none;
+      font-size:.95rem;
+    }
+
+    .nav-links a:hover{color:var(--gold)}
+
+    .wrap{
+      max-width:1200px;
+      margin:auto;
+      padding:24px 20px 60px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:20px;
+      margin-top:10px;
+    }
+
+    .card,.tile,.lab-panel{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:0 14px 40px rgba(0,0,0,.22);
+      padding:22px;
+    }
+
+    .lab-panel{
+      background:var(--panel3);
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(2rem,4vw,3rem);
+      color:var(--gold);
+      line-height:1.08;
+    }
+
+    .section{
+      margin-top:28px;
+    }
+
+    .section h2{
+      color:var(--gold);
+      margin:0 0 12px;
+      font-size:1.8rem;
+    }
+
+    .muted{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(244,197,66,.12);
+      border:1px solid rgba(244,197,66,.28);
+      color:var(--gold);
+      font-weight:700;
+      font-size:.88rem;
+      margin-bottom:14px;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:13px 18px;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(145deg,var(--gold),#ddb031);
+      color:#111;
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .tile h3,.card h3,.lab-panel h3{
+      margin-top:0;
+      margin-bottom:8px;
+    }
+
+    .tile p,.card p,.tile li,.card li,.lab-panel p,.lab-panel li{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .emoji{
+      font-size:1.8rem;
+      display:block;
+      margin-bottom:10px;
+    }
+
+    .list{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .mini{
+      background:var(--panel2);
+      border-radius:14px;
+      padding:16px;
+      text-align:center;
+    }
+
+    .mini-title{
+      color:var(--muted);
+      font-size:.9rem;
+      margin-bottom:6px;
+    }
+
+    .mini-value{
+      font-size:1.3rem;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .flow{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .flow li{
+      background:var(--panel2);
+      border-radius:12px;
+      padding:12px 14px;
+      margin-bottom:10px;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+      margin-right:8px;
+      margin-bottom:8px;
+    }
+
+    .pill-blue{background:rgba(110,193,255,.14); color:var(--blue);}
+    .pill-green{background:rgba(117,210,122,.14); color:var(--green);}
+    .pill-pink{background:rgba(255,143,177,.14); color:var(--pink);}
+    .pill-purple{background:rgba(185,156,255,.14); color:var(--purple);}
+
+    .code-box{
+      background:#081424;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      padding:16px;
+      margin-top:12px;
+      font-family:monospace;
+      color:#d8e6ff;
+      overflow:auto;
+      line-height:1.7;
+    }
+
+    .notice{
+      background:rgba(117,210,122,.08);
+      border:1px solid rgba(117,210,122,.2);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .safety{
+      background:rgba(255,143,177,.08);
+      border:1px solid rgba(255,143,177,.2);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .footer{
+      margin-top:40px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      text-align:center;
+    }
+
+    @media (max-width:980px){
+      .hero,.grid-4,.grid-3,.grid-2,.mini-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="brand">SSGPT6 Kids Coding Lab</div>
+      <nav class="nav-links">
+        <a href="kids-platform.html">Home</a>
+        <a href="kids-dashboard.html">Dashboard</a>
+        <a href="kids-avatar-helper.html">Avatar Helper</a>
+        <a href="#lab">Coding Lab</a>
+        <a href="#curriculum">Curriculum</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div class="card">
+        <span class="badge">Coding • Logic • AI Basics • Voice Help</span>
+        <h1>Kids Coding Lab with Step-by-Step AI Help</h1>
+        <p class="muted">
+          The SSGPT6 Kids Coding Lab is a child-friendly coding and computer science learning space.
+          It teaches logic, sequencing, patterns, loops, conditions, and beginner programming ideas
+          through games, avatars, voice support, and automatic help.
+        </p>
+        <p class="muted">
+          It supports school curriculum, extra practice, creativity, and different learning levels,
+          while the AI Sleeping Agent helps when kids get stuck on normal learning steps.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#lab">Start Coding Mission</a>
+          <a class="btn btn-secondary" href="#voice">Open Voice Coding Help</a>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini">
+            <div class="mini-title">Today’s Coding Goal</div>
+            <div class="mini-value">15 Min</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Logic Level</div>
+            <div class="mini-value">Beginner+</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">AI Help</div>
+            <div class="mini-value">Always Ready</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Curriculum</div>
+            <div class="mini-value">School + Extra</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lab-panel">
+        <h2 style="margin-top:0;color:var(--gold);font-size:1.5rem;">What Kids Learn Here</h2>
+        <span class="pill pill-blue">Logic</span>
+        <span class="pill pill-green">Patterns</span>
+        <span class="pill pill-pink">Loops</span>
+        <span class="pill pill-purple">Conditions</span>
+
+        <ul class="flow" style="margin-top:14px;">
+          <li>💡 Understand step-by-step instructions</li>
+          <li>🔁 Learn loops and repeating actions</li>
+          <li>🧠 Practice conditions like “if this, then that”</li>
+          <li>🤖 Explore how AI and coding work together</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="curriculum">
+      <h2>School Curriculum + Extra Coding Programs</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>School Coding Curriculum</h3>
+          <ul class="list">
+            <li>sequencing</li>
+            <li>logic and instructions</li>
+            <li>patterns and repetition</li>
+            <li>loops</li>
+            <li>conditions</li>
+            <li>problem solving</li>
+            <li>basic computer science thinking</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Extra Coding & Creativity Programs</h3>
+          <ul class="list">
+            <li>game-building logic</li>
+            <li>creative coding challenges</li>
+            <li>robot instruction stories</li>
+            <li>AI basics for kids</li>
+            <li>coding cartoons and visual missions</li>
+            <li>advanced puzzle mode for strong learners</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lab">
+      <h2>Beginner Coding Missions</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <span class="emoji">➡️</span>
+          <h3>Sequence Mission</h3>
+          <p>Put instructions in the right order so the robot reaches the goal.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🔁</span>
+          <h3>Loop Mission</h3>
+          <p>Teach the character how to repeat the same step multiple times.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">❓</span>
+          <h3>Condition Mission</h3>
+          <p>Use “if” choices to help the character decide what to do next.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Sample Child-Friendly Coding View</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Visual Code Example</h3>
+          <div class="code-box">
+START<br>
+MOVE FORWARD<br>
+MOVE FORWARD<br>
+TURN RIGHT<br>
+MOVE FORWARD<br>
+END
+          </div>
+          <p class="muted">
+            Kids learn that coding is giving clear instructions in the correct order.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Loop Example</h3>
+          <div class="code-box">
+START<br>
+REPEAT 3 TIMES<br>
+&nbsp;&nbsp;CLAP<br>
+END REPEAT<br>
+END
+          </div>
+          <p class="muted">
+            Loops teach children how one set of instructions can happen again and again.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="voice">
+      <h2>Voice Activation and Coding Help</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Voice Commands</h3>
+          <p>Kids can say: “Help me”, “Repeat”, “Next step”, “Explain loop”, or “Show easier example”.</p>
+        </div>
+        <div class="tile">
+          <h3>Voice Questions</h3>
+          <p>The avatar asks simple logic questions and the child can answer aloud.</p>
+        </div>
+        <div class="tile">
+          <h3>Voice Read-Back</h3>
+          <p>The AI helper can read instructions out loud and break them into smaller parts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Avatar Helper for Kids Who Get Stuck</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <span class="emoji">🤖</span>
+          <h3>Explain Again</h3>
+          <p>The avatar explains the lesson in easier words.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🪜</span>
+          <h3>Smaller Steps</h3>
+          <p>The system turns one hard task into smaller easier steps.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🎮</span>
+          <h3>Practice Game</h3>
+          <p>It opens a quick mini-game to practice the same coding idea.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🌟</span>
+          <h3>Encouragement</h3>
+          <p>The avatar keeps confidence high with calm feedback and support.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Different Learning Levels</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <h3>Beginner Mode</h3>
+          <p>Easy words, slow pace, simple examples, and visual support.</p>
+        </div>
+        <div class="tile">
+          <h3>Support Mode</h3>
+          <p>Extra repetition, more hints, more practice, and smaller steps.</p>
+        </div>
+        <div class="tile">
+          <h3>Standard Mode</h3>
+          <p>Balanced learning flow with regular coding missions and review.</p>
+        </div>
+        <div class="tile">
+          <h3>Challenge Mode</h3>
+          <p>Harder puzzles, advanced patterns, and deeper logic missions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>AI Basics for Kids</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Patterns</h3>
+          <p>AI learns from patterns, and kids learn how patterns help machines decide.</p>
+        </div>
+        <div class="tile">
+          <h3>Examples</h3>
+          <p>Children see how examples help train systems and improve results.</p>
+        </div>
+        <div class="tile">
+          <h3>Safe AI</h3>
+          <p>Kids learn that AI should be helpful, respectful, and safe.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>AI Sleeping Agent Automatic Support</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Automatic functions</h3>
+          <ul class="list">
+            <li>detect repeated mistakes</li>
+            <li>offer hints automatically</li>
+            <li>open extra practice missions</li>
+            <li>switch to easier or harder mode</li>
+            <li>save progress and skill growth</li>
+            <li>prepare parent and teacher summaries</li>
+          </ul>
+
+          <div class="notice" style="margin-top:16px;">
+            This helps children handle normal learning frustration with less routine interruption.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Important safety rule</h3>
+          <ul class="list">
+            <li>no raw audio stored</li>
+            <li>no biometric voiceprints</li>
+            <li>no hidden recording</li>
+            <li>no unsafe autonomous decisions</li>
+            <li>serious safety, health, or account problems still go to adults</li>
+          </ul>
+
+          <div class="safety" style="margin-top:16px;">
+            The AI helper supports learning only. It does not replace adult responsibility.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Teacher and School Support</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Teacher View</h3>
+          <p>Track coding progress, logic weak spots, and which children need more practice.</p>
+        </div>
+        <div class="tile">
+          <h3>Assistant Teacher View</h3>
+          <p>Support small groups and repeat lessons where needed.</p>
+        </div>
+        <div class="tile">
+          <h3>School Summary</h3>
+          <p>See curriculum coverage, extra resource use, and student growth patterns.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      SSGPT6 Kids Coding Lab • Coding + Logic + AI Basics • Powered by GNAIAAAC LLC
+    </div>
+
+  </main>
+</body>
+</html>

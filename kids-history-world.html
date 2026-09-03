@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 Kids History World</title>
+  <style>
+    :root{
+      --bg:#07111f;
+      --panel:#0f1d33;
+      --panel2:#142743;
+      --panel3:#1b3152;
+      --text:#eef4ff;
+      --muted:#b9c7dd;
+      --gold:#f4c542;
+      --blue:#6ec1ff;
+      --green:#75d27a;
+      --pink:#ff8fb1;
+      --purple:#b99cff;
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#07111f 0%, #0c1930 100%);
+      color:var(--text);
+    }
+    header{
+      position:sticky; top:0; z-index:10;
+      background:rgba(7,17,31,.95);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      max-width:1200px; margin:auto;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:16px 20px; gap:16px; flex-wrap:wrap;
+    }
+    .brand{font-size:1.1rem; font-weight:700; color:var(--gold);}
+    .nav-links{display:flex; gap:16px; flex-wrap:wrap;}
+    .nav-links a{color:var(--text); text-decoration:none; font-size:.95rem;}
+    .nav-links a:hover{color:var(--gold)}
+    .wrap{max-width:1200px; margin:auto; padding:24px 20px 60px;}
+    .hero{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:20px; margin-top:10px;
+    }
+    .card,.tile,.tv-card{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:0 14px 40px rgba(0,0,0,.22);
+      padding:22px;
+    }
+    .tv-card{background:var(--panel3)}
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(2rem,4vw,3rem);
+      color:var(--gold);
+      line-height:1.08;
+    }
+    .section{margin-top:28px;}
+    .section h2{color:var(--gold); margin:0 0 12px; font-size:1.8rem;}
+    .muted{color:var(--muted); line-height:1.7;}
+    .badge{
+      display:inline-block; padding:8px 14px; border-radius:999px;
+      background:rgba(244,197,66,.12);
+      border:1px solid rgba(244,197,66,.28);
+      color:var(--gold); font-weight:700; font-size:.88rem; margin-bottom:14px;
+    }
+    .actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;}
+    .btn{
+      display:inline-block; padding:13px 18px; border-radius:12px;
+      font-weight:700; text-decoration:none; border:none; cursor:pointer;
+    }
+    .btn-primary{background:linear-gradient(145deg,var(--gold),#ddb031); color:#111;}
+    .btn-secondary{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.14);}
+    .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+    .tile h3,.card h3,.tv-card h3{margin-top:0; margin-bottom:8px;}
+    .tile p,.card p,.tile li,.card li,.tv-card p,.tv-card li{color:var(--muted); line-height:1.7;}
+    .emoji{font-size:1.8rem; display:block; margin-bottom:10px;}
+    .list{margin:0; padding-left:18px;}
+    .mini-grid{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:16px;
+    }
+    .mini{
+      background:var(--panel2); border-radius:14px; padding:16px; text-align:center;
+    }
+    .mini-title{color:var(--muted); font-size:.9rem; margin-bottom:6px;}
+    .mini-value{font-size:1.3rem; font-weight:800; color:var(--text);}
+    .flow{list-style:none; padding:0; margin:0;}
+    .flow li{
+      background:var(--panel2); border-radius:12px; padding:12px 14px; margin-bottom:10px;
+    }
+    .pill{
+      display:inline-block; padding:6px 12px; border-radius:999px; font-size:.82rem;
+      font-weight:700; margin-right:8px; margin-bottom:8px;
+    }
+    .pill-blue{background:rgba(110,193,255,.14); color:var(--blue);}
+    .pill-green{background:rgba(117,210,122,.14); color:var(--green);}
+    .pill-pink{background:rgba(255,143,177,.14); color:var(--pink);}
+    .pill-purple{background:rgba(185,156,255,.14); color:var(--purple);}
+    .tv-screen{
+      background:#081424;
+      border:10px solid #1e2d45;
+      border-radius:24px;
+      padding:20px;
+      margin-top:14px;
+    }
+    .question{
+      font-size:1.2rem; font-weight:700; color:var(--text); margin-bottom:10px;
+    }
+    .notice{
+      background:rgba(117,210,122,.08);
+      border:1px solid rgba(117,210,122,.2);
+      border-radius:14px;
+      padding:16px;
+    }
+    .safety{
+      background:rgba(255,143,177,.08);
+      border:1px solid rgba(255,143,177,.2);
+      border-radius:14px;
+      padding:16px;
+    }
+    .footer{
+      margin-top:40px; padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted); text-align:center;
+    }
+    @media (max-width:980px){
+      .hero,.grid-4,.grid-3,.grid-2,.mini-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="brand">SSGPT6 Kids History World</div>
+      <nav class="nav-links">
+        <a href="kids-platform.html">Home</a>
+        <a href="kids-dashboard.html">Dashboard</a>
+        <a href="kids-library.html">Library</a>
+        <a href="kids-avatar-helper.html">Avatar Helper</a>
+        <a href="#tv-mode">TV Mode</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div class="card">
+        <span class="badge">History • Storytelling • TV-friendly • 140 languages</span>
+        <h1>History World for Kids with Safe TV Learning and Voice Questions</h1>
+        <p class="muted">
+          SSGPT6 Kids History World is a fictional, child-friendly learning platform where
+          kids explore civilizations, timelines, famous people, world cultures, and story-based
+          history adventures through cartoons, avatars, and interactive questions.
+        </p>
+        <p class="muted">
+          It is designed to work well on a family TV through a safe app or approved device setup,
+          so kids can learn together at home without needing their own phone or tablet.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#tv-mode">Open TV Learning Mode</a>
+          <a class="btn btn-secondary" href="#curriculum">See Curriculum</a>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini">
+            <div class="mini-title">TV Learning</div>
+            <div class="mini-value">Family Ready</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Languages</div>
+            <div class="mini-value">140+</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Voice Questions</div>
+            <div class="mini-value">Enabled</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">AI Help</div>
+            <div class="mini-value">Automatic</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tv-card" id="tv-mode">
+        <h2 style="margin-top:0;color:var(--gold);font-size:1.5rem;">Safe TV Learning Mode</h2>
+        <span class="pill pill-blue">Parent-approved app</span>
+        <span class="pill pill-green">Voice support</span>
+        <span class="pill pill-pink">Cartoon lessons</span>
+        <span class="pill pill-purple">AI helper</span>
+
+        <div class="tv-screen">
+          <div class="question">Avatar asks: “Do you want to visit Ancient Egypt, the Moon Landing, or the Silk Road today?”</div>
+          <p class="muted">
+            Kids answer by voice or remote control. The system opens a history adventure,
+            explains the story, and asks simple age-appropriate questions during the lesson.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="curriculum">
+      <h2>History Curriculum + Extra Exploration</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>School-Aligned History Learning</h3>
+          <ul class="list">
+            <li>timelines and sequencing</li>
+            <li>ancient civilizations</li>
+            <li>important people and events</li>
+            <li>maps, places, and journeys</li>
+            <li>culture, community, and traditions</li>
+            <li>cause and effect in history</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Extra Learning Adventures</h3>
+          <ul class="list">
+            <li>cartoon history stories</li>
+            <li>choose-your-path adventures</li>
+            <li>world culture discovery</li>
+            <li>space history and exploration</li>
+            <li>museum-style picture lessons</li>
+            <li>team quizzes and family mode</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What Kids Can Explore</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <span class="emoji">🏺</span>
+          <h3>Ancient Civilizations</h3>
+          <p>Egypt, Mesopotamia, Greece, Rome, and early world cultures through story mode.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🗺️</span>
+          <h3>Journeys & Maps</h3>
+          <p>Trade routes, explorers, travel, migration, and world connection stories.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">👑</span>
+          <h3>People in History</h3>
+          <p>Leaders, inventors, scientists, artists, helpers, and change-makers.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🚀</span>
+          <h3>Modern History</h3>
+          <p>Space travel, technology, communication, and important world milestones.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Voice Questions and Kid Answers</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Avatar Asks Questions</h3>
+          <p>The avatar pauses during lessons and asks simple, age-appropriate questions.</p>
+          <ul class="list">
+            <li>“Who built pyramids?”</li>
+            <li>“Which came first?”</li>
+            <li>“Why was this important?”</li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3>Kids Answer by Voice</h3>
+          <p>Kids can answer aloud, ask for a repeat, request a hint, or choose a different path.</p>
+        </div>
+        <div class="tile">
+          <h3>AI Sleeping Agent Helps</h3>
+          <p>If the child gets stuck, the helper gives simpler clues, restates the question, or shows a cartoon explanation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Cartoon Learning + Creativity</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <span class="emoji">🎬</span>
+          <h3>Cartoon Stories</h3>
+          <p>Animated history scenes that make lessons feel like safe educational cartoons.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🎭</span>
+          <h3>Role Play</h3>
+          <p>Kids can imagine being explorers, writers, inventors, or helpers from the past.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🖍️</span>
+          <h3>Create & Draw</h3>
+          <p>Creative follow-up tasks like draw a map, build a timeline, or design a symbol.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🎮</span>
+          <h3>History Games</h3>
+          <p>Match events, sort timelines, unlock clues, and solve world-history puzzles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Support for Different Kinds of Kids</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <h3>Beginner Learners</h3>
+          <p>Shorter stories, easy words, simple questions, and slower pacing.</p>
+        </div>
+        <div class="tile">
+          <h3>Kids Who Need More Help</h3>
+          <p>More hints, more repetition, read-aloud support, and guided explanations.</p>
+        </div>
+        <div class="tile">
+          <h3>Average Learners</h3>
+          <p>Balanced lessons with standard questions and interactive story checkpoints.</p>
+        </div>
+        <div class="tile">
+          <h3>Advanced Learners</h3>
+          <p>Extra facts, deeper comparisons, and higher-level reasoning challenges.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Teacher, School, and Family Support</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <h3>Teacher View</h3>
+          <p>Track lesson completion, quiz results, and which topics need more review.</p>
+        </div>
+        <div class="tile">
+          <h3>Assistant Teacher View</h3>
+          <p>Support small groups and repeat guided lessons during class sessions.</p>
+        </div>
+        <div class="tile">
+          <h3>Principal / Supervisor View</h3>
+          <p>Review program summaries, curriculum coverage, and engagement reports.</p>
+        </div>
+        <div class="tile">
+          <h3>Family TV Mode</h3>
+          <p>Shared learning on the home TV, with parent-approved sessions and family-safe design.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>AI Sleeping Agent Automatic Help</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>What it does automatically</h3>
+          <ul class="list">
+            <li>detects repeated wrong answers or no answer</li>
+            <li>offers a smaller clue</li>
+            <li>repeats the question in easier words</li>
+            <li>switches to cartoon explanation mode</li>
+            <li>suggests a different history path if needed</li>
+            <li>saves progress and updates the next lesson</li>
+          </ul>
+
+          <div class="notice" style="margin-top:16px;">
+            This is designed to handle normal learning support so kids can keep learning more independently.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Safe limits</h3>
+          <ul class="list">
+            <li>no automatic connection to other people’s TVs, Wi-Fi, phones, or offices</li>
+            <li>no hidden activation</li>
+            <li>no secret messaging or device takeover</li>
+            <li>use only through approved apps, school systems, or family setup</li>
+            <li>major safety or account issues still go to adults</li>
+          </ul>
+
+          <div class="safety" style="margin-top:16px;">
+            The safe model is: parent-approved TV app, school-approved system, or family-controlled device setup.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      SSGPT6 Kids History World • TV-Friendly History Learning • Powered by GNAIAAAC LLC
+    </div>
+
+  </main>
+</body>
+</html>

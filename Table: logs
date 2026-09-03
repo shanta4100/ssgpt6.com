@@ -1,0 +1,4 @@
+id (PK)
+player_id (FK)
+timestamp
+message

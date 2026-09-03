@@ -1,0 +1,12 @@
+<script>
+  const accessBtn = document.getElementById('access-trigger');
+  const voicePanel = document.getElementById('voice-panel');
+
+  accessBtn.addEventListener('click', () => {
+    const isActive = voicePanel.classList.contains('active');
+    voicePanel.classList.toggle('active', !isActive);
+    voicePanel.setAttribute('aria-hidden', isActive ? 'true' : 'false');
+    // Here is where you later hook real voice logic
+    // e.g., startListening() / stopListening()
+  });
+</script>

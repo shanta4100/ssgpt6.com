@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 · Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .stat {
+      font-size: 26px;
+      margin: 4px 0;
+    }
+    .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+    .small {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .code-box {
+      font-family: monospace;
+      font-size: 20px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: inline-block;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Admin Dashboard</h1>
+      <div class="tagline">High‑level control panel for SSGPT6 systems.</div>
+    </header>
+
+    <!-- SYSTEM OVERVIEW -->
+    <div class="section">
+      <h2>System Overview</h2>
+      <div class="panel">
+        <div class="grid">
+          <div>
+            <div class="label">Active Projects</div>
+            <div class="stat">135</div>
+            <div class="small">PLAY, Family, Accessibility, AI, Events, Onboarding, Governance…</div>
+          </div>
+          <div>
+            <div class="label">Registered Members</div>
+            <div class="stat">—</div>
+            <div class="small">Populate from backend when ready.</div>
+          </div>
+          <div>
+            <div class="label">Free Play Sessions (Today)</div>
+            <div class="stat">—</div>
+            <div class="small">Analytics placeholder.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- USER ACCESS / 4-DIGIT CODE MOCK -->
+    <div class="section">
+      <h2>User Access Tools</h2>
+      <div class="panel">
+        <p class="small">
+          This interface is a front‑end mock. Real account access, OTP delivery, and authentication
+          must be implemented securely on the backend and comply with legal and privacy requirements.
+        </p>
+        <form id="userAccessForm" class="form-row" onsubmit="return false;">
+          <input type="email" id="userEmail" placeholder="Consumer email address" required />
+          <button class="btn" id="generateCodeBtn">Generate 4‑Digit Code</button>
+        </form>
+        <div id="codeArea" class="small" style="margin-top:10px;">
+          Generated code (mock only):
+          <div id="codeBox" class="code-box">----</div>
+        </div>
+        <div class="notice">
+          This does not send real codes or grant real access. It is a UI placeholder only.
+          Any real recovery or support flow must be explicit, logged, and user‑consented.
+        </div>
+      </div>
+    </div>
+
+    <!-- AI AGENT SUPPORT PANEL (ASSISTIVE ONLY) -->
+    <div class="section">
+      <h2>AI Agent Support Tools</h2>
+      <div class="panel">
+        <p class="small">
+          This panel represents an “AI sleeping agent / black box” concept as a support assistant:
+          it can suggest actions, summarize issues, and surface data you already have permission to see.
+          It does not autonomously access accounts or bypass security.
+        </p>
+        <form class="form-row" onsubmit="return false;">
+          <textarea id="aiPrompt" rows="4"
+            placeholder="Describe the issue you want the AI support agent to analyze (e.g., 'User cannot access free play after subscription')."></textarea>
+          <button class="btn" id="aiAnalyzeBtn">Generate Support Suggestions</button>
+        </form>
+        <div id="aiOutput" class="panel" style="margin-top:12px;">
+          <p class="small">
+            AI suggestions will appear here (mock). In a real system, this would call a secure backend
+            that respects company policy, legal constraints, and user privacy.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // MOCK 4-DIGIT CODE GENERATOR (UI ONLY)
+    document.getElementById('generateCodeBtn').addEventListener('click', () => {
+      const email = document.getElementById('userEmail').value.trim();
+      if (!email) return;
+      const code = Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('codeBox').textContent = code.toString();
+    });
+
+    // MOCK AI SUPPORT OUTPUT (UI ONLY)
+    document.getElementById('aiAnalyzeBtn').addEventListener('click', () => {
+      const prompt = document.getElementById('aiPrompt').value.trim();
+      const out = document.getElementById('aiOutput');
+      if (!prompt) {
+        out.innerHTML = '<p class="small">Please describe an issue to analyze.</p>';
+        return;
+      }
+      out.innerHTML = `
+        <p class="small"><strong>Suggested steps (conceptual):</strong></p>
+        <ul class="small">
+          <li>Verify user membership status in your backend.</li>
+          <li>Confirm free‑play timer and lockout logic for this account.</li>
+          <li>Check recent login or access logs for anomalies.</li>
+          <li>Communicate clearly with the user about what you changed.</li>
+          <li>Document this intervention for compliance and auditing.</li>
+        </ul>
+        <p class="small">
+          Any real AI agent must operate within strict legal, security, and privacy boundaries.
+        </p>
+      `;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<button
+  class="btn-activate"
+  data-module="play_system"
+  onclick="activate('PLAY System')"
+>
+  Activate
+</button>

@@ -1,0 +1,7 @@
+{
+  "event": "study",
+  "milestone_gain": 12,
+  "vault_gain": 1,
+  "tier_up": false,
+  "log": "You studied. XP +12."
+}

@@ -1,0 +1,98 @@
+{
+  "routing": {
+    "latencyThresholdMs": 2000,
+    "errorRateThreshold": 0.3
+  },
+
+  "oceans": {
+    "core": {
+      "region": "US-EAST",
+      "rivers": {
+        "app": {
+          "active": "https://core.ssgpt6.com",
+          "health": "https://core.ssgpt6.com/health",
+          "backup": [
+            "https://northatlantic.ssgpt6.net",
+            "https://pacificocean.ssgpt6.net"
+          ],
+          "core": true
+        }
+      }
+    },
+
+    "northatlantic": {
+      "region": "US-WEST",
+      "rivers": {
+        "app": {
+          "active": "https://northatlantic.ssgpt6.net",
+          "health": "https://northatlantic.ssgpt6.net/health",
+          "backup": [
+            "https://core.ssgpt6.com",
+            "https://pacificocean.ssgpt6.net"
+          ],
+          "core": false
+        }
+      }
+    },
+
+    "pacificocean": {
+      "region": "ASIA-PACIFIC",
+      "rivers": {
+        "app": {
+          "active": "https://pacificocean.ssgpt6.net",
+          "health": "https://pacificocean.ssgpt6.net/health",
+          "backup": [
+            "https://northatlantic.ssgpt6.net",
+            "https://indianocean.ssgpt6.net"
+          ],
+          "core": false
+        }
+      }
+    },
+
+    "indianocean": {
+      "region": "ASIA-SOUTH",
+      "rivers": {
+        "app": {
+          "active": "https://indianocean.ssgpt6.net",
+          "health": "https://indianocean.ssgpt6.net/health",
+          "backup": [
+            "https://pacificocean.ssgpt6.net",
+            "https://arctic.ssgpt6.net"
+          ],
+          "core": false
+        }
+      }
+    },
+
+    "arctic": {
+      "region": "EU-NORTH",
+      "rivers": {
+        "app": {
+          "active": "https://arctic.ssgpt6.net",
+          "health": "https://arctic.ssgpt6.net/health",
+          "backup": [
+            "https://indianocean.ssgpt6.net",
+            "https://antarctic.ssgpt6.net"
+          ],
+          "core": false
+        }
+      }
+    },
+
+    "antarctic": {
+      "region": "GLOBAL-SOUTH",
+      "rivers": {
+        "app": {
+          "active": "https://antarctic.ssgpt6.net",
+          "health": "https://antarctic.ssgpt6.net/health",
+          "backup": [
+            "https://arctic.ssgpt6.net",
+            "https://core.ssgpt6.com"
+          ],
+          "core": false
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+<!-- Dynamic Navigation Bar -->
+<div id="dynamic-nav" class="nav"></div>
+
+<!-- Include Navigation Router -->
+<script src="navigation-router.js"></script>

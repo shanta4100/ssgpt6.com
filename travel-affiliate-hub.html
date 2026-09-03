@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SSGPT6 Travel Hub — Global Tourism & Deals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root{
+      --bg:#050910;
+      --panel:#0b1320;
+      --border:rgba(0,255,204,0.25);
+      --accent:#00ffcc;
+      --accent2:#00ace6;
+      --accent3:#ff00ff;
+      --text:#e5f7ff;
+      --muted:#9fb6c8;
+    }
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    .container{
+      width:min(96%,1100px);
+      margin:40px auto 60px;
+    }
+    h1{
+      text-align:center;
+      letter-spacing:4px;
+      font-size:1.7rem;
+      color:var(--accent);
+      margin:0 0 6px;
+    }
+    .subtitle{
+      text-align:center;
+      font-size:0.85rem;
+      color:var(--muted);
+      margin-bottom:26px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+    .card{
+      background:var(--panel);
+      border-radius:14px;
+      border:1px solid var(--border);
+      padding:16px;
+      min-height:220px;
+      display:flex;
+      flex-direction:column;
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size:1.1rem;
+      color:var(--accent2);
+    }
+    .card p{
+      margin:0 0 10px;
+      font-size:0.85rem;
+      color:#d8e7f3;
+      line-height:1.4;
+    }
+    .tag{
+      display:inline-block;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      font-size:0.7rem;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+    .btn{
+      margin-top:auto;
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--accent2);
+      color:#021015;
+      text-decoration:none;
+      font-size:0.8rem;
+      text-align:center;
+    }
+    .legal{
+      margin-top:26px;
+      font-size:0.75rem;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding-top:12px;
+    }
+    .hero{
+      background:radial-gradient(circle at top,#003b4a 0,#050910 55%);
+      border-radius:18px;
+      padding:20px 18px;
+      border:1px solid rgba(0,255,204,0.35);
+      margin-bottom:26px;
+    }
+    .hero h2{
+      margin:0 0 8px;
+      font-size:1.2rem;
+      letter-spacing:3px;
+      color:var(--accent2);
+    }
+    .hero p{
+      margin:0;
+      font-size:0.85rem;
+      color:#d8e7f3;
+      line-height:1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>TRAVEL & TOURISM HUB</h1>
+    <p class="subtitle">GLOBAL DEALS · HOTELS · FLIGHTS · TOURS</p>
+
+    <section class="hero">
+      <h2>GLOBAL TRAVEL DISCOVERY</h2>
+      <p>
+        Explore curated travel deals, hotel offers, and tourism tools from global affiliate
+        partners. SSGPT6 provides a clean discovery interface — all bookings are completed
+        on trusted third‑party travel platforms.
+      </p>
+    </section>
+
+    <h2 style="font-size:1.05rem;letter-spacing:2px;color:var(--accent2);margin-top:30px;">
+      FEATURED TRAVEL PARTNERS
+    </h2>
+
+    <div class="grid">
+      <div class="card">
+        <span class="tag">HOTELS · GLOBAL</span>
+        <h3>Booking.com</h3>
+        <p>
+          Find hotels, resorts, and apartments worldwide. Ideal for budget and premium travel.
+        </p>
+        <a href="YOUR_BOOKING_COM_AFFILIATE_LINK" target="_blank" class="btn">Open Booking.com</a>
+      </div>
+
+      <div class="card">
+        <span class="tag">FLIGHTS · GLOBAL</span>
+        <h3>Travelpayouts Flight Search</h3>
+        <p>
+          Compare global flight prices and find the best deals for international travel.
+        </p>
+        <a href="YOUR_TRAVELPAYOUTS_FLIGHT_LINK" target="_blank" class="btn">Search Flights</a>
+      </div>
+
+      <div class="card">
+        <span class="tag">TOURS · ACTIVITIES</span>
+        <h3>Viator Tours</h3>
+        <p>
+          Book guided tours, attractions, and local experiences in major cities worldwide.
+        </p>
+        <a href="YOUR_VIATOR_AFFILIATE_LINK" target="_blank" class="btn">Explore Tours</a>
+      </div>
+
+      <div class="card">
+        <span class="tag">TRAVEL GEAR</span>
+        <h3>AliExpress Travel Essentials</h3>
+        <p>
+          Luggage, adapters, portable chargers, and travel accessories at global prices.
+        </p>
+        <a href="YOUR_ALIEXPRESS_TRAVEL_LINK" target="_blank" class="btn">Shop Travel Gear</a>
+      </div>
+    </div>
+
+    <h2 style="font-size:1.05rem;letter-spacing:2px;color:var(--accent2);margin-top:30px;">
+      REGIONAL DISCOVERY
+    </h2>
+
+    <div class="grid">
+      <div class="card">
+        <span class="tag">USA</span>
+        <h3>Domestic Hotels & Car Rentals</h3>
+        <p>Find deals across major US cities for hotels, rentals, and weekend trips.</p>
+        <a href="YOUR_US_TRAVEL_LINK" target="_blank" class="btn">Explore USA Deals</a>
+      </div>
+
+      <div class="card">
+        <span class="tag">CANADA</span>
+        <h3>Canada Travel Offers</h3>
+        <p>Discover hotel and flight deals across Toronto, Vancouver, Montreal, and more.</p>
+        <a href="YOUR_CANADA_TRAVEL_LINK" target="_blank" class="btn">Explore Canada Deals</a>
+      </div>
+
+      <div class="card">
+        <span class="tag">EUROPE</span>
+        <h3>Europe Hotels & Tours</h3>
+        <p>Find deals across Paris, London, Rome, Berlin, and major EU destinations.</p>
+        <a href="YOUR_EUROPE_TRAVEL_LINK" target="_blank" class="btn">Explore Europe Deals</a>
+      </div>
+    </div>
+
+    <div class="legal">
+      <p>
+        SSGPT6 and GNAIAAAC LLC operate as a digital information, media, and affiliate referral platform.
+        We do not sell travel products or process bookings. All reservations are completed on third‑party
+        travel websites such as Booking.com, Travelpayouts, Viator, and others.
+      </p>
+      <p style="margin-top:6px;">
+        Some links on this page may be affiliate links. GNAIAAAC LLC may earn a commission if a user
+        completes a qualifying booking through a partner link, at no additional cost to the user.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

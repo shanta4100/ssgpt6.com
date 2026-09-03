@@ -1,0 +1,14 @@
+{
+  "alerts": [
+    {
+      "type": "sentiment_spike",
+      "ticker": "AMZN",
+      "detail": "Buzz index +25% vs 30-day avg"
+    },
+    {
+      "type": "news_cluster",
+      "ticker": "META",
+      "detail": "5 negative headlines in 2 hours"
+    }
+  ]
+}

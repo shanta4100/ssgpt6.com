@@ -1,0 +1,13 @@
+<section class="card" style="border: 3px double #d4b15a; background: radial-gradient(circle, #0c1728, #000);">
+    <h2 class="rainbow">🏛️ STRATEGIC RESEARCH INVESTMENT</h2>
+    <p>Official Access for NASA, UN, and USA Government Oversight</p>
+    
+    <div class="grid">
+        <button class="voice" onclick="log('Initiating NASA Technical Brief')">Submit $5M Proposal</button>
+        <button class="black" onclick="log('Opening UN Global Audit')">Submit $5M Grant</button>
+    </div>
+
+    <p style="font-size: 0.8rem; color: #666; margin-top: 15px;">
+        SECURITY: 100% Encrypted | Verified Public Domain IP Required
+    </p>
+</section>

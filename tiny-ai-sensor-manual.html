@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GNAIAAAC LLC | Tiny AI Sensor Manual</title>
+    <style>
+        :root { --cobalt: #002b5c; --gold: #c7a85a; --slate: #f4f7f9; }
+        body { font-family: 'Helvetica', sans-serif; background: var(--slate); color: #333; line-height: 1.6; padding: 40px; }
+        .manual-container { max-width: 850px; margin: auto; background: #fff; padding: 50px; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .spec-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .spec-table th, .spec-table td { border: 1px solid #eee; padding: 12px; text-align: left; }
+        .spec-table th { background: var(--cobalt); color: #fff; text-transform: uppercase; font-size: 0.8rem; }
+        .warning-box { border: 2px solid #d9534f; padding: 15px; color: #d9534f; font-weight: bold; margin: 20px 0; }
+        h1, h2 { color: var(--cobalt); }
+    </style>
+</head>
+<body>
+    <div class="manual-container">
+        <header style="border-bottom: 3px solid var(--gold); padding-bottom: 10px;">
+            <div style="font-weight:bold; letter-spacing:2px;">INTERNAL SPECIFICATION: GNAIAAAC-T1</div>
+            <h1>Tiny AI Edge Sensor Node</h1>
+        </header>
+
+        <h2>1. Overview</h2>
+        <p>The T1 Node is a low-power, AI-integrated microcontroller designed for <strong>Universal Energy Harvesting</strong> environments. It utilizes on-device neural processing to manage power switching without cloud dependency.</p>
+
+        <table class="spec-table">
+            <tr><th>Component</th><th>Specification</th></tr>
+            <tr><td>Processor</td><td>ARM Cortex-M4F with DSP Instructions</td></tr>
+            <tr><td>AI Engine</td><td>TensorFlow Lite Micro / TinyML optimized</td></tr>
+            <tr><td>Input Voltage</td><td>0.5V - 5.5V (Optimized for Kinetic/Solar/Thermal)</td></tr>
+            <tr><td>Connectivity</td><td>LoRaWAN / Bluetooth LE / D2D Satellite Link</td></tr>
+        </table>
+
+        <h2>2. Operational Logic (The Sleeping Agent Link)</h2>
+        <p>The T1 remains in "Deep Sleep" until a harvesting threshold is met. Upon activation, the <strong>Sleeping Agent</strong> protocol executes a local grid-balancing algorithm, reducing transmission waste by up to 60%.</p>
+
+        <div class="warning-box">
+            CONFIDENTIAL: This hardware contains GNAIAAAC LLC proprietary firmware. Unauthorized decryption of the Deep Core logic is a violation of the Sovereign Master Build protocol.
+        </div>
+
+        <footer>
+            <p style="font-size:0.7rem; color:#999;">© 2026 GNAIAAAC LLC | ssgpt6.com | Document Ref: TECH-T1-A1</p>
+        </footer>
+    </div>
+</body>
+</html>

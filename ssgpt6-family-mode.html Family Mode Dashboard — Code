@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 FAMILY MODE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #02030a;
+      --panel: #070b16;
+      --accent: #f2c94c;
+      --accent-soft: #9b51e0;
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+      --border: #1f2933;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #02030a 55%);
+      color: var(--text);
+    }
+    .page { max-width: 1200px; margin: auto; padding: 24px 16px 64px; }
+    header { padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    h1 { text-transform: uppercase; letter-spacing: 0.16em; font-size: 22px; margin: 0 0 8px; }
+    .tagline { font-size: 13px; color: var(--muted); }
+
+    .section { margin-top: 32px; }
+    .section h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .age-buttons, .toggle-row, .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #050814;
+      color: var(--text);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .btn-active {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .recommend-card, .goal-card, .achievement-card {
+      background: #050814;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .recommend-title, .goal-title, .achievement-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    .muted { font-size: 12px; color: var(--muted); }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .toggle input { width: 16px; height: 16px; }
+
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header>
+      <h1>Family Mode</h1>
+      <div class="tagline">Safe, guided, age‑appropriate play for everyone.</div>
+    </header>
+
+    <!-- AGE FILTERS -->
+    <div class="section">
+      <h2>Age Filters</h2>
+      <div class="panel">
+        <div class="age-buttons">
+          <button class="btn btn-active">Ages 3–5</button>
+          <button class="btn">Ages 6–8</button>
+          <button class="btn">Ages 9–12</button>
+          <button class="btn">Teens</button>
+          <button class="btn">All Ages</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAILY RECOMMENDATIONS -->
+    <div class="section">
+      <h2>Today's Recommendations</h2>
+      <div class="panel">
+        <div class="recommend-card">
+          <div class="recommend-title">Shape Garden</div>
+          <div class="muted">Early math · Color‑blind friendly · Short sessions</div>
+        </div>
+        <div class="recommend-card">
+          <div class="recommend-title">Story Tiles</div>
+          <div class="muted">Reading · Creativity · Screen‑reader friendly</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEARNING GOALS -->
+    <div class="section">
+      <h2>Learning Goals</h2>
+      <div class="panel">
+        <div class="goal-card">
+          <div class="goal-title">Focus & Patience</div>
+          <div class="muted">Recommended games: Calm Puzzle, Memory Path</div>
+        </div>
+        <div class="goal-card">
+          <div class="goal-title">Vocabulary</div>
+          <div class="muted">Recommended games: Word Builder, Story Tiles</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCESSIBILITY PRESETS -->
+    <div class="section">
+      <h2>Accessibility Presets</h2>
+      <div class="panel">
+        <div class="preset-row">
+          <button class="btn">High Contrast</button>
+          <button class="btn">Low Motion</button>
+          <button class="btn">Dyslexia Mode</button>
+          <button class="btn">Color‑Blind</button>
+          <button class="btn">Screen Reader</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAMILY ACHIEVEMENTS -->
+    <div class="section">
+      <h2>Family Achievements</h2>
+      <div class="panel">
+        <div class="achievement-card">
+          <div class="achievement-title">First Week of Learning</div>
+          <div class="muted">Completed 7 days of guided play</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-title">Creative Explorer</div>
+          <div class="muted">Tried 5 different story games</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAFETY TOGGLES -->
+    <div class="section">
+      <h2>Safety Controls</h2>
+      <div class="panel">
+        <div class="toggle-row">
+          <label class="toggle"><input type="checkbox" checked /> Hide chat features</label>
+          <label class="toggle"><input type="checkbox" checked /> Disable timers</label>
+          <label class="toggle"><input type="checkbox" /> Limit session length</label>
+          <label class="toggle"><input type="checkbox" /> Require adult approval</label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "ticker": "TSLA",
+  "news": [
+    {
+      "headline": "EV demand outlook updated",
+      "sentiment": -0.2,
+      "impact": "medium",
+      "summary": "GN-AI: Macro pressure + sector rotation."
+    }
+  ]
+}

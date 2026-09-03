@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSGPT6 | Sovereign Intelligence & Infrastructure</title>
+    <style>
+        :root {
+            --bg: #050b18;
+            --gold: #c7a85a;
+            --un-blue: #009edb;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(199, 168, 90, 0.2);
+        }
+        body { margin: 0; background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        
+        /* THE INFINITY GRADIENT */
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at center, #1b1f4a 0%, #050b18 100%); position: relative; }
+        
+        .matrix-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+            padding: 50px;
+        }
+
+        .card { 
+            background: var(--glass); 
+            border: 1px solid var(--border); 
+            padding: 30px; 
+            border-radius: 15px; 
+            backdrop-filter: blur(10px);
+            transition: 0.4s;
+        }
+
+        .card:hover { border-color: var(--gold); transform: translateY(-10px); }
+
+        .slogan { color: var(--gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.7rem; }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div style="text-align:center;">
+        <div class="slogan">Tiny AI Big Brain Black Box</div>
+        <h1 style="font-size:4rem; margin:10px 0;">SSGPT6 CORE</h1>
+        <p style="color:var(--un-blue); font-weight:bold;">Sovereign Hydro-Atmospheric Matrix</p>
+        <a href="#matrix" style="border:1px solid var(--gold); padding:15px 40px; color:var(--gold); text-decoration:none; margin-top:20px; display:inline-block;">Enter the 135 Matrix</a>
+    </div>
+</section>
+
+<section id="matrix" class="matrix-grid">
+    <div class="card">
+        <h3 style="color:var(--gold);">UNIT 012: HYDROL-STASIS</h3>
+        <p>Real-time Water Bankruptcy Monitoring. Advanced Oxidation (AOP) Restoration Logic.</p>
+        <small>STATUS: ACTIVE | 5.8 GHz SYNC</small>
+    </div>
+
+    <div class="card">
+        <h3 style="color:var(--gold);">UNIT 001: PHARMA VAULT</h3>
+        <p>Proprietary Medical IP Acquisition & Global Royalty Stream Management.</p>
+        <small>VALUATION: $75,000,000.00</small>
+    </div>
+</section>
+
+<footer>
+    <div style="text-align:center; padding:40px; border-top:1px solid var(--border); font-size:0.7rem; color:rgba(255,255,255,0.4);">
+        GNAIAAAC LLC © 2026 | PROTECTED BY SOVEREIGN NEURAL-LATTICE
+    </div>
+</footer>
+
+</body>
+</html>

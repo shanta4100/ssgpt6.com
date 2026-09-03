@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 Digital Governance</title>
+  <meta name="description" content="SSGPT6 digital governance page for structured oversight, accountability, resilience, and project coordination." />
+  <style>
+    :root{
+      --bg:#060d18;
+      --panel:#0c1728;
+      --panel2:#10203a;
+      --text:#eef3fb;
+      --muted:#c8d3e3;
+      --gold:#c7a85a;
+      --blue:#009edb;
+      --green:#1a5a3a;
+      --purple:#3a1a5a;
+      --red:#7f1d3d;
+      --line:rgba(255,255,255,0.08);
+      --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
+      --max:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(6,13,24,0.96);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
+
+    .strip{
+      height:6px;
+      background:var(--rainbow);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:16px 0;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:900;
+      color:var(--gold);
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      padding:10px 14px;
+      border-radius:6px;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .nav-home{background:#1a3a5a}
+    .nav-about{background:var(--purple)}
+    .nav-projects{background:var(--green)}
+    .nav-contact{background:var(--gold);color:#000}
+
+    .hero{
+      padding:60px 0 42px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:8px 12px;
+      border:1px solid rgba(199,168,90,0.3);
+      border-radius:999px;
+      color:var(--gold);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+      margin-bottom:14px;
+    }
+
+    .hero h1{
+      margin:0 0 12px;
+      font-size:clamp(2rem, 6vw, 4rem);
+      color:var(--gold);
+      font-weight:900;
+    }
+
+    .hero p{
+      margin:0;
+      max-width:900px;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:22px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 20px;
+      border-radius:10px;
+      font-weight:800;
+      border:1px solid transparent;
+      cursor:pointer;
+    }
+
+    .btn-gold{background:var(--gold);color:#000}
+    .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,0.14)}
+
+    .section{
+      padding:52px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section h2{
+      margin:0 0 10px;
+      font-size:clamp(1.7rem,4vw,2.6rem);
+      color:#fff;
+    }
+
+    .intro{
+      margin:0 0 24px;
+      max-width:920px;
+      color:var(--muted);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      color:var(--gold);
+      font-size:1.18rem;
+    }
+
+    .card p{
+      margin:0 0 12px;
+      color:var(--muted);
+    }
+
+    .card ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    .card li{margin-bottom:7px}
+
+    .status-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+    }
+
+    .status-card{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:18px;
+    }
+
+    .status-card h4{
+      margin:0 0 8px;
+      color:var(--gold);
+      font-size:1rem;
+    }
+
+    .status{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      margin-top:6px;
+    }
+
+    .status-live{background:#153e2a;color:#98f0bf}
+    .status-review{background:#3b2e12;color:#ffd779}
+    .status-struct{background:#17324a;color:#8bd0ff}
+
+    .wide-box{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:26px;
+    }
+
+    .wide-box p{
+      color:var(--muted);
+      margin:0 0 14px;
+    }
+
+    .notice{
+      background:#0a1320;
+      border:1px solid rgba(199,168,90,0.22);
+      border-radius:12px;
+      padding:16px;
+      color:#dbe6f5;
+    }
+
+    .notice strong{
+      color:var(--gold);
+    }
+
+    .voice-panel{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:24px;
+      text-align:center;
+    }
+
+    .voice-panel h2{
+      color:var(--gold);
+    }
+
+    .voice-controls{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .voice-controls button{
+      padding:14px 18px;
+      border:none;
+      border-radius:10px;
+      font-size:16px;
+      font-weight:800;
+      cursor:pointer;
+      background:var(--gold);
+      color:#000;
+    }
+
+    .voice-controls button.alt{
+      background:#17314a;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .voice-output{
+      margin-top:18px;
+      background:#000;
+      border:1px solid var(--blue);
+      border-radius:8px;
+      min-height:58px;
+      padding:16px;
+      text-align:left;
+      color:#dbe7f6;
+    }
+
+    footer{
+      text-align:center;
+      padding:34px 20px 50px;
+      color:#a6b5c8;
+      font-size:14px;
+    }
+
+    footer a{
+      color:var(--gold);
+    }
+
+    @media (max-width:700px){
+      .topbar{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .voice-controls{
+        flex-direction:column;
+      }
+
+      .voice-controls button{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="strip"></div>
+    <div class="container topbar">
+      <div class="logo">SSGPT6 Governance</div>
+      <nav>
+        <a class="nav-home" href="index.html">Home</a>
+        <a class="nav-about" href="about.html">About</a>
+        <a class="nav-projects" href="projects.html">Projects</a>
+        <a class="nav-contact" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Structured Oversight • Accountability • Resilience</div>
+      <h1>Digital Governance Framework</h1>
+      <p>
+        This page explains how SSGPT6 organizes responsibility, monitoring,
+        reporting, communication, and project direction using a structured,
+        human-controlled governance model.
+      </p>
+      <div class="hero-actions">
+        <a href="projects.html" class="btn btn-gold">View 135 Projects</a>
+        <a href="submission-engine.html" class="btn btn-outline">Open Submission Engine</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Governance Purpose</h2>
+      <p class="intro">
+        SSGPT6 governance exists to keep the platform organized, transparent,
+        reviewable, and aligned with its stated mission. It is designed to help
+        people understand what the platform does, what it does not do, how
+        decisions are tracked, and how services, projects, and communication
+        pathways are managed responsibly.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Accountability</h3>
+          <p>Important decisions should be visible, documented, and reviewable.</p>
+        </div>
+
+        <div class="card">
+          <h3>Human Oversight</h3>
+          <p>Automation supports people, but final direction remains human-controlled.</p>
+        </div>
+
+        <div class="card">
+          <h3>Clarity</h3>
+          <p>Customers and partners should understand where to go, what to expect, and how the platform works.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Core Governance Layers</h2>
+      <p class="intro">
+        The SSGPT6 governance structure can be understood as a set of working layers.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>1. Public Information Layer</h3>
+          <ul>
+            <li>homepage</li>
+            <li>about page</li>
+            <li>services page</li>
+            <li>projects page</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>2. Customer Access Layer</h3>
+          <ul>
+            <li>pricing and memberships</li>
+            <li>contact pathways</li>
+            <li>support center</li>
+            <li>billing communication</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>3. Reporting Layer</h3>
+          <ul>
+            <li>structured summaries</li>
+            <li>submission drafts</li>
+            <li>application tracking</li>
+            <li>recordkeeping</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>4. Review Layer</h3>
+          <ul>
+            <li>claim review</li>
+            <li>language safety</li>
+            <li>page updates</li>
+            <li>content readiness</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>5. Automation Support Layer</h3>
+          <ul>
+            <li>draft generation</li>
+            <li>voice support</li>
+            <li>submission preparation</li>
+            <li>workflow assistance</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>6. Founder Direction Layer</h3>
+          <ul>
+            <li>mission setting</li>
+            <li>approval</li>
+            <li>strategic direction</li>
+            <li>project prioritization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Operational Status Board</h2>
+      <p class="intro">
+        This board gives a simple governance view of what is active, what is
+        informational, and what still requires further build work.
+      </p>
+
+      <div class="status-grid">
+        <div class="status-card">
+          <h4>Website Pages</h4>
+          <p>Core website pages are active and being expanded.</p>
+          <span class="status status-live">Live</span>
+        </div>
+
+        <div class="status-card">
+          <h4>Accessibility</h4>
+          <p>Voice and read-aloud support are available where browser support exists.</p>
+          <span class="status status-review">Limited by browser</span>
+        </div>
+
+        <div class="status-card">
+          <h4>Submissions</h4>
+          <p>Submission drafting and tracking are active through the browser tool.</p>
+          <span class="status status-live">Active</span>
+        </div>
+
+        <div class="status-card">
+          <h4>Payments</h4>
+          <p>Pricing and payment pages are structured, but provider integration must match live setup.</p>
+          <span class="status status-review">Review before live use</span>
+        </div>
+
+        <div class="status-card">
+          <h4>Voice Hub</h4>
+          <p>Voice features can remain optional instead of the main support route.</p>
+          <span class="status status-struct">Optional</span>
+        </div>
+
+        <div class="status-card">
+          <h4>Claims and Certifications</h4>
+          <p>Only use verifiable claims in public governance materials.</p>
+          <span class="status status-live">Controlled</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Decision Rules</h2>
+      <div class="wide-box">
+        <p><strong style="color:var(--gold)">Rule 1:</strong> The platform should not promise features that are not implemented.</p>
+        <p><strong style="color:var(--gold)">Rule 2:</strong> Payment, support, and access pathways should always lead somewhere real.</p>
+        <p><strong style="color:var(--gold)">Rule 3:</strong> Public claims should be clear, supportable, and reviewable.</p>
+        <p><strong style="color:var(--gold)">Rule 4:</strong> Automation should assist preparation, tracking, and organization—not silently impersonate outside submission or approval.</p>
+        <p><strong style="color:var(--gold)">Rule 5:</strong> Accessibility should remain a visible part of the system for seniors and disabled users.</p>
+
+        <div class="notice">
+          <strong>Governance note:</strong>
+          The best way to build trust is to show structured systems, real pages,
+          accurate language, clear permissions, and visible support routes.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>How Customers Make Decisions</h2>
+      <p class="intro">
+        Governance is not only about control. It also helps customers decide whether to trust the platform.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>What it is</h3>
+          <p>The service or project should be described clearly.</p>
+        </div>
+
+        <div class="card">
+          <h3>Why it matters</h3>
+          <p>The customer should understand the practical benefit.</p>
+        </div>
+
+        <div class="card">
+          <h3>How to access it</h3>
+          <p>The page should guide them to pricing, projects, or contact.</p>
+        </div>
+
+        <div class="card">
+          <h3>What is live now</h3>
+          <p>Only active features should be presented as active.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="voice">
+    <div class="container">
+      <div class="voice-panel">
+        <h2>♿ Accessibility Governance Control</h2>
+        <p>
+          Voice + typing supported • accessible for seniors and disabled users
+        </p>
+
+        <div class="voice-controls">
+          <button onclick="startVoice()">♿ 🎤 Start Voice</button>
+          <button class="alt" onclick="stopVoice()">♿ ⏹ Stop</button>
+          <button onclick="speakGovernance()">♿ 🔊 Speak</button>
+        </div>
+
+        <div class="voice-output" id="voiceOutput">
+          Ready for governance voice input.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 GNAIAAAC LLC | SSGPT6 Digital Governance</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="about.html">About</a> |
+      <a href="projects.html">Projects</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="terms.html">Terms</a>
+    </p>
+  </footer>
+
+  <script>
+    let recognition;
+
+    function startVoice() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      if (!SpeechRecognition) {
+        document.getElementById("voiceOutput").innerText =
+          "Voice recognition is not supported in this browser.";
+        return;
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.onresult = function(event) {
+        document.getElementById("voiceOutput").innerText =
+          event.results[0][0].transcript;
+      };
+      recognition.onerror = function() {
+        document.getElementById("voiceOutput").innerText =
+          "Voice recognition could not complete. Please try again.";
+      };
+      recognition.start();
+    }
+
+    function stopVoice() {
+      if (recognition) {
+        recognition.stop();
+      }
+    }
+
+    function speakGovernance() {
+      const text =
+        "Welcome to SSGPT6 digital governance. This page explains accountability, oversight, submission support, customer pathways, and accessibility controls.";
+      if (!("speechSynthesis" in window)) {
+        document.getElementById("voiceOutput").innerText =
+          "Speech output is not supported in this browser.";
+        return;
+      }
+      const speech = new SpeechSynthesisUtterance(text);
+      speechSynthesis.cancel();
+      speechSynthesis.speak(speech);
+    }
+  </script>
+
+</body>
+</html>

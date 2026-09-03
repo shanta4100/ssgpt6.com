@@ -1,0 +1,7 @@
+// Future integration layer for real backend calls.
+// Currently: NO network calls, NO auth, NO payments.
+
+function triggerBackendModule(moduleKey) {
+  console.log("Backend trigger requested for:", moduleKey);
+  // TODO: Implement secure API call here in future.
+}

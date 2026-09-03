@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 Kids Math Arena</title>
+  <style>
+    :root{
+      --bg:#07111f;
+      --panel:#0f1d33;
+      --panel2:#142743;
+      --panel3:#1b3152;
+      --text:#eef4ff;
+      --muted:#b9c7dd;
+      --gold:#f4c542;
+      --blue:#6ec1ff;
+      --green:#75d27a;
+      --pink:#ff8fb1;
+      --purple:#b99cff;
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#07111f 0%, #0c1930 100%);
+      color:var(--text);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(7,17,31,.95);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 20px;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      font-size:1.1rem;
+      font-weight:700;
+      color:var(--gold);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:var(--text);
+      text-decoration:none;
+      font-size:.95rem;
+    }
+
+    .nav-links a:hover{color:var(--gold)}
+
+    .wrap{
+      max-width:1200px;
+      margin:auto;
+      padding:24px 20px 60px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:20px;
+      margin-top:10px;
+    }
+
+    .card,.tile,.role-card{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:0 14px 40px rgba(0,0,0,.22);
+      padding:22px;
+    }
+
+    .role-card{background:var(--panel3)}
+
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(2rem,4vw,3rem);
+      color:var(--gold);
+      line-height:1.08;
+    }
+
+    .section{
+      margin-top:28px;
+    }
+
+    .section h2{
+      color:var(--gold);
+      margin:0 0 12px;
+      font-size:1.8rem;
+    }
+
+    .muted{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(244,197,66,.12);
+      border:1px solid rgba(244,197,66,.28);
+      color:var(--gold);
+      font-weight:700;
+      font-size:.88rem;
+      margin-bottom:14px;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:13px 18px;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(145deg,var(--gold),#ddb031);
+      color:#111;
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .tile h3,.card h3,.role-card h3{
+      margin-top:0;
+      margin-bottom:8px;
+    }
+
+    .tile p,.card p,.tile li,.card li,.role-card p,.role-card li{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .emoji{
+      font-size:1.8rem;
+      display:block;
+      margin-bottom:10px;
+    }
+
+    .list{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .mini{
+      background:var(--panel2);
+      border-radius:14px;
+      padding:16px;
+      text-align:center;
+    }
+
+    .mini-title{
+      color:var(--muted);
+      font-size:.9rem;
+      margin-bottom:6px;
+    }
+
+    .mini-value{
+      font-size:1.3rem;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .flow{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .flow li{
+      background:var(--panel2);
+      border-radius:12px;
+      padding:12px 14px;
+      margin-bottom:10px;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+      margin-right:8px;
+      margin-bottom:8px;
+    }
+
+    .pill-blue{background:rgba(110,193,255,.14); color:var(--blue);}
+    .pill-green{background:rgba(117,210,122,.14); color:var(--green);}
+    .pill-pink{background:rgba(255,143,177,.14); color:var(--pink);}
+    .pill-purple{background:rgba(185,156,255,.14); color:var(--purple);}
+
+    .arena-box{
+      background:var(--panel2);
+      border-radius:16px;
+      padding:18px;
+      margin-top:12px;
+    }
+
+    .question{
+      font-size:1.25rem;
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:10px;
+    }
+
+    .progress{
+      margin-top:10px;
+      background:#0a1528;
+      border-radius:999px;
+      overflow:hidden;
+      height:12px;
+    }
+
+    .progress-bar{
+      height:12px;
+      border-radius:999px;
+    }
+
+    .bar-focus{width:84%; background:var(--green);}
+    .bar-voice{width:76%; background:var(--blue);}
+    .bar-math{width:69%; background:var(--gold);}
+    .bar-help{width:32%; background:var(--pink);}
+
+    .notice{
+      background:rgba(117,210,122,.08);
+      border:1px solid rgba(117,210,122,.2);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .safety{
+      background:rgba(255,143,177,.08);
+      border:1px solid rgba(255,143,177,.2);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .footer{
+      margin-top:40px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      text-align:center;
+    }
+
+    @media (max-width:980px){
+      .hero,.grid-4,.grid-3,.grid-2,.mini-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="brand">SSGPT6 Kids Math Arena</div>
+      <nav class="nav-links">
+        <a href="kids-platform.html">Home</a>
+        <a href="kids-dashboard.html">Dashboard</a>
+        <a href="kids-avatar-helper.html">Avatar Helper</a>
+        <a href="#arena">Math Arena</a>
+        <a href="#curriculum">Curriculum</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div class="card">
+        <span class="badge">Voice Math • Curriculum Games • AI Sleeping Agent Support</span>
+        <h1>Math Arena for All Kids, with Voice Questions, Voice Answers, and Automatic Learning Help</h1>
+        <p class="muted">
+          The SSGPT6 Kids Math Arena is a curriculum-based educational math platform with
+          cartoon-style creativity, voice activation, voice recognition, voice commands,
+          AI-generated question flow, and automatic help when a child gets stuck.
+        </p>
+        <p class="muted">
+          It supports school learning, extra learning, different types of kids,
+          and structured roles for teachers, assistant teachers, principals, supervisors, and students.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#arena">Start Math Session</a>
+          <a class="btn btn-secondary" href="#voice">Open Voice Mode</a>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini">
+            <div class="mini-title">Today’s Math Goal</div>
+            <div class="mini-value">20 Min</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Voice Mode</div>
+            <div class="mini-value">Active</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Curriculum</div>
+            <div class="mini-value">School + Extra</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">AI Help</div>
+            <div class="mini-value">Always Ready</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <h2 style="margin-top:0;color:var(--gold);font-size:1.5rem;">Live Learning Roles</h2>
+        <span class="pill pill-blue">Teacher</span>
+        <span class="pill pill-green">Assistant Teacher</span>
+        <span class="pill pill-pink">Principal</span>
+        <span class="pill pill-purple">Supervisor</span>
+
+        <ul class="flow" style="margin-top:14px;">
+          <li>👩‍🏫 Teacher can hear and review student progress</li>
+          <li>🧑‍🏫 Assistant teacher can support small groups</li>
+          <li>🏫 Principal can monitor overall learning summaries</li>
+          <li>🧭 Supervisor can review curriculum and support quality</li>
+        </ul>
+
+        <p class="muted">
+          The child still learns independently first, with AI help handling routine stuck moments.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="arena">
+      <h2>Math Arena Live Session</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Voice Question Round</h3>
+          <div class="arena-box">
+            <div class="question">Avatar asks: “What is 8 + 4?”</div>
+            <p class="muted">
+              Child answers by voice. The system recognizes the answer, checks it,
+              and either celebrates success or offers a small hint.
+            </p>
+          </div>
+
+          <div class="arena-box">
+            <div class="question">Avatar asks: “Which shape has 3 sides?”</div>
+            <p class="muted">
+              The child can answer aloud, ask for a hint, or say “repeat”.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Real-Time Learning Signals</h3>
+
+          <p>Focus Level</p>
+          <div class="progress"><div class="progress-bar bar-focus"></div></div>
+
+          <p style="margin-top:16px;">Voice Recognition Success</p>
+          <div class="progress"><div class="progress-bar bar-voice"></div></div>
+
+          <p style="margin-top:16px;">Math Mastery Growth</p>
+          <div class="progress"><div class="progress-bar bar-math"></div></div>
+
+          <p style="margin-top:16px;">Help Needed</p>
+          <div class="progress"><div class="progress-bar bar-help"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="voice">
+      <h2>Voice Activation, Recognition, and Commands</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <span class="emoji">🎙</span>
+          <h3>Voice Activation</h3>
+          <p>Kids can say: “Start math”, “Ask me”, “Repeat”, “Help me”, or “Next question”.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🗣</span>
+          <h3>Voice Recognition</h3>
+          <p>The platform recognizes spoken answers for basic math, shapes, counting, and logic questions.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🤖</span>
+          <h3>Voice Commands</h3>
+          <p>The AI helper responds with hints, easier versions, encouragement, and read-back support.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="curriculum">
+      <h2>School Curriculum + Extra Educational Programs</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>School Educational Curriculum</h3>
+          <ul class="list">
+            <li>counting and number sense</li>
+            <li>addition and subtraction</li>
+            <li>multiplication and division basics</li>
+            <li>shapes and geometry</li>
+            <li>patterns and sequences</li>
+            <li>measurement and time</li>
+            <li>logic and problem solving</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Extra Learning Programs</h3>
+          <ul class="list">
+            <li>cartoon math story missions</li>
+            <li>creative puzzle building</li>
+            <li>math art and shape design</li>
+            <li>team-based quiz games</li>
+            <li>challenge mode for advanced learners</li>
+            <li>easy mode for kids needing slower steps</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Cartoon Creation + Creative Learning</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <span class="emoji">🎨</span>
+          <h3>Shape Art</h3>
+          <p>Kids create pictures using circles, triangles, squares, and patterns.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">📺</span>
+          <h3>Cartoon Math Stories</h3>
+          <p>Avatar characters teach math through short cartoon-style missions.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🧩</span>
+          <h3>Puzzle Creativity</h3>
+          <p>Children solve visual logic puzzles with colorful game elements.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🏗</span>
+          <h3>Build & Count</h3>
+          <p>Kids build towers, patterns, and objects using number-based challenges.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Support for All Kinds of Kids</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <h3>Beginner Kids</h3>
+          <p>Simple questions, slower speaking, repeated hints, and visual examples.</p>
+        </div>
+        <div class="tile">
+          <h3>Average Learners</h3>
+          <p>Standard grade-level flow with balanced questions and mixed activities.</p>
+        </div>
+        <div class="tile">
+          <h3>Advanced Kids</h3>
+          <p>Challenge mode, harder patterns, extra reasoning, and deeper problem solving.</p>
+        </div>
+        <div class="tile">
+          <h3>Kids Who Struggle</h3>
+          <p>Step-by-step help, more repetition, easy mode, and calm avatar encouragement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>AI Sleeping Agent Automatic Support</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>What the AI does automatically</h3>
+          <ul class="list">
+            <li>detects repeated wrong answers</li>
+            <li>offers hints without waiting too long</li>
+            <li>changes to easier or harder questions automatically</li>
+            <li>generates extra practice when needed</li>
+            <li>saves voice answer success and progress</li>
+            <li>creates summaries for staff dashboards</li>
+          </ul>
+
+          <div class="notice" style="margin-top:16px;">
+            This is designed to reduce routine interruption so parents do not need to step in for every small math problem.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Safe Limits</h3>
+          <ul class="list">
+            <li>no raw audio recordings stored</li>
+            <li>no biometric voiceprints stored</li>
+            <li>no hidden surveillance</li>
+            <li>no unsafe autonomous decisions</li>
+            <li>major emotional, safety, or account issues still escalate to adults</li>
+          </ul>
+
+          <div class="safety" style="margin-top:16px;">
+            The AI helper supports learning. It does not replace adult responsibility for safety, health, or serious concerns.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Teacher, Assistant Teacher, Principal, and Supervisor Support</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <span class="emoji">👩‍🏫</span>
+          <h3>Teacher View</h3>
+          <p>Track live class performance, hear guided response flow, and review weak spots.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🧑‍🏫</span>
+          <h3>Assistant Teacher View</h3>
+          <p>Support smaller groups, repeat lessons, and help kids who need more practice.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🏫</span>
+          <h3>Principal View</h3>
+          <p>Review summary dashboards, usage patterns, and overall program quality.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🧭</span>
+          <h3>Supervisor View</h3>
+          <p>See curriculum coverage, extra resource usage, and long-term learning outcomes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Math Programs Included</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Core Math Program</h3>
+          <p>Numbers, operations, shapes, patterns, measurement, and grade-level practice.</p>
+        </div>
+        <div class="tile">
+          <h3>Creative Math Program</h3>
+          <p>Cartoon storytelling, puzzle creation, visual design, and fun mathematical art tasks.</p>
+        </div>
+        <div class="tile">
+          <h3>Extra Support Program</h3>
+          <p>Remedial practice, easier examples, guided repetition, and confidence-building help.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      SSGPT6 Kids Math Arena • Voice Math + Curriculum Games + AI Sleeping Agent Support • Powered by GNAIAAAC LLC
+    </div>
+
+  </main>
+</body>
+</html>

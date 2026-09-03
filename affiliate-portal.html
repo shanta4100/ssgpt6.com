@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SSGPT6 Affiliate Portal — Survival & Sovereign Network</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root{
+      --bg:#050910;
+      --panel:#0b1320;
+      --border:rgba(0,255,204,0.25);
+      --accent:#00ffcc;
+      --accent2:#00ace6;
+      --text:#e5f7ff;
+      --muted:#9fb6c8;
+      --danger:#ff4f7a;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    .container{
+      width:min(96%,1100px);
+      margin:40px auto 60px;
+    }
+    h1{
+      text-align:center;
+      letter-spacing:4px;
+      font-size:1.7rem;
+      color:var(--accent);
+      margin:0 0 6px;
+    }
+    .subtitle{
+      text-align:center;
+      font-size:0.85rem;
+      color:var(--muted);
+      margin-bottom:26px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+    .card{
+      background:var(--panel);
+      border-radius:14px;
+      border:1px solid var(--border);
+      padding:16px;
+      font-size:0.85rem;
+      display:flex;
+      flex-direction:column;
+      min-height:220px;
+    }
+    .card h2{
+      margin:0 0 8px;
+      font-size:1.1rem;
+      color:var(--accent2);
+      letter-spacing:2px;
+    }
+    .card p{
+      margin:0 0 10px;
+      color:#d8e7f3;
+      line-height:1.4;
+    }
+    .tag{
+      display:inline-block;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      font-size:0.7rem;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+    .input-row{
+      margin:8px 0;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    label{
+      font-size:0.78rem;
+      color:var(--muted);
+    }
+    input, textarea{
+      background:#050f18;
+      border:1px solid rgba(0,255,204,0.25);
+      border-radius:8px;
+      padding:7px 9px;
+      color:var(--text);
+      font-size:0.82rem;
+    }
+    textarea{min-height:80px;resize:vertical;}
+    .btn{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-size:0.8rem;
+      text-align:center;
+      text-decoration:none;
+    }
+    .btn-primary{
+      background:var(--accent2);
+      color:#021015;
+    }
+    .btn-secondary{
+      background:#050f18;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.18);
+    }
+    .smart-box{
+      margin-top:10px;
+      padding:10px;
+      border-radius:10px;
+      background:#050f18;
+      border:1px solid rgba(0,255,204,0.3);
+      font-size:0.8rem;
+      display:none;
+    }
+    .smart-box code{
+      color:var(--accent);
+      word-break:break-all;
+    }
+    .legal{
+      margin-top:26px;
+      font-size:0.75rem;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding-top:12px;
+    }
+    .note{
+      font-size:0.78rem;
+      color:var(--muted);
+      margin-top:6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AFFILIATE & LIAISON PORTAL</h1>
+    <p class="subtitle">SURVIVAL REVENUE · GLOBAL NETWORK · SOVEREIGN ARCHITECTURE</p>
+
+    <div class="grid">
+      <!-- LEFT: PROGRAM OVERVIEW -->
+      <div class="card">
+        <span class="tag">PROGRAM OVERVIEW</span>
+        <h2>SURVIVAL BRIDGE · DAILY EARN</h2>
+        <p>
+          The SSGPT6 Affiliate & Liaison Network connects AI‑driven media, fashion, travel,
+          and infrastructure tools to global audiences. As an affiliate or liaison, you share
+          curated links and content while GNAIAAAC LLC manages the platform architecture.
+        </p>
+        <p>
+          This program is designed for creators, community leaders, and professionals who want
+          to earn from AI‑powered content, Tiny AI tools, and global deals without managing
+          complex infrastructure.
+        </p>
+        <p class="note">
+          Commission structures, payout methods, and partner programs (AliExpress, SHEIN,
+          Home Depot, etc.) are handled through external affiliate networks.
+        </p>
+      </div>
+
+      <!-- RIGHT: SMART LINK GENERATOR -->
+      <div class="card">
+        <span class="tag">SMART LINK · REFERRAL ID</span>
+        <h2>GENERATE YOUR SMART LINK</h2>
+        <p>
+          Enter your Affiliate ID to generate a unique tracking link that routes visitors to
+          the SSGPT6 consultation and discovery page.
+        </p>
+
+        <div class="input-row">
+          <label for="affiliateId">Affiliate / Liaison ID</label>
+          <input id="affiliateId" placeholder="Example: SENTINEL001">
+        </div>
+
+        <button class="btn btn-primary" onclick="generateSmartLink()">Generate Smart Link</button>
+
+        <div id="smartLinkBox" class="smart-box">
+          <p>Your Smart Link:</p>
+          <code id="smartLink"></code>
+          <p class="note">Share this link in your content, messages, or campaigns.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="margin-top:32px;font-size:1.05rem;letter-spacing:2px;color:var(--accent2);">
+      APPLICATION FORM · LIAISON / AFFILIATE
+    </h2>
+    <div class="card" style="margin-top:10px;">
+      <p>
+        If you would like to be considered for closer collaboration (institutional liaison,
+        regional partner, or strategic affiliate), you can submit your details below.
+      </p>
+
+      <div class="input-row">
+        <label for="name">Full Name</label>
+        <input id="name" placeholder="Your name">
+      </div>
+
+      <div class="input-row">
+        <label for="email">Email</label>
+        <input id="email" placeholder="you@example.com">
+      </div>
+
+      <div class="input-row">
+        <label for="region">Region / City</label>
+        <input id="region" placeholder="City, Country">
+      </div>
+
+      <div class="input-row">
+        <label for="message">Brief Introduction & Focus</label>
+        <textarea id="message" placeholder="Tell us about your work, audience, or region."></textarea>
+      </div>
+
+      <button class="btn btn-secondary" type="button">Submit (Static Demo)</button>
+      <p class="note">
+        This is a static demonstration form. Final submission and processing will be handled
+        through secure channels managed by GNAIAAAC LLC.
+      </p>
+    </div>
+
+    <div class="legal">
+      <p>
+        SSGPT6 and GNAIAAAC LLC operate as a digital information, media, and affiliate referral platform.
+        We do not process affiliate payouts directly. All commissions and payments are handled by external
+        affiliate networks and partner platforms according to their terms.
+      </p>
+      <p style="margin-top:6px;">
+        Smart Links are used for referral tracking and discovery only. They do not represent financial
+        guarantees, investment products, or employment offers.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function generateSmartLink(){
+      const id = document.getElementById('affiliateId').value.trim();
+      const box = document.getElementById('smartLinkBox');
+      const output = document.getElementById('smartLink');
+
+      if(!id){
+        output.innerText = 'Please enter a valid Affiliate / Liaison ID.';
+        box.style.display = 'block';
+        return;
+      }
+
+      const link = `https://ssgpt6.com/consult.html?ref=${encodeURIComponent(id)}`;
+      output.innerText = link;
+      box.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

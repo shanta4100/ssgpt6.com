@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 Kids Team Missions</title>
+  <style>
+    :root{
+      --bg:#07111f;
+      --panel:#0f1d33;
+      --panel2:#142743;
+      --panel3:#1a3154;
+      --text:#eef4ff;
+      --muted:#b9c7dd;
+      --gold:#f4c542;
+      --blue:#6ec1ff;
+      --green:#75d27a;
+      --pink:#ff8fb1;
+      --purple:#b99cff;
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#07111f 0%, #0c1930 100%);
+      color:var(--text);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(7,17,31,.95);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 20px;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      font-size:1.1rem;
+      font-weight:700;
+      color:var(--gold);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:var(--text);
+      text-decoration:none;
+      font-size:.95rem;
+    }
+
+    .nav-links a:hover{color:var(--gold)}
+
+    .wrap{
+      max-width:1200px;
+      margin:auto;
+      padding:24px 20px 60px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:20px;
+      margin-top:10px;
+    }
+
+    .card,.tile,.team-panel{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:0 14px 40px rgba(0,0,0,.22);
+      padding:22px;
+    }
+
+    .team-panel{
+      background:var(--panel3);
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(2rem,4vw,3rem);
+      color:var(--gold);
+      line-height:1.08;
+    }
+
+    .section{
+      margin-top:28px;
+    }
+
+    .section h2{
+      color:var(--gold);
+      margin:0 0 12px;
+      font-size:1.8rem;
+    }
+
+    .muted{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(244,197,66,.12);
+      border:1px solid rgba(244,197,66,.28);
+      color:var(--gold);
+      font-weight:700;
+      font-size:.88rem;
+      margin-bottom:14px;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:13px 18px;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(145deg,var(--gold),#ddb031);
+      color:#111;
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .tile h3,.card h3,.team-panel h3{
+      margin-top:0;
+      margin-bottom:8px;
+    }
+
+    .tile p,.card p,.tile li,.card li,.team-panel p,.team-panel li{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .emoji{
+      font-size:1.8rem;
+      display:block;
+      margin-bottom:10px;
+    }
+
+    .list{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .mini{
+      background:var(--panel2);
+      border-radius:14px;
+      padding:16px;
+      text-align:center;
+    }
+
+    .mini-title{
+      color:var(--muted);
+      font-size:.9rem;
+      margin-bottom:6px;
+    }
+
+    .mini-value{
+      font-size:1.3rem;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .flow{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .flow li{
+      background:var(--panel2);
+      border-radius:12px;
+      padding:12px 14px;
+      margin-bottom:10px;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+      margin-right:8px;
+      margin-bottom:8px;
+    }
+
+    .pill-blue{background:rgba(110,193,255,.14); color:var(--blue);}
+    .pill-green{background:rgba(117,210,122,.14); color:var(--green);}
+    .pill-pink{background:rgba(255,143,177,.14); color:var(--pink);}
+    .pill-purple{background:rgba(185,156,255,.14); color:var(--purple);}
+
+    .mission-box{
+      background:var(--panel2);
+      border-radius:16px;
+      padding:18px;
+      margin-top:12px;
+    }
+
+    .notice{
+      background:rgba(117,210,122,.08);
+      border:1px solid rgba(117,210,122,.2);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .safety{
+      background:rgba(255,143,177,.08);
+      border:1px solid rgba(255,143,177,.2);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .footer{
+      margin-top:40px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      text-align:center;
+    }
+
+    @media (max-width:980px){
+      .hero,.grid-4,.grid-3,.grid-2,.mini-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="brand">SSGPT6 Kids Team Missions</div>
+      <nav class="nav-links">
+        <a href="kids-platform.html">Home</a>
+        <a href="kids-dashboard.html">Dashboard</a>
+        <a href="kids-avatar-helper.html">Avatar Helper</a>
+        <a href="#missions">Missions</a>
+        <a href="#teams">Teams</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div class="card">
+        <span class="badge">Teamwork • Communication • Shared Learning • AI Support</span>
+        <h1>Kids Team Missions for Learning, Leadership, and Collaboration</h1>
+        <p class="muted">
+          The SSGPT6 Kids Team Missions platform helps children learn together through
+          shared educational missions, teamwork challenges, guided communication, and
+          avatar-supported collaboration.
+        </p>
+        <p class="muted">
+          Kids can work in pairs, small groups, class teams, or family teams while the
+          AI Sleeping Agent helps keep missions organized, fair, and supportive.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#missions">Start Team Mission</a>
+          <a class="btn btn-secondary" href="#teams">Open Team Builder</a>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini">
+            <div class="mini-title">Mission Type</div>
+            <div class="mini-value">Team Learning</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Players</div>
+            <div class="mini-value">2–6</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">AI Support</div>
+            <div class="mini-value">Active</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Goal</div>
+            <div class="mini-value">Learn Together</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-panel">
+        <h2 style="margin-top:0;color:var(--gold);font-size:1.5rem;">AI Team Mission Helper</h2>
+
+        <span class="pill pill-blue">Group Builder</span>
+        <span class="pill pill-green">Hint Support</span>
+        <span class="pill pill-pink">Fair Turn System</span>
+        <span class="pill pill-purple">Progress Tracking</span>
+
+        <ul class="flow" style="margin-top:14px;">
+          <li>🤝 Builds balanced teams</li>
+          <li>🧠 Gives hints when the group gets stuck</li>
+          <li>🎙 Supports safe voice turn-taking</li>
+          <li>📊 Saves group progress automatically</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="missions">
+      <h2>Mission Types</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <span class="emoji">🔬</span>
+          <h3>Science Team Mission</h3>
+          <p>Groups solve science problems together through experiments, clues, and observation tasks.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🧮</span>
+          <h3>Math Team Mission</h3>
+          <p>Teams solve puzzles, count patterns, and complete shared problem-solving rounds.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🌍</span>
+          <h3>History Team Mission</h3>
+          <p>Groups build timelines, solve history mysteries, and explore civilizations together.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">💻</span>
+          <h3>Coding Team Mission</h3>
+          <p>Teams arrange logic steps, solve loops, and guide characters through coding challenges.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="teams">
+      <h2>How Teams Work</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Team Structure</h3>
+          <ul class="list">
+            <li>pair mode</li>
+            <li>small group mode</li>
+            <li>classroom team mode</li>
+            <li>family team mode</li>
+            <li>mixed skill support</li>
+            <li>turn-taking and role rotation</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Learning Roles for Kids</h3>
+          <ul class="list">
+            <li>reader</li>
+            <li>explainer</li>
+            <li>solver</li>
+            <li>builder</li>
+            <li>timekeeper</li>
+            <li>team encourager</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Example Team Mission Flow</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Step 1 — Mission Start</h3>
+          <p>The avatar introduces the challenge and gives each child a simple role.</p>
+        </div>
+        <div class="tile">
+          <h3>Step 2 — Shared Problem Solving</h3>
+          <p>Kids discuss clues, answer questions, and build the solution together.</p>
+        </div>
+        <div class="tile">
+          <h3>Step 3 — Reflection</h3>
+          <p>The platform celebrates teamwork and saves what the group learned.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Sample Mission Cards</h2>
+      <div class="grid-3">
+        <div class="mission-box">
+          <h3 style="margin-top:0;">Mission: Save the Garden</h3>
+          <p class="muted">Science team mission about plants, water, sunlight, and habitats.</p>
+        </div>
+        <div class="mission-box">
+          <h3 style="margin-top:0;">Mission: Build the Bridge</h3>
+          <p class="muted">Math and logic team mission using shapes, counting, and structure choices.</p>
+        </div>
+        <div class="mission-box">
+          <h3 style="margin-top:0;">Mission: Timeline Detectives</h3>
+          <p class="muted">History team mission to place events in the correct order.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Skills Kids Build in Team Missions</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <span class="emoji">🗣️</span>
+          <h3>Communication</h3>
+          <p>Learn to explain, listen, and share ideas clearly.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🤝</span>
+          <h3>Cooperation</h3>
+          <p>Practice working with others toward one learning goal.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🌟</span>
+          <h3>Leadership</h3>
+          <p>Take turns guiding and supporting the team.</p>
+        </div>
+        <div class="tile">
+          <span class="emoji">🧩</span>
+          <h3>Problem Solving</h3>
+          <p>Use shared thinking to solve puzzles and missions together.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Support for Different Kinds of Kids</h2>
+      <div class="grid-4">
+        <div class="tile">
+          <h3>Quiet Kids</h3>
+          <p>Smaller speaking turns, gentle prompts, and low-pressure participation.</p>
+        </div>
+        <div class="tile">
+          <h3>Kids Who Need Support</h3>
+          <p>Extra hints, easier sub-tasks, and encouragement from the avatar helper.</p>
+        </div>
+        <div class="tile">
+          <h3>Strong Learners</h3>
+          <p>Challenge tasks and leadership rotation opportunities.</p>
+        </div>
+        <div class="tile">
+          <h3>Mixed Groups</h3>
+          <p>Balanced team roles so every child can contribute safely and meaningfully.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>AI Sleeping Agent Automatic Support</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>What the AI does automatically</h3>
+          <ul class="list">
+            <li>creates balanced teams</li>
+            <li>assigns simple rotating roles</li>
+            <li>detects when a team is stuck</li>
+            <li>offers hints and easier next steps</li>
+            <li>tracks turn-taking and participation</li>
+            <li>saves mission progress and team reports</li>
+          </ul>
+
+          <div class="notice" style="margin-top:16px;">
+            This helps adults by handling routine mission organization and basic learning support automatically.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Important safety rules</h3>
+          <ul class="list">
+            <li>no harmful competition pressure</li>
+            <li>no dark patterns</li>
+            <li>no manipulative ranking systems</li>
+            <li>no hidden recording</li>
+            <li>major behavior, safety, or account issues still go to adults</li>
+          </ul>
+
+          <div class="safety" style="margin-top:16px;">
+            Team missions are for safe learning and collaboration, not stress or unsafe social pressure.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Parent, Teacher, and School Support</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Parent Summary</h3>
+          <p>See teamwork growth, favorite missions, and completion history.</p>
+        </div>
+        <div class="tile">
+          <h3>Teacher Summary</h3>
+          <p>Track participation, group balance, mission outcomes, and support needs.</p>
+        </div>
+        <div class="tile">
+          <h3>School Summary</h3>
+          <p>Review curriculum coverage, collaboration growth, and team learning trends.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      SSGPT6 Kids Team Missions • Collaboration + Leadership + Learning • Powered by GNAIAAAC LLC
+    </div>
+
+  </main>
+</body>
+</html>

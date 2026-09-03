@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 PLAY · Membership Subscription</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Complete Membership</h1>
+      <div class="tagline">Unlock full access to SSGPT6 PLAY.</div>
+    </header>
+
+    <div class="section">
+      <h2>Membership Details</h2>
+      <div class="panel">
+        <p class="muted">
+          Subscription is optional. No financial commitment is required to try the platform.
+          Continued access beyond the free session requires an active membership.
+        </p>
+        <form class="form-row">
+          <input type="email" placeholder="Email address" required />
+          <input type="text" placeholder="Full name (optional)" />
+          <select required>
+            <option value="">Select membership type</option>
+            <option>Individual</option>
+            <option>Family</option>
+            <option>Institution</option>
+          </select>
+          <label class="notice">
+            <input type="checkbox" required />
+            I confirm that I have read and agree to the membership terms and email communication policy.
+          </label>
+          <div class="notice">
+            Your email will be used only for communication related to SSGPT6. We do not sell or share personal data.
+          </div>
+          <button type="submit" class="btn">Activate Membership</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+.access-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  font-size:1.6rem;
+  background:#111;
+  color:#00ffcc;
+  border:1px solid rgba(0,255,204,0.4);
+  border-radius:50%;
+  width:52px;
+  height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:9999;
+}
+
+.voice-panel{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  background:#050910;
+  color:#e5f7ff;
+  border:1px solid rgba(0,255,204,0.35);
+  border-radius:10px;
+  padding:14px 16px;
+  font-size:0.85rem;
+  max-width:260px;
+  display:none;
+  z-index:9999;
+}
+.voice-panel.active{display:block;}

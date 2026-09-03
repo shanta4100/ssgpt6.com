@@ -1,0 +1,17 @@
+<div style="background:#000; padding:40px; text-align:center; color:#d4af37; font-family:monospace;">
+    <h2>AMPLIFIER BROADCAST SIMULATION</h2>
+    <p>> INITIALIZING SIGNAL...</p>
+    <div style="height:3px; background:#111; margin:20px auto; width:80%;">
+        <div id="pulse" style="height:100%; width:0%; background:#00e5ff; transition:width 0.4s;"></div>
+    </div>
+    <p>> SYNC: 4/4 NODES ONLINE</p>
+    <p>> STATUS: DIGITAL PROPAGATION ACTIVE</p>
+</div>
+
+<script>
+setInterval(()=>{
+    let p=document.getElementById('pulse');
+    let w=parseInt(p.style.width)||0;
+    p.style.width=(w>=100?0:w+20)+'%';
+},800);
+</script>

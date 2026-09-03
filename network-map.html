@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSGPT6 | Network Amplification Map</title>
+    <style>
+        :root { --bg: #010409; --gold: #c7a85a; --cyan: #00ffcc; --magenta: #ff00ff; }
+        body { margin: 0; font-family: 'Courier New', Courier, monospace; background: var(--bg); color: #fff; }
+        .map-container { max-width: 1000px; margin: 50px auto; padding: 40px; border: 1px solid #30363d; background: #0d1117; border-radius: 12px; }
+        .header { text-align: center; border-bottom: 1px solid var(--cyan); padding-bottom: 20px; margin-bottom: 40px; }
+        .node-network { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+        .node { width: 250px; padding: 20px; border: 1px solid var(--gold); text-align: center; position: relative; background: #000; }
+        .connector { width: 2px; height: 30px; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+        .label { font-size: 0.7rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+        .desc { font-size: 0.85rem; color: #8b949e; margin-top: 10px; }
+        .satellite-status { position: absolute; top: -10px; right: -10px; background: var(--magenta); color: #fff; font-size: 0.6rem; padding: 2px 8px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="map-container">
+    <div class="header">
+        <h1 style="margin:0; letter-spacing:5px;">GNAIAAAC LLC</h1>
+        <p style="color:var(--gold);">GLOBAL NETWORK AMPLIFICATION MAP v1.0</p>
+    </div>
+
+    <div class="node-network">
+        <div class="node" style="border-color: var(--magenta);">
+            <div class="satellite-status">D2D LINK ACTIVE</div>
+            <div class="label">Primary Uplink</div>
+            <strong>Starlink / D2D Satellite</strong>
+            <p class="desc">Global data bridge for remote energy & water assets.</p>
+        </div>
+
+        <div class="connector"></div>
+
+        <div class="node" style="border-color: var(--cyan);">
+            <div class="label">Edge Intelligence</div>
+            <strong>Tiny AI Neural Nodes</strong>
+            <p class="desc">Local logic processing to minimize grid latency.</p>
+        </div>
+
+        <div class="connector"></div>
+
+        <div class="node">
+            <div class="label">Energy Source</div>
+            <strong>Universal Harvesting</strong>
+            <p class="desc">Multi-source capture: Solar, Kinetic, Thermal.</p>
+        </div>
+    </div>
+
+    <div style="margin-top: 50px; padding: 20px; border-top: 1px solid #30363d; font-size: 0.8rem; line-height: 1.6;">
+        <p><strong style="color:var(--cyan);">SYSTEM LOGIC:</strong> The <strong>AI Sleeping Agent</strong> monitors these nodes in a "Black Box" environment. If Node 03 (Energy) drops below threshold, Node 01 (Satellite) triggers an emergency reroute of local resources to preserve critical water infrastructure.</p>
+    </div>
+</div>
+
+</body>
+</html>

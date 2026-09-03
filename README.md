@@ -1,67 +1,42 @@
-#
+# GNAIAAAC LLC — AI Learning Ecosystem & Sleeping Agent Framework
 
-# >>>>> HOW TO FIX THE 'ENOTEMPTY' INSTALLATION
+Welcome to the official documentation repository for the GNAIAAAC AI Learning Ecosystem.
 
-#
+This repository contains:
+- AI Learning Path (Stages 1–6)
+- Sleeping Agent Black Box Framework
+- Governance & Safety Charters
+- Deployment Blueprints
+- Curriculum Maps
+- Licensing & Compliance Documents
+- Community Hub Manuals
+- Technical Specifications
 
-#
+## Purpose
+GNAIAAAC LLC provides a human‑centered, ethical, globally deployable AI learning and automation platform.  
+We are a **technology vendor**, not a school.  
+Organizations purchasing our license must obtain their own accreditation from their education department.
 
-###
+## Core Principles
+- Human decides  
+- AI assists  
+- System improves  
+- Society benefits  
 
-#
+## Key Components
+- AI Learning Path  
+- Sleeping Agent Architecture  
+- Teacher Certification Framework  
+- National AI Literacy Standard  
+- Workforce Transformation Plan  
+- Community Hub Deployment Model  
 
--# You are repeatedly seeing an `ENOTEMPTY` error
+## Legal Notice
+All materials in this repository are © 2026 GNAIAAAC LLC.  
+This documentation is conceptual and technical.  
+It does not imply governmental authority, accreditation, or regulatory jurisdiction.
 
--#
-
-# This error is **NOT** a code problem. It is an
-
--#
-
-- # **No changes I make to the code will fix this.*
-
-+# If you are seeing an `ENOTEMPTY` error, your lo +#
-
-directory is in a corrupted state. This is not
-
---#
-
-To fix this, you **MUST** run the following com
-
-+# To fix this, you MUST run the following command
-
-#
-
-# 1. `rm -rf node_modules`
-
-#
-
---# 2.
-
-`rm -f package-lock.json`(or `del package-
-
-+# 2.
-
-`rm -f pnpm-lock.yaml`(or `del pnpm-lock.y
-
-#
-
-# 3.
-
-`pnpm install`
-
-#
-
--# You must use `pnpm install`.
-
--#
-
-# If you do not have `pnpm installed, you can in
-
--#
-
--# The project is configured to block `npm install
-
-+# You must use pnpm install`. This project is co +#
-
-to prevent this error from happening.
+## Contact
+Founder & Principal Architect: **Arifur Rahman Shanta**  
+Email: [your email]  
+Website: [your website]

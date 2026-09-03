@@ -1,0 +1,34 @@
+name: GNAI Intelligence Sync
+
+on:
+  schedule:
+    - cron: '0 */12 * * *' # Runs every 12 hours
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: pip install requests
+
+      - name: Execute Intelligence Script
+        env:
+          GNAI_API_KEY: ${{ secrets.GNAI_API_KEY }}
+        run: python scripts/fetch_intel.py
+
+      - name: Commit and Push Updates
+        run: |
+          git config --global user.name "GNAI-Bot"
+          git config --global user.email "bot@gnaiaaac.com"
+          git add data/intelligence_feed.json
+          git commit -m "Update Intelligence Node: $(date)"
+          git push

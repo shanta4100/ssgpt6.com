@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SSGPT6 Kids Learning Center</title>
+</head>
+
+<body style="margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b1a2f;color:white;">
+
+<!-- MAIN -->
+<div id="kidsHome" style="text-align:center;padding:40px;min-height:100vh;">
+
+<h1 style="color:gold;">SSGPT6 Kids Learning Center</h1>
+<p>Safe AI Learning • Reading • Games • Avatar Teacher</p>
+
+<div style="margin-top:25px;">
+<button onclick="startKidsMode()" style="
+padding:12px 25px;
+background:gold;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;">
+Start Kids Mode
+</button>
+
+<a href="parent-dashboard.html" style="
+display:inline-block;
+margin-left:10px;
+padding:12px 25px;
+background:#1d3f6b;
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;">
+Parent Dashboard
+</a>
+</div>
+
+<!-- STATUS -->
+<div style="margin:30px auto 0;max-width:500px;background:#122a45;padding:20px;border-radius:10px;">
+<h3 style="color:gold;margin-top:0;">Kids Session Status</h3>
+<p id="statusText">Waiting to start</p>
+<p id="timerText">Session Timer: Not Started</p>
+<p id="schoolText"></p>
+</div>
+
+<!-- SUBJECTS -->
+<h2 style="margin-top:50px;color:gold;">Learning Subjects</h2>
+
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:20px;">
+
+<div style="background:#122a45;padding:20px;border-radius:10px;width:220px;">
+<h3 style="color:gold;">Reading</h3>
+<p>Stories, reading time</p>
+</div>
+
+<div style="background:#122a45;padding:20px;border-radius:10px;width:220px;">
+<h3 style="color:gold;">Math</h3>
+<p>Counting, logic</p>
+</div>
+
+<div style="background:#122a45;padding:20px;border-radius:10px;width:220px;">
+<h3 style="color:gold;">Science</h3>
+<p>Experiments, discovery</p>
+</div>
+
+<div style="background:#122a45;padding:20px;border-radius:10px;width:220px;">
+<h3 style="color:gold;">History</h3>
+<p>World stories</p>
+</div>
+
+<div style="background:#122a45;padding:20px;border-radius:10px;width:220px;">
+<h3 style="color:gold;">Coding</h3>
+<p>Logic & basics</p>
+</div>
+
+<div style="background:#122a45;padding:20px;border-radius:10px;width:220px;">
+<h3 style="color:gold;">Cosmology</h3>
+<p>Space & planets</p>
+</div>
+
+</div>
+
+<!-- SAFETY -->
+<section style="background:#05070f;color:#e6e6e6;padding:30px 20px;margin-top:50px;border-radius:10px;">
+<h2 style="color:white;">Child Safety Policy</h2>
+<p>Parent permission required • 1 hour limit • no external access</p>
+</section>
+
+</div>
+
+<!-- LOCK SCREEN -->
+<div id="lockScreen" style="display:none;position:fixed;inset:0;background:black;color:white;z-index:9999;align-items:center;justify-content:center;text-align:center;">
+<div>
+<h2 style="color:gold;">Access Locked</h2>
+<p id="lockMessage"></p>
+<button onclick="parentUnlock()" style="padding:12px 20px;background:gold;border:none;border-radius:8px;">
+Parent Unlock
+</button>
+</div>
+</div>
+
+<script>
+// =====================
+// SYSTEM KEYS
+// =====================
+const PARENT_PIN = "1234";
+const lockUntilKey = "child_lock_until";
+const sessionStartKey = "child_session_start";
+const schoolModeKey = "school_mode";
+const kidsLockedKey = "kids_locked";
+const sessionMinutesKey = "kids_session_minutes";
+const cooldownHoursKey = "kids_cooldown_hours";
+
+let timerInterval;
+let autoEndTimeout;
+
+// =====================
+// GET SETTINGS
+// =====================
+function getSessionTime(){
+return (Number(localStorage.getItem(sessionMinutesKey)||60))*60000;
+}
+
+function getCooldownTime(){
+return (Number(localStorage.getItem(cooldownHoursKey)||4))*3600000;
+}
+
+// =====================
+// STATUS
+// =====================
+function updateStatus(){
+const now = Date.now();
+const lockUntil = localStorage.getItem(lockUntilKey);
+const sessionStart = localStorage.getItem(sessionStartKey);
+const schoolMode = localStorage.getItem(schoolModeKey)==="true";
+const parentLock = localStorage.getItem(kidsLockedKey)==="true";
+
+document.getElementById("schoolText").innerText =
+schoolMode ? "School Mode ON" : "School Mode OFF";
+
+if(parentLock){
+document.getElementById("statusText").innerText="Locked by Parent";
+return;
+}
+
+if(lockUntil && now < lockUntil){
+document.getElementById("statusText").innerText="Locked";
+return;
+}
+
+if(sessionStart){
+document.getElementById("statusText").innerText="Active";
+}else{
+document.getElementById("statusText").innerText="Ready";
+}
+}
+
+// =====================
+// START
+// =====================
+function startKidsMode(){
+
+if(localStorage.getItem(kidsLockedKey)==="true"){
+alert("Locked by parent");
+return;
+}
+
+if(localStorage.getItem(schoolModeKey)==="true"){
+let h=new Date().getHours();
+if(h>=8 && h<=15){
+alert("School time");
+return;
+}
+}
+
+localStorage.setItem(sessionStartKey,Date.now());
+
+timerInterval=setInterval(updateStatus,1000);
+
+autoEndTimeout=setTimeout(()=>{
+endSession();
+},getSessionTime());
+
+alert("Started");
+}
+
+// =====================
+// END SESSION
+// =====================
+function endSession(){
+localStorage.removeItem(sessionStartKey);
+
+let lockTime=Date.now()+getCooldownTime();
+localStorage.setItem(lockUntilKey,lockTime);
+
+showLock(lockTime);
+}
+
+// =====================
+// LOCK SCREEN
+// =====================
+function showLock(lockUntil){
+let mins=Math.ceil((lockUntil-Date.now())/60000);
+document.getElementById("lockMessage").innerText=
+"Come back later ("+mins+" min)";
+document.getElementById("lockScreen").style.display="flex";
+}
+
+// =====================
+// UNLOCK
+// =====================
+function parentUnlock(){
+let pin=prompt("Parent PIN:");
+if(pin===PARENT_PIN){
+localStorage.removeItem(lockUntilKey);
+localStorage.setItem(kidsLockedKey,"false");
+location.reload();
+}else{
+alert("Wrong PIN");
+}
+}
+
+// =====================
+// INIT
+// =====================
+window.onload=function(){
+updateStatus();
+setInterval(updateStatus,3000);
+};
+</script>
+
+</body>
+</html>

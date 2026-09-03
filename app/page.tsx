@@ -1,14 +1,17 @@
 export default function Home() {
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1>SSGPT6 — Simple AI for Real Life</h1>
-      <p>Built by GNAIAAAC LLC</p>
+    <main style={{ padding: 40, fontFamily: "Arial" }}>
+      <h1>SSGPT6 Automation Platform</h1>
+      <p>Status: Live Demo Environment</p>
 
-      <div style={{ marginTop: "2rem" }}>
-        <a href="/services">Explore Platform</a>
-        <br />
-        <a href="/projects">View Projects</a>
-      </div>
+      <h2>Available Routes</h2>
+      <ul>
+        <li><a href="/demo">Go to Demo</a></li>
+      </ul>
+
+      <p>
+        System is deployed for federal pilot evaluation.
+      </p>
     </main>
-  )
+  );
 }

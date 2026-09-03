@@ -1,0 +1,19 @@
+# career_climber_progression.py
+
+from career_climber_model import PlayerState, Tier
+
+
+def check_tier_up(state: PlayerState):
+    s = state.stats
+
+    if state.tier == Tier.STUDENT and s.study_xp >= 100:
+        state.tier = Tier.PROFESSIONAL
+        state.log.append("You graduated and became a Professional!")
+        s.skill_points += 1
+
+    elif state.tier == Tier.PROFESSIONAL and s.career_xp >= 200:
+        state.tier = Tier.TYCOON
+        state.log.append("You rose to Tycoon status!")
+        s.skill_points += 2
+
+    # Legacy is more open-ended; you can add a final “Legend” tier later.

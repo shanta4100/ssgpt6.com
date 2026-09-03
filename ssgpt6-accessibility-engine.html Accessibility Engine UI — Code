@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 ACCESSIBILITY ENGINE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #02030a;
+      --panel: #070b16;
+      --accent: #f2c94c;
+      --accent-soft: #9b51e0;
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+      --border: #1f2933;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #02030a 55%);
+      color: var(--text);
+    }
+    .page { max-width: 1200px; margin: auto; padding: 24px 16px 64px; }
+    header { padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    h1 { text-transform: uppercase; letter-spacing: 0.16em; font-size: 22px; margin: 0 0 8px; }
+    .tagline { font-size: 13px; color: var(--muted); }
+
+    .section { margin-top: 32px; }
+    .section h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .preset-row, .toggle-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #050814;
+      color: var(--text);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .btn-active {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .toggle input { width: 16px; height: 16px; }
+
+    .slider {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header>
+      <h1>Accessibility Engine</h1>
+      <div class="tagline">Universal access for every player, every device, every ability.</div>
+    </header>
+
+    <!-- PRESETS -->
+    <div class="section">
+      <h2>Quick Presets</h2>
+      <div class="panel">
+        <div class="preset-row">
+          <button class="btn btn-active">High Contrast</button>
+          <button class="btn">Low Motion</button>
+          <button class="btn">Dyslexia Mode</button>
+          <button class="btn">Color‑Blind</button>
+          <button class="btn">Screen Reader</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEXT & READING -->
+    <div class="section">
+      <h2>Reading & Text Support</h2>
+      <div class="panel">
+        <label class="label">Text Size</label>
+        <input type="range" min="12" max="24" value="16" class="slider" />
+
+        <label class="toggle"><input type="checkbox" /> Dyslexia‑friendly font</label>
+        <label class="toggle"><input type="checkbox" /> Increase letter spacing</label>
+        <label class="toggle"><input type="checkbox" /> Enable text‑to‑speech</label>
+      </div>
+    </div>
+
+    <!-- VISUAL ADJUSTMENTS -->
+    <div class="section">
+      <h2>Visual Adjustments</h2>
+      <div class="panel">
+        <label class="toggle"><input type="checkbox" /> High contrast mode</label>
+        <label class="toggle"><input type="checkbox" /> Reduce brightness</label>
+        <label class="toggle"><input type="checkbox" /> Color‑blind palette</label>
+        <label class="toggle"><input type="checkbox" /> Outline interactive elements</label>
+      </div>
+    </div>
+
+    <!-- MOTION & INTERACTION -->
+    <div class="section">
+      <h2>Motion & Interaction</h2>
+      <div class="panel">
+        <label class="toggle"><input type="checkbox" /> Reduce animations</label>
+        <label class="toggle"><input type="checkbox" /> Disable parallax effects</label>
+        <label class="toggle"><input type="checkbox" /> Slow interaction speed</label>
+        <label class="toggle"><input type="checkbox" /> Enable keyboard‑only navigation</label>
+      </div>
+    </div>
+
+    <!-- AUDIO & SPEECH -->
+    <div class="section">
+      <h2>Audio & Speech</h2>
+      <div class="panel">
+        <label class="label">Master Volume</label>
+        <input type="range" min="0" max="100" value="60" class="slider" />
+
+        <label class="toggle"><input type="checkbox" /> Subtitles always on</label>
+        <label class="toggle"><input type="checkbox" /> Simplified sound effects</label>
+        <label class="toggle"><input type="checkbox" /> Speech clarity mode</label>
+      </div>
+    </div>
+
+    <!-- SAVE / RESET -->
+    <div class="section">
+      <h2>Profile Controls</h2>
+      <div class="panel">
+        <button class="btn btn-active">Save Accessibility Profile</button>
+        <button class="btn">Reset to Default</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

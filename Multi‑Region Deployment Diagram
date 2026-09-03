@@ -1,0 +1,5 @@
+          [USA Primary Region]
+                /     \
+      [BD Edge Node]   [IN Edge Node]
+                \     /
+           [Global Load Balancer]

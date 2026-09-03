@@ -1,17 +1,26 @@
 {
-  "name": "ssgpt6.com",
+  "name": "ss6connect-oneos",
   "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "vercel-build": "pnpm install --no-frozen-lockfile && next build"
+  "description": "SS6CONNECT OneOS™ - Learning Platform for GNAIAAAC Quantum AI Automation University",
+  "author": "GNAIAAAC LLC",
+  "license": "MIT",
+  "engines": {
+    "node": "20.x"
   },
+  "main": "index.js",
   "dependencies": {
-    "next": "14.1.0",
-    "react": "18.3.0",
-    "react-dom": "18.3.0"
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "path": "^0.12.7",
+    "compression": "^1.7.4"
   },
-  "packageManager": "pnpm@7.33.0"
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "echo 'Static content ready for deployment'"
+  }
 }

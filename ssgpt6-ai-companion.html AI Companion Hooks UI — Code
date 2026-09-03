@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 AI COMPANION</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #02030a;
+      --panel: #070b16;
+      --accent: #f2c94c;
+      --accent-soft: #9b51e0;
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+      --border: #1f2933;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #02030a 55%);
+      color: var(--text);
+    }
+    .page { max-width: 1200px; margin: auto; padding: 24px 16px 64px; }
+    header { padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    h1 { text-transform: uppercase; letter-spacing: 0.16em; font-size: 22px; margin: 0 0 8px; }
+    .tagline { font-size: 13px; color: var(--muted); }
+
+    .section { margin-top: 32px; }
+    .section h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .mode-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #050814;
+      color: var(--text);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .btn-active {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .profile-card {
+      background: #050814;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .profile-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    .muted { font-size: 12px; color: var(--muted); }
+
+    .chat-box {
+      background: #050814;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      height: 180px;
+      overflow-y: auto;
+      margin-bottom: 12px;
+    }
+
+    .prompt-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .prompt {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--muted);
+      background: #050814;
+    }
+
+    .safety {
+      font-size: 11px;
+      color: var(--accent-soft);
+      margin-top: 6px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header>
+      <h1>AI Companion</h1>
+      <div class="tagline">Safe, guided, assistive AI for learning and creativity.</div>
+    </header>
+
+    <!-- MODE SELECTOR -->
+    <div class="section">
+      <h2>Select AI Mode</h2>
+      <div class="panel">
+        <div class="mode-row">
+          <button class="btn btn-active">Mentor</button>
+          <button class="btn">Learning</button>
+          <button class="btn">Story</button>
+          <button class="btn">Accessibility</button>
+          <button class="btn">Creator</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE CARD -->
+    <div class="section">
+      <h2>Companion Profile</h2>
+      <div class="panel">
+        <div class="profile-card">
+          <div class="profile-title">Mentor AI</div>
+          <div class="muted">Calm, supportive, and focused on helping you learn safely.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERACTION WINDOW -->
+    <div class="section">
+      <h2>Interaction Window</h2>
+      <div class="panel">
+        <div class="chat-box">
+          <div class="muted">Your AI companion will appear here with safe, guided responses.</div>
+        </div>
+        <div class="prompt-row">
+          <div class="prompt">Help me learn something new</div>
+          <div class="prompt">Explain this gently</div>
+          <div class="prompt">Give me a creative idea</div>
+          <div class="prompt">Tell a short story</div>
+        </div>
+        <div class="safety">Safe · No diagnosis · No personal data · No autonomy</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

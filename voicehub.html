@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 AI Voice Hub</title>
+  <meta name="description" content="AI voice messages recording hub for SSGPT6 customer communication and later review." />
+  <style>
+    :root{
+      --bg:#06101d;
+      --panel:#0d1d33;
+      --text:#ecf1f8;
+      --muted:#aab6c8;
+      --gold:#c7a85a;
+      --gold-dark:#ad8f45;
+      --line:rgba(255,255,255,0.08);
+      --max:900px;
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      background:linear-gradient(180deg,#040b14 0%, #06101d 45%, #081321 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .top-rainbow{
+      height:10px;
+      background:linear-gradient(90deg,#00d9ff,#00ffb3,#dfff4f,#ffbe3b,#ff6b57,#ff2e8e);
+    }
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
+      padding:38px 0 60px;
+    }
+    h1{
+      margin:0 0 14px;
+      color:var(--gold);
+      font-size:clamp(2.1rem,5vw,3.6rem);
+      text-align:center;
+    }
+    .intro{
+      text-align:center;
+      color:var(--muted);
+      max-width:760px;
+      margin:0 auto 28px;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:26px;
+      margin-bottom:22px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 20px;
+      border-radius:12px;
+      font-weight:800;
+      text-align:center;
+      border:1px solid transparent;
+      transition:.18s ease;
+      cursor:pointer;
+      font-family:Arial,Helvetica,sans-serif;
+      margin-right:10px;
+      margin-bottom:10px;
+    }
+    .gold{background:var(--gold);color:#111}
+    .gold:hover{background:var(--gold-dark)}
+    .outline{
+      border-color:rgba(199,168,90,0.4);
+      color:var(--gold);
+      background:transparent;
+    }
+    .recordings{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+    .record-item{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:12px;
+      padding:14px;
+    }
+    .small{
+      color:var(--muted);
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:.92rem;
+      margin-top:14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-rainbow"></div>
+
+  <div class="container">
+    <h1>AI Voice Messages Recording Hub</h1>
+    <p class="intro">
+      Customers can record voice messages through the browser. Messages can be played back later on the device/browser session. Full phone-connected voicemail requires backend telephony integration later.
+    </p>
+
+    <div class="card">
+      <button class="btn gold" id="startBtn">Start Recording</button>
+      <button class="btn outline" id="stopBtn" disabled>Stop Recording</button>
+      <a class="btn outline" href="/index.html">Back to Home</a>
+      <div class="small" id="statusText">Ready to record.</div>
+
+      <div class="recordings" id="recordingsList"></div>
+    </div>
+  </div>
+
+  <script>
+    let mediaRecorder;
+    let audioChunks = [];
+
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const statusText = document.getElementById('statusText');
+    const recordingsList = document.getElementById('recordingsList');
+
+    async function startRecording() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = event => {
+          if (event.data.size > 0) audioChunks.push(event.data);
+        };
+
+        mediaRecorder.onstop = () => {
+          const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+          const audioUrl = URL.createObjectURL(audioBlob);
+
+          const item = document.createElement('div');
+          item.className = 'record-item';
+          item.innerHTML = `
+            <strong style="display:block; margin-bottom:8px; color:#c7a85a;">Voice Message Saved</strong>
+            <audio controls src="${audioUrl}" style="width:100%;"></audio>
+          `;
+          recordingsList.prepend(item);
+
+          statusText.textContent = 'Recording saved. You can play it back below.';
+        };
+
+        mediaRecorder.start();
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        statusText.textContent = 'Recording in progress...';
+      } catch (error) {
+        statusText.textContent = 'Microphone access not available. Please allow microphone access and try again.';
+      }
+    }
+
+    function stopRecording() {
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+      }
+    }
+
+    startBtn.addEventListener('click', startRecording);
+    stopBtn.addEventListener('click', stopRecording);
+  </script>
+</body>
+</html>

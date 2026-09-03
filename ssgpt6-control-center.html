@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 · Control Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: #050814;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 13px;
+    }
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .card p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .btn-link {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #000;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <h1>SSGPT6 Control Center</h1>
+      <div class="tagline">Single entry point to all systems (UI only).</div>
+    </header>
+
+    <div class="section">
+      <h2>Public & Membership Flow</h2>
+      <div class="panel grid">
+        <div class="card">
+          <h3>Membership Portal</h3>
+          <p>Email capture + free 10‑minute access.</p>
+          <a href="index-membership.html" class="btn-link">Open</a>
+        </div>
+        <div class="card">
+          <h3>Free Play (Timed)</h3>
+          <p>10‑minute free session with lockout.</p>
+          <a href="free-play.html" class="btn-link">Open</a>
+        </div>
+        <div class="card">
+          <h3>Free Play Lockout</h3>
+          <p>Session ended → membership prompt.</p>
+          <a href="free-play-lockout.html" class="btn-link">Open</a>
+        </div>
+        <div class="card">
+          <h3>Subscription Page</h3>
+          <p>Membership completion UI.</p>
+          <a href="subscription.html" class="btn-link">Open</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Admin Access</h2>
+      <div class="panel grid">
+        <div class="card">
+          <h3>Admin Login</h3>
+          <p>Admin credentials gate.</p>
+          <a href="admin-login.html" class="btn-link">Open</a>
+        </div>
+        <div class="card">
+          <h3>Admin Unlimited Play</h3>
+          <p>Admin‑only free play without timer.</p>
+          <a href="free-play-unlimited.html" class="btn-link">Open</a>
+        </div>
+        <div class="card">
+          <h3>Admin Dashboard</h3>
+          <p>System overview, user tools, AI support.</p>
+          <a href="admin-dashboard.html" class="btn-link">Open</a>
+        </div>
+        <div class="card">
+          <h3>Admin Analytics</h3>
+          <p>Engagement & system health (UI only).</p>
+          <a href="admin-analytics.html" class="btn-link">Open</a>
+        </div>
+        <div class="card">
+          <h3>Admin Logs</h3>
+          <p>Audit trail UI.</p>
+          <a href="admin-logs.html" class="btn-link">Open</a>
+        </div>
+        <div class="card">
+          <h3>Content Manager</h3>
+          <p>Manage PLAY modules & events (UI only).</p>
+          <a href="admin-content.html" class="btn-link">Open</a>
+        </div>
+        <div class="card">
+          <h3>AI Tools Panel</h3>
+          <p>Assistive AI utilities (no real access).</p>
+          <a href="admin-ai-tools.html" class="btn-link">Open</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Governance & Onboarding</h2>
+      <div class="panel grid">
+        <div class="card">
+          <h3>Onboarding Portal</h3>
+          <p>Universities, schools, partners.</p>
+          <a href="ssgpt6-onboarding.html" class="btn-link">Open</a>
+        </div>
+        <div class="card">
+          <h3>Governance & Ethics</h3>
+          <p>Charters, frameworks, standards.</p>
+          <a href="ssgpt6-governance-ethics.html" class="btn-link">Open</a>
+        </div>
+        <div class="card">
+          <h3>Events Layer</h3>
+          <p>Global events & challenges UI.</p>
+          <a href="ssgpt6-events-layer.html" class="btn-link">Open</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 · Single Control Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .topnav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 8px;
+    }
+    .topnav button {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #050814;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+    .topnav button.active {
+      border-color: var(--accent);
+      color: #000;
+      background: var(--accent);
+    }
+    .view {
+      display: none;
+      margin-top: 16px;
+    }
+    .view.active {
+      display: block;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: #050814;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 13px;
+    }
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .code-box {
+      font-family: monospace;
+      font-size: 20px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .small { font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <h1>SSGPT6 · Single Control Center</h1>
+      <div class="tagline">One page. All systems. UI only.</div>
+    </header>
+
+    <div class="topnav">
+      <button data-view="view-membership" class="active">Membership</button>
+      <button data-view="view-freeplay">Free Play</button>
+      <button data-view="view-admin">Admin</button>
+      <button data-view="view-analytics">Analytics</button>
+      <button data-view="view-logs">Logs</button>
+      <button data-view="view-content">Content</button>
+      <button data-view="view-ai">AI Tools</button>
+      <button data-view="view-governance">Governance</button>
+    </div>
+
+    <!-- MEMBERSHIP -->
+    <div id="view-membership" class="view active">
+      <div class="section">
+        <h2>Membership Portal</h2>
+        <div class="panel">
+          <p class="small">Email capture + free 10‑minute access (conceptual UI).</p>
+          <form class="form-row">
+            <input type="email" placeholder="Email address" required />
+            <label class="small">
+              <input type="checkbox" required />
+              I agree to receive non‑commercial updates and platform information from SSGPT6.
+            </label>
+            <div class="notice">
+              Free play access is limited to 10 minutes per user. Continued access requires a membership subscription.
+            </div>
+            <button type="button" class="btn">Start Free Play (Mock)</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- FREE PLAY -->
+    <div id="view-freeplay" class="view">
+      <div class="section">
+        <h2>Free Play Session (Mock)</h2>
+        <div class="panel center">
+          <p class="small">Remaining time:</p>
+          <h2 id="timer-display">10:00</h2>
+          <p class="notice">When time ends, user is conceptually redirected to membership completion.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN -->
+    <div id="view-admin" class="view">
+      <div class="section">
+        <h2>Admin Access & Tools</h2>
+        <div class="panel grid">
+          <div class="card">
+            <h3>Admin Login (Concept)</h3>
+            <p>Gate for admin credentials (no real auth here).</p>
+          </div>
+          <div class="card">
+            <h3>Admin Unlimited Play</h3>
+            <p>Admin‑only free play without timer (concept).</p>
+          </div>
+          <div class="card">
+            <h3>User OTP Tool</h3>
+            <p>4‑digit code generator (UI only, no delivery).</p>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:16px;">
+          <p class="small">Generate 4‑digit code (mock only):</p>
+          <form class="form-row" onsubmit="return false;">
+            <input type="email" id="otpEmail" placeholder="User email" />
+            <button type="button" class="btn" id="otpBtn">Generate Code</button>
+          </form>
+          <div class="small" style="margin-top:10px;">
+            Code:
+            <span id="otpCode" class="code-box">----</span>
+          </div>
+          <div class="notice">
+            No real account access or OTP sending happens here. Backend + legal review required for real flows.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS -->
+    <div id="view-analytics" class="view">
+      <div class="section">
+        <h2>Analytics (Placeholder)</h2>
+        <div class="panel">
+          <p class="small">Charts and metrics to be wired to backend later.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGS -->
+    <div id="view-logs" class="view">
+      <div class="section">
+        <h2>Audit Logs (Placeholder)</h2>
+        <div class="panel">
+          <p class="small">Recent actions will appear here when backend logging is implemented.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div id="view-content" class="view">
+      <div class="section">
+        <h2>Content Manager (UI Only)</h2>
+        <div class="panel grid">
+          <div class="card">
+            <h3>PLAY Modules</h3>
+            <p>List and status of games and experiences.</p>
+          </div>
+          <div class="card">
+            <h3>Events</h3>
+            <p>Global events and challenges configuration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI TOOLS -->
+    <div id="view-ai" class="view">
+      <div class="section">
+        <h2>AI Support Tools (Assistive Only)</h2>
+        <div class="panel">
+          <p class="small">
+            “Sleeping agent / black box” concept as a support assistant.  
+            It suggests actions; it does not access accounts or private data.
+          </p>
+          <form class="form-row" onsubmit="return false;">
+            <textarea id="aiPrompt" rows="4" placeholder="Describe an issue for AI suggestions…"></textarea>
+            <button type="button" class="btn" id="aiBtn">Generate Suggestions</button>
+          </form>
+          <div id="aiOutput" class="panel small" style="margin-top:12px;">
+            AI suggestions will appear here (mock).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GOVERNANCE -->
+    <div id="view-governance" class="view">
+      <div class="section">
+        <h2>Governance & Ethics</h2>
+        <div class="panel">
+          <p class="small">
+            Ethical AI Charter, Governance Framework, Planetary Education Charter, Universal Creator License,
+            and Accreditation Standards live here in your separate governance file.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Tab switching
+    const buttons = document.querySelectorAll('.topnav button');
+    const views = document.querySelectorAll('.view');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        views.forEach(v => v.classList.remove('active'));
+        btn.classList.add('active');
+        const id = btn.getAttribute('data-view');
+        document.getElementById(id).classList.add('active');
+      });
+    });
+
+    // Free play timer (mock)
+    let remaining = 10 * 60;
+    const display = document.getElementById('timer-display');
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }
+    function tick() {
+      if (!display) return;
+      display.textContent = formatTime(remaining);
+      if (remaining <= 0) return;
+      remaining -= 1;
+      setTimeout(tick, 1000);
+    }
+    if (display) tick();
+
+    // OTP mock
+    document.getElementById('otpBtn').addEventListener('click', () => {
+      const email = document.getElementById('otpEmail').value.trim();
+      if (!email) return;
+      const code = Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('otpCode').textContent = code.toString();
+    });
+
+    // AI suggestions mock
+    document.getElementById('aiBtn').addEventListener('click', () => {
+      const prompt = document.getElementById('aiPrompt').value.trim();
+      const out = document.getElementById('aiOutput');
+      if (!prompt) {
+        out.innerHTML = '<p>Please describe an issue to analyze.</p>';
+        return;
+      }
+      out.innerHTML = `
+        <strong>Suggested steps (conceptual):</strong><br><br>
+        • Check membership status and free‑play rules for this user.<br>
+        • Verify subscription and lockout logic in your backend.<br>
+        • Communicate clearly with the user about any changes.<br>
+        • Log actions for compliance and auditing.<br><br>
+        <em>This is a mock AI response. No real system access occurs.</em>
+      `;
+    });
+  </script>
+</body>
+</html>

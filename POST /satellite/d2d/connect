@@ -1,0 +1,4 @@
+{
+  "device_id": "string",
+  "location": "lat,long"
+}

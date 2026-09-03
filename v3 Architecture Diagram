@@ -1,0 +1,26 @@
+┌──────────────────────────────────────────────────────────────┐
+│                 Sleeping Agent v3 (A+B Hybrid)                │
+├──────────────────────────────────────────────────────────────┤
+│ 1. Watcher v3 (Learning)                                      │
+│    - Learns normal patterns                                   │
+│    - Detects anomalies                                        │
+│    - Predicts degradation                                     │
+│                                                                │
+│ 2. Router v3 (Adaptive)                                       │
+│    - Multi-ocean routing                                      │
+│    - Multi-region routing                                     │
+│    - Self-tuning thresholds                                   │
+│    - Dynamic priority                                         │
+│                                                                │
+│ 3. Healer v3 (Proactive)                                      │
+│    - Predictive healing                                       │
+│    - DOWN healing                                             │
+│    - Early restart triggers                                   │
+│                                                                │
+│ 4. Config Rewriter v3 (Governed Autonomy)                     │
+│    - Evolves mesh-config.json                                 │
+│    - Adds regions                                             │
+│    - Disables unstable rivers                                 │
+│    - Adjusts thresholds                                       │
+│    - Never breaks safety rules                                │
+└──────────────────────────────────────────────────────────────┘

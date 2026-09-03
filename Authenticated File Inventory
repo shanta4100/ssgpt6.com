@@ -1,0 +1,21 @@
+<div class="card" style="border: 2px solid #00ff41; background: #000; padding: 20px;">
+    <h3 style="color: #00ff41;">🏛️ OFFICIAL GOVERNMENT GATEWAY</h3>
+    <p>Accessing Authenticated SSGPT6 Concept Documents</p>
+    <ul>
+        <li><a href="#" onclick="validateAuth()">Download: Concept Note (PDF/DOCX)</a></li>
+        <li><a href="#" onclick="validateAuth()">Download: Executive Deck (PPTX)</a></li>
+    </ul>
+    <p style="font-size: 10px; color: #ff3e3e;">[AUTHORIZATION REQUIRED: TINY AI SLEEPING AGENT PROTOCOL]</p>
+</div>
+File Name
+Format
+SSGPT6_UN_Water_Governance_Concept_Note.pdf
+PDF
+SSGPT6_UN_Water_Governance_Concept_Note.docx
+DOCX
+SSGPT6_UN_Water_Governance_Concept_Deck.pptx
+PPTX
+SSGPT6_UN_Presentation_Page.html
+HTML
+GNAIAAAC_Research_Summary.pdf
+PDF

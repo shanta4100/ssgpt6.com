@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 GOVERNANCE & ETHICS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #02030a;
+      --panel: #070b16;
+      --accent: #f2c94c;
+      --accent-soft: #9b51e0;
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+      --border: #1f2933;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #02030a 55%);
+      color: var(--text);
+    }
+    .page { max-width: 1200px; margin: auto; padding: 24px 16px 64px; }
+    header { padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    h1 { text-transform: uppercase; letter-spacing: 0.16em; font-size: 22px; margin: 0 0 8px; }
+    .tagline { font-size: 13px; color: var(--muted); }
+
+    .section { margin-top: 32px; }
+    .section h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #050814;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    .muted { font-size: 12px; color: var(--muted); }
+
+    .list {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header>
+      <h1>Governance & Ethics</h1>
+      <div class="tagline">Transparency, safety, accessibility, and global educational responsibility.</div>
+    </header>
+
+    <!-- ETHICAL AI CHARTER -->
+    <div class="section">
+      <h2>Ethical AI Charter</h2>
+      <div class="panel">
+        <div class="card">
+          <div class="card-title">Core Principles</div>
+          <div class="list">
+            • Family‑safe by design<br>
+            • No gambling, no dark patterns<br>
+            • No harmful automation<br>
+            • No personal data inference<br>
+            • Transparent, documented behavior<br>
+            • Accessibility for all users<br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GOVERNANCE FRAMEWORK -->
+    <div class="section">
+      <h2>Governance Framework</h2>
+      <div class="panel">
+        <div class="card">
+          <div class="card-title">Structure</div>
+          <div class="list">
+            • Founder Council<br>
+            • Advisory Board (Education, Ethics, Accessibility)<br>
+            • Global Standards Board<br>
+            • Public Roadmap & Change Log<br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANETARY EDUCATION CHARTER -->
+    <div class="section">
+      <h2>Planetary Education Charter</h2>
+      <div class="panel">
+        <div class="card">
+          <div class="card-title">Pillars</div>
+          <div class="list">
+            • Accessibility<br>
+            • Creativity<br>
+            • Ethics<br>
+            • Cultural respect<br>
+            • Non‑exploitation<br>
+            • Lifelong learning<br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UNIVERSAL CREATOR LICENSE -->
+    <div class="section">
+      <h2>Universal Creator License</h2>
+      <div class="panel">
+        <div class="card">
+          <div class="card-title">Creator Rights</div>
+          <div class="list">
+            • Creators own their work<br>
+            • Platform provides safe hosting<br>
+            • No exploitation or predatory monetization<br>
+            • Family‑safe content only<br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCREDITATION STANDARDS -->
+    <div class="section">
+      <h2>Accreditation Standards</h2>
+      <div class="panel">
+        <div class="card">
+          <div class="card-title">Institution Requirements</div>
+          <div class="list">
+            • Ethical AI compliance<br>
+            • Accessibility standards<br>
+            • Learning outcomes<br>
+            • Research contributions<br>
+            • Community participation<br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

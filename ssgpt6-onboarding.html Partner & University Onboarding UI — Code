@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSGPT6 ONBOARDING PORTAL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #02030a;
+      --panel: #070b16;
+      --accent: #f2c94c;
+      --accent-soft: #9b51e0;
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+      --border: #1f2933;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #02030a 55%);
+      color: var(--text);
+    }
+    .page { max-width: 1200px; margin: auto; padding: 24px 16px 64px; }
+    header { padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    h1 { text-transform: uppercase; letter-spacing: 0.16em; font-size: 22px; margin: 0 0 8px; }
+    .tagline { font-size: 13px; color: var(--muted); }
+
+    .section { margin-top: 32px; }
+    .section h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .path-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .path-card {
+      background: #050814;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .path-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    .muted { font-size: 12px; color: var(--muted); }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    input, select, textarea {
+      background: #050814;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #000;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header>
+      <h1>Onboarding Portal</h1>
+      <div class="tagline">Join the global SSGPT6 education and creativity network.</div>
+    </header>
+
+    <!-- PATH SELECTOR -->
+    <div class="section">
+      <h2>Select Your Path</h2>
+      <div class="panel">
+        <div class="path-row">
+          <div class="path-card">
+            <div class="path-title">University</div>
+            <div class="muted">For higher education institutions joining the Alliance Program.</div>
+          </div>
+          <div class="path-card">
+            <div class="path-title">School</div>
+            <div class="muted">For K‑12 schools adopting SSGPT6 for learning.</div>
+          </div>
+          <div class="path-card">
+            <div class="path-title">Educator</div>
+            <div class="muted">For teachers using SSGPT6 in classrooms.</div>
+          </div>
+          <div class="path-card">
+            <div class="path-title">Studio / Partner</div>
+            <div class="muted">For creative studios and nonprofits collaborating with SSGPT6.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REQUIREMENTS -->
+    <div class="section">
+      <h2>Requirements</h2>
+      <div class="panel">
+        <div class="muted">• Commitment to ethical AI  
+        • Accessibility compliance  
+        • Family‑safe content  
+        • Non‑monetary learning focus  
+        • Alignment with Planetary Education Charter</div>
+      </div>
+    </div>
+
+    <!-- BENEFITS -->
+    <div class="section">
+      <h2>Benefits</h2>
+      <div class="panel">
+        <div class="muted">• Access to Education Cloud  
+        • Certification pathways  
+        • Creator Tools for students  
+        • Research Lab collaboration  
+        • Global Learning Events  
+        • Institutional recognition</div>
+      </div>
+    </div>
+
+    <!-- APPLICATION FORM -->
+    <div class="section">
+      <h2>Application Form</h2>
+      <div class="panel">
+        <div class="form-row">
+          <input type="text" placeholder="Institution / Organization Name" />
+          <input type="text" placeholder="Contact Person" />
+          <input type="email" placeholder="Email Address" />
+          <select>
+            <option>Select Path</option>
+            <option>University</option>
+            <option>School</option>
+            <option>Educator</option>
+            <option>Studio / Partner</option>
+          </select>
+          <textarea rows="4" placeholder="Tell us about your goals"></textarea>
+        </div>
+        <button class="btn">Submit Application</button>
+      </div>
+    </div>
+
+    <!-- CERTIFICATION PATHS -->
+    <div class="section">
+      <h2>Certification Pathways</h2>
+      <div class="panel">
+        <div class="muted">• Educator Certification  
+        • Student Certification  
+        • Partner Certification  
+        • Research Certification</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SSGPT6 Media Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#050910;
+      color:#e5f7ff;
+    }
+    .container{
+      width:min(96%,1100px);
+      margin:40px auto;
+    }
+    h1{
+      color:#00ffcc;
+      letter-spacing:3px;
+      font-size:1.6rem;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
+      margin-top:30px;
+    }
+    .card{
+      background:#0b1320;
+      border:1px solid rgba(0,255,204,0.25);
+      border-radius:12px;
+      padding:16px;
+    }
+    .card h3{
+      margin:0;
+      font-size:1.1rem;
+      color:#00ffcc;
+    }
+    .meta{
+      font-size:0.75rem;
+      color:#9fb6c8;
+      margin:6px 0 10px;
+    }
+    .summary{
+      font-size:0.85rem;
+      line-height:1.4;
+      color:#d8e7f3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SSGPT6 MEDIA HUB</h1>
+    <p class="meta">Automated Daily Updates · Editorial · Podcast · Deep Core Notes</p>
+
+    <div id="feed" class="grid"></div>
+  </div>
+
+  <script>
+    async function loadFeed(){
+      try{
+        const response = await fetch('media-feed.json');
+        const data = await response.json();
+        const feed = document.getElementById('feed');
+
+        data.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'card';
+
+          card.innerHTML = `
+            <h3>${item.title}</h3>
+            <div class="meta">${item.category} · ${item.date}</div>
+            <p class="summary">${item.summary}</p>
+          `;
+
+          feed.appendChild(card);
+        });
+      } catch(e){
+        console.error('Error loading media feed:', e);
+      }
+    }
+
+    loadFeed();
+  </script>
+</body>
+</html>

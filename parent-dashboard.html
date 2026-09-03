@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parent Dashboard | SSGPT6</title>
+</head>
+
+<body style="margin:0;font-family:Arial;background:#0b1a2f;color:white;text-align:center;">
+
+<!-- LOGIN SCREEN -->
+<div id="login" style="padding:40px;min-height:100vh;">
+  <h1 style="color:gold;">Parent Access</h1>
+  <p>Enter Parent PIN</p>
+
+  <input type="password" id="pin" placeholder="Enter PIN"
+  style="padding:10px;border-radius:6px;border:none;margin:10px;" />
+
+  <br>
+
+  <button onclick="login()" style="
+  padding:12px 25px;
+  background:gold;
+  border:none;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;">
+  Unlock Dashboard
+  </button>
+
+  <p id="error" style="color:red;"></p>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" style="display:none;padding:30px;min-height:100vh;">
+
+  <h1 style="color:gold;">Parent Control Panel</h1>
+  <p>Manage Child Learning Access</p>
+
+  <!-- CONTROLS -->
+  <div style="margin-top:30px;display:flex;flex-wrap:wrap;justify-content:center;gap:20px;">
+
+    <button onclick="unlockChild()" style="padding:12px 20px;background:green;border:none;border-radius:8px;color:white;">
+      🔓 Unlock Child
+    </button>
+
+    <button onclick="lockChild()" style="padding:12px 20px;background:red;border:none;border-radius:8px;color:white;">
+      🔒 Lock Now
+    </button>
+
+    <button onclick="resetSession()" style="padding:12px 20px;background:#1d3f6b;border:none;border-radius:8px;color:white;">
+      🔄 Reset Session
+    </button>
+
+  </div>
+
+  <!-- STATUS -->
+  <div style="margin-top:40px;background:#122a45;padding:20px;border-radius:10px;">
+    <h3 style="color:gold;">Child Status</h3>
+    <p id="status">Checking...</p>
+    <p id="timeLeft"></p>
+  </div>
+
+  <!-- SETTINGS -->
+  <div style="margin-top:30px;">
+    <h3 style="color:gold;">Settings</h3>
+
+    <button onclick="setSchoolMode(true)" style="margin:5px;padding:10px;background:#ff8800;border:none;border-radius:6px;">
+      Enable School Lock
+    </button>
+
+    <button onclick="setSchoolMode(false)" style="margin:5px;padding:10px;background:#555;border:none;border-radius:6px;">
+      Disable School Lock
+    </button>
+  </div>
+
+  <!-- BACK -->
+  <div style="margin-top:40px;">
+    <a href="kids.html" style="color:gold;">← Back to Kids Platform</a>
+  </div>
+
+</div>
+
+<script>
+// =====================
+// SETTINGS
+// =====================
+const PARENT_PIN = "1234"; // CHANGE THIS
+
+const lockUntilKey = "child_lock_until";
+const sessionStartKey = "child_session_start";
+const schoolModeKey = "school_mode";
+
+// =====================
+// LOGIN
+// =====================
+function login() {
+  const input = document.getElementById("pin").value;
+
+  if (input === PARENT_PIN) {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+    updateStatus();
+  } else {
+    document.getElementById("error").innerText = "Wrong PIN";
+  }
+}
+
+// =====================
+// CONTROL FUNCTIONS
+// =====================
+function unlockChild() {
+  localStorage.removeItem(lockUntilKey);
+  alert("Child unlocked");
+  updateStatus();
+}
+
+function lockChild() {
+  const lockTime = Date.now() + (4 * 60 * 60 * 1000); // 4 hours
+  localStorage.setItem(lockUntilKey, lockTime);
+  alert("Child locked for 4 hours");
+  updateStatus();
+}
+
+function resetSession() {
+  localStorage.removeItem(sessionStartKey);
+  alert("Session reset");
+  updateStatus();
+}
+
+// =====================
+// SCHOOL MODE
+// =====================
+function setSchoolMode(state) {
+  localStorage.setItem(schoolModeKey, state);
+  alert(state ? "School mode enabled" : "School mode disabled");
+}
+
+// =====================
+// STATUS CHECK
+// =====================
+function updateStatus() {
+  const now = Date.now();
+  const lockUntil = localStorage.getItem(lockUntilKey);
+
+  if (lockUntil && now < lockUntil) {
+    const mins = Math.ceil((lockUntil - now) / 60000);
+    document.getElementById("status").innerText = "🔒 Locked";
+    document.getElementById("timeLeft").innerText = "Time remaining: " + mins + " min";
+  } else {
+    document.getElementById("status").innerText = "✅ Active";
+    document.getElementById("timeLeft").innerText = "";
+  }
+}
+
+// AUTO UPDATE
+setInterval(updateStatus, 5000);
+
+</script>
+
+</body>
+</html>
